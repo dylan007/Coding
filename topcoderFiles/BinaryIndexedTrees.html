@@ -1,0 +1,1165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Algorithm Tutorials</title>
+
+
+
+
+
+
+<script src="BinaryIndexedTrees_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="BinaryIndexedTrees_files/jquery-1.js"></script>
+<script type="text/javascript" src="BinaryIndexedTrees_files/jquery-migrate-1.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/js/reskin/html5shiv.js"></script>
+<![endif]-->
+<script type="text/javascript" src="BinaryIndexedTrees_files/jquery.js"></script>
+<script type="text/javascript" src="BinaryIndexedTrees_files/newTCScript.js"></script><link type="image/x-icon" rel="shortcut icon" href="http://community.topcoder.com/i/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="BinaryIndexedTrees_files/css.css" rel="stylesheet" type="text/css">
+    
+    <link type="text/css" rel="stylesheet" href="BinaryIndexedTrees_files/coders.css">
+    <link type="text/css" rel="stylesheet" href="BinaryIndexedTrees_files/jobsRemix.css">
+    <link type="text/css" rel="stylesheet" href="BinaryIndexedTrees_files/myHome.css">
+    
+<link type="text/css" rel="stylesheet" href="BinaryIndexedTrees_files/newStyles.css">
+<!--[if IE 8]>
+<link type="text/css" rel="stylesheet" href="/css/reskin/newStyles_ie8.css"/>
+<![endif]-->
+
+
+
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(n,t,e){function r(e){if(!t[e]){var o=t[e]={exports:{}};n[e][0].call(o.exports,function(t){var o=n[e][1][t];return r(o?o:t)},o,o.exports)}return t[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({QJf3ax:[function(n,t){function e(n){function t(t,e,a){n&&n(t,e,a),a||(a={});for(var u=c(t),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,e);return s}function a(n,t){f[n]=c(n).concat(t)}function c(n){return f[n]||[]}function u(){return e(t)}var f={};return{on:a,emit:t,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=n("gos");t.exports=e()},{gos:"7eSDFh"}],ee:[function(n,t){t.exports=n("QJf3ax")},{}],gos:[function(n,t){t.exports=n("7eSDFh")},{}],"7eSDFh":[function(n,t){function e(n,t,e){if(r.call(n,t))return n[t];var o=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,t,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return n[t]=o,o}var r=Object.prototype.hasOwnProperty;t.exports=e},{}],D5DuLP:[function(n,t){function e(n,t,e){return r.listeners(n).length?r.emit(n,t,e):(o[n]||(o[n]=[]),void o[n].push(t))}var r=n("ee").create(),o={};t.exports=e,e.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(n,t){t.exports=n("D5DuLP")},{}],XL7HBI:[function(n,t){function e(n){var t=typeof n;return!n||"object"!==t&&"function"!==t?-1:n===window?0:i(n,o,function(){return r++})}var r=1,o="nr@id",i=n("gos");t.exports=e},{gos:"7eSDFh"}],id:[function(n,t){t.exports=n("XL7HBI")},{}],loader:[function(n,t){t.exports=n("G9z0Bl")},{}],G9z0Bl:[function(n,t){function e(){var n=v.info=NREUM.info;if(n&&n.licenseKey&&n.applicationID&&f&&f.body){c(d,function(t,e){t in n||(n[t]=e)}),v.proto="https"===l.split(":")[0]||n.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var t=f.createElement("script");t.src=v.proto+n.agent,f.body.appendChild(t)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=n("handle"),c=n(1),u=window,f=u.document,s="addEventListener",p="attachEvent",l=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},v=t.exports={offset:i(),origin:l,features:{}};f[s]?(f[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(f[p]("onreadystatechange",r),u[p]("onload",e)),a("mark",["firstbyte",i()])},{1:11,handle:"D5DuLP"}],11:[function(n,t){function e(n,t){var e=[],o="",i=0;for(o in n)r.call(n,o)&&(e[i]=t(o,n[o]),i+=1);return e}var r=Object.prototype.hasOwnProperty;t.exports=e},{}]},{},["G9z0Bl"]);</script><script language="JavaScript" src="BinaryIndexedTrees_files/print.js"></script>
+<style type="text/css">
+.code
+{
+   width: 550;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
+}
+</style>
+</head>
+<body>
+<div id="onTop">
+    
+
+
+
+
+
+
+
+
+
+    
+        <header id="navigation" class="newUser">
+            <div class="container">
+                <div class="headerTopRightMenu">
+                    
+                        <div class="headerTopRightMenuLink logIn">
+                            <div class="text"><a href="http://www.topcoder.com/tc?module=Logout" class="actionLogin">Log Out</a></div>
+                            <div class="clear"></div>
+                        </div>
+                    
+
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink contact">
+                        <div class="text"><a href="http://www.topcoder.com/contact-us/">Contact</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink help">
+                        <div class="text"><a href="http://help.topcoder.com/">Help Center</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator beforeSearch"></div>
+                    <div class="headerTopRightMenuLink search last">
+                        <div class="icon"></div>
+                        <div class="text"><a href="http://www.topcoder.com/search">Search</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <h1 class="logo">
+                    <a href="http://www.topcoder.com/" title="topcoder"></a>
+                </h1>
+                <nav id="mainNav" class="mainNav">
+                    <ul class="root">
+                        <li id="nav-menu-item-13018"><a href="http://www.topcoder.com/challenges/" class="13018"><i></i>Challenges</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13510"><a href="http://www.topcoder.com/challenges/" class="all"><i></i>All</a></li>
+                                <li id="nav-menu-item-13511"><a href="http://www.topcoder.com/active-challenges/design/" class="design"><i></i>Design</a></li>
+                                <li id="nav-menu-item-13512"><a href="http://www.topcoder.com/active-challenges/develop/" class="develop"><i></i>Development</a></li>
+                                <li id="nav-menu-item-13513"><a href="http://www.topcoder.com/active-challenges/data/" class="data"><i></i>Data Science</a></li>
+                                <li id="nav-menu-item-13529"><a href="http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp" class="topcoder-arena"><i></i>topcoder Arena</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13129"><a href="http://www.topcoder.com/community/" class="13129"><i></i>Community</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13509"><a href="http://www.topcoder.com/community/" class="welcome"><i></i>Home</a></li>
+                                <li id="nav-menu-item-13034"><a href="http://www.topcoder.com/community/getting-started/" class="13034"><i></i>Getting
+                                    Started</a></li>
+                                <li id="nav-menu-item-12983"><a href="http://www.topcoder.com/community/how-it-works/" class="customer-solutions"><i></i>How It Works</a></li>
+                                <li id="nav-menu-item-13105"><a href="http://apps.topcoder.com/forums/" class="forums"><i></i>Forums</a></li>
+                                <li id="nav-menu-item-13036"><a href="http://www.topcoder.com/community/events/" class="13036"><i></i>Events</a></li>
+                                <li id="nav-menu-item-15095"><a href="http://community.topcoder.com/tco14" class="topcoder-open-2"><i></i>Topcoder Open 2014</a></li>
+                                <li id="nav-menu-item-15218"><a href="http://tco15.topcoder.com/" class="topcoder-open-2015"><i></i>Topcoder Open 2015</a></li>
+                                <li><a href="http://www.topcoder.com/community/member-programs/">
+                                                                <i></i>Member Programs</a></li>
+                                <li id="nav-menu-item-13038"><a href="http://www.topcoder.com/community/stories/" class="13038"><i></i>Stories</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13469"><a href="http://community.topcoder.com/mission" class="about-us"><i></i>About topcoder</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13516"><a href="http://www.topcoder.com/mission/" class="13516"><i></i>Mission</a></li>
+                                <li id="nav-menu-item-13032"><a href="http://www.topcoder.com/research/" class="13032"><i></i>Research</a></li>
+                                <li id="nav-menu-item-13450"><a href="http://www.topcoder.com/case-studies/" class="case-studies"><i></i>Case Studies</a></li>
+                                <li id="nav-menu-item-13045"><a href="http://www.topcoder.com/press/" class="13045"><i></i>Press</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13379"><a href="http://www.topcoder.com/blog/" class="13379"><i></i>Blog</a></li>
+                        <!--
+                        <li class="noReg logoutLink 	hide"><a href="http://www.topcoder.com?auth=logout" class="actionLogout">Log Out</a></li>
+                        <li class="noReg loginLink"><a href="javascript:;" class="actionLogin">Log In</a></li>
+                        -->
+                    </ul>
+                </nav>
+                <!--
+                <a href="http://www.topcoder.com?auth=logout" class="onMobi noReg linkLogout actionLogout hide">Log Out</a>
+                  <a href="javascript:;" class="onMobi noReg linkLogin actionLogin">Log In</a>
+                -->
+                
+                    <span class="btnRegWrap noReg"><a href="http://www.topcoder.com/tc?module=MyHome" class="btn btnMyHome">My Home</a></span>
+                
+
+                <!-- /.userWidget -->
+            </div>
+        </header>
+    
+    
+
+
+
+
+</div>
+<table style="visibility: visible;" class="mainContent" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody><tr class="alignTop" valign="top">
+        <!-- Left Column Begins-->
+        <td id="onLeft" width="180">
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+
+
+
+
+
+
+<div style="width: 185px; display: block;" class="leftNavWrapper">
+    
+<input id="nodeName" value="algo_tutorials" type="hidden">
+<script language="JavaScript" type="text/javascript" src="BinaryIndexedTrees_files/arena.js"></script>
+
+    <section class="get-time" style="margin-bottom:15px">
+        
+        <span class="date"></span>
+        <a href="javascript:tcTime();">Get Time</a>
+    </section>
+    <!-- End .get-time -->
+
+    <section class="navigation">
+    <ul>
+        <li><a id="copilot_posting_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Copilot%20Posting">Copilot Posting</a></li>
+        <li><a href="http://www.topcoder.com/active-challenges/design/">Design</a></li>
+        <li>
+            <a href="javascript:;">Develop<i></i></a>
+            <ul class="hide">
+                <li><a id="conceptualization_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Conceptualization">Conceptualization</a></li>
+                <li><a id="specification_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Specification">Specification</a></li>
+                <li><a id="architecture_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Architecture">Architecture</a></li>
+                <li><a id="ui_prototype_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=UI%20Prototype%20Competition">UI Prototype</a></li>
+                <li><a id="assembly_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Assembly%20Competition">Assembly</a></li>
+                <li><a id="first2finish_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=First2Finish">First2Finish</a></li>
+                <li><a id="code_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Code">Code</a></li>
+                <li><a id="des_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Design">Component Design</a></li>
+                <li><a id="dev_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Development">Component Development</a></li>
+                <li><a id="test_suites_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Suites">Test Suites</a></li>
+                <li><a id="content_creation_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Content%20Creation">Content Creation</a></li>
+                <li><a id="test_scenarios_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Scenarios">Test Scenarios</a></li>
+                <li><a id="bug_hunt_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Bug%20Hunt">Bug Hunt</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Review Opportunities<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Conceptualization</dt>
+                        <dd><a id="conceptualization_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=23">Review Opportunities</a></dd>
+                        <dd><a id="conceptualization_review_border" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=23">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Specification</dt>
+                        <dd><a id="specification_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=6">Review Opportunities</a></dd>
+                        <dd><a id="specification_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=6">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Architecture</dt>
+                        <dd><a id="architecture_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=7">Review Opportunities</a></dd>
+                        <dd><a id="architecture_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=7">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Design</dt>
+                        <dd><a id="des_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=1">Review Opportunities</a></dd>
+                        <dd><a id="des_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=1">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Development</dt>
+                        <dd><a id="dev_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=2">Review Opportunities</a></dd>
+                        <dd><a id="dev_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=2">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Assembly</dt>
+                        <dd><a id="assembly_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=14">Review Opportunities</a></dd>
+                        <dd><a id="assembly_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=14">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>First2Finish</dt>
+                        <dd><a id="first2finish_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=38">Review Opportunities</a></dd>
+                        <dd><a id="first2finish_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=38">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Code</dt>
+                        <dd><a id="code_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=39">Review Opportunities</a></dd>
+                        <dd><a id="code_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=39">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Suites</dt>
+                        <dd><a id="test_suites_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=13">Review Opportunities</a></dd>
+                        <dd><a id="test_suites_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=13">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Report</dt>
+                        <dd><a id="reporting_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=36">Review Opportunities</a></dd>
+                        <dd><a id="reporting_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=36">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>UI prototype</dt>
+                        <dd><a id="ui_prototype_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=19">Review Opportunities</a></dd>
+                        <dd><a id="ui_prototype_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=19">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>RIA Build</dt>
+                        <dd><a id="ria_build_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=24">Review Opportunities</a></dd>
+                        <dd><a id="ria_build_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=24">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Content Creation</dt>
+                        <dd><a id="content_creation_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=35">Review Opportunities</a></dd>
+                        <dd><a id="content_creation_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=35">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Scenarios</dt>
+                        <dd><a id="test_scenarios_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=26">Review Opportunities</a></dd>
+                        <dd><a id="test_scenarios_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=26">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Bug Hunt</dt>
+                        <dd><a id="bug_hunt_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=9">Review Opportunities</a></dd>
+                        <dd><a id="bug_hunt_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=9">Meet the review board</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Algorithm (SRM)<i></i></a>
+            <ul class="hide">
+                <li><a href="http://www.topcoder.com/active-challenges/data/">Single Round Matches (SRM)</a></li>
+                <li><a id="algo_match_archive" href="http://www.topcoder.com/tc?module=MatchList">Match Archive</a></li>
+                <li><a id="algo_match_overviews" href="http://www.topcoder.com/stat?c=round_overview">Match Overviews</a></li>
+                <li><a id="algo_match_winners" href="http://www.topcoder.com/tc?module=SrmDivisionWins">Match Winners</a></li>
+                <li><a id="algo_match_results" href="http://www.topcoder.com/stat?c=last_match">Match Results</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Problem+Set+Analysis">Match Editorials</a></li>
+                <li><a id="algo_problem_archive" href="http://www.topcoder.com/tc?module=ProblemArchive">Problem Archive</a></li>
+                <li><a id="algo_color_changes" href="http://www.topcoder.com/tc?module=ColorChange&amp;ratid=1">Recent Color Changes</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Data+Feeds">Data Feeds</a></li>
+                <li><a href="javascript:arena();">Launch Arena</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Marathon Match<i></i></a>
+            <ul class="hide">
+                <li><a id="long_compete" href="http://www.topcoder.com/challenges/data/active/">Challenges</a></li>
+                <li><a id="long_match_archive" href="http://www.topcoder.com/challenges/data/past/">Match Archive</a></li>
+                <li><a id="long_match_overview" href="http://www.topcoder.com/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
+                <li><a id="long_match_winners" href="http://www.topcoder.com/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
+                <li><a id="long_editorials" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive">Match Editorials</a></li>
+                <li><a id="long_data_feeds" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=support&amp;d2=dataFeed">Data Feeds</a></li>
+                <li><a id="long_practice" href="http://www.topcoder.com/longcontest/?module=ViewPractice">Practice</a></li>
+                <li><a id="long_queue" href="http://www.topcoder.com/longcontest/?module=ViewQueue">Queue Status</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/dr">The Digital Run</a></li>
+        <li><a href="http://software.topcoder.com/review">Submit &amp; Review</a></li>
+        <li>
+            <a href="javascript:;">topcoder Networks<i></i></a>
+            <ul class="hide">
+                <li><a href="http://community.topcoder.com/ntl/">NASA Tournament Lab</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/community/events/">Events</a></li>
+        <li>
+            <a href="javascript:;">Statistics<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Top Ranked</dt>
+                        <dd><a id="top_rated_algo" href="http://www.topcoder.com/tc?module=AlgoRank">Algorithm</a></dd>
+                        <dd><a id="top_rated_hs" href="http://www.topcoder.com/tc?module=HSRank">High School</a></dd>
+                        <dd><a id="top_rated_long" href="http://www.topcoder.com/longcontest/stats/?module=CoderRank">Marathon Match</a></dd>
+                        <dd><a id="top_rated_conceptors" href="http://www.topcoder.com/stat?c=top_conceptors">Conceptualization</a></dd>
+                        <dd><a id="top_rated_specificators" href="http://www.topcoder.com/stat?c=top_specificators">Specification</a></dd>
+                        <dd><a id="top_rated_architects" href="http://www.topcoder.com/stat?c=top_architects">Architecture</a></dd>
+                        <dd><a id="top_rated_des" href="http://www.topcoder.com/stat?c=top_designers">Design</a></dd>
+                        <dd><a id="top_rated_dev" href="http://www.topcoder.com/stat?c=top_developers">Development</a></dd>
+                        <dd><a id="top_rated_assemblers" href="http://www.topcoder.com/stat?c=top_assemblers">Assembly</a></dd>
+                        <dd><a id="top_rated_testers" href="http://www.topcoder.com/stat?c=top_testers">Test Suites</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Record Book</dt>
+                        <dd><a id="algo_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=statistics&amp;d2=recordbook_home">Algorithm</a></dd>
+                        <dd><a id="comp_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=compstats&amp;d2=comp_recordbook_home">Component</a></dd>
+                        <dd><a id="long_recordbook" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=stats&amp;d2=recordbook_home">Marathon Match</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Coder of the Month</dt>
+                        <dd><a id="algo_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=5">Algorithm</a></dd>
+                        <dd><a id="des_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=6">Design</a></dd>
+                        <dd><a id="dev_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=7">Development</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+        <li class="expanded">
+            <a href="javascript:;">Tutorials<i></i></a>
+            <ul style="display: block;" class="hide">
+                <li><a style="color: rgb(255, 138, 0); font-weight: bold;" id="algo_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/algorithm-tutorials/">Algorithm Tutorials</a></li>
+                <li><a id="comp_tutorials" href="http://help.topcoder.com/development/competing-in-development-challenges/development-tutorials/">Software Tutorials</a></li>
+                <li><a id="mm_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/marathon-match-tutorials/">Marathon Tutorials</a></li>
+            </ul>
+        </li>
+        <li><a href="https://apps.topcoder.com/forums/" id="forums">Forums</a></li>
+        <li><a href="https://www.topcoder.com/tc?module=MyHome" id="my_topcoder">My topcoder</a></li>
+    </ul>
+</section>
+<!-- End .navigation -->
+<section class="member-search">
+    <h3>Member Search</h3>
+    <div class="form">
+        <form action="http://community.topcoder.com/tc" method="get" name="simpleSearchForm" class="noSpace" id="simpleSearchForm">
+            <input class="noSpace" name="module" value="SimpleSearch" type="hidden">
+            <input class="noSpace" name="ha" value="Handle:" size="12" maxlength="15" onfocus="javascript: if (document.simpleSearchForm.ha.value=='Handle:') document.simpleSearchForm.ha.value = '';" onblur="javascript:if (document.simpleSearchForm.ha.value == '')document.simpleSearchForm.ha.value = 'Handle:';" type="text">
+            <a href="javascript:javascript:void%20document.simpleSearchForm.submit();" class="btn btn-search-member"><i>SEARCH</i></a>
+        </form>
+    </div>
+</section>
+
+<!-- End .member-search -->
+
+</div>
+
+    
+    
+
+
+
+        </td>
+        <!-- Left Column Ends -->
+        <!-- Center Column Begins -->
+        <td width="100%" align="center"><div class="tutorBodyFull">
+            
+
+
+
+
+
+<table style="visibility: visible;" class="pageTitleTable" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+        <td class="pageTitle" width="100%">
+
+
+            
+                
+                    
+                    <img src="BinaryIndexedTrees_files/header_alg_tut.gif" alt="alg_tut" border="0">
+                
+                
+            
+
+
+        </td>
+        <td class="pageSubtitle" align="right">&nbsp;&nbsp;</td>
+    </tr>
+</tbody></table>
+
+
+            <div class="linkBox"> <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">Archive</a><br>
+                <span id="printableLink"><a href="javascript:makeInvisible();">Printable view</a><br>
+                </span> <span id="navigableLink" class="invisible"><a href="javascript:makeNavigable();">Normal view</a><br>
+                </span>
+                <a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=515996">Discuss this article</a><br>
+                <a href="http://community.topcoder.com/tc?module=Static&amp;d1=help&amp;d2=writeForTC">Write for TopCoder</a>
+            </div>
+            
+            <span class="bigTitle">Binary Indexed Trees</span>
+            <br><br>
+
+            <div class="authorPhoto">
+                <img src="BinaryIndexedTrees_files/boba5551_big.jpg" alt="Author">
+            </div>
+
+            <div class="authorText"> By&nbsp;<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=20394568&amp;tab=alg" class="coderTextYellow">boba5551</a><br>
+                <em>TopCoder Member</em>
+            </div>
+
+            <br clear="all">
+
+<a href="#introduction">Introduction</a><br>
+<a href="#notation">Notation</a><br>
+<a href="#basicidea">Basic idea</a><br>
+<a href="#lastdigit">Isolating the last digit</a><br>
+<a href="#read">Read cumulative frequency</a><br>
+<a href="#add">Change frequency at some position and update tree</a><br>
+<a href="#reada">Read the actual frequency at a position</a><br>
+<a href="#scaling">Scaling the entire tree by a constant factor</a><br>
+<a href="#find">Find index with given cumulative frequency</a><br>
+<a href="#2d">2D BIT</a><br>
+<a href="#prob">Sample problem</a><br>
+<a href="#conc">Conclusion</a><br>
+<a href="#ref">References</a><br><br>
+
+<p><span class="bodySubtitle"><a name="introduction"></a>Introduction</span><br>
+We often need some sort of data structure to make our algorithms faster. In this article we will 
+discuss the <b>Binary Indexed Trees</b> structure. According to <a target="_blank" href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://www.cs.ubc.ca/local/reading/proceedings/spe91-95/spe/vol24/issue3/spe884.pdf&amp;refer=binaryIndexedTrees">Peter M. Fenwick</a>,
+ this structure was first used for data compression. Now it is often 
+used for storing frequencies and manipulating cumulative frequency 
+tables.</p>
+
+<p>Let's define the following <b>problem</b>: We have n boxes. Possible queries are<br> 
+1. add marble to box <b>i</b> <br>
+2. sum marbles from box <b>k</b> to box <b>l</b></p>
+
+<p>The naive solution has time complexity of O(1) for query 1 and O(n) for query 2. Suppose we make <b>m</b> queries. The worst
+case (when all queries are 2) has time complexity O(n * m). Using some data structure (i.e. 
+<a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=lowestCommonAncestor">RMQ</a>)
+ we can solve this
+problem with the worst case time complexity of O(m log n). Another 
+approach is to use Binary Indexed Tree data structure, 
+	    also with the worst time complexity O(m log n) -- but Binary 
+Indexed Trees are much easier to code, and require less memory 
+space, than RMQ.</p>
+<br>
+<p><span class="bodySubtitle"><a name="notation"></a>Notation</span><br>
+&nbsp;&nbsp;BIT  - <b>B</b>inary <b>I</b>ndexed <b>T</b>ree<br>
+&nbsp;&nbsp;MaxVal - maximum value which will have non-zero frequency<br>
+&nbsp;&nbsp;f[i] - frequency of value with index <b>i</b>, <b>i</b> = 1 .. MaxVal <br>
+&nbsp;&nbsp;c[i] - cumulative frequency for index <b>i</b> (f[1] + f[2] + ... + f[i])<br>
+&nbsp;&nbsp;tree[i] - sum of frequencies stored in <b>BIT</b> with index <b>i</b> 
+(latter will be described what index means); sometimes we will write <i>tree frequency</i> instead
+	<i>sum of frequencies stored in BIT</i><br>
+&nbsp;&nbsp;num¯ - complement of integer <b>num</b> (integer where each binary digit is inverted: 0 -&gt; 1; 1 -&gt; 0 )<br>
+NOTE: Often we put f[0] = 0, c[0] = 0, tree[0] = 0, so sometimes I will just ignore index 0.</p>
+<br>
+<p><span class="bodySubtitle"><a name="basicidea"></a>Basic idea</span><br>
+Each integer can be represented as sum of powers of two. In the same 
+way, cumulative frequency can be 
+represented as sum of sets of subfrequencies. In our case, each set 
+contains some successive number of non-overlapping frequencies.</p>
+
+<p><b>idx</b> is some index of <b>BIT</b>. <b>r</b> is a position in <b>idx</b> of the last digit 1 
+(from left to right) in binary notation. <b>tree[idx]</b> is sum of frequencies from index (<b>idx</b> - 2^<b>r</b> + 1) to 
+index <b>idx</b> (look at the Table 1.1 for clarification). We also write that <b>idx</b> is <b>responsible</b> for
+indexes from (<b>idx</b> - 2^<b>r</b> + 1) to <b>idx</b> (note that responsibility is the key in our algorithm and
+is the way of manipulating the tree).</p>
+
+<div align="center">
+<table style="visibility: visible;" border="1" cellpadding="3" cellspacing="0">
+	<tbody><tr>
+		<th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>
+		<th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th>
+	</tr>
+	<tr>
+		<th>f</th><td>1</td><td>0</td><td>2</td><td>1</td><td>1</td><td>3</td><td>0</td><td align="center">4</td>
+		<td align="center">2</td><td align="center">5</td><td align="center">2</td><td align="center">2</td><td align="center">3</td><td align="center">1</td><td align="center">0</td><td align="center">2</td>
+	</tr>
+	<tr>
+		<th>c</th><td>1</td><td>1</td><td>3</td><td>4</td><td>5</td><td>8</td><td>8</td><td>12</td>
+		<td>14</td><td>19</td><td>21</td><td>23</td><td>26</td><td>27</td><td>27</td><td>29</td>
+	</tr>
+	<tr>
+		<th>tree</th><td>1</td><td>1</td><td>2</td><td>4</td><td>1</td><td>4</td><td>0</td><td>12</td>
+		<td align="center">2</td><td align="center">7</td><td align="center">2</td><td>11</td><td align="center">3</td><td align="center">4</td><td align="center">0</td><td>29</td>
+	</tr>
+</tbody></table>
+<p><i>Table 1.1</i></p>
+<br>
+<table style="visibility: visible;" align="center" border="1" cellpadding="3" cellspacing="0">
+	<tbody><tr>
+		<th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>
+		<th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th>
+	</tr>
+	<tr>
+		<th>tree</th><td>1</td><td>1..2</td><td>3</td><td>1..4</td><td>5</td><td>5..6</td><td>7</td><td>1..8</td>
+		<td>9</td><td>9..10</td><td>11</td><td>9..12</td><td>13</td><td>13..14</td><td>15</td><td>1..16</td>
+	</tr>
+</tbody></table>
+<p><i>Table 1.2 - table of responsibility</i></p>
+</div>
+
+<div align="center"><img src="BinaryIndexedTrees_files/BITimg.gif" alt="" title="tree of responsibility for indexes (bar shows range of frequencies accumulated in top element)" style="margin: 10px;" border="0"><br>
+<i>Image 1.3 - tree of responsibility for indexes (bar shows range of frequencies accumulated in top element)</i></div> 
+
+<div align="center"><img src="BinaryIndexedTrees_files/bitval.gif" alt="" title="tree with tree frequencies" style="margin: 10px;" border="0"><br>
+<i>Image 1.4 - tree with tree frequencies</i></div>
+<br>
+<p>Suppose we are looking for cumulative frequency of index 13 (for the first 13 elements). In binary notation, 
+13 is equal to 1101. Accordingly, we will calculate <b>c[1101] = tree[1101] + tree[1100] + tree[1000]</b>
+(more about this later).</p>
+
+<p><span class="bodySubtitle"><a name="lastdigit"></a>Isolating the last digit</span><br>
+<b>NOTE:</b> Instead of "the last non-zero digit," it will write only "the last digit."</p>
+
+<p>There are times when we need to get just the last digit from a binary number, so we need an 
+efficient way to do that. Let <b>num</b> be the integer whose last digit we want to isolate. In binary
+notation <b>num</b> can be represented as <b>a1b</b>, where <b>a</b> represents binary digits before the last digit and 
+<b>b</b> represents zeroes after the last digit.<br><br>
+
+Integer <b>-num</b> is equal to <b>(a1b)¯ + 1 = a¯0b¯ + 1</b>. <b>b</b> consists of all zeroes, so <b>b¯</b> 
+consists of all ones. Finally we have<br>
+
+</p><center><b>-num = (a1b)¯ + 1 = a¯0b¯ + 1 = a¯0(0...0)¯ + 1 = a¯0(1...1) + 1 = a¯1(0...0) = a¯1b</b>.</center><p></p>
+
+<p>Now, we can easily isolate the last digit, using <u>bitwise</u> operator <b>AND</b> (in C++, Java it is <b>&amp;</b>) with <b>num</b> and <b>-num</b>:</p>
+
+<b><blockquote>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1b<br>
+	&amp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a¯1b<br>
+	--------------------<br>
+	= (0...0)1(0...0)
+	  </blockquote></b>
+<br>
+<p><span class="bodySubtitle"><a name="read"></a>Read cumulative frequency</span><br>
+If we want to read cumulative frequency for some integer <b>idx</b>, we add to <b>sum tree[idx]</b>, substract
+last bit of <b>idx</b> from itself (also we can write - remove the last digit; change the last digit to zero) 
+and repeat this while <b>idx</b> is greater than zero. We can use next function (written in C++)</p>
+
+<pre class="code"><font color="blue">int</font> read(<font color="blue">int</font> idx){
+	<font color="blue">int</font> sum <font color="green">=</font> <font color="red">0</font>;
+	<font color="blue">while</font> (idx <font color="green">&gt;</font> <font color="red">0</font>){
+		sum <font color="green">+=</font> tree[idx];
+		idx <font color="green">-=</font> (idx <font color="green">&amp; -</font>idx);
+	}
+	<font color="blue">return</font> sum;
+}
+</pre>
+
+<p>Example for <b>idx</b> = 13; <b>sum</b> = 0:</p>
+
+<table style="visibility: visible;" align="center" border="1" cellpadding="3" cellspacing="0">
+	<tbody><tr>
+		<th>iteration</th><th>idx</th><th>position of the last digit</th><th>idx &amp; -idx</th><th>sum</th>
+	</tr><tr>
+	</tr><tr>
+		<td align="center">1</td><td align="center">13 = 1101</td><td align="center">0</td><td align="center">1 (2 ^0)</td><td align="center">3</td>
+	</tr>
+	<tr>
+		<td align="center">2</td><td align="center">12 = 1100</td><td align="center">2</td><td align="center">4 (2 ^2)</td><td align="center">14</td>
+	</tr>
+	<tr>
+		<td align="center">3</td><td align="center">8 = 1000</td><td align="center">3</td><td align="center">8 (2 ^3)</td><td align="center">26</td>
+	</tr>
+	<tr>
+		<td align="center">4</td><td align="center">0 = 0</td><td align="center">---</td><td align="center">---</td><td align="center">---</td>
+	</tr>
+</tbody></table>
+
+<div align="center"><img src="BinaryIndexedTrees_files/read.gif" alt="" title="arrows show path from index to zero which we use to get sum" style="margin: 10px;" border="0"><br>
+<i>Image 1.5 - arrows show path from index to zero which we use to get sum (image shows example for index 13)</i></div>
+<br>
+<p>So, our result is 26. The number of iterations in this function is number if bits in <b>idx</b>, which is at most <b>log MaxVal</b>.</p>
+
+<blockquote><i>Time complexity:</i> O(log MaxVal).<br>
+  <i>Code length:</i> Up to ten lines.</blockquote>
+<br>
+<p><span class="bodySubtitle"><a name="add"></a>Change frequency at some position and update tree</span><br>
+The concept is to update tree frequency at all indexes which are 
+responsible for frequency whose value we are changing. In reading 
+cumulative frequency at some index, 
+we were removing the last bit and going on. In changing some frequency <b>val</b> in tree, we should increment value at the current index (the starting index is always the 
+one whose frequency is changed) for <b>val</b>, add the last digit to index and go on while the index is less than or equal to <b>MaxVal</b>. Function in C++:</p>
+
+<pre class="code"><font color="blue">void</font> update(<font color="blue">int</font> idx ,<font color="blue">int</font> val){
+	<font color="blue">while</font> (idx <font color="green">&lt;=</font> MaxVal){
+		tree[idx] <font color="green">+=</font> val;
+		idx <font color="green">+=</font> (idx <font color="green">&amp; -</font>idx);
+	}
+}
+</pre>
+
+<p>Let's show example for <b>idx</b> = 5:</p>
+
+<table style="visibility: visible;" align="center" border="1" cellpadding="3" cellspacing="0">
+	<tbody><tr>
+		<th>iteration</th><th>idx</th><th>position of the last digit</th><th>idx &amp; -idx</th>
+	</tr><tr>
+	</tr><tr>
+		<td align="center">1</td><td align="center">5 = 101</td><td align="center">0</td><td align="center">1 (2 ^0)</td>
+	</tr>
+	<tr>
+		<td align="center">2</td><td align="center">6 = 110</td><td align="center">1</td><td align="center">2 (2 ^1)</td>
+	</tr>
+	<tr>
+		<td align="center">3</td><td align="center">8 = 1000</td><td align="center">3</td><td align="center">8 (2 ^3)</td>
+	</tr>
+	<tr>
+		<td align="center">4</td><td align="center">16 = 10000</td><td align="center">4</td><td align="center">16 (2 ^4)</td>
+	</tr>
+	<tr>
+		<td align="center">5</td><td align="center">32 = 100000</td><td align="center">---</td><td align="center">---</td>
+	</tr>
+</tbody></table><br>
+
+<div align="center"><img src="BinaryIndexedTrees_files/bitupdate.gif" alt="" title="updating tree; picture shows each step; (in brackets are tree frequencies before updating)" style="margin: 10px;" border="0"><br>
+<i>Image 1.6 - Updating tree (in brackets are tree frequencies before 
+updating); arrows show path while we update tree from index to <b>MaxVal</b> (image shows example for index 5)</i></div>
+<br>
+<p>Using algorithm from above or following arrows shown in Image 1.6 we can update <b>BIT</b>. </p>
+<blockquote>
+<i>Time complexity:</i> O(log MaxVal).<br>
+<i>Code length:</i> Up to ten lines.</blockquote>
+
+<br>
+<p><span class="bodySubtitle"><a name="reada"></a>Read the actual frequency at a position</span><br>
+We've described how we can read cumulative frequency for an index. It is obvious that
+we can not read just <b>tree[idx]</b> to get the actual frequency for value at index <b>idx</b>. One approach is to have
+one aditional array, in which we will seperately store frequencies for values. Both reading and storing take O(1); memory
+space is linear. Sometimes it is more important to save memory, so we will show how you can get actual 
+frequency for some value without using aditional structures.</p>
+
+<p>Probably everyone can see that the actual frequency at a position <b>idx</b> can be calculated by calling function <b>read</b> 
+twice -- <b>f[idx] = read(idx) - read(idx - 1)</b> -- just by taking the
+ difference of two adjacent cumulative frequencies.  
+This procedure always works in 2 * O(log n) time. If we write a new 
+function, we can get a bit faster algorithm, with smaller const.</p>
+
+<p>If two paths from two indexes to root have the same part of path, then we can calculate the sum until the paths meet, 
+substract stored sums and we get a sum of frequencies between that two indexes. It is pretty simple
+to calculate sum of frequencies between adjacent indexes, or read the actual frequency at a given index.</p>
+
+<p>Mark given index with <b>x</b>, its predecessor with <b>y</b>. We can represent (binary notation) <b>y</b> as <b>a0b</b>, 
+where <b>b</b> consists of all ones. Then, <b>x</b> will be <b>a1b¯</b> (note that <b>b¯</b> consists all zeros).
+Using our algorithm for getting <b>sum</b> of some index, let it be <b>x</b>, in first iteration we remove the last
+digit, so after the first iteration <b>x</b> will be <b>a0b¯</b>, mark a new value with <b>z</b>.</p>
+
+<p>Repeat the same process with <b>y</b>. Using our function for reading <b>sum</b> we will remove the last digits
+from the number (one by one). After several steps, our <b>y</b> will become (just to remind, it was <b>a0b</b>)
+<b>a0b¯</b>, which is the same as <b>z</b>. Now, we can write our algorithm. Note that the only exception is when <b>x</b>
+is equal to 0. Function in C++:</p>
+
+<pre class="code"><font color="blue">int</font> readSingle(<font color="blue">int</font> idx){
+<font color="blue">int</font> sum <font color="green">=</font> tree[idx]; <i><font color="#999999">// sum will be decreased</font></i>
+<font color="blue">if</font> (idx <font color="green">&gt;</font> <font color="red">0</font>){ <i><font color="#999999">// special case</font></i>
+	<font color="blue">int</font> z <font color="green">=</font> idx <font color="green">-</font> (idx <font color="green">&amp; -</font>idx); <i><font color="#999999">// make z first</font></i>
+	idx<font color="green">--</font>; <i><font color="#999999">// idx is no important any more, so instead y, you can use idx</font></i>
+	<font color="blue">while</font> (idx <font color="green">!=</font> z){ <i><font color="#999999">// at some iteration idx (y) will become z</font></i>
+		sum <font color="green">-=</font> tree[idx]; 
+<i><font color="#999999">// substruct tree frequency which is between y and "the same path"</font></i>
+		idx <font color="green">-=</font> (idx <font color="green">&amp; -</font>idx);
+	}
+}
+<font color="blue">return</font> sum;
+}
+</pre>
+
+<p>Here's an example for getting the actual frequency for index 12:<br><br>
+First, we will calculate <b>z = 12 - (12 &amp; -12) = 8</b>, <b>sum = 11</b></p>
+
+<div align="center">
+<table style="visibility: visible;" border="1" cellpadding="3" cellspacing="0">
+	<tbody><tr>
+		<th>iteration</th><th>y</th><th>position of the last digit</th><th>y &amp; -y</th><th>sum</th>
+	</tr><tr>
+	</tr><tr>
+		<td align="center">1</td><td align="center">11 = 1011</td><td align="center">0</td><td align="center">1 (2 ^0)</td><td align="center">9</td>
+	</tr>
+	<tr>
+		<td align="center">2</td><td align="center">10 = 1010</td><td align="center">1</td><td align="center">2 (2 ^1)</td><td align="center">2</td>
+	</tr>
+	<tr>
+		<td align="center">3</td><td align="center">8 = 1000</td><td align="center">---</td><td align="center">---</td><td align="center">---</td>
+	</tr>
+</tbody></table><br>
+</div>
+
+<div align="center"><img src="BinaryIndexedTrees_files/reada.gif" alt="" title="read actual frequency at some index in BIT" style="margin: 10px;" border="0"><br>
+<i>Image 1.7 - read actual frequency at some index in BIT <br>(image shows example for index 12)</i></div>
+<br>
+<p>Let's compare algorithm for reading actual frequency at some index when we twice use function <b>read</b>
+ and 
+the algorithm written above. Note that for each odd number, the 
+algorithm will work in const time O(1), without any iteration. For
+almost every even number <b>idx</b>, it will work in c * O(log idx), where c is strictly less than 1, compare to
+<b>read(idx) - read(idx - 1),</b> which will work in c1 * O(log idx), where c1 is <b>always</b> greater than 1.</p>
+
+<blockquote>
+<i>Time complexity:</i> c * O(log MaxVal), where c is less than 1.<br>
+<i>Code length:</i> Up to fifteen lines.
+</blockquote>
+<br>
+<p><span class="bodySubtitle"><a name="scaling"></a>Scaling the entire tree by a constant factor</span><br>
+Sometimes we want to scale our tree by some factor. With the procedures described above it is very simple. 
+If we want to scale by some factor <b>c</b>, then each index <b>idx</b> should be updated by 
+<b>-(c - 1) * readSingle(idx) / c</b> (because <b>f[idx] - (c - 1) * f[idx] / c = f[idx] / c</b>). Simple function in C++:</p>
+
+<pre class="code"><font color="blue">void</font> scale(<font color="blue">int</font> c){
+	<font color="blue">for</font> (<font color="blue">int</font> i <font color="green">=</font> <font color="red">1</font> ; i <font color="green">&lt;=</font> MaxVal ; i<font color="green">++</font>)
+		update(<font color="green">-</font>(c <font color="green">-</font> <font color="red">1</font>) <font color="green">*</font> readSingle(i) <font color="green">/</font> c , i);
+}
+</pre>
+
+<p>This can also be done more quickly. Factor is linear operation. Each 
+tree frequency is a linear composition of some frequencies.
+If we scale each frequency for some factor,  we also scaled tree 
+frequency for the same factor. Instead of rewriting the procedure above,
+ which has time complexity O(MaxVal * log MaxVal), we can achieve time 
+complexity
+of O(MaxVal):</p>
+
+<pre class="code"><font color="blue">void</font> scale(<font color="blue">int</font> c){
+	<font color="blue">for</font> (<font color="blue">int</font> i <font color="green">=</font> <font color="red">1</font> ; i <font color="green">&lt;=</font> MaxVal ; i<font color="green">++</font>)
+		tree[i] <font color="green">=</font> tree[i] <font color="green">/</font> c;
+}
+</pre>
+
+<blockquote>
+<i>Time complexity:</i> O(MaxVal).<br>
+<i>Code length:</i> Just a few lines.
+</blockquote>
+<br>
+<p><span class="bodySubtitle"><a name="find"></a>Find index with given cumulative frequency</span><br>
+The naive and most simple solution for finding an index with a given cumultive frequency
+is just simply iterating through all indexes, calculating cumulative frequency, and checking if it's equal to
+the given value. In case of negative frequencies it is the only solution. However,
+if we have only non-negative frequencies in our tree (that means cumulative frequencies for greater indexes are not smaller)
+we can figure out logarithmic algorithm, which is modification of <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=binarySearch">binary search</a>.
+ We go through
+all bits (starting with the highest one), make the index, compare the 
+cumulative frequency of the current index and given
+value and, according to the outcome, take the lower or higher half of 
+the interval (just like in binary search). Function in C++:</p>
+
+<pre class="code"><i><font color="#999999">// if in tree exists more than one index with a same
+// cumulative frequency, this procedure will return 
+// some of them (we do not know which one)
+
+// bitMask - initialy, it is the greatest bit of MaxVal
+// bitMask store interval which should be searched</font></i>
+<font color="blue">int</font> find(<font color="blue">int</font> cumFre){
+	<font color="blue">int</font> idx <font color="green">=</font> <font color="red">0</font>; <i><font color="#999999">// this var is result of function</font></i>
+	
+	<font color="blue">while</font> ((bitMask <font color="green">!=</font> <font color="red">0</font>) <font color="green">&amp;&amp;</font> (idx <font color="green">&lt;</font> MaxVal)){ <i><font color="#999999">// nobody likes overflow :)</font></i>
+		<font color="blue">int</font> tIdx <font color="green">=</font> idx <font color="green">+</font> bitMask; <i><font color="#999999">// we make midpoint of interval</font></i>
+		<font color="blue">if</font> (cumFre <font color="green">==</font> tree[tIdx]) <i><font color="#999999">// if it is equal, we just return idx</font></i>
+			<font color="blue">return</font> tIdx;
+		<font color="blue">else if</font> (cumFre <font color="green">&gt;</font> tree[tIdx]){ 
+		        <i><font color="#999999">// if tree frequency "can fit" into cumFre,
+		        // then include it</font></i>
+			idx <font color="green">=</font> tIdx; <i><font color="#999999">// update index </font></i>
+			cumFre <font color="green">-=</font> tree[tIdx]; <i><font color="#999999">// set frequency for next loop </font></i>
+		}
+		bitMask <font color="green">&gt;&gt;=</font> <font color="red">1</font>; <i><font color="#999999">// half current interval</font></i>
+	}
+	<font color="blue">if</font> (cumFre <font color="green">!=</font> <font color="red">0</font>) <i><font color="#999999">// maybe given cumulative frequency doesn't exist</font></i>
+		<font color="blue">return</font> <font color="green">-</font><font color="red">1</font>;
+	<font color="blue">else</font>
+		<font color="blue">return</font> idx;
+}
+
+
+
+<i><font color="#999999">// if in tree exists more than one index with a same
+// cumulative frequency, this procedure will return 
+// the greatest one</font></i>
+<font color="blue">int</font> findG(<font color="blue">int</font> cumFre){
+	<font color="blue">int</font> idx <font color="green">=</font> <font color="red">0</font>;
+	
+	<font color="blue">while</font> ((bitMask <font color="green">!=</font> <font color="red">0</font>) <font color="green">&amp;&amp;</font> (idx <font color="green">&lt;</font> MaxVal)){
+		<font color="blue">int</font> tIdx <font color="green">=</font> idx <font color="green">+</font> bitMask;
+		<font color="blue">if</font> (cumFre <font color="green">&gt;=</font> tree[tIdx]){ 
+		        <i><font color="#999999">// if current cumulative frequency is equal to cumFre, 
+		        // we are still looking for higher index (if exists)</font></i>
+			idx <font color="green">=</font> tIdx;
+			cumFre <font color="green">-=</font> tree[tIdx];
+		}
+		bitMask <font color="green">&gt;&gt;=</font> <font color="red">1</font>;
+	}
+	<font color="blue">if</font> (cumFre <font color="green">!=</font> <font color="red">0</font>)
+		<font color="blue">return</font> <font color="green">-</font><font color="red">1</font>;
+	<font color="blue">else</font>
+		<font color="blue">return</font> idx;
+}
+</pre>
+
+<p>Example for cumulative frequency 21 and function <b>find</b>:</p>
+
+<table style="visibility: visible;" width="70%" align="center" border="1" cellpadding="3" cellspacing="0">
+<tbody><tr>
+     <th>First iteration</th>
+     <td align="left">tIdx is 16; tree[16] is greater than 21; half bitMask and continue</td>
+</tr>
+<tr>
+     <th>Second iteration</th>
+     <td align="left">tIdx is 8; tree[8] is less than 21, so we should 
+include first 8 indexes in result, remember idx because we surely know 
+it is part of result;
+subtract tree[8] of cumFre (we do not want to look for the same 
+cumulative frequency again - we are looking for another cumulative 
+frequency in the
+rest/another part of tree); half bitMask and contiue</td>
+</tr>
+<tr>
+     <th>Third iteration</th>
+     <td align="left">tIdx is 12; tree[12] is greater than 9 (there is no way to overlap interval 1-8, in this example,
+with some further intervals, because only interval 1-16 can overlap); half bitMask and continue</td>
+</tr>
+<tr>
+     <th>Forth iteration</th>
+     <td align="left">tIdx is 10; tree[10] is less than 9, so we should update values; half bitMask and continue</td>
+</tr>
+<tr>
+     <th>Fifth iteration</th>
+     <td align="left">tIdx is 11; tree[11] is equal to 2; return index (tIdx)</td>
+</tr>
+</tbody></table>
+<br>
+
+<blockquote>
+<i>Time complexity:</i> O(log MaxVal).<br>
+<i>Code length:</i> Up to twenty lines.
+</blockquote> 
+<br>
+<p><span class="bodySubtitle"><a name="2d"></a>2D BIT</span><br>
+BIT can be used as a multi-dimensional data structure. Suppose you have a plane with dots (with non-negative 
+coordinates). You make three queries: </p>
+
+<ol>
+<li>set dot at (x , y)</li>
+<li>remove dot from (x , y)</li>
+<li>count number of dots in rectangle (0 , 0), (x , y) - where (0 , 0) if down-left corner, (x , y) is up-right corner and
+sides are parallel to x-axis and y-axis.</li>
+</ol>
+
+<p>If <b>m</b> is the number of queries, <b>max_x</b> is maximum x coordinate, and <b>max_y</b> is maximum y coordinate, then
+the problem should be solved in O(m * log (max_x) * log (max_y)). In this case, each element of the tree will contain
+array - (<b>tree[max_x][max_y]</b>). Updating indexes of x-coordinate is the same as before. For example, suppose we are setting/removing dot
+(<b>a</b> , <b>b</b>). We will call <b>update(a , b , 1)/update(a , b , -1)</b>, where <b>update</b> is:</p>
+
+<pre class="code"><font color="blue">void</font> update(<font color="blue">int</font> x , <font color="blue">int</font> y , <font color="blue">int</font> val){
+	<font color="blue">while</font> (x <font color="green">&lt;=</font> max_x){
+		updatey(x , y , val); 
+		<font color="#999999"><i>// this function should update array tree[x] </i></font>
+		x <font color="green">+=</font> (x <font color="green">&amp; -</font>x); 
+	}
+}
+</pre>
+
+<p>The function <b>updatey</b> is the "same" as function <b>update</b>:</p>
+
+<pre class="code"><font color="blue">void</font> updatey(<font color="blue">int</font> x , <font color="blue">int</font> y , <font color="blue">int</font> val){
+	<font color="blue">while</font> (y <font color="green">&lt;=</font> max_y){
+		tree[x][y] <font color="green">+=</font> val;
+		y <font color="green">+=</font> (y <font color="green">&amp; -</font>y); 
+	}
+}
+</pre>
+
+<p>It can be written in one function/procedure:</p>
+
+<pre class="code"><font color="blue">void</font> update(<font color="blue">int</font> x , <font color="blue">int</font> y , <font color="blue">int</font> val){
+	<font color="blue">int</font> y1;
+	<font color="blue">while</font> (x <font color="green">&lt;=</font> max_x){
+		y1 <font color="green">=</font> y;
+		<font color="blue">while</font> (y1 <font color="green">&lt;=</font> max_y){
+			tree[x][y1] <font color="green">+=</font> val;
+			y1 <font color="green">+=</font> (y1 <font color="green">&amp; -</font>y1); 
+		}
+		x <font color="green">+=</font> (x <font color="green">&amp; -</font>x); 
+	}
+}
+</pre>
+
+<div align="center"><img src="BinaryIndexedTrees_files/bit2d.gif" alt="" title="BIT is array of arrays, so this is two-dimensional BIT (size 16 x 8). Blue fields are fields which we should update when we are updating index (5 , 3)" style="margin: 10px;" border="0"><br>
+<i>Image 1.8 - BIT is array of arrays, so this is two-dimensional BIT (size 16 x 8). <br>Blue fields are fields which we should update when we are updating index (5 , 3).</i></div>
+<br>
+
+<p>The modification for other functions is very similar. Also, note that BIT can be used as an n-dimensional data structure.</p>
+<br>
+<p><span class="bodySubtitle"><a name="prob"></a>Sample problem</span>
+</p><ul>
+	<li><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6551&amp;rd=9990">SRM 310 - FloatingMedian</a></li>
+	
+	<li>Problem 2:<br>
+		<b>Statement:</b><br>
+		There is an array of <b>n</b> cards. Each card is putted face down on table. You have two queries:<br>
+		&nbsp;&nbsp;1. T i j (turn cards from index i to index j, include i-th and j-th card - card which was
+		face down will be face up; card which was face up will be face down)<br>
+		&nbsp;&nbsp;2. Q i (answer 0 if i-th card is face down else answer 1)<br><br>
+		<b>Solution:</b><br>
+		This has solution for each query (and 1 and 2) has time complexity O(log n). In array
+		<b>f</b> (of length <b>n + 1</b>) we will store each query <b>T (i , j)</b> - we set <b>f[i]++</b> and 
+		<b>f[j + 1]--</b>. For each card <b>k</b> between <b>i</b> and <b>j</b> (include <b>i</b> and <b>j</b>) sum
+		<b>f[1] + f[2] + ... + f[k]</b> will be increased for 1, for all others will be same as before (look at the
+		image 2.0 for clarification), so our solution will be described sum (which is same as cumulative frequency) module 2.<br><br>
+
+<div align="center"><img src="BinaryIndexedTrees_files/problem2.gif" alt="" style="margin: 10px;" border="0"><br>
+<i>Image 2.0</i></div>
+<br>
+Use <b>BIT</b> to store (increase/decrease) frequency and read cumulative frequency.
+	</li>
+</ul>
+<p></p>
+<br>
+<p><span class="bodySubtitle"><a name="conc"></a>Conclusion</span>
+</p><ul>
+	<li>Binary Indexed Trees are very easy to code.</li>
+	<li>Each query on Binary Indexed Tree takes constant or logarithmic time.</li>
+	<li>Binary Indexeds Tree require linear memory space.</li>
+	<li>You can use it as an n-dimensional data structure.</li>
+</ul>
+<p></p>
+<br>
+<p><span class="bodySubtitle"><a name="ref"></a>References</span><br>
+[1] <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=lowestCommonAncestor">RMQ</a><br>
+[2] <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=binarySearch">Binary Search</a><br>
+[3] <a target="_blank" href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://www.cs.ubc.ca/local/reading/proceedings/spe91-95/spe/vol24/issue3/spe884.pdf&amp;refer=binaryIndexedTrees">Peter M. Fenwick</a>
+</p>
+
+            <p>&nbsp; </p>
+            <br>
+            <br>
+        </div></td>
+        <!-- Center Column Ends -->
+        <!-- Right Column Begins -->
+        <td id="onRight" width="170">
+
+
+
+<script type="text/javascript" language="javascript">
+
+</script>
+
+
+
+<div class="rightColContent">
+    <br><br>
+</div>
+
+
+        </td>
+        <!-- Right Column Ends -->
+        <!-- Gutter -->
+        <td width="10"><img src="BinaryIndexedTrees_files/clear.gif" height="1" width="10" border="0"></td>
+        <!-- Gutter Ends -->
+    </tr>
+</tbody></table>
+<div id="onBottom">
+    
+
+
+
+
+
+    
+        <footer id="footer">
+            <div class="container">
+                <div class="footerContentSection twitter">
+                    <div class="title">Twitter</div>
+                    <div class="footerContent">
+
+
+                        
+
+                        <a class="btn btnFooter" href="http://www.twitter.com/topcoder"><span class="twFollowIcon"></span><span class="twFollowBtnText">Follow</span></a>
+                    </div>
+                </div>
+                <div class="footerContentSection recentBlogPosts">
+                    <div class="title">Recent Blog Posts Updated</div>
+                         <div class="footerContent">
+                              <div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=new-look-and-feel-for-tc">Apr 23</a>
+
+                                 @timmhicks – Tim Hicks Happy Hump Day 
+topcoders! We are excited to announce that we will be releasing a new 
+look for the very popular /tc by...<a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/space-the-final-email-frontier/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=space-the-final-email-frontier">Apr 23</a>
+
+                                 Do you ever find yourself hitting 
+“send” on an email and wondering if it’ll arrive in the recipient’s 
+inbox? Sending email has become so ubiquitous, simple and...<a href="http://www.topcoder.com/blog/space-the-final-email-frontier/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games">Apr 22</a>
+
+                                 @ClintonBon – Clinton Bonner We know 
+what you’re thinking. Great, another ‘puff piece’ on the ‘wisdom of 
+crowds’ and how all we need to do is post...<a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/" class="more">Read More</a></div><span id="blogTemplate" style="display: none">
+                                 <div class="footerBlogEntry">
+                                     <a href="javascript:;"></a>
+
+                                 </div>
+                              </span>
+                             <a class="btn btnFooter" href="http://www.topcoder.com/blog">View More</a>
+                         </div>
+
+
+                </div>
+                <div class="footerContentSection aboutTopCoder">
+                    <div class="title">About topcoder</div>
+                    <div class="footerContent">
+                        The topcoder community gathers the world's 
+experts in design, development and data science to work on interesting 
+and challenging problems for fun and reward. We want to help topcoder 
+members improve their skills, demonstrate and gain reward for their 
+expertise, and provide the industry with objective insight on new and 
+emerging technologies.
+                    </div>
+                    <a class="btn btnFooter" href="http://www.topcoder.com/mission">About Us</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <div class="connected">
+                    <section class="social">
+                        <h4>Get Connected</h4>
+                        <ul>
+                            <li><a class="fb" href="http://www.facebook.com/topcoder">FB</a></li>
+                            <li><a class="tw" href="http://www.twitter.com/topcoder">TW</a></li>
+                            <li><a class="gp" href="https://plus.google.com/u/0/b/104268008777050019973/104268008777050019973/posts">GP</a></li>
+                            <li><a class="in" href="https://www.linkedin.com/company/topcoder">IN</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </section>
+                    <section class="updates">
+                        <div class="row">
+                            <form id="emailForm" onsubmit="return newsletter_check(this)" name="FeedBlitz_9feab01d431311e39e69002590771423" style="display:block" method="POST" action="http://www.feedblitz.com/f/f.fbz?AddNewUserDirect">
+                                <input value="Your email address" style="display: block;" class="email isBlured" name="EMAIL" placeholder="Your email address" maxlength="64" type="email">
+                                <input name="FEEDID" value="926643" type="hidden">
+                                <input name="PUBLISHER" value="34610190" type="hidden">
+                                <!-- <a onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn">Submit</a> -->
+                                <input onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn btnSubmitFooter" value="Submit" type="button">
+                                <input name="na" value="s" type="hidden">
+                                <input name="nr" value="widget" type="hidden">
+                            </form>
+                            <script type="text/javascript">function FeedBlitz_9feab01d431311e39e69002590771423i(){var x=document.getElementsByName('FeedBlitz_9feab01d431311e39e69002590771423');for(i=0;i<x.length;i++){x[i].EMAIL.style.display='block'; x[i].action='http://www.feedblitz.com/f/f.fbz?AddNewUserDirect';}} function FeedBlitz_9feab01d431311e39e69002590771423s(v){v.submit();}FeedBlitz_9feab01d431311e39e69002590771423i();</script>
+
+                        </div>
+                    </section>
+                </div>
+                <div class="copyright">
+                    <section>
+                        <br>
+                        © 2014 topcoder. All Rights reserved.
+                        <br>
+                        <a href="http://www.topcoder.com/community/how-it-works/privacy-policy/" class="privacyStmtLink">Privacy Policy</a> | <a href="http://www.topcoder.com/community/how-it-works/terms/" class="legalDisclaimerLink">Terms</a>
+                    </section>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </footer>
+    
+    
+
+
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6340959-1']);
+  _gaq.push(['_setDomainName', '.topcoder.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</div>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"5697653","applicationTime":105,"beacon":"beacon-3.newrelic.com","queueTime":0,"licenseKey":"496af5ee90","transactionName":"ZlcBbBQAChBSARIKXV8dKWs2ThAWRw0UClNdQUxaDw8FEUorCAdXSVcHbBQEARAdCBUT","agent":"js-agent.newrelic.com\/nr-515.min.js","errorBeacon":"bam.nr-data.net"}</script>
+
+<script src="BinaryIndexedTrees_files/nr-515.js"></script><script src="BinaryIndexedTrees_files/496af5ee90" type="text/javascript"></script></body></html>

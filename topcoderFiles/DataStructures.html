@@ -1,0 +1,1073 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Algorithm Tutorials</title>
+
+
+
+
+
+
+<script src="DataStructures_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="DataStructures_files/jquery-1.js"></script>
+<script type="text/javascript" src="DataStructures_files/jquery-migrate-1.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/js/reskin/html5shiv.js"></script>
+<![endif]-->
+<script type="text/javascript" src="DataStructures_files/jquery.js"></script>
+<script type="text/javascript" src="DataStructures_files/newTCScript.js"></script><link type="image/x-icon" rel="shortcut icon" href="http://community.topcoder.com/i/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="DataStructures_files/css.css" rel="stylesheet" type="text/css">
+    
+    <link type="text/css" rel="stylesheet" href="DataStructures_files/coders.css">
+    <link type="text/css" rel="stylesheet" href="DataStructures_files/jobsRemix.css">
+    <link type="text/css" rel="stylesheet" href="DataStructures_files/myHome.css">
+    
+<link type="text/css" rel="stylesheet" href="DataStructures_files/newStyles.css">
+<!--[if IE 8]>
+<link type="text/css" rel="stylesheet" href="/css/reskin/newStyles_ie8.css"/>
+<![endif]-->
+
+
+
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(n,t,e){function r(e){if(!t[e]){var o=t[e]={exports:{}};n[e][0].call(o.exports,function(t){var o=n[e][1][t];return r(o?o:t)},o,o.exports)}return t[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({QJf3ax:[function(n,t){function e(n){function t(t,e,a){n&&n(t,e,a),a||(a={});for(var u=c(t),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,e);return s}function a(n,t){f[n]=c(n).concat(t)}function c(n){return f[n]||[]}function u(){return e(t)}var f={};return{on:a,emit:t,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=n("gos");t.exports=e()},{gos:"7eSDFh"}],ee:[function(n,t){t.exports=n("QJf3ax")},{}],gos:[function(n,t){t.exports=n("7eSDFh")},{}],"7eSDFh":[function(n,t){function e(n,t,e){if(r.call(n,t))return n[t];var o=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,t,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return n[t]=o,o}var r=Object.prototype.hasOwnProperty;t.exports=e},{}],D5DuLP:[function(n,t){function e(n,t,e){return r.listeners(n).length?r.emit(n,t,e):(o[n]||(o[n]=[]),void o[n].push(t))}var r=n("ee").create(),o={};t.exports=e,e.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(n,t){t.exports=n("D5DuLP")},{}],XL7HBI:[function(n,t){function e(n){var t=typeof n;return!n||"object"!==t&&"function"!==t?-1:n===window?0:i(n,o,function(){return r++})}var r=1,o="nr@id",i=n("gos");t.exports=e},{gos:"7eSDFh"}],id:[function(n,t){t.exports=n("XL7HBI")},{}],loader:[function(n,t){t.exports=n("G9z0Bl")},{}],G9z0Bl:[function(n,t){function e(){var n=v.info=NREUM.info;if(n&&n.licenseKey&&n.applicationID&&f&&f.body){c(d,function(t,e){t in n||(n[t]=e)}),v.proto="https"===l.split(":")[0]||n.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var t=f.createElement("script");t.src=v.proto+n.agent,f.body.appendChild(t)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=n("handle"),c=n(1),u=window,f=u.document,s="addEventListener",p="attachEvent",l=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},v=t.exports={offset:i(),origin:l,features:{}};f[s]?(f[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(f[p]("onreadystatechange",r),u[p]("onload",e)),a("mark",["firstbyte",i()])},{1:11,handle:"D5DuLP"}],11:[function(n,t){function e(n,t){var e=[],o="",i=0;for(o in n)r.call(n,o)&&(e[i]=t(o,n[o]),i+=1);return e}var r=Object.prototype.hasOwnProperty;t.exports=e},{}]},{},["G9z0Bl"]);</script><script language="JavaScript" src="DataStructures_files/print.js"></script>
+<style type="text/css">
+.code
+{
+   width: 550;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
+}
+.math
+{
+   font-family: times, times new roman, serif;
+   font-weight: normal;
+   font-style: italic;
+   font-size: 14px;
+}
+</style>
+</head>
+<body>
+<div id="onTop">
+    
+
+
+
+
+
+
+
+
+
+    
+        <header id="navigation" class="newUser">
+            <div class="container">
+                <div class="headerTopRightMenu">
+                    
+                        <div class="headerTopRightMenuLink logIn">
+                            <div class="text"><a href="http://www.topcoder.com/tc?module=Logout" class="actionLogin">Log Out</a></div>
+                            <div class="clear"></div>
+                        </div>
+                    
+
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink contact">
+                        <div class="text"><a href="http://www.topcoder.com/contact-us/">Contact</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink help">
+                        <div class="text"><a href="http://help.topcoder.com/">Help Center</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator beforeSearch"></div>
+                    <div class="headerTopRightMenuLink search last">
+                        <div class="icon"></div>
+                        <div class="text"><a href="http://www.topcoder.com/search">Search</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <h1 class="logo">
+                    <a href="http://www.topcoder.com/" title="topcoder"></a>
+                </h1>
+                <nav id="mainNav" class="mainNav">
+                    <ul class="root">
+                        <li id="nav-menu-item-13018"><a href="http://www.topcoder.com/challenges/" class="13018"><i></i>Challenges</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13510"><a href="http://www.topcoder.com/challenges/" class="all"><i></i>All</a></li>
+                                <li id="nav-menu-item-13511"><a href="http://www.topcoder.com/active-challenges/design/" class="design"><i></i>Design</a></li>
+                                <li id="nav-menu-item-13512"><a href="http://www.topcoder.com/active-challenges/develop/" class="develop"><i></i>Development</a></li>
+                                <li id="nav-menu-item-13513"><a href="http://www.topcoder.com/active-challenges/data/" class="data"><i></i>Data Science</a></li>
+                                <li id="nav-menu-item-13529"><a href="http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp" class="topcoder-arena"><i></i>topcoder Arena</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13129"><a href="http://www.topcoder.com/community/" class="13129"><i></i>Community</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13509"><a href="http://www.topcoder.com/community/" class="welcome"><i></i>Home</a></li>
+                                <li id="nav-menu-item-13034"><a href="http://www.topcoder.com/community/getting-started/" class="13034"><i></i>Getting
+                                    Started</a></li>
+                                <li id="nav-menu-item-12983"><a href="http://www.topcoder.com/community/how-it-works/" class="customer-solutions"><i></i>How It Works</a></li>
+                                <li id="nav-menu-item-13105"><a href="http://apps.topcoder.com/forums/" class="forums"><i></i>Forums</a></li>
+                                <li id="nav-menu-item-13036"><a href="http://www.topcoder.com/community/events/" class="13036"><i></i>Events</a></li>
+                                <li id="nav-menu-item-15095"><a href="http://community.topcoder.com/tco14" class="topcoder-open-2"><i></i>Topcoder Open 2014</a></li>
+                                <li id="nav-menu-item-15218"><a href="http://tco15.topcoder.com/" class="topcoder-open-2015"><i></i>Topcoder Open 2015</a></li>
+                                <li><a href="http://www.topcoder.com/community/member-programs/">
+                                                                <i></i>Member Programs</a></li>
+                                <li id="nav-menu-item-13038"><a href="http://www.topcoder.com/community/stories/" class="13038"><i></i>Stories</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13469"><a href="http://community.topcoder.com/mission" class="about-us"><i></i>About topcoder</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13516"><a href="http://www.topcoder.com/mission/" class="13516"><i></i>Mission</a></li>
+                                <li id="nav-menu-item-13032"><a href="http://www.topcoder.com/research/" class="13032"><i></i>Research</a></li>
+                                <li id="nav-menu-item-13450"><a href="http://www.topcoder.com/case-studies/" class="case-studies"><i></i>Case Studies</a></li>
+                                <li id="nav-menu-item-13045"><a href="http://www.topcoder.com/press/" class="13045"><i></i>Press</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13379"><a href="http://www.topcoder.com/blog/" class="13379"><i></i>Blog</a></li>
+                        <!--
+                        <li class="noReg logoutLink 	hide"><a href="http://www.topcoder.com?auth=logout" class="actionLogout">Log Out</a></li>
+                        <li class="noReg loginLink"><a href="javascript:;" class="actionLogin">Log In</a></li>
+                        -->
+                    </ul>
+                </nav>
+                <!--
+                <a href="http://www.topcoder.com?auth=logout" class="onMobi noReg linkLogout actionLogout hide">Log Out</a>
+                  <a href="javascript:;" class="onMobi noReg linkLogin actionLogin">Log In</a>
+                -->
+                
+                    <span class="btnRegWrap noReg"><a href="http://www.topcoder.com/tc?module=MyHome" class="btn btnMyHome">My Home</a></span>
+                
+
+                <!-- /.userWidget -->
+            </div>
+        </header>
+    
+    
+
+
+
+
+</div>
+<table style="visibility: visible;" class="mainContent" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody><tr class="alignTop" valign="top">
+        <!-- Left Column Begins-->
+        <td id="onLeft" width="180">
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+
+
+
+
+
+
+<div style="width: 185px; display: block;" class="leftNavWrapper">
+    
+<input id="nodeName" value="algo_tutorials" type="hidden">
+<script language="JavaScript" type="text/javascript" src="DataStructures_files/arena.js"></script>
+
+    <section class="get-time" style="margin-bottom:15px">
+        
+        <span class="date"></span>
+        <a href="javascript:tcTime();">Get Time</a>
+    </section>
+    <!-- End .get-time -->
+
+    <section class="navigation">
+    <ul>
+        <li><a id="copilot_posting_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Copilot%20Posting">Copilot Posting</a></li>
+        <li><a href="http://www.topcoder.com/active-challenges/design/">Design</a></li>
+        <li>
+            <a href="javascript:;">Develop<i></i></a>
+            <ul class="hide">
+                <li><a id="conceptualization_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Conceptualization">Conceptualization</a></li>
+                <li><a id="specification_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Specification">Specification</a></li>
+                <li><a id="architecture_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Architecture">Architecture</a></li>
+                <li><a id="ui_prototype_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=UI%20Prototype%20Competition">UI Prototype</a></li>
+                <li><a id="assembly_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Assembly%20Competition">Assembly</a></li>
+                <li><a id="first2finish_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=First2Finish">First2Finish</a></li>
+                <li><a id="code_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Code">Code</a></li>
+                <li><a id="des_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Design">Component Design</a></li>
+                <li><a id="dev_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Development">Component Development</a></li>
+                <li><a id="test_suites_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Suites">Test Suites</a></li>
+                <li><a id="content_creation_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Content%20Creation">Content Creation</a></li>
+                <li><a id="test_scenarios_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Scenarios">Test Scenarios</a></li>
+                <li><a id="bug_hunt_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Bug%20Hunt">Bug Hunt</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Review Opportunities<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Conceptualization</dt>
+                        <dd><a id="conceptualization_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=23">Review Opportunities</a></dd>
+                        <dd><a id="conceptualization_review_border" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=23">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Specification</dt>
+                        <dd><a id="specification_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=6">Review Opportunities</a></dd>
+                        <dd><a id="specification_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=6">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Architecture</dt>
+                        <dd><a id="architecture_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=7">Review Opportunities</a></dd>
+                        <dd><a id="architecture_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=7">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Design</dt>
+                        <dd><a id="des_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=1">Review Opportunities</a></dd>
+                        <dd><a id="des_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=1">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Development</dt>
+                        <dd><a id="dev_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=2">Review Opportunities</a></dd>
+                        <dd><a id="dev_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=2">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Assembly</dt>
+                        <dd><a id="assembly_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=14">Review Opportunities</a></dd>
+                        <dd><a id="assembly_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=14">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>First2Finish</dt>
+                        <dd><a id="first2finish_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=38">Review Opportunities</a></dd>
+                        <dd><a id="first2finish_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=38">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Code</dt>
+                        <dd><a id="code_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=39">Review Opportunities</a></dd>
+                        <dd><a id="code_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=39">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Suites</dt>
+                        <dd><a id="test_suites_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=13">Review Opportunities</a></dd>
+                        <dd><a id="test_suites_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=13">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Report</dt>
+                        <dd><a id="reporting_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=36">Review Opportunities</a></dd>
+                        <dd><a id="reporting_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=36">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>UI prototype</dt>
+                        <dd><a id="ui_prototype_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=19">Review Opportunities</a></dd>
+                        <dd><a id="ui_prototype_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=19">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>RIA Build</dt>
+                        <dd><a id="ria_build_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=24">Review Opportunities</a></dd>
+                        <dd><a id="ria_build_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=24">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Content Creation</dt>
+                        <dd><a id="content_creation_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=35">Review Opportunities</a></dd>
+                        <dd><a id="content_creation_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=35">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Scenarios</dt>
+                        <dd><a id="test_scenarios_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=26">Review Opportunities</a></dd>
+                        <dd><a id="test_scenarios_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=26">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Bug Hunt</dt>
+                        <dd><a id="bug_hunt_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=9">Review Opportunities</a></dd>
+                        <dd><a id="bug_hunt_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=9">Meet the review board</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Algorithm (SRM)<i></i></a>
+            <ul class="hide">
+                <li><a href="http://www.topcoder.com/active-challenges/data/">Single Round Matches (SRM)</a></li>
+                <li><a id="algo_match_archive" href="http://www.topcoder.com/tc?module=MatchList">Match Archive</a></li>
+                <li><a id="algo_match_overviews" href="http://www.topcoder.com/stat?c=round_overview">Match Overviews</a></li>
+                <li><a id="algo_match_winners" href="http://www.topcoder.com/tc?module=SrmDivisionWins">Match Winners</a></li>
+                <li><a id="algo_match_results" href="http://www.topcoder.com/stat?c=last_match">Match Results</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Problem+Set+Analysis">Match Editorials</a></li>
+                <li><a id="algo_problem_archive" href="http://www.topcoder.com/tc?module=ProblemArchive">Problem Archive</a></li>
+                <li><a id="algo_color_changes" href="http://www.topcoder.com/tc?module=ColorChange&amp;ratid=1">Recent Color Changes</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Data+Feeds">Data Feeds</a></li>
+                <li><a href="javascript:arena();">Launch Arena</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Marathon Match<i></i></a>
+            <ul class="hide">
+                <li><a id="long_compete" href="http://www.topcoder.com/challenges/data/active/">Challenges</a></li>
+                <li><a id="long_match_archive" href="http://www.topcoder.com/challenges/data/past/">Match Archive</a></li>
+                <li><a id="long_match_overview" href="http://www.topcoder.com/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
+                <li><a id="long_match_winners" href="http://www.topcoder.com/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
+                <li><a id="long_editorials" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive">Match Editorials</a></li>
+                <li><a id="long_data_feeds" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=support&amp;d2=dataFeed">Data Feeds</a></li>
+                <li><a id="long_practice" href="http://www.topcoder.com/longcontest/?module=ViewPractice">Practice</a></li>
+                <li><a id="long_queue" href="http://www.topcoder.com/longcontest/?module=ViewQueue">Queue Status</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/dr">The Digital Run</a></li>
+        <li><a href="http://software.topcoder.com/review">Submit &amp; Review</a></li>
+        <li>
+            <a href="javascript:;">topcoder Networks<i></i></a>
+            <ul class="hide">
+                <li><a href="http://community.topcoder.com/ntl/">NASA Tournament Lab</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/community/events/">Events</a></li>
+        <li>
+            <a href="javascript:;">Statistics<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Top Ranked</dt>
+                        <dd><a id="top_rated_algo" href="http://www.topcoder.com/tc?module=AlgoRank">Algorithm</a></dd>
+                        <dd><a id="top_rated_hs" href="http://www.topcoder.com/tc?module=HSRank">High School</a></dd>
+                        <dd><a id="top_rated_long" href="http://www.topcoder.com/longcontest/stats/?module=CoderRank">Marathon Match</a></dd>
+                        <dd><a id="top_rated_conceptors" href="http://www.topcoder.com/stat?c=top_conceptors">Conceptualization</a></dd>
+                        <dd><a id="top_rated_specificators" href="http://www.topcoder.com/stat?c=top_specificators">Specification</a></dd>
+                        <dd><a id="top_rated_architects" href="http://www.topcoder.com/stat?c=top_architects">Architecture</a></dd>
+                        <dd><a id="top_rated_des" href="http://www.topcoder.com/stat?c=top_designers">Design</a></dd>
+                        <dd><a id="top_rated_dev" href="http://www.topcoder.com/stat?c=top_developers">Development</a></dd>
+                        <dd><a id="top_rated_assemblers" href="http://www.topcoder.com/stat?c=top_assemblers">Assembly</a></dd>
+                        <dd><a id="top_rated_testers" href="http://www.topcoder.com/stat?c=top_testers">Test Suites</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Record Book</dt>
+                        <dd><a id="algo_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=statistics&amp;d2=recordbook_home">Algorithm</a></dd>
+                        <dd><a id="comp_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=compstats&amp;d2=comp_recordbook_home">Component</a></dd>
+                        <dd><a id="long_recordbook" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=stats&amp;d2=recordbook_home">Marathon Match</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Coder of the Month</dt>
+                        <dd><a id="algo_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=5">Algorithm</a></dd>
+                        <dd><a id="des_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=6">Design</a></dd>
+                        <dd><a id="dev_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=7">Development</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+        <li class="expanded">
+            <a href="javascript:;">Tutorials<i></i></a>
+            <ul style="display: block;" class="hide">
+                <li><a style="color: rgb(255, 138, 0); font-weight: bold;" id="algo_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/algorithm-tutorials/">Algorithm Tutorials</a></li>
+                <li><a id="comp_tutorials" href="http://help.topcoder.com/development/competing-in-development-challenges/development-tutorials/">Software Tutorials</a></li>
+                <li><a id="mm_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/marathon-match-tutorials/">Marathon Tutorials</a></li>
+            </ul>
+        </li>
+        <li><a href="https://apps.topcoder.com/forums/" id="forums">Forums</a></li>
+        <li><a href="https://www.topcoder.com/tc?module=MyHome" id="my_topcoder">My topcoder</a></li>
+    </ul>
+</section>
+<!-- End .navigation -->
+<section class="member-search">
+    <h3>Member Search</h3>
+    <div class="form">
+        <form action="http://community.topcoder.com/tc" method="get" name="simpleSearchForm" class="noSpace" id="simpleSearchForm">
+            <input class="noSpace" name="module" value="SimpleSearch" type="hidden">
+            <input class="noSpace" name="ha" value="Handle:" size="12" maxlength="15" onfocus="javascript: if (document.simpleSearchForm.ha.value=='Handle:') document.simpleSearchForm.ha.value = '';" onblur="javascript:if (document.simpleSearchForm.ha.value == '')document.simpleSearchForm.ha.value = 'Handle:';" type="text">
+            <a href="javascript:javascript:void%20document.simpleSearchForm.submit();" class="btn btn-search-member"><i>SEARCH</i></a>
+        </form>
+    </div>
+</section>
+
+<!-- End .member-search -->
+
+</div>
+
+    
+    
+
+
+
+        </td>
+        <!-- Left Column Ends -->
+        <!-- Center Column Begins -->
+        <td class="bodyColumn" width="100%" align="left">
+            
+
+
+
+
+
+<table style="visibility: visible;" class="pageTitleTable" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+        <td class="pageTitle" width="100%">
+
+
+            
+                
+                    
+                    <img src="DataStructures_files/header_alg_tut.gif" alt="alg_tut" border="0">
+                
+                
+            
+
+
+        </td>
+        <td class="pageSubtitle" align="right">&nbsp;&nbsp;</td>
+    </tr>
+</tbody></table>
+
+
+            <div class="linkBox">
+                <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">Archive</a><br>
+                <span id="printableLink"><a href="javascript:makeInvisible();">Printable view</a><br></span>
+                <span id="navigableLink" class="invisible"><a href="javascript:makeNavigable();">Normal view</a><br></span>
+                <a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=505847">Discuss this article</a><br>
+                <a href="http://community.topcoder.com/tc?module=Static&amp;d1=help&amp;d2=writeForTC">Write for TopCoder</a>
+            </div>
+
+<span class="bodyTitle">Data Structures</span>
+
+<p>
+<img src="DataStructures_files/timmac_mug.gif" alt="" class="myStatsPhoto" height="61" hspace="6" vspace="1" width="55" align="left" border="0"><br>
+By&nbsp;<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=10407399&amp;tab=alg" class="coderTextYellow">timmac</a><br>
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all">
+</p>
+
+<p>
+Even though computers can perform literally millions of mathematical 
+computations per second, when a problem gets large and complicated, 
+performance can nonetheless be an important consideration.  One of the 
+most crucial aspects to how quickly a problem can be solved is how the 
+data is stored in memory.
+<br><br>
+To illustrate this point, consider going to the local library to find a 
+book about a specific subject matter.  Most likely, you will be able to 
+use some kind of electronic reference or, in the worst case, a card 
+catalog, to determine the title and author of the book you want.  Since 
+the books are typically shelved by category, and within each category 
+sorted by author's name, it is a fairly straightforward and painless 
+process to then physically select your book from the shelves.
+<br><br>
+Now, suppose instead you came to the library in search of a particular 
+book, but instead of organized shelves, were greeted with large garbage 
+bags lining both sides of the room, each arbitrarily filled with books 
+that may or may not have anything to do with one another.  It would take
+ hours, or even days, to find the book you needed, a comparative 
+eternity.  This is how software runs when data is not stored in an 
+efficient format appropriate to the application.
+<br><br>
+<span class="bodySubtitle">Simple Data Structures</span><br>
+The simplest data structures are primitive variables.  They hold a 
+single value, and beyond that, are of limited use.  When many related 
+values need to be stored, an array is used.  It is assumed that the 
+reader of this article has a solid understanding of variables and 
+arrays.
+<br><br>
+A somewhat more difficult concept, though equally primitive, are 
+pointers.  Pointers, instead of holding an actual value, simply hold a 
+memory address that, in theory, contains some useful piece of data.  
+Most seasoned C++ coders have a solid understanding of how to use 
+pointers, and many of the caveats, while fledgling programmers may find 
+themselves a bit spoiled by more modern "managed" languages which, for 
+better or worse, handle pointers implicitly.  Either way, it should 
+suffice to know that pointers "point" somewhere in memory, and do not 
+actually store data themselves.
+<br><br>
+A less abstract way to think about pointers is in how the human mind 
+remembers (or cannot remember) certain things.  Many times, a good 
+engineer may not necessarily know a particular 
+formula/constant/equation, but when asked, they could tell you exactly 
+which reference to check.
+<br><br>
+<span class="bodySubtitle">Arrays</span><br>
+Arrays are a very simple data structure, and may be thought of as a list
+ of a fixed length.  Arrays are nice because of their simplicity, and 
+are well suited for situations where the number of data items is known 
+(or can be programmatically determined).  Suppose you need a piece of 
+code to calculate the average of several numbers.  An array is a perfect
+ data structure to hold the individual values, since they have no 
+specific order, and the required computations do not require any special
+ handling other than to iterate through all of the values.  The other 
+big strength of arrays is that they can be accessed randomly, by index. 
+ For instance, if you have an array containing a list of names of 
+students seated in a classroom, where each seat is numbered 1 through n,
+ then studentName[i] is a trivial way to read or store the name of the 
+student in seat i.
+<br><br>
+An array might also be thought of as a pre-bound pad of paper.  It has a
+ fixed number of pages, each page holds information, and is in a 
+predefined location that never changes.
+<br><br>
+<span class="bodySubtitle">Linked Lists</span><br>
+A linked list is a data structure that can hold an arbitrary number of 
+data items, and can easily change size to add or remove items.  A linked
+ list, at its simplest, is a pointer to a data node.  Each data node is 
+then composed of data (possibly a record with several data values), and a
+ pointer to the next node.  At the end of the list, the pointer is set 
+to null.
+<br><br>
+By nature of its design, a linked list is great for storing data when 
+the number of items is either unknown, or subject to change.  However, 
+it provides no way to access an arbitrary item from the list, short of 
+starting at the beginning and traversing through every node until you 
+reach the one you want.  The same is true if you want to insert a new 
+node at a specific location.  It is not difficult to see the problem of 
+inefficiency.
+<br><br>
+A typical linked list implementation would have code that defines a node, and looks something like this:
+
+</p><pre class="code">class ListNode {
+   String data;
+   ListNode nextNode;
+}
+ListNode firstNode;
+</pre>
+
+You could then write a method to add new nodes by inserting them at the beginning of the list:
+
+<pre class="code">ListNode newNode = new ListNode();
+NewNode.nextNode = firstNode;
+firstNode = newNode;
+
+Iterating through all of the items in the list is a simple task:
+
+ListNode curNode = firstNode;
+while (curNode != null) {
+   ProcessData(curNode);
+   curNode = curNode.nextNode;
+}
+</pre>
+A related data structure, the doubly linked list, helps this problem 
+somewhat.  The difference from a typical linked list is that the root 
+data structure stores a pointer to both the first and last nodes.  Each 
+individual node then has a link to both the previous and next node in 
+the list.  This creates a more flexible structure that allows travel in 
+both directions.  Even still, however, this is rather limited.
+<br><br>
+<span class="bodySubtitle">Queues</span><br>
+A queue is a data structure that is best described as "first in, first 
+out".  A real world example of a queue is people waiting in line at the 
+bank.  As each person enters the bank, he or she is "enqueued" at the 
+back of the line.  When a teller becomes available, they are "dequeued" 
+at the front of the line.
+<br><br>
+Perhaps the most common use of a queue within a TopCoder problem is to 
+implement a Breadth First Search (BFS).  BFS means to first explore all 
+states that can be reached in one step, then all states that can be 
+reached in two steps, etc.  A queue assists in implementing this 
+solution because it stores a list of all state spaces that have been 
+visited.
+<br><br>
+A common type of problem might be the shortest path through a maze.  
+Starting with the point of origin, determine all possible locations that
+ can be reached in a single step, and add them to the queue.  Then, 
+dequeue a position, and find all locations that can be reached in one 
+more step, and enqueue those new positions.  Continue this process until
+ either a path is found, or the queue is empty (in which case there is 
+no path).  Whenever a "shortest path" or "least number of moves" is 
+requested, there is a good chance that a BFS, using a queue, will lead 
+to a successful solution.
+<br><br>
+Most standard libraries, such the Java API, and the .NET framework, 
+provide a Queue class that provides these two basic interfaces for 
+adding and removing items from a queue.
+<br><br>
+BFS type problems appear frequently on challenges; on some problems, 
+successful identification of BFS is simple and immediately, other times 
+it is not so obvious.
+<br><br>
+A queue implementation may be as simple as an array, and a pointer to 
+the current position within the array.  For instance, if you know that 
+you are trying to get from point A to point B on a 50x50 grid, and have 
+determined that the direction you are facing (or any other details) are 
+not relevant, then you know that there are no more than 2,500 "states" 
+to visit.  Thus, your queue is programmed like so:
+
+<pre class="code">class StateNode {
+   int xPos;
+   int yPos;
+   int moveCount;
+}
+
+class MyQueue {
+   StateNode[] queueData = new StateNode[2500];
+   int queueFront = 0;
+   int queueBack = 0;
+
+   void Enqueue(StateNode node) {
+      queueData[queueBack] = node;
+      queueBack++;
+   }
+
+   StateNode Dequeue() {
+      StateNode returnValue = null;
+      if (queueBack &gt; queueFront) {
+      returnValue = queueData[queueFront];
+      QueueFront++;
+   }
+   return returnValue;
+   }
+
+   boolean isNotEmpty() {
+      return (queueBack &gt; queueFront);
+   }
+}
+</pre>
+
+Then, the main code of your solution looks something like this.  (Note 
+that if our queue runs out of possible states, and we still haven't 
+reached our destination, then it must be impossible to get there, hence 
+we return the typical "-1" value.)
+
+<pre class="code">MyQueue queue = new MyQueue();
+queue.Enqueue(initialState);
+while (queue.isNotEmpty()) {
+   StateNode curState = queue.Dequeue();
+   if (curState == destState)
+return curState.moveCount;
+   for (int dir = 0; dir &lt; 3; dir++) {
+      if (CanMove(curState, dir))
+         queue.Enqueue(MoveState(curState, dir));
+   }
+}
+</pre>
+
+<span class="bodySubtitle">Stacks</span><br>
+Stacks are, in a sense, the opposite of queues, in that they are 
+described as "last in, first out".  The classic example is the pile of 
+plates at the local buffet.  The workers can continue to add clean 
+plates to the stack indefinitely, but every time, a visitor will remove 
+from the stack the top plate, which is the last one that was added.
+<br><br>
+While it may seem that stacks are rarely implemented explicitly, a solid
+ understanding of how they work, and how they are used implicitly, is 
+worthwhile education.  Those who have been programming for a while are 
+intimately familiar with the way the stack is used every time a 
+subroutine is called from within a program.  Any parameters, and usually
+ any local variables, are allocated out of space on the stack.  Then, 
+after the subroutine has finished, the local variables are removed, and 
+the return address is "popped" from the stack, so that program execution
+ can continue where it left off before calling the subroutine.
+<br><br>
+An understanding of what this implies becomes more important as 
+functions call other functions, which in turn call other functions.  
+Each function call increases the "nesting level" (the depth of function 
+calls, if you will) of the execution, and uses increasingly more space 
+on the stack.  Of paramount importance is the case of a recursive 
+function.  When a recursive function continually calls itself, stack 
+space is quickly used as the depth of recursion increases.  Nearly every
+ seasoned programmer has made the mistake of writing a recursive 
+function that never properly returns, and calls itself until the system 
+throws up an "out of stack space" type of error.
+<br><br>
+Nevertheless, all of this talk about the depth of recursion is 
+important, because stacks, even when not used explicitly, are at the 
+heart of a depth first search.  A depth first search is typical when 
+traversing through a tree, for instance looking for a particular node in
+ an XML document.  The stack is responsible for maintaining, in a sense,
+ a trail of what path was taken to get to the current node, so that the 
+program can "backtrack" (e.g. return from a recursive function call 
+without having found the desired node) and proceed to the next adjacent 
+node.
+<br><br>
+<a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2824&amp;rd=5073">Soma</a> (SRM 198) is an excellent example of a problem solved with this type of approach.
+<br><br>
+<span class="bodySubtitle">Trees</span><br>
+Trees are a data structure consisting of one or more data nodes.  The 
+first node is called the "root", and each node has zero or more "child 
+nodes".  The maximum number of children of a single node, and the 
+maximum depth of children are limited in some cases by the exact type of
+ data represented by the tree.
+<br><br>
+One of the most common examples of a tree is an XML document.  The 
+top-level document element is the root node, and each tag found within 
+that is a child.  Each of those tags may have children, and so on.  At 
+each node, the type of tag, and any attributes, constitutes the data for
+ that node.  In such a tree, the hierarchy and order of the nodes is 
+well defined, and an important part of the data itself.  Another good 
+example of a tree is a written outline.  The entire outline itself is a 
+root node containing each of the top-level bullet points, each of which 
+may contain one or more sub-bullets, and so on.  The file storage system
+ on most disks is also a tree structure.
+<br><br>
+Corporate structures also lend themselves well to trees.  In a classical
+ management hierarchy, a President may have one or more vice presidents,
+ each of whom is in charge of several managers, each of whom presides 
+over several employees.
+<br><br>
+<a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3093&amp;rd=5864">PermissionTree</a> (SRM 218) provides an unusual problem on a common file system.
+<br><br>
+<a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3025&amp;rd=5860">bloggoDocStructure</a> (SRM 214) is another good example of a problem using trees.
+<br><br>
+<span class="bodySubtitle">Binary Trees</span><br>
+A special type of tree is a binary tree.  A binary tree also happens to 
+be one of the most efficient ways to store and read a set of records 
+that can be indexed by a key value in some way.  The idea behind a 
+binary tree is that each node has, at most, two children.
+<br><br>
+In the most typical implementations, the key value of the left node is 
+less than that of its parent, and the key value of the right node is 
+greater than that of its parent.  Thus, the data stored in a binary tree
+ is always indexed by a key value.  When traversing a binary tree, it is
+ simple to determine which child node to traverse when looking for a 
+given key value.
+<br><br>
+One might ask why a binary tree is preferable to an array of values that
+ has been sorted.  In either case, finding a given key value (by 
+traversing a binary tree, or by performing a binary search on a sorted 
+array) carries a time complexity of O(log n).  However, adding a new 
+item to a binary tree is an equally simple operation.  In contrast, 
+adding an arbitrary item to a sorted array requires some time-consuming 
+reorganization of the existing data in order to maintain the desired 
+ordering.
+<br><br>
+If you have ever used a field guide to attempt to identify a leaf that 
+you find in the wild, then this is a good way to understand how data is 
+found in a binary tree.  To use a field guide, you start at the 
+beginning, and answer a series of questions like "is the leaf jagged, or
+ smooth?" that have only two possible answers.  Based upon your answer, 
+you are directed to another page, which asks another question, and so 
+on.  After several questions have sufficiently narrowed down the 
+details, you are presented with the name, and perhaps some further 
+information about your leaf.  If one were the editor of such a field 
+guide, newly cataloged species could be added to field guide in much the
+ same manner, by traversing through the questions, and finally at the 
+end, inserting a new question that differentiates the new leaf from any 
+other similar leaves.  In the case of a computer, the question asked at 
+each node is simply "are you less than or greater than X?"
+<br><br>
+<span class="bodySubtitle">Priority Queues</span><br>
+In a typical breadth first search (BFS) algorithm, a simple queue works 
+great for keeping track of what states have been visited.  Since each 
+new state is one more operational step than the current state, adding 
+new locations to the end of the queue is sufficient to insure that the 
+quickest path is found first.  However, the assumption here is that each
+ operation from one state to the next is a single step.
+<br><br>
+Let us consider another example where you are driving a car, and wish to
+ get to your destination as quickly as possible.  A typical problem 
+statement might say that you can move one block up/down/left/right in 
+one minute.  In such a case, a simple queue-based BFS works perfectly, 
+and is guaranteed to provide a correct result.
+<br><br>
+But what happens if we say that the car can move forward one block in 
+two minute, but requires three minutes to make a turn and then move one 
+block (in a direction different from how the car was originally facing)?
+  Depending on what type of move operation we attempt, a new state is 
+not simply one "step" from the current state, and the "in order" nature 
+of a simple queue is lost.
+<br><br>
+This is where priority queues come in.  Simply put, a priority queue 
+accepts states, and internally stores them in a method such that it can 
+quickly pull out the state that has the least cost.  (Since, by the 
+nature of a "shortest time/path" type of problem, we always want to 
+explore the states of least cost first.)
+<br><br>
+A real world example of a priority queue might be waiting to board an 
+airplane.  Individuals arriving at their gate earlier will tend to sit 
+closest to the door, so that they can get in line as soon as they are 
+called.  However, those individuals with a "gold card", or who travel 
+first class, will always be called first, regardless of when they 
+actually arrived.
+<br><br>
+One very simple implementation of a priority queue is just an array that
+ searches (one by one) for the lowest cost state contained within, and 
+appends new elements to the end.  Such an implementation has a trivial 
+time-complexity for insertions, but is painfully slow to pull objects 
+out again.
+<br><br>
+A special type of binary tree called a heap is typically used for 
+priority queues.  In a heap, the root node is always less than (or 
+greater than, depending on how your value of "priority" is implemented) 
+either of its children.  Furthermore, this tree is a "complete tree" 
+from the left.  A very simple definition of a complete tree is one where
+ no branch is n + 1 levels deep until all other branches are n levels 
+deep.  Furthermore, it is always the leftmost node(s) that are filled 
+first.
+<br><br>
+To extract a value from a heap, the root node (with the lowest cost or 
+highest priority) is pulled.  The deepest, rightmost leaf then becomes 
+the new root node.
+If the new root node is larger than at at least one of its children, 
+then the root is swapped with its smallest child, in order to maintain 
+the property that the root is always less than its children.
+This continues downward as far as necessary.  Adding a value to the heap
+ is the reverse.  The new value is added as the next leaf, and swapped 
+upward as many times as necessary to maintain the heap property.
+<br><br>
+A convenient property of trees that are complete from the left is that 
+they can be stored very efficiently in a flat array.  In general, 
+element 0 of the array is the root, and elements 2k + 1 and 2k + 2 are 
+the children of element k.  The effect here is that adding the next leaf
+ simply means appending to the array.
+<br><br>
+<span class="bodySubtitle">Hash Tables</span><br>
+Hash tables are a unique data structure, and are typically used to 
+implement a "dictionary" interface, whereby a set of keys each has an 
+associated value.  The key is used as an index to locate the associated 
+values.  This is not unlike a classical dictionary, where someone can 
+find a definition (value) of a given word (key).
+<br><br>
+Unfortunately, not every type of data is quite as easy to sort as a 
+simple dictionary word, and this is where the "hash" comes into play.  
+Hashing is the process of generating a key value (in this case, 
+typically a 32 or 64 bit integer) from a piece of data.  This hash value
+ then becomes a basis for organizing and sorting the data.  The hash 
+value might be the first n bits of data, the last n bits of data, a 
+modulus of the value, or in some cases, a more complicated function.  
+Using the hash value, different "hash buckets" can be set up to store 
+data.  If the hash values are distributed evenly (which is the case for 
+an ideal hash algorithm), then the buckets will tend to fill up evenly, 
+and in many cases, most buckets will have no more than one or only a few
+ objects in them.  This makes the search even faster.
+<br><br>
+A hash bucket containing more than one value is known as a "collision". 
+ The exact nature of collision handling is implementation specific, and 
+is crucial to the performance of the hash table.  One of the simplest 
+methods is to implement a structure like a linked list at the hash 
+bucket level, so that elements with the same hash value can be chained 
+together at the proper location.  Other, more complicated schemes may 
+involve utilizing adjacent, unused locations in the table, or re-hashing
+ the hash value to obtain a new value.  As always, there are good and 
+bad performance considerations (regarding time, size, and complexity) 
+with any approach.
+<br><br>
+Another good example of a hash table is the Dewey decimal system, used 
+in many libraries.  Every book is assigned a number, based upon its 
+subject matterï¿½ the 500's are all science books, the 700's are all the
+ arts, etc.  Much like a real hash table, the speed at which a person 
+could find a given book is based upon how well the hash buckets are 
+evenly dividedï¿½ It will take longer to find a book about frogs in a 
+library with many science materials than in a library consisting mostly 
+of classical literature.
+<br><br>
+In applications development, hash tables are a convenient place to store
+ reference data, like state abbreviations that link to full state names.
+  In problem solving, hash tables are useful for implementing a 
+divide-and-conquer approach to knapsack-type problems.  In LongPipes, we
+ are asked to find the minimum number of pipes needed to construct a 
+single pipe of a given length, and we have up to 38 pieces of pipe.  By 
+dividing this into two sets of 19, and calculating all possible lengths 
+from each set, we create hash tables linking the length of the pipe to 
+the fewest number of segments used.  Then, for each constructed pipe in 
+one set, we can easily look up, whether or not we constructed a pipe of 
+corresponding length in the other set, such that the two join to form a 
+complete pipe of the desired length.
+<br><br>
+<span class="bodySubtitle">Conclusion</span><br>
+The larger picture to be seen from all of this is that data structures 
+are just another set of tools that should be in the kit of a seasoned 
+programmer.  Comprehensive libraries and frameworks available with most 
+languages nowadays preempt the need for a full understanding of how to 
+implement each of these tools.  The result is that developers are able 
+to quickly produce quality solutions that take advantage of powerful 
+ideas.  The challenge lies in knowing which one to select.
+<br><br>
+Nonetheless, knowing a little about how these tools work should help to 
+make the choices easier.  And, when the need arises, perhaps leave the 
+programmer better equipped to think up a new solution to a new 
+problemï¿½ if not while on the job doing work for a client, then perhaps
+ while contemplating the 1000 point problem 45 minutes into the coding 
+phase of the next SRM.
+<p></p>
+
+<p>&nbsp;</p>
+        </td>
+<!-- Center Column Ends -->
+
+<!-- Right Column Begins -->
+         
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+         
+<!-- Gutter Ends -->
+    </tr>
+</tbody></table>
+
+<div id="onBottom">
+
+
+
+
+
+
+    
+        <footer id="footer">
+            <div class="container">
+                <div class="footerContentSection twitter">
+                    <div class="title">Twitter</div>
+                    <div class="footerContent">
+
+
+                        
+
+                        <a class="btn btnFooter" href="http://www.twitter.com/topcoder"><span class="twFollowIcon"></span><span class="twFollowBtnText">Follow</span></a>
+                    </div>
+                </div>
+                <div class="footerContentSection recentBlogPosts">
+                    <div class="title">Recent Blog Posts Updated</div>
+                         <div class="footerContent">
+                              <div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=new-look-and-feel-for-tc">Apr 23</a>
+
+                                 @timmhicks – Tim Hicks Happy Hump Day 
+topcoders! We are excited to announce that we will be releasing a new 
+look for the very popular /tc by...<a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/space-the-final-email-frontier/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=space-the-final-email-frontier">Apr 23</a>
+
+                                 Do you ever find yourself hitting 
+“send” on an email and wondering if it’ll arrive in the recipient’s 
+inbox? Sending email has become so ubiquitous, simple and...<a href="http://www.topcoder.com/blog/space-the-final-email-frontier/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games">Apr 22</a>
+
+                                 @ClintonBon – Clinton Bonner We know 
+what you’re thinking. Great, another ‘puff piece’ on the ‘wisdom of 
+crowds’ and how all we need to do is post...<a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/" class="more">Read More</a></div><span id="blogTemplate" style="display: none">
+                                 <div class="footerBlogEntry">
+                                     <a href="javascript:;"></a>
+
+                                 </div>
+                              </span>
+                             <a class="btn btnFooter" href="http://www.topcoder.com/blog">View More</a>
+                         </div>
+
+
+                </div>
+                <div class="footerContentSection aboutTopCoder">
+                    <div class="title">About topcoder</div>
+                    <div class="footerContent">
+                        The topcoder community gathers the world's 
+experts in design, development and data science to work on interesting 
+and challenging problems for fun and reward. We want to help topcoder 
+members improve their skills, demonstrate and gain reward for their 
+expertise, and provide the industry with objective insight on new and 
+emerging technologies.
+                    </div>
+                    <a class="btn btnFooter" href="http://www.topcoder.com/mission">About Us</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <div class="connected">
+                    <section class="social">
+                        <h4>Get Connected</h4>
+                        <ul>
+                            <li><a class="fb" href="http://www.facebook.com/topcoder">FB</a></li>
+                            <li><a class="tw" href="http://www.twitter.com/topcoder">TW</a></li>
+                            <li><a class="gp" href="https://plus.google.com/u/0/b/104268008777050019973/104268008777050019973/posts">GP</a></li>
+                            <li><a class="in" href="https://www.linkedin.com/company/topcoder">IN</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </section>
+                    <section class="updates">
+                        <div class="row">
+                            <form id="emailForm" onsubmit="return newsletter_check(this)" name="FeedBlitz_9feab01d431311e39e69002590771423" style="display:block" method="POST" action="http://www.feedblitz.com/f/f.fbz?AddNewUserDirect">
+                                <input value="Your email address" style="display: block;" class="email isBlured" name="EMAIL" placeholder="Your email address" maxlength="64" type="email">
+                                <input name="FEEDID" value="926643" type="hidden">
+                                <input name="PUBLISHER" value="34610190" type="hidden">
+                                <!-- <a onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn">Submit</a> -->
+                                <input onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn btnSubmitFooter" value="Submit" type="button">
+                                <input name="na" value="s" type="hidden">
+                                <input name="nr" value="widget" type="hidden">
+                            </form>
+                            <script type="text/javascript">function FeedBlitz_9feab01d431311e39e69002590771423i(){var x=document.getElementsByName('FeedBlitz_9feab01d431311e39e69002590771423');for(i=0;i<x.length;i++){x[i].EMAIL.style.display='block'; x[i].action='http://www.feedblitz.com/f/f.fbz?AddNewUserDirect';}} function FeedBlitz_9feab01d431311e39e69002590771423s(v){v.submit();}FeedBlitz_9feab01d431311e39e69002590771423i();</script>
+
+                        </div>
+                    </section>
+                </div>
+                <div class="copyright">
+                    <section>
+                        <br>
+                        © 2014 topcoder. All Rights reserved.
+                        <br>
+                        <a href="http://www.topcoder.com/community/how-it-works/privacy-policy/" class="privacyStmtLink">Privacy Policy</a> | <a href="http://www.topcoder.com/community/how-it-works/terms/" class="legalDisclaimerLink">Terms</a>
+                    </section>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </footer>
+    
+    
+
+
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6340959-1']);
+  _gaq.push(['_setDomainName', '.topcoder.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</div>
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"5697653","applicationTime":82,"beacon":"beacon-3.newrelic.com","queueTime":0,"licenseKey":"496af5ee90","transactionName":"ZlcBbBQAChBSARIKXV8dKWs2ThAWRw0UClNdQUxcBxUFMEcQEwBGREAGS0gLFxM=","agent":"js-agent.newrelic.com\/nr-515.min.js","errorBeacon":"bam.nr-data.net"}</script>
+
+<script src="DataStructures_files/nr-515.js"></script><script src="DataStructures_files/496af5ee90" type="text/javascript"></script></body></html>

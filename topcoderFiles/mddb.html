@@ -1,0 +1,1330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Algorithm Tutorials</title>
+
+
+
+
+
+
+<script src="mddb_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="mddb_files/jquery-1.js"></script>
+<script type="text/javascript" src="mddb_files/jquery-migrate-1.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/js/reskin/html5shiv.js"></script>
+<![endif]-->
+<script type="text/javascript" src="mddb_files/jquery.js"></script>
+<script type="text/javascript" src="mddb_files/newTCScript.js"></script><link type="image/x-icon" rel="shortcut icon" href="http://community.topcoder.com/i/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="mddb_files/css.css" rel="stylesheet" type="text/css">
+    
+    <link type="text/css" rel="stylesheet" href="mddb_files/coders.css">
+    <link type="text/css" rel="stylesheet" href="mddb_files/jobsRemix.css">
+    <link type="text/css" rel="stylesheet" href="mddb_files/myHome.css">
+    
+<link type="text/css" rel="stylesheet" href="mddb_files/newStyles.css">
+<!--[if IE 8]>
+<link type="text/css" rel="stylesheet" href="/css/reskin/newStyles_ie8.css"/>
+<![endif]-->
+
+
+
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(n,t,e){function r(e){if(!t[e]){var o=t[e]={exports:{}};n[e][0].call(o.exports,function(t){var o=n[e][1][t];return r(o?o:t)},o,o.exports)}return t[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({QJf3ax:[function(n,t){function e(n){function t(t,e,a){n&&n(t,e,a),a||(a={});for(var u=c(t),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,e);return s}function a(n,t){f[n]=c(n).concat(t)}function c(n){return f[n]||[]}function u(){return e(t)}var f={};return{on:a,emit:t,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=n("gos");t.exports=e()},{gos:"7eSDFh"}],ee:[function(n,t){t.exports=n("QJf3ax")},{}],gos:[function(n,t){t.exports=n("7eSDFh")},{}],"7eSDFh":[function(n,t){function e(n,t,e){if(r.call(n,t))return n[t];var o=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,t,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return n[t]=o,o}var r=Object.prototype.hasOwnProperty;t.exports=e},{}],D5DuLP:[function(n,t){function e(n,t,e){return r.listeners(n).length?r.emit(n,t,e):(o[n]||(o[n]=[]),void o[n].push(t))}var r=n("ee").create(),o={};t.exports=e,e.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(n,t){t.exports=n("D5DuLP")},{}],XL7HBI:[function(n,t){function e(n){var t=typeof n;return!n||"object"!==t&&"function"!==t?-1:n===window?0:i(n,o,function(){return r++})}var r=1,o="nr@id",i=n("gos");t.exports=e},{gos:"7eSDFh"}],id:[function(n,t){t.exports=n("XL7HBI")},{}],loader:[function(n,t){t.exports=n("G9z0Bl")},{}],G9z0Bl:[function(n,t){function e(){var n=v.info=NREUM.info;if(n&&n.licenseKey&&n.applicationID&&f&&f.body){c(d,function(t,e){t in n||(n[t]=e)}),v.proto="https"===l.split(":")[0]||n.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var t=f.createElement("script");t.src=v.proto+n.agent,f.body.appendChild(t)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=n("handle"),c=n(1),u=window,f=u.document,s="addEventListener",p="attachEvent",l=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},v=t.exports={offset:i(),origin:l,features:{}};f[s]?(f[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(f[p]("onreadystatechange",r),u[p]("onload",e)),a("mark",["firstbyte",i()])},{1:11,handle:"D5DuLP"}],11:[function(n,t){function e(n,t){var e=[],o="",i=0;for(o in n)r.call(n,o)&&(e[i]=t(o,n[o]),i+=1);return e}var r=Object.prototype.hasOwnProperty;t.exports=e},{}]},{},["G9z0Bl"]);</script><script language="JavaScript" src="mddb_files/print.js"></script>
+<style type="text/css">
+.math
+{
+   font-family: times, times new roman, serif;
+   font-weight: normal;
+   font-style: italic;
+   font-size: 15px;
+}
+.code
+{
+   width: 500;
+   padding: 10px;
+   margin: 20px;
+   font-size: 13px;
+   font-weight: normal;
+   line-height: 14px;
+}
+</style>
+</head>
+<body>
+<div id="onTop">
+    
+
+
+
+
+
+
+
+
+
+    
+        <header id="navigation" class="newUser">
+            <div class="container">
+                <div class="headerTopRightMenu">
+                    
+                        <div class="headerTopRightMenuLink logIn">
+                            <div class="text"><a href="http://www.topcoder.com/tc?module=Logout" class="actionLogin">Log Out</a></div>
+                            <div class="clear"></div>
+                        </div>
+                    
+
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink contact">
+                        <div class="text"><a href="http://www.topcoder.com/contact-us/">Contact</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink help">
+                        <div class="text"><a href="http://help.topcoder.com/">Help Center</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator beforeSearch"></div>
+                    <div class="headerTopRightMenuLink search last">
+                        <div class="icon"></div>
+                        <div class="text"><a href="http://www.topcoder.com/search">Search</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <h1 class="logo">
+                    <a href="http://www.topcoder.com/" title="topcoder"></a>
+                </h1>
+                <nav id="mainNav" class="mainNav">
+                    <ul class="root">
+                        <li id="nav-menu-item-13018"><a href="http://www.topcoder.com/challenges/" class="13018"><i></i>Challenges</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13510"><a href="http://www.topcoder.com/challenges/" class="all"><i></i>All</a></li>
+                                <li id="nav-menu-item-13511"><a href="http://www.topcoder.com/active-challenges/design/" class="design"><i></i>Design</a></li>
+                                <li id="nav-menu-item-13512"><a href="http://www.topcoder.com/active-challenges/develop/" class="develop"><i></i>Development</a></li>
+                                <li id="nav-menu-item-13513"><a href="http://www.topcoder.com/active-challenges/data/" class="data"><i></i>Data Science</a></li>
+                                <li id="nav-menu-item-13529"><a href="http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp" class="topcoder-arena"><i></i>topcoder Arena</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13129"><a href="http://www.topcoder.com/community/" class="13129"><i></i>Community</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13509"><a href="http://www.topcoder.com/community/" class="welcome"><i></i>Home</a></li>
+                                <li id="nav-menu-item-13034"><a href="http://www.topcoder.com/community/getting-started/" class="13034"><i></i>Getting
+                                    Started</a></li>
+                                <li id="nav-menu-item-12983"><a href="http://www.topcoder.com/community/how-it-works/" class="customer-solutions"><i></i>How It Works</a></li>
+                                <li id="nav-menu-item-13105"><a href="http://apps.topcoder.com/forums/" class="forums"><i></i>Forums</a></li>
+                                <li id="nav-menu-item-13036"><a href="http://www.topcoder.com/community/events/" class="13036"><i></i>Events</a></li>
+                                <li id="nav-menu-item-15095"><a href="http://community.topcoder.com/tco14" class="topcoder-open-2"><i></i>Topcoder Open 2014</a></li>
+                                <li id="nav-menu-item-15218"><a href="http://tco15.topcoder.com/" class="topcoder-open-2015"><i></i>Topcoder Open 2015</a></li>
+                                <li><a href="http://www.topcoder.com/community/member-programs/">
+                                                                <i></i>Member Programs</a></li>
+                                <li id="nav-menu-item-13038"><a href="http://www.topcoder.com/community/stories/" class="13038"><i></i>Stories</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13469"><a href="http://community.topcoder.com/mission" class="about-us"><i></i>About topcoder</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13516"><a href="http://www.topcoder.com/mission/" class="13516"><i></i>Mission</a></li>
+                                <li id="nav-menu-item-13032"><a href="http://www.topcoder.com/research/" class="13032"><i></i>Research</a></li>
+                                <li id="nav-menu-item-13450"><a href="http://www.topcoder.com/case-studies/" class="case-studies"><i></i>Case Studies</a></li>
+                                <li id="nav-menu-item-13045"><a href="http://www.topcoder.com/press/" class="13045"><i></i>Press</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13379"><a href="http://www.topcoder.com/blog/" class="13379"><i></i>Blog</a></li>
+                        <!--
+                        <li class="noReg logoutLink 	hide"><a href="http://www.topcoder.com?auth=logout" class="actionLogout">Log Out</a></li>
+                        <li class="noReg loginLink"><a href="javascript:;" class="actionLogin">Log In</a></li>
+                        -->
+                    </ul>
+                </nav>
+                <!--
+                <a href="http://www.topcoder.com?auth=logout" class="onMobi noReg linkLogout actionLogout hide">Log Out</a>
+                  <a href="javascript:;" class="onMobi noReg linkLogin actionLogin">Log In</a>
+                -->
+                
+                    <span class="btnRegWrap noReg"><a href="http://www.topcoder.com/tc?module=MyHome" class="btn btnMyHome">My Home</a></span>
+                
+
+                <!-- /.userWidget -->
+            </div>
+        </header>
+    
+    
+
+
+
+
+</div>
+
+<table style="visibility: visible;" class="mainContent" width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tbody><tr class="alignTop" valign="top">
+<!-- Left Column Begins-->
+        <td id="onLeft" width="180">
+         
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+
+
+
+
+
+
+<div style="width: 185px; display: block;" class="leftNavWrapper">
+    
+<input id="nodeName" value="algo_tutorials" type="hidden">
+<script language="JavaScript" type="text/javascript" src="mddb_files/arena.js"></script>
+
+    <section class="get-time" style="margin-bottom:15px">
+        
+        <span class="date"></span>
+        <a href="javascript:tcTime();">Get Time</a>
+    </section>
+    <!-- End .get-time -->
+
+    <section class="navigation">
+    <ul>
+        <li><a id="copilot_posting_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Copilot%20Posting">Copilot Posting</a></li>
+        <li><a href="http://www.topcoder.com/active-challenges/design/">Design</a></li>
+        <li>
+            <a href="javascript:;">Develop<i></i></a>
+            <ul class="hide">
+                <li><a id="conceptualization_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Conceptualization">Conceptualization</a></li>
+                <li><a id="specification_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Specification">Specification</a></li>
+                <li><a id="architecture_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Architecture">Architecture</a></li>
+                <li><a id="ui_prototype_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=UI%20Prototype%20Competition">UI Prototype</a></li>
+                <li><a id="assembly_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Assembly%20Competition">Assembly</a></li>
+                <li><a id="first2finish_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=First2Finish">First2Finish</a></li>
+                <li><a id="code_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Code">Code</a></li>
+                <li><a id="des_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Design">Component Design</a></li>
+                <li><a id="dev_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Development">Component Development</a></li>
+                <li><a id="test_suites_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Suites">Test Suites</a></li>
+                <li><a id="content_creation_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Content%20Creation">Content Creation</a></li>
+                <li><a id="test_scenarios_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Scenarios">Test Scenarios</a></li>
+                <li><a id="bug_hunt_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Bug%20Hunt">Bug Hunt</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Review Opportunities<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Conceptualization</dt>
+                        <dd><a id="conceptualization_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=23">Review Opportunities</a></dd>
+                        <dd><a id="conceptualization_review_border" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=23">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Specification</dt>
+                        <dd><a id="specification_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=6">Review Opportunities</a></dd>
+                        <dd><a id="specification_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=6">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Architecture</dt>
+                        <dd><a id="architecture_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=7">Review Opportunities</a></dd>
+                        <dd><a id="architecture_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=7">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Design</dt>
+                        <dd><a id="des_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=1">Review Opportunities</a></dd>
+                        <dd><a id="des_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=1">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Development</dt>
+                        <dd><a id="dev_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=2">Review Opportunities</a></dd>
+                        <dd><a id="dev_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=2">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Assembly</dt>
+                        <dd><a id="assembly_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=14">Review Opportunities</a></dd>
+                        <dd><a id="assembly_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=14">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>First2Finish</dt>
+                        <dd><a id="first2finish_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=38">Review Opportunities</a></dd>
+                        <dd><a id="first2finish_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=38">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Code</dt>
+                        <dd><a id="code_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=39">Review Opportunities</a></dd>
+                        <dd><a id="code_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=39">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Suites</dt>
+                        <dd><a id="test_suites_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=13">Review Opportunities</a></dd>
+                        <dd><a id="test_suites_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=13">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Report</dt>
+                        <dd><a id="reporting_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=36">Review Opportunities</a></dd>
+                        <dd><a id="reporting_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=36">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>UI prototype</dt>
+                        <dd><a id="ui_prototype_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=19">Review Opportunities</a></dd>
+                        <dd><a id="ui_prototype_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=19">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>RIA Build</dt>
+                        <dd><a id="ria_build_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=24">Review Opportunities</a></dd>
+                        <dd><a id="ria_build_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=24">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Content Creation</dt>
+                        <dd><a id="content_creation_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=35">Review Opportunities</a></dd>
+                        <dd><a id="content_creation_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=35">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Scenarios</dt>
+                        <dd><a id="test_scenarios_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=26">Review Opportunities</a></dd>
+                        <dd><a id="test_scenarios_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=26">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Bug Hunt</dt>
+                        <dd><a id="bug_hunt_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=9">Review Opportunities</a></dd>
+                        <dd><a id="bug_hunt_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=9">Meet the review board</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Algorithm (SRM)<i></i></a>
+            <ul class="hide">
+                <li><a href="http://www.topcoder.com/active-challenges/data/">Single Round Matches (SRM)</a></li>
+                <li><a id="algo_match_archive" href="http://www.topcoder.com/tc?module=MatchList">Match Archive</a></li>
+                <li><a id="algo_match_overviews" href="http://www.topcoder.com/stat?c=round_overview">Match Overviews</a></li>
+                <li><a id="algo_match_winners" href="http://www.topcoder.com/tc?module=SrmDivisionWins">Match Winners</a></li>
+                <li><a id="algo_match_results" href="http://www.topcoder.com/stat?c=last_match">Match Results</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Problem+Set+Analysis">Match Editorials</a></li>
+                <li><a id="algo_problem_archive" href="http://www.topcoder.com/tc?module=ProblemArchive">Problem Archive</a></li>
+                <li><a id="algo_color_changes" href="http://www.topcoder.com/tc?module=ColorChange&amp;ratid=1">Recent Color Changes</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Data+Feeds">Data Feeds</a></li>
+                <li><a href="javascript:arena();">Launch Arena</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Marathon Match<i></i></a>
+            <ul class="hide">
+                <li><a id="long_compete" href="http://www.topcoder.com/challenges/data/active/">Challenges</a></li>
+                <li><a id="long_match_archive" href="http://www.topcoder.com/challenges/data/past/">Match Archive</a></li>
+                <li><a id="long_match_overview" href="http://www.topcoder.com/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
+                <li><a id="long_match_winners" href="http://www.topcoder.com/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
+                <li><a id="long_editorials" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive">Match Editorials</a></li>
+                <li><a id="long_data_feeds" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=support&amp;d2=dataFeed">Data Feeds</a></li>
+                <li><a id="long_practice" href="http://www.topcoder.com/longcontest/?module=ViewPractice">Practice</a></li>
+                <li><a id="long_queue" href="http://www.topcoder.com/longcontest/?module=ViewQueue">Queue Status</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/dr">The Digital Run</a></li>
+        <li><a href="http://software.topcoder.com/review">Submit &amp; Review</a></li>
+        <li>
+            <a href="javascript:;">topcoder Networks<i></i></a>
+            <ul class="hide">
+                <li><a href="http://community.topcoder.com/ntl/">NASA Tournament Lab</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/community/events/">Events</a></li>
+        <li>
+            <a href="javascript:;">Statistics<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Top Ranked</dt>
+                        <dd><a id="top_rated_algo" href="http://www.topcoder.com/tc?module=AlgoRank">Algorithm</a></dd>
+                        <dd><a id="top_rated_hs" href="http://www.topcoder.com/tc?module=HSRank">High School</a></dd>
+                        <dd><a id="top_rated_long" href="http://www.topcoder.com/longcontest/stats/?module=CoderRank">Marathon Match</a></dd>
+                        <dd><a id="top_rated_conceptors" href="http://www.topcoder.com/stat?c=top_conceptors">Conceptualization</a></dd>
+                        <dd><a id="top_rated_specificators" href="http://www.topcoder.com/stat?c=top_specificators">Specification</a></dd>
+                        <dd><a id="top_rated_architects" href="http://www.topcoder.com/stat?c=top_architects">Architecture</a></dd>
+                        <dd><a id="top_rated_des" href="http://www.topcoder.com/stat?c=top_designers">Design</a></dd>
+                        <dd><a id="top_rated_dev" href="http://www.topcoder.com/stat?c=top_developers">Development</a></dd>
+                        <dd><a id="top_rated_assemblers" href="http://www.topcoder.com/stat?c=top_assemblers">Assembly</a></dd>
+                        <dd><a id="top_rated_testers" href="http://www.topcoder.com/stat?c=top_testers">Test Suites</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Record Book</dt>
+                        <dd><a id="algo_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=statistics&amp;d2=recordbook_home">Algorithm</a></dd>
+                        <dd><a id="comp_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=compstats&amp;d2=comp_recordbook_home">Component</a></dd>
+                        <dd><a id="long_recordbook" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=stats&amp;d2=recordbook_home">Marathon Match</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Coder of the Month</dt>
+                        <dd><a id="algo_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=5">Algorithm</a></dd>
+                        <dd><a id="des_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=6">Design</a></dd>
+                        <dd><a id="dev_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=7">Development</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+        <li class="expanded">
+            <a href="javascript:;">Tutorials<i></i></a>
+            <ul style="display: block;" class="hide">
+                <li><a style="color: rgb(255, 138, 0); font-weight: bold;" id="algo_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/algorithm-tutorials/">Algorithm Tutorials</a></li>
+                <li><a id="comp_tutorials" href="http://help.topcoder.com/development/competing-in-development-challenges/development-tutorials/">Software Tutorials</a></li>
+                <li><a id="mm_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/marathon-match-tutorials/">Marathon Tutorials</a></li>
+            </ul>
+        </li>
+        <li><a href="https://apps.topcoder.com/forums/" id="forums">Forums</a></li>
+        <li><a href="https://www.topcoder.com/tc?module=MyHome" id="my_topcoder">My topcoder</a></li>
+    </ul>
+</section>
+<!-- End .navigation -->
+<section class="member-search">
+    <h3>Member Search</h3>
+    <div class="form">
+        <form action="http://community.topcoder.com/tc" method="get" name="simpleSearchForm" class="noSpace" id="simpleSearchForm">
+            <input class="noSpace" name="module" value="SimpleSearch" type="hidden">
+            <input class="noSpace" name="ha" value="Handle:" size="12" maxlength="15" onfocus="javascript: if (document.simpleSearchForm.ha.value=='Handle:') document.simpleSearchForm.ha.value = '';" onblur="javascript:if (document.simpleSearchForm.ha.value == '')document.simpleSearchForm.ha.value = 'Handle:';" type="text">
+            <a href="javascript:javascript:void%20document.simpleSearchForm.submit();" class="btn btn-search-member"><i>SEARCH</i></a>
+        </form>
+    </div>
+</section>
+
+<!-- End .member-search -->
+
+</div>
+
+    
+    
+
+
+
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Center Column Begins -->
+         <td width="100%" align="center">
+
+         <div class="tutorBodyFull">
+
+
+
+
+
+
+
+<table style="visibility: visible;" class="pageTitleTable" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+        <td class="pageTitle" width="100%">
+
+
+            
+                
+                    
+                    <img src="mddb_files/header_alg_tut.gif" alt="alg_tut" border="0">
+                
+                
+            
+
+
+        </td>
+        <td class="pageSubtitle" align="right">&nbsp;&nbsp;</td>
+    </tr>
+</tbody></table>
+
+
+
+<div class="linkBox">
+    <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">Archive</a><br>
+    <span id="printableLink"><a href="javascript:makeInvisible();">Printable view</a><br></span>
+    <span id="navigableLink" class="invisible"><a href="javascript:makeNavigable();">Normal view</a><br></span>
+    <a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=518333">Discuss this article</a><br>
+    <a href="http://community.topcoder.com/tc?module=Static&amp;d1=help&amp;d2=writeForTC">Write for TopCoder</a>
+</div>
+ 
+<span class="bigTitle">An Introduction to Multidimensional Databases</span>
+<br><br>
+
+<div class="authorPhoto">
+    <img src="mddb_files/dcp_big2.jpg" alt="Author">
+</div>
+<div class="authorText">
+  By&nbsp;<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=21684580&amp;tab=alg" class="coderTextGreen">dcp</a><br>
+      <em>TopCoder Member</em>
+</div>
+
+<br clear="all">
+
+<p>In this article, we'll explore the exciting topic of multidimensional
+ databases, which we'll refer to as MDDBs from now on.  MDDBs are a very
+ popular technology in the <a target="_blank" href="http://en.wikipedia.org/wiki/Business_intelligence">business intelligence</a>
+ arena, and they allow a company to perform in-depth, strategic analysis
+ on a variety of factors affecting their company.  In addition, MDDBs 
+allow analysts in the company to leverage tools with which they're 
+already familiar, such as Microsoft® Excel, to work with and analyze 
+data from MDDBs in a "slice and dice" fashion.  The ability to slice and
+ dice the data puts tremendous power in the hands of the business user, 
+and that will become more apparent as we delve into more of the details 
+of MDDBs.</p>
+<p>The format of this article will be primarily focused on MDDB concepts
+ over specific MDDB vendors; however we'll look at Hyperion® Essbase in 
+several parts of the article to give you some concrete examples of MDDB 
+technology in practice.  In addition, we'll look at some real world 
+examples of MDDBs so that you can get a feel of how they are used in the
+ business arena and the impact they can make.</p>
+<p>Having knowledge of relational databases will be helpful to someone 
+reading this article, but it's not required.  However, we'll assume that
+ you at least know what a relational database is, because we'll be 
+comparing relational and multidimensional databases.  If you need an 
+introduction to relational databases, you can refer to the article <a href="http://community.topcoder.com/tc?module=Static&amp;d1=features&amp;d2=032607">here</a>.</p>
+<br>
+
+<h3>Introduction</h3>
+<p>First, just what in the world are we talking about when we say 
+"multidimensional database"?  Well, before we get to that, there are a 
+few terms we need to understand.  The first term is online <strong>transaction</strong> processing, commonly referred to as OLTP.  As the name implies, <strong>OLTP</strong>
+ consists of transaction-based systems, which frequently use a 
+relational database as the back end data store.  OLTP systems are 
+usually focused on quick response times and servicing needs immediately.
+  A good example of an OLTP system is the automatic teller machine (ATM)
+ at your local bank.  When you go to make a withdrawal from the ATM, you
+ aren't really interested in analyzing a bunch of data, or at least the 
+people in line behind you hope you aren't!  In other words, you are 
+there to make a withdrawal, deposit, etc. and move along so that the 
+next person waiting in line can complete their transaction. The OLTP 
+system needs to expedite that process.  This leads us to another term we
+ need to define, <strong>OLAP</strong>, which is stands for online <strong>analytical</strong> processing.  For you history buffs, the term OLAP was coined by E.F. Codd &amp; Associates in a white paper in 1994<a target="_blank" href="http://en.wikipedia.org/wiki/OLAP_cube">[1]</a>.
+  The OLAP approach is focused on the analysis of data, and typically 
+that data originates from OLTP systems.  That's not to say that OLAP 
+technology is "slower" than OLTP technology.  But the two are focused on
+ entirely different things.  OLTP is focused on "getting the job done", 
+and OLAP is focused on "analyzing the results of the job".</p>
+<p>So it's important to understand that there's quite a paradigm shift 
+when we go from relational databases to MDDBs.  To give you another more
+ concrete example, think of the order processing system running at a 
+sales warehouse.  All day long that system is storing orders, shipping 
+information, inventory, and a lot of other information required for 
+running a sales operation.  Moreover, there are many people at the 
+warehouse who are interacting with that OLTP system, recording orders, 
+shipping product, managing late orders, etc.  These individuals are 
+concerned with making sure that the operation is running smoothly and 
+that customer needs are met, so it's critical that the OLTP system 
+respond as quickly as possible.</p>
+<p>But a sales analyst might ask the question, "How are we doing on our 
+sales this year vs. our budget (i.e. our sales plan)?"  The people in 
+the sales warehouse probably aren't going to be able to answer that 
+question.  However, it's their OLTP system that holds the data which 
+needs to be analyzed to come up with the answer.  The OLTP system has 
+all the orders for all product sold for the year, which is exactly what 
+the sales analyst needs so they can compare it to the budget (probably 
+stored in another system).  But there might be billions of records in 
+the OLTP system, so trying to run reports off of the OLTP data is bad 
+for a number of reasons.  First and foremost, OLTP systems are usually 
+mission-critical to the business.  When these systems slow down or 
+experience failure, the entire business suffers.  Have you ever tried to
+ order something off a website and gotten some kind of message like "Our
+ site is currency experiencing problems, please try again later"?  Few 
+things are more frustrating.  So it's very important that OLTP systems 
+stay online and function at top performance levels, and we want to avoid
+ putting any unnecessary load on those systems.</p>
+<p>The sales analyst still needs an answer, so what should we do?  Well,
+ that's where OLAP technology comes in.  We can take the data from the 
+OLTP system and load it to our OLAP system.  Note that when we say "OLAP
+ system", we're really referring to the MDDB.  The two terms mean 
+essentially the same thing.  Another common term you'll hear used for an
+ MDDB is a "cube", or an "OLAP cube".  Really, the terms MDDB, cube, and
+ OLAP cube are used pretty interchangeably, but we will discuss the cube
+ concept shortly.  Let's get back to our sales analyst's issue.  We 
+would typically perform the load of OLTP data to the MDDB in the early 
+morning hours when no users are using the OLTP system, so as to minimize
+ any kind of potential business impact.  In systems that are available 
+24 hours a day 7 days a week, we should load the OLTP data during 
+non-peak times.  The load process is usually a lot more involved and may
+ require "massaging" the data to get it into an analytical form so it 
+can be put into the MDDB.  The term for this load process is called ETL 
+(extract/transform/load), and there are many ETL tools out on the market
+ today.  But ETL is really beyond the scope of our discussion here.  So 
+once the nightly ETL load runs, the OLAP database is loaded and the 
+sales analyst can come in the next morning and find the answer to her 
+question.  The beauty of it is that she can do that <strong>without</strong>
+ impacting the OLTP system one bit.  The folks in the sales warehouse 
+can continue taking orders and running the business, and the sales 
+analyst can do critical analysis of important data which can help 
+determine how the business is performing.</p>
+<p>One thing to keep in mind when discussing OLAP databases is that 
+there is usually data latency in an OLAP cube.  In other words, the data
+ is usually from some point in time, like maybe the snapshot of data 
+from the night before.  But from an analytical standpoint, this data 
+latency is usually just fine because users are doing analysis like 
+comparing sales trends, etc. and it's not really critical to have 
+up-to-the-minute data from the OLTP system.  Note that some of the newer
+ OLAP technology offered by Microsoft Analysis Services allows for 
+nearly real time analysis of business intelligence data<a target="_blank" href="http://www.microsoft.com/technet/prodtechnol/sql/2005/rtbissas.mspx">[3]</a>.  In other words, they have mechanisms where you can keep the OLAP data in sync with the relational data.</p>
+<p>So to wrap up this section, we've looked at OLTP and OLAP and the 
+differences between the two.  Make sure you have a good grasp of these 
+concepts before moving to the next section, where we'll begin to explore
+ the "cube" concept.</p>
+<br>
+
+<h3>The "Cube"</h3>
+<p>In the last section, we introduced the term "OLAP cube".  The reason 
+the term "cube" is used when describing a MDDB database is because of 
+the way the data is stored.  From a conceptual standpoint, you can think
+ of the data stored in an MDDB as being stored in multidimensional 
+arrays, where we're usually dealing with much more than 2 dimensions.  
+This is much different from a relational database, because in a 
+relational database table you are really only working in two dimensions,
+ namely, row and column.  So if I have a table called <strong>coder</strong>
+ in a relational database, and the columns in that table are handle and 
+rating, the handle and rating columns represent a single dimension, and 
+the actual rows of data in the table represent another single dimension 
+(refer to figure 1).</p>
+<div align="center"><img alt="Figure 1" src="mddb_files/figure01.png"><br><br><strong>Figure 1</strong></div>
+<p>However, when we talk about cubes, we're typically dealing with many 
+dimensions, not just two.  When you design a cube, one of the first 
+things you must do is determine the dimensions you want in the cube.  
+It's very important to spend time really thinking through your cube <strong>design</strong>
+ before implementing it, because if you don't choose your dimensions 
+wisely it can cause the cube to perform poorly and, even worse, you 
+won't meet the business needs.  It's important to understand that the 
+dimensions are really the architectural blueprint of your cube.</p>
+<p>So going back to our sales warehouse example, we might have a cube 
+with a Time dimension, a Scenarios dimension, and a Measures dimension 
+(see Figure 2 below).  The Scenarios dimension might contain members for
+ plan and actual, which would correspond to planned (i.e. budgeted) 
+values and actual (i.e. real sales) values respectively.  Our Measures 
+dimension could contain members for things like number of total orders 
+taken, number of orders which were shipped or cancelled, and the order 
+fulfillment rate, which is the ratio of orders shipped vs. orders 
+placed.  Finally, our Time dimension would contain members representing 
+the fiscal calendar for the company, like fiscal week number, month of 
+the year, fiscal quarter, etc.  So conceptually, our cube might look 
+like figure 2, shown below.</p>
+<div align="center"><img alt="Figure 2" src="mddb_files/figure02.png"><br><br><strong>Figure 2</strong></div>
+<p>From a coder perspective, you could think of this cube as a 
+three-dimensional array, in which the aforementioned dimension names 
+correspond to dimensions in the array.  And to extend that analogy 
+further, if you wanted to know how many actual orders were shipped for 
+September, you could look at cube[Actual][Sep][shipped orders], which 
+would correspond to the "data cell" in the cube that contained that 
+piece of data.</p>
+<p>The real power of an OLAP cube stems from the fact that as we access 
+those data cells in the multidimensional "array", the access time is 
+almost instantaneous.  Now, let's stop for a minute and think about how 
+we would determine how many actual orders were shipped for September 
+from a relational database.  We would most likely write a <a href="http://community.topcoder.com/tc?module=Static&amp;d1=features&amp;d2=041907">SQL</a>
+ query to extract the answer from the relational database tables.  
+However, as we mentioned earlier we obviously wouldn't want to run that 
+type of query on our OLTP tables as that could slow down the performance
+ of the OLTP database.  But not only that, we would have to make sure 
+that the relational database tables had the appropriate indexes on the 
+tables we were querying so that the query would run in a reasonable 
+amount of time.  Remember, OLTP database tables can contain billions of 
+records.</p>
+<p>In summary, one of the primary advantages offered by MDDBs is the fast access they offer to data.</p>
+<br>
+
+<h3>Dimensions</h3>
+<p>We introduced dimensions in the previous section, but now we'll take a
+ more formal look at them.  Dimensions, as their name imply, provide a 
+way to categorize data into different groups.  For example, let's 
+pretend that we're building an OLAP cube to store TopCoder data about 
+coders so we can analyze it.  We need to think about the different types
+ of data we have and see how we might categorize it, so let's make a 
+list of some items in which we might be interested:</p>
+<ul>
+    <li>Coder Handle</li>
+    <li>Algorithm Rating</li>
+    <li>Design Rating</li>
+    <li>Development Rating</li>
+    <li>Algorithm Rating Color</li>
+    <li>Design Rating Color</li>
+    <li>Development Rating Color</li>
+    <li>Continent</li>
+    <li>Country</li>
+    <li>Join Date</li>
+    <li>School</li>
+    <li>Number of Algorithm Rated Events</li>
+    <li>Number of SRM Wins</li>
+    <li>Earnings</li>
+</ul>
+<p>Next, we need to come up with some logical groupings for this data, 
+and those logical groupings will become our dimensions.  So let's start 
+with the "measures", which are typically numeric values or percentages. 
+ We've already seen an example of a Measures dimension in the sales cube
+ from the previous section.  In the above list, we could make measures 
+out of the numeric rating fields and the number of algorithm rated 
+events field, so our measures dimension could look look like this:</p>
+<pre>Measures
+    Algorithm Rating
+    Development Rating
+    Design Rating
+    Number of Algorithm Rated Events
+    Number of SRM Wins
+    Earnings
+</pre>
+<p>The way to think about measures is to think of them as the "data 
+values" you are storing in the multidimensional array.  All the other 
+dimensions are focused around analyzing these measures.  In other words,
+ measures are really a special dimension.  Rating is clearly a 
+measurement in the case of our coder cube, because it has a numeric 
+value, and the same is true for the number of algorithm rated events, 
+the number of SRM wins, and earnings.</p>
+<p>Next, let's look at coder handle.  We have some options here, and one
+ of them would be to combine coder handle, country and geographic region
+ into one dimension.  In other words, within each dimension, we can have
+ a hierarchy.  So we could do something like this for our coder 
+dimension:</p>
+<pre><strong>Figure 3</strong>
+
+Coder
+    Asia
+        China
+            Coder1
+            Coder2
+            Coder3
+            .
+            .
+        North Korea
+            Coder4
+            Coder5
+            Coder6
+        .
+        .
+    North America
+        United States
+            Coder7
+            Coder8
+            .
+            .
+        .
+        .
+    Europe
+        France
+            Coder9
+            Coder10
+            .
+            .
+        .
+        .
+</pre>
+<p>In this example, we've started our hierarchy with the continent, and 
+underneath each continent we have country, and underneath each country 
+we have the actual coders for that country.  What we have to decide here
+ is whether this hierarchy will meet the needs of our users.  The key 
+thing to notice is that the more data you combine into a dimension, the 
+less flexibility you have later.  For example, what if we want to run 
+some analysis by coder country?  We can do it with this hierarchy, but 
+it's not as easy as it could be if we had country as a separate 
+dimension.  In other words, to run analysis by country with the 
+hierarchy above, we have to drill into each continent and find all the 
+countries for that continent.  If, on the other hand, we had country as 
+its own dimension, then we could run the analysis by country much more 
+easily since we wouldn't have to drill in by continent to find each 
+country.  For the purposes of our discussion, we'll assume that the 
+above hierarchy is sufficient and we go with that for our coder 
+dimension.</p>
+<p>This brings us to another concept regarding cubes, namely, <strong>aggregation</strong>.  The idea behind aggregation is that we typically load values to the lowest <strong>level</strong>
+ in each dimension in the cube, and then sum up, or "aggregate" the 
+values to the upper levels in each dimension.  With Hyperion® Essbase, 
+level 0 represents the leaf level members in each dimension.  For 
+example, in figure 3 above, the coder members of the dimension would be 
+level 0.  The parents of level 0 members are level 1 members, so the 
+countries would be level 1.  The parents of level 1 members are level 2,
+ and we continue this numbering scheme on up until we get to the root 
+member of the dimension.  So when we are loading our cube with coder 
+data, we would load it to the lowest level in our coder dimension.  In 
+other words, we would load it at the coder level.  And after we load 
+that data, we can then "aggregate" or roll it up to the upper levels.  
+This is one of the main reasons OLAP cubes are so powerful. Since those 
+values are aggregated, we don't have to do any summing when retrieving 
+the values from the cube.  The sum is already pre-calculated!  You can 
+think of a cube as sort of a "power array", in that we can look at any 
+combination of members from the dimensions in the cube and get the 
+answer in which we're interested.  So conceptually, we could look at 
+cube[Coder1][Earnings] to get Coder1's total earnings, or 
+cube[China][Earnings] to get the total earnings for Chinese coders.  And
+ again, the real power here is that this answer is already 
+pre-calculated in the OLAP cube so access time is minimal.</p>
+<p>Again, let's contrast how we would get this information with a 
+relational database.  In a relational database, if you wanted to know 
+the total earnings for coders from China, you would have to run a SQL 
+statement and sum up the earnings (assuming that you hadn't built some 
+kind of summary table in the relational database already).  This may not
+ seem like much when you're only talking about a few thousand coder 
+records, and a SQL query would probably do just fine in this example.  
+But if you consider having to run a SQL query to sum up values for 800 
+million transaction records from a sales database, you can see where 
+OLAP cubes offer a huge advantage by having the values of interest 
+already aggregated.</p>
+<p>Some of you savvy folks out there might have noticed that aggregation
+ doesn't necessarily make sense for all measures.  For example, summing 
+up two coders' ratings doesn't provide a meaningful value.  So for these
+ types of values, we <strong>wouldn't</strong> want to aggregate them to
+ upper levels.  Most MDDB vendors have a way to control this when you 
+set up the cube.  For example, with Hyperion® Essbase you can specify 
+the type of aggregation to use, such as addition, subtraction, etc., but
+ you can give the dimension member the "no consolidation" property, 
+which means its values won't be rolled up to its parents.</p>
+<p>So now that we've defined our coder and measures dimension, let's 
+look at the other dimensions we need.  We obviously want to store 
+information about a coder's colors, and that information is in the 
+algorithm rating color, development rating color, and design rating 
+color values.  We could make members in our measures dimension for these
+ items, and just store red, yellow, etc. for the actual data value in 
+the cube.  And that may be fine, depending on the needs and types of 
+analysis that are going to be performed on the cube.  The other choice 
+we could make here would be to make these fields into three cube 
+dimensions, as shown below in figure 4:</p>
+<pre><strong>Figure 4</strong>
+
+Algorithm Rating Color
+    Algo-Red
+    Algo-Yellow
+    Algo-Blue
+    Algo-Green
+    Algo-Gray
+    Algo-Not Rated
+Design Rating Color
+    Design-Red
+    Design-Yellow
+    Design-Blue
+    Design-Green
+    Design-Gray
+    Design-Not Rated
+Development Rating Color
+    Dev-Red
+    Dev-Yellow
+    Dev-Blue
+    Dev-Green
+    Dev-Gray
+    Dev-Not Rated
+</pre>
+<p>Notice that the color in each dimension is prefixed with Algo, 
+Design, or Dev respectively.  The reason for this prefix is that with 
+some MDDB vendors (depending on version), each member name must be 
+unique across every dimension in the cube.  Later versions of Hyperion® 
+Essbase offer the ability to have duplicate member names, but earlier 
+versions did not.</p>
+<p>Now, what advantage does having the three rating color values as 
+separate dimensions offer us over having them as members in the measures
+ dimension?  Well, it gives us the ability to "drill-in" to the cube to 
+find the total earnings for all coders from North America who are 
+Algo-Red and Dev-Blue, for example (i.e. cube[North 
+America][Algo-Red][Dev-Blue]).  Note that we could also drill into the 
+"North America" member and find out the actual coders.  The way this 
+works is that when you drill into the cube, if no data is present for a 
+member then it won't bring the member back (depending on the add-in 
+settings).  So if you drill down into North America, but there are no 
+members that are both Algo-Red and Dev-Blue, then no members would be 
+brought back.  Different MDDB vendors have various tools for interfacing
+ with a cube, but most of the more popular ones use some kind of 
+Microsoft® Excel Add-In because spreadsheets work extremely well for 
+working with cubes and drilling in and out of dimensions.  With 
+Hyperion® Essbase, for example, if we were to connect to the cube we 
+have defined so far, we might be presented with a sheet like figure 5 
+below:</p>
+<div align="center"><img alt="Figure 5" src="mddb_files/figure05.png"><br><br><strong>Figure 5</strong></div>
+<p>From there, you can "double-click" any dimension, and the add-in will
+ drill into the dimension. So if I double-clicked on Coder, I'd end up 
+something like this (obviously there would be many more countries but 
+this is just for illustrative purposes):</p>
+<div align="center"><img alt="Figure 6" src="mddb_files/figure06.png"><br><br><strong>Figure 6</strong></div>
+<p>I could keep drilling into dimensions, and drill into the measures 
+I'm interested in to see the actual values.  So we could drill into 
+Measures, and also navigate down to the Algo-Red, Design-Blue, Dev-Not 
+Rated members and end up with this configuration:</p>
+<div align="center"><img alt="Figure 7" src="mddb_files/figure07.png"><br><br><strong>Figure 7 (illustrative purposes only, not actual data)</strong></div>
+<p>As you can see in figure 7, we now know the total earnings by 
+continent for coders who are red in algorithms, blue in design, and not 
+rated in development.</p>
+<p>I hope you can see how this "drilling" ability gives the user 
+virtually endless possibilities to slice and dice data into various 
+formats to do the analysis they need.  They can look at the dimensions 
+at various levels (ex. Continent, country, etc.) to get the summary 
+information in which they're interested.  And the beauty of it all is 
+that once you build a cube for them, they can do this type of analysis 
+themselves and you rarely have to write custom reports (that use 
+relational database data) for them anymore!  It truly puts the power in 
+the analyst's hands, and we'll look at a real world example of that a 
+bit later.</p>
+<p>We've made great progress on our cube!  There are only two more 
+values left to map, namely, school and join date.  We'll go ahead and 
+make school its own dimension since it probably makes sense to be able 
+to do analysis at school level.</p>
+<p>As for join date, usually with date values it's best to split date 
+into two dimensions: one for year and one for calendar.  We usually call
+ the calendar dimension "Time".  Here's an example:</p>
+<pre><strong>Figure 8</strong>
+
+Year
+    2008
+    2007
+    2006
+    2005
+    2004
+    2003
+    2002
+    2001
+    2000
+Time
+    Qtr_1
+        Jan
+            Jan_1st
+            Jan_2nd
+            Jan_3rd
+            .
+            .
+        Feb
+            Feb_1st
+            Feb_2nd
+            Feb_3rd
+            .
+            .
+        Mar    Mar_1st
+            Mar_2nd
+            Mar_3rd
+            .
+            .
+    Qtr_2
+        Apr
+            Apr_1st
+            Apr_2nd
+            Apr_3rd
+            .
+            .
+        May
+            May_1st
+            May_2nd
+            May_3rd
+            .
+            .
+        Jun
+            Jun_1st
+            Jun_2nd
+            Jun_3rd
+            .
+            .
+    Qtr_3
+    .
+    .
+    Qtr_4
+    .
+    .
+</pre>
+<p>So we essentially create a time hierarchy so that if we want to know 
+which coders joined in the first quarter of 2004, we can drill into the 
+above dimensions and find that information.  And by using this dimension
+ structure, we don't ever have to change our Time dimension; we just add
+ a new member to our Year dimension as we reach a new year, or we could 
+just pre-add as many as we need.</p>
+<p>Besides standard dimensions, another type of dimension you can use in
+ a cube is an "attribute dimension".  Different MDDB vendors implement 
+attribute dimensions in various ways, but the way to think of attribute 
+dimensions is that they are "characteristics" of members of another 
+dimension.  For example, if join date wasn't something that we needed to
+ be able to do heavy analysis on, we could make it an attribute 
+dimension associated with the coder dimension, since each coder has a 
+join date.  The thing to remember about attribute dimensions is that 
+they don't give you quite the analysis power that a normal dimension 
+does, so you have to ensure that they are going to meet your needs.  For
+ example, you can only associate one member of an attribute dimension 
+with a member of a standard dimension.  So let's say, for example, that 
+we wanted to track coder's algo rating over time, but we wanted to make 
+algo rating an attribute dimension.  That would not work, because you 
+could only have one rating value associated with a coder since it's an 
+attribute dimension.  In that case, you'd have to use two standard 
+dimensions, one for rating time and one for rating.  The other thing to 
+remember about attribute dimensions is that the values aren't 
+pre-aggregated in the cube like they are with standard dimensions, so 
+the aggregation happens at data retrieval time.  This can be a 
+performance hit if you have many members in the attribute dimension, so 
+you want to be smart in you considerations of where to use them or a 
+standard dimension.</p>
+<p>One word of caution about dimensions:  the more dimensions you have, 
+typically the longer it will take to aggregate the data and drill into 
+dimensions.  In other words, you don't want to just keep adding 
+dimensions arbitrarily, because eventually if you get too many 
+dimensions the cube is going to suffer performance-wise.</p>
+<p>So at this point, we have designed our first OLAP cube!  Give yourself a pat on the back!</p>
+<br>
+
+<h3>Building Dimensions &amp; Loading Data to the Cube</h3>
+<p>Obviously, a cube is worthless without data.  We already alluded to 
+ETL earlier in the article, and that is the way we get the data in the 
+relational database into the form we need for loading into the cube.  
+Sometimes, nothing has to be done here (i.e. the data can be loaded 
+directly from the relational tables "as is" without any ETL).  In either
+ case, we must get the data into the cube.  And note that many MDDB 
+vendors don't restrict you to using a relational database as the data 
+source for loading cube data.  You can use spreadsheets, CSV files, and 
+many other types of data source.</p>
+<p>Before we can load the data into the cube, however, we must make sure
+ we have all the dimension members present for the data which we wish to
+ load.  In other words, we can't load Coder14 data until we've actually 
+added the Coder14 member to the coder dimension.  Again, how you build 
+dimensions varies with MDDB vendors.  With Hyperion® Essbase, for 
+example, you use what's known as a "load rule".  With a load rule, you 
+typically write an <a href="http://community.topcoder.com/tc?module=Static&amp;d1=features&amp;d2=041907">SQL</a>
+ statement (assuming you're using a relational database as the data 
+source) to query for the dimension members you wish to load.  You can 
+load an individual dimension, or multiple dimensions in the same load 
+rule.  You can also specify if members are to be removed if they aren't 
+found in the data source, so that is one way you can remove members from
+ the cube (inactive coders, for example).</p>
+<p>One the dimension members have been added, we're ready to load the 
+actual cube data.  The load rule for loading data to the cube must 
+specify a member value for each dimension.  If you think about it, that 
+makes sense because if we leave out a dimension, then the loader won't 
+know where to put the data in the cube.  As mentioned earlier, it's 
+usually best to load data to the lowest level of each dimension.  Note 
+that if you accidentally load a data value to a higher level, then when 
+you "calculate" the cube (covered in the next section), you will wipe 
+out the values because the aggregation will roll up the lower level 
+value, which is nothing, to the higher level.  As an example, if I 
+loaded earnings values to the country level instead of the coder level, 
+when I did the aggregation the country values would be overwritten 
+because it would aggregate the values at coder level upwards.</p>
+<p>Load rules are a big subject, and we've just touched on them briefly 
+here.  There are many caveats to deal with when loading data to a cube, 
+such as what to do with rejected records, and how to handle duplicate 
+member names.  It's important to have a good strategy in place for 
+handling these types of situations whenever you are going to build 
+cubes.  The strategy may vary from cube to cube, because with some cubes
+ you may not care as much if records are rejected, but in other cubes it
+ may be a critical event.</p>
+<br>
+
+<h3>Calculations</h3>
+<p>So now that we've loaded our data to the OLAP cube, we need to 
+aggregate it up to the higher levels.  To do that, we must run a 
+"calculation" step, which does just that.  Note that we are not limited 
+to just aggregating (i.e. rolling up) data, we can also have complex 
+calculation formulas on data members.  The industry standard for writing
+ these types of calculations is <a target="_blank" href="http://en.wikipedia.org/wiki/Multidimensional_Expressions">MDX</a>, which is a query language for OLAP databases.  It's like <a href="http://community.topcoder.com/tc?module=Static&amp;d1=features&amp;d2=041907">SQL</a>
+ in a lot of ways, but it's sort of a paradigm shift because you have to
+ think a bit differently when working with MDX because you are working 
+in many dimensions, not just two.</p>
+<p>MDX Calculation scripts can do other things as well, such as 
+allocating a sales adjustment across several products over a time 
+period.  For example, let's say a department store has a 6 million 
+dollar sales adjustment.  This dollar amount needs to be distributed 
+across fiscal year 2008, 1st quarter sales.  The MDX script could take 
+that 6 million dollars and "spread" it down to the lowest levels in each
+ dimension, so that each product would contain a portion of the 
+adjustment.  These types of adjustments are quite common in sales cubes,
+ where things like kickbacks and other types of dollar adjustments occur
+ on a frequent basis (quarterly, for example) and have to be distributed
+ across products.</p>
+<p>MDX calculations also allow us to do simple calculations, such as 
+creating a formula to add two values together and subtract another.  For
+ example, we might have the following formula for net sales:</p>
+<pre>Net_Sales = Gross_Sales - Cost of Goods Sold + Sales Adjustments
+</pre>
+<p>We could do that calculation ourselves in the load rule using a SQL 
+expression, or we could let the cube calculate it for us.  If you do the
+ calculation in the SQL expression though, then you are aggregating 
+computed values, which can cause a loss of precision as those computed 
+values are aggregated to higher levels.  So it's usually a good strategy
+ to load the raw values and put the calculations in the cube itself.</p>
+<br>
+
+<h3>Storage Options</h3>
+<p>In this section, we'll deal with some specifics regarding Hyperion® 
+Essbase storage options because it's important to understand the options
+ you have available.  So far, we've been discussing the <strong>Block Storage Option (BSO)</strong>,
+ which requires us to calculate the data to get it to higher levels.  
+Obviously, this aggregation step can take substantial time if you have a
+ lot of data and/or dimensions in the cube.  One thing you can do with 
+BSO cubes to reduce aggregation time is specify that a member is a <strong>Dynamic Calc</strong>
+ member.  This means that the value isn't calculated until retrieval 
+time.  The advantage here obviously is that your aggregation time is 
+reduced.  However, you must realize that it can slow down your retrieval
+ time, because now the aggregation happens at fetch time.  So it's a 
+"pay me now, pay me later" situation.  Generally, you want to limit 
+dynamic calcs in a cube because you are usually going to load the cube 
+in a nightly batch process, when time isn't a scarce resource.  So a 
+longer calc time doesn't matter as much since it's happening at night.  
+But when an impatient financial analyst is fetching a value from the 
+cube, you want that result to come back quickly.</p>
+<p>However, Hyperion® Essbase also offers another type of storage option called <strong>Aggregate Storage Option (ASO)</strong>.
+  With the ASO technology, no additional calculation step is required to
+ aggregate the data!  The values are aggregated dynamically at retrieval
+ time.  So basically, you load your data and you're done.  ASO cubes are
+ usually much smaller than their BSO counterparts, so that is one reason
+ why the values can be aggregated at runtime and you can still get good 
+retrieval performance.  However, you can also pre-calculate values in an
+ ASO cube and store them in aggregations, which is useful when the cube 
+gets extremely big.</p>
+<p>So which option should you choose, BSO or ASO?  That depends.  ASO 
+cubes don't allow you to run calculation scripts, since all data 
+retrieval is dynamic (except for the pre-calculated values we just 
+mentioned).  So in a financial cube, for example, where you are going to
+ be doing a lot of allocation calculation scripts, BSO is probably the 
+best choice.</p>
+<p>However, in a cube where you want to have a lot of detailed data and 
+want to be able to load and retrieve it quickly, ASO is a great option 
+to consider.</p>
+<br>
+
+<h3>Some Real World Examples</h3>
+<p>In this section, I'll share some real world examples of how Hyperion®
+ Essbase OLAP technology has made a huge impact in one of the places 
+I've worked.</p>
+<p>In the shop where I worked, we were literally getting new report 
+requests every 2-3 days for some new report for our forecasting system. 
+ The users wanted to see forecast totals by style, color, and size (it 
+was an apparel manufacturing business), then somebody else would want to
+ see totals by style only.  Another user just wanted a report that 
+showed total sales for last year for our "Big 3" retailers.  In short, 
+we couldn't finish one report before there were 2 to 3 more user 
+requests being added to our queue!  That's when we decided to replace 
+the entire forecasting system with an OLAP cube.  One thing I haven't 
+mentioned until now is that you can also load data to the cube through 
+the Excel Add-In.  So we made the OLAP cube the data repository for the 
+forecast, so users would use the Excel Add-In to "lock and send" their 
+forecast data to the cube using Excel.  They also had the ability to 
+calculate the cube (it was a BSO cube) so their forecast would be 
+aggregated.  We also loaded our actual sales data to the cube on a 
+weekly basis so the users could compare actual to forecast to see how 
+the company was doing, and also so they could plan the forecast 
+accurately by looking at prior year sales.</p>
+<p>Once we gave the forecast group this OLAP cube, amazingly, the weekly
+ report requests suddenly stopped!  We found that the users were able to
+ meet all their reporting needs with the Excel Add-In and OLAP cube, and
+ we no longer had to write custom reports.  It was a huge win for the 
+company, and the users absolutely loved it!</p>
+<p>In another area of the company, we were having major problems with 
+excess inventory and we needed a way to track and locate this inventory 
+at the plants and get rid of it by selling it to our wholesale 
+distributor.  We had a short timeframe to do this, because after a 
+selling season ended, the inventory was basically useless and the 
+wholesaler would no longer buy it.  So we developed an OLAP cube to 
+track the inventory and compare it against the forecast (the same 
+forecasting system I just described). Doing this allowed our financial 
+planning group to see ahead of time which of our inventory was not going
+ to be sold by subtracting forecast from inventory and seeing what was 
+left.  The financial planning department could then take a proactive 
+approach to selling the inventory to our wholesaler before it became 
+obsolete, and we literally saved millions of dollars in the process!</p>
+<br>
+
+<h3>Conclusion</h3>
+<p>I hope by this point in the article you can see the advantages that 
+MDDB's offer.  The learning curve is a bit steep when you're getting 
+acclimated with building cubes, but the payoff is tremendous, as you can
+ use the technologies to make a huge impact in a company.</p>
+<br>
+
+<h3>References</h3>
+<p>[1] - <a target="_blank" href="http://en.wikipedia.org/wiki/OLAP_cube">http://en.wikipedia.org/wiki/OLAP_cube</a><br>
+[2] - HYPERION® SYSTEM™ 9 BI +™ ANALYTIC SERVICES™ RELEASE 9.3 Database Administrators Guide<br>
+[3] - <a target="_blank" href="http://www.microsoft.com/technet/prodtechnol/sql/2005/rtbissas.mspx">http://www.microsoft.com/technet/prodtechnol/sql/2005/rtbissas.mspx</a></p>
+
+
+<p>&nbsp; </p>
+
+        </div></td>
+<!-- Center Column Ends -->
+
+<!-- Right Column Begins -->
+         <td id="onRight" width="170">
+            
+
+
+
+<script type="text/javascript" language="javascript">
+
+</script>
+
+
+
+<div class="rightColContent">
+    <br><br>
+</div>
+
+
+         </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+         <td width="10"><img src="mddb_files/clear.gif" height="1" width="10" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</tbody></table>
+
+<div id="onBottom">
+
+
+
+
+
+
+    
+        <footer id="footer">
+            <div class="container">
+                <div class="footerContentSection twitter">
+                    <div class="title">Twitter</div>
+                    <div class="footerContent">
+
+
+                        
+
+                        <a class="btn btnFooter" href="http://www.twitter.com/topcoder"><span class="twFollowIcon"></span><span class="twFollowBtnText">Follow</span></a>
+                    </div>
+                </div>
+                <div class="footerContentSection recentBlogPosts">
+                    <div class="title">Recent Blog Posts Updated</div>
+                         <div class="footerContent">
+                              <div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=new-look-and-feel-for-tc">Apr 23</a>
+
+                                 @timmhicks – Tim Hicks Happy Hump Day 
+topcoders! We are excited to announce that we will be releasing a new 
+look for the very popular /tc by...<a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/space-the-final-email-frontier/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=space-the-final-email-frontier">Apr 23</a>
+
+                                 Do you ever find yourself hitting 
+“send” on an email and wondering if it’ll arrive in the recipient’s 
+inbox? Sending email has become so ubiquitous, simple and...<a href="http://www.topcoder.com/blog/space-the-final-email-frontier/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games">Apr 22</a>
+
+                                 @ClintonBon – Clinton Bonner We know 
+what you’re thinking. Great, another ‘puff piece’ on the ‘wisdom of 
+crowds’ and how all we need to do is post...<a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/" class="more">Read More</a></div><span id="blogTemplate" style="display: none">
+                                 <div class="footerBlogEntry">
+                                     <a href="javascript:;"></a>
+
+                                 </div>
+                              </span>
+                             <a class="btn btnFooter" href="http://www.topcoder.com/blog">View More</a>
+                         </div>
+
+
+                </div>
+                <div class="footerContentSection aboutTopCoder">
+                    <div class="title">About topcoder</div>
+                    <div class="footerContent">
+                        The topcoder community gathers the world's 
+experts in design, development and data science to work on interesting 
+and challenging problems for fun and reward. We want to help topcoder 
+members improve their skills, demonstrate and gain reward for their 
+expertise, and provide the industry with objective insight on new and 
+emerging technologies.
+                    </div>
+                    <a class="btn btnFooter" href="http://www.topcoder.com/mission">About Us</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <div class="connected">
+                    <section class="social">
+                        <h4>Get Connected</h4>
+                        <ul>
+                            <li><a class="fb" href="http://www.facebook.com/topcoder">FB</a></li>
+                            <li><a class="tw" href="http://www.twitter.com/topcoder">TW</a></li>
+                            <li><a class="gp" href="https://plus.google.com/u/0/b/104268008777050019973/104268008777050019973/posts">GP</a></li>
+                            <li><a class="in" href="https://www.linkedin.com/company/topcoder">IN</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </section>
+                    <section class="updates">
+                        <div class="row">
+                            <form id="emailForm" onsubmit="return newsletter_check(this)" name="FeedBlitz_9feab01d431311e39e69002590771423" style="display:block" method="POST" action="http://www.feedblitz.com/f/f.fbz?AddNewUserDirect">
+                                <input value="Your email address" style="display: block;" class="email isBlured" name="EMAIL" placeholder="Your email address" maxlength="64" type="email">
+                                <input name="FEEDID" value="926643" type="hidden">
+                                <input name="PUBLISHER" value="34610190" type="hidden">
+                                <!-- <a onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn">Submit</a> -->
+                                <input onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn btnSubmitFooter" value="Submit" type="button">
+                                <input name="na" value="s" type="hidden">
+                                <input name="nr" value="widget" type="hidden">
+                            </form>
+                            <script type="text/javascript">function FeedBlitz_9feab01d431311e39e69002590771423i(){var x=document.getElementsByName('FeedBlitz_9feab01d431311e39e69002590771423');for(i=0;i<x.length;i++){x[i].EMAIL.style.display='block'; x[i].action='http://www.feedblitz.com/f/f.fbz?AddNewUserDirect';}} function FeedBlitz_9feab01d431311e39e69002590771423s(v){v.submit();}FeedBlitz_9feab01d431311e39e69002590771423i();</script>
+
+                        </div>
+                    </section>
+                </div>
+                <div class="copyright">
+                    <section>
+                        <br>
+                        © 2014 topcoder. All Rights reserved.
+                        <br>
+                        <a href="http://www.topcoder.com/community/how-it-works/privacy-policy/" class="privacyStmtLink">Privacy Policy</a> | <a href="http://www.topcoder.com/community/how-it-works/terms/" class="legalDisclaimerLink">Terms</a>
+                    </section>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </footer>
+    
+    
+
+
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6340959-1']);
+  _gaq.push(['_setDomainName', '.topcoder.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</div>
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"5697653","applicationTime":166,"beacon":"beacon-3.newrelic.com","queueTime":0,"licenseKey":"496af5ee90","transactionName":"ZlcBbBQAChBSARIKXV8dKWs2ThAWRw0UClNdQUxVAgUGTVkRFg==","agent":"js-agent.newrelic.com\/nr-515.min.js","errorBeacon":"bam.nr-data.net"}</script>
+
+
+
+<script src="mddb_files/nr-515.js"></script><script src="mddb_files/496af5ee90" type="text/javascript"></script></body></html>

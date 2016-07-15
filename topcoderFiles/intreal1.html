@@ -1,0 +1,998 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Algorithm Tutorials</title>
+
+
+
+
+
+
+<script src="intreal1_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="intreal1_files/jquery-1.js"></script>
+<script type="text/javascript" src="intreal1_files/jquery-migrate-1.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/js/reskin/html5shiv.js"></script>
+<![endif]-->
+<script type="text/javascript" src="intreal1_files/jquery.js"></script>
+<script type="text/javascript" src="intreal1_files/newTCScript.js"></script><link type="image/x-icon" rel="shortcut icon" href="http://community.topcoder.com/i/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="intreal1_files/css.css" rel="stylesheet" type="text/css">
+    
+    <link type="text/css" rel="stylesheet" href="intreal1_files/coders.css">
+    <link type="text/css" rel="stylesheet" href="intreal1_files/jobsRemix.css">
+    <link type="text/css" rel="stylesheet" href="intreal1_files/myHome.css">
+    
+<link type="text/css" rel="stylesheet" href="intreal1_files/newStyles.css">
+<!--[if IE 8]>
+<link type="text/css" rel="stylesheet" href="/css/reskin/newStyles_ie8.css"/>
+<![endif]-->
+
+
+
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(n,t,e){function r(e){if(!t[e]){var o=t[e]={exports:{}};n[e][0].call(o.exports,function(t){var o=n[e][1][t];return r(o?o:t)},o,o.exports)}return t[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({QJf3ax:[function(n,t){function e(n){function t(t,e,a){n&&n(t,e,a),a||(a={});for(var u=c(t),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,e);return s}function a(n,t){f[n]=c(n).concat(t)}function c(n){return f[n]||[]}function u(){return e(t)}var f={};return{on:a,emit:t,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=n("gos");t.exports=e()},{gos:"7eSDFh"}],ee:[function(n,t){t.exports=n("QJf3ax")},{}],gos:[function(n,t){t.exports=n("7eSDFh")},{}],"7eSDFh":[function(n,t){function e(n,t,e){if(r.call(n,t))return n[t];var o=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,t,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return n[t]=o,o}var r=Object.prototype.hasOwnProperty;t.exports=e},{}],D5DuLP:[function(n,t){function e(n,t,e){return r.listeners(n).length?r.emit(n,t,e):(o[n]||(o[n]=[]),void o[n].push(t))}var r=n("ee").create(),o={};t.exports=e,e.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(n,t){t.exports=n("D5DuLP")},{}],XL7HBI:[function(n,t){function e(n){var t=typeof n;return!n||"object"!==t&&"function"!==t?-1:n===window?0:i(n,o,function(){return r++})}var r=1,o="nr@id",i=n("gos");t.exports=e},{gos:"7eSDFh"}],id:[function(n,t){t.exports=n("XL7HBI")},{}],loader:[function(n,t){t.exports=n("G9z0Bl")},{}],G9z0Bl:[function(n,t){function e(){var n=v.info=NREUM.info;if(n&&n.licenseKey&&n.applicationID&&f&&f.body){c(d,function(t,e){t in n||(n[t]=e)}),v.proto="https"===l.split(":")[0]||n.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var t=f.createElement("script");t.src=v.proto+n.agent,f.body.appendChild(t)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=n("handle"),c=n(1),u=window,f=u.document,s="addEventListener",p="attachEvent",l=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},v=t.exports={offset:i(),origin:l,features:{}};f[s]?(f[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(f[p]("onreadystatechange",r),u[p]("onload",e)),a("mark",["firstbyte",i()])},{1:11,handle:"D5DuLP"}],11:[function(n,t){function e(n,t){var e=[],o="",i=0;for(o in n)r.call(n,o)&&(e[i]=t(o,n[o]),i+=1);return e}var r=Object.prototype.hasOwnProperty;t.exports=e},{}]},{},["G9z0Bl"]);</script><script language="JavaScript" src="intreal1_files/print.js"></script>
+<style type="text/css">
+.code
+{
+   width: 550;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
+}
+.math
+{
+   font-family: times, times new roman, serif;
+   font-weight: normal;
+   font-style: italic;
+   font-size: 14px;
+}
+</style>
+</head>
+<body>
+<div id="onTop">
+    
+
+
+
+
+
+
+
+
+
+    
+        <header id="navigation" class="newUser">
+            <div class="container">
+                <div class="headerTopRightMenu">
+                    
+                        <div class="headerTopRightMenuLink logIn">
+                            <div class="text"><a href="http://www.topcoder.com/tc?module=Logout" class="actionLogin">Log Out</a></div>
+                            <div class="clear"></div>
+                        </div>
+                    
+
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink contact">
+                        <div class="text"><a href="http://www.topcoder.com/contact-us/">Contact</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink help">
+                        <div class="text"><a href="http://help.topcoder.com/">Help Center</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator beforeSearch"></div>
+                    <div class="headerTopRightMenuLink search last">
+                        <div class="icon"></div>
+                        <div class="text"><a href="http://www.topcoder.com/search">Search</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <h1 class="logo">
+                    <a href="http://www.topcoder.com/" title="topcoder"></a>
+                </h1>
+                <nav id="mainNav" class="mainNav">
+                    <ul class="root">
+                        <li id="nav-menu-item-13018"><a href="http://www.topcoder.com/challenges/" class="13018"><i></i>Challenges</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13510"><a href="http://www.topcoder.com/challenges/" class="all"><i></i>All</a></li>
+                                <li id="nav-menu-item-13511"><a href="http://www.topcoder.com/active-challenges/design/" class="design"><i></i>Design</a></li>
+                                <li id="nav-menu-item-13512"><a href="http://www.topcoder.com/active-challenges/develop/" class="develop"><i></i>Development</a></li>
+                                <li id="nav-menu-item-13513"><a href="http://www.topcoder.com/active-challenges/data/" class="data"><i></i>Data Science</a></li>
+                                <li id="nav-menu-item-13529"><a href="http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp" class="topcoder-arena"><i></i>topcoder Arena</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13129"><a href="http://www.topcoder.com/community/" class="13129"><i></i>Community</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13509"><a href="http://www.topcoder.com/community/" class="welcome"><i></i>Home</a></li>
+                                <li id="nav-menu-item-13034"><a href="http://www.topcoder.com/community/getting-started/" class="13034"><i></i>Getting
+                                    Started</a></li>
+                                <li id="nav-menu-item-12983"><a href="http://www.topcoder.com/community/how-it-works/" class="customer-solutions"><i></i>How It Works</a></li>
+                                <li id="nav-menu-item-13105"><a href="http://apps.topcoder.com/forums/" class="forums"><i></i>Forums</a></li>
+                                <li id="nav-menu-item-13036"><a href="http://www.topcoder.com/community/events/" class="13036"><i></i>Events</a></li>
+                                <li id="nav-menu-item-15095"><a href="http://community.topcoder.com/tco14" class="topcoder-open-2"><i></i>Topcoder Open 2014</a></li>
+                                <li id="nav-menu-item-15218"><a href="http://tco15.topcoder.com/" class="topcoder-open-2015"><i></i>Topcoder Open 2015</a></li>
+                                <li><a href="http://www.topcoder.com/community/member-programs/">
+                                                                <i></i>Member Programs</a></li>
+                                <li id="nav-menu-item-13038"><a href="http://www.topcoder.com/community/stories/" class="13038"><i></i>Stories</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13469"><a href="http://community.topcoder.com/mission" class="about-us"><i></i>About topcoder</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13516"><a href="http://www.topcoder.com/mission/" class="13516"><i></i>Mission</a></li>
+                                <li id="nav-menu-item-13032"><a href="http://www.topcoder.com/research/" class="13032"><i></i>Research</a></li>
+                                <li id="nav-menu-item-13450"><a href="http://www.topcoder.com/case-studies/" class="case-studies"><i></i>Case Studies</a></li>
+                                <li id="nav-menu-item-13045"><a href="http://www.topcoder.com/press/" class="13045"><i></i>Press</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13379"><a href="http://www.topcoder.com/blog/" class="13379"><i></i>Blog</a></li>
+                        <!--
+                        <li class="noReg logoutLink 	hide"><a href="http://www.topcoder.com?auth=logout" class="actionLogout">Log Out</a></li>
+                        <li class="noReg loginLink"><a href="javascript:;" class="actionLogin">Log In</a></li>
+                        -->
+                    </ul>
+                </nav>
+                <!--
+                <a href="http://www.topcoder.com?auth=logout" class="onMobi noReg linkLogout actionLogout hide">Log Out</a>
+                  <a href="javascript:;" class="onMobi noReg linkLogin actionLogin">Log In</a>
+                -->
+                
+                    <span class="btnRegWrap noReg"><a href="http://www.topcoder.com/tc?module=MyHome" class="btn btnMyHome">My Home</a></span>
+                
+
+                <!-- /.userWidget -->
+            </div>
+        </header>
+    
+    
+
+
+
+
+</div>
+<table style="visibility: visible;" class="mainContent" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody><tr class="alignTop" valign="top">
+        <!-- Left Column Begins-->
+        <td id="onLeft" width="180">
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+
+
+
+
+
+
+<div style="width: 185px; display: block;" class="leftNavWrapper">
+    
+<input id="nodeName" value="algo_tutorials" type="hidden">
+<script language="JavaScript" type="text/javascript" src="intreal1_files/arena.js"></script>
+
+    <section class="get-time" style="margin-bottom:15px">
+        
+        <span class="date"></span>
+        <a href="javascript:tcTime();">Get Time</a>
+    </section>
+    <!-- End .get-time -->
+
+    <section class="navigation">
+    <ul>
+        <li><a id="copilot_posting_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Copilot%20Posting">Copilot Posting</a></li>
+        <li><a href="http://www.topcoder.com/active-challenges/design/">Design</a></li>
+        <li>
+            <a href="javascript:;">Develop<i></i></a>
+            <ul class="hide">
+                <li><a id="conceptualization_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Conceptualization">Conceptualization</a></li>
+                <li><a id="specification_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Specification">Specification</a></li>
+                <li><a id="architecture_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Architecture">Architecture</a></li>
+                <li><a id="ui_prototype_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=UI%20Prototype%20Competition">UI Prototype</a></li>
+                <li><a id="assembly_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Assembly%20Competition">Assembly</a></li>
+                <li><a id="first2finish_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=First2Finish">First2Finish</a></li>
+                <li><a id="code_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Code">Code</a></li>
+                <li><a id="des_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Design">Component Design</a></li>
+                <li><a id="dev_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Development">Component Development</a></li>
+                <li><a id="test_suites_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Suites">Test Suites</a></li>
+                <li><a id="content_creation_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Content%20Creation">Content Creation</a></li>
+                <li><a id="test_scenarios_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Scenarios">Test Scenarios</a></li>
+                <li><a id="bug_hunt_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Bug%20Hunt">Bug Hunt</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Review Opportunities<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Conceptualization</dt>
+                        <dd><a id="conceptualization_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=23">Review Opportunities</a></dd>
+                        <dd><a id="conceptualization_review_border" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=23">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Specification</dt>
+                        <dd><a id="specification_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=6">Review Opportunities</a></dd>
+                        <dd><a id="specification_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=6">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Architecture</dt>
+                        <dd><a id="architecture_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=7">Review Opportunities</a></dd>
+                        <dd><a id="architecture_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=7">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Design</dt>
+                        <dd><a id="des_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=1">Review Opportunities</a></dd>
+                        <dd><a id="des_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=1">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Development</dt>
+                        <dd><a id="dev_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=2">Review Opportunities</a></dd>
+                        <dd><a id="dev_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=2">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Assembly</dt>
+                        <dd><a id="assembly_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=14">Review Opportunities</a></dd>
+                        <dd><a id="assembly_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=14">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>First2Finish</dt>
+                        <dd><a id="first2finish_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=38">Review Opportunities</a></dd>
+                        <dd><a id="first2finish_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=38">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Code</dt>
+                        <dd><a id="code_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=39">Review Opportunities</a></dd>
+                        <dd><a id="code_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=39">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Suites</dt>
+                        <dd><a id="test_suites_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=13">Review Opportunities</a></dd>
+                        <dd><a id="test_suites_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=13">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Report</dt>
+                        <dd><a id="reporting_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=36">Review Opportunities</a></dd>
+                        <dd><a id="reporting_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=36">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>UI prototype</dt>
+                        <dd><a id="ui_prototype_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=19">Review Opportunities</a></dd>
+                        <dd><a id="ui_prototype_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=19">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>RIA Build</dt>
+                        <dd><a id="ria_build_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=24">Review Opportunities</a></dd>
+                        <dd><a id="ria_build_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=24">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Content Creation</dt>
+                        <dd><a id="content_creation_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=35">Review Opportunities</a></dd>
+                        <dd><a id="content_creation_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=35">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Scenarios</dt>
+                        <dd><a id="test_scenarios_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=26">Review Opportunities</a></dd>
+                        <dd><a id="test_scenarios_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=26">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Bug Hunt</dt>
+                        <dd><a id="bug_hunt_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=9">Review Opportunities</a></dd>
+                        <dd><a id="bug_hunt_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=9">Meet the review board</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Algorithm (SRM)<i></i></a>
+            <ul class="hide">
+                <li><a href="http://www.topcoder.com/active-challenges/data/">Single Round Matches (SRM)</a></li>
+                <li><a id="algo_match_archive" href="http://www.topcoder.com/tc?module=MatchList">Match Archive</a></li>
+                <li><a id="algo_match_overviews" href="http://www.topcoder.com/stat?c=round_overview">Match Overviews</a></li>
+                <li><a id="algo_match_winners" href="http://www.topcoder.com/tc?module=SrmDivisionWins">Match Winners</a></li>
+                <li><a id="algo_match_results" href="http://www.topcoder.com/stat?c=last_match">Match Results</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Problem+Set+Analysis">Match Editorials</a></li>
+                <li><a id="algo_problem_archive" href="http://www.topcoder.com/tc?module=ProblemArchive">Problem Archive</a></li>
+                <li><a id="algo_color_changes" href="http://www.topcoder.com/tc?module=ColorChange&amp;ratid=1">Recent Color Changes</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Data+Feeds">Data Feeds</a></li>
+                <li><a href="javascript:arena();">Launch Arena</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Marathon Match<i></i></a>
+            <ul class="hide">
+                <li><a id="long_compete" href="http://www.topcoder.com/challenges/data/active/">Challenges</a></li>
+                <li><a id="long_match_archive" href="http://www.topcoder.com/challenges/data/past/">Match Archive</a></li>
+                <li><a id="long_match_overview" href="http://www.topcoder.com/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
+                <li><a id="long_match_winners" href="http://www.topcoder.com/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
+                <li><a id="long_editorials" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive">Match Editorials</a></li>
+                <li><a id="long_data_feeds" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=support&amp;d2=dataFeed">Data Feeds</a></li>
+                <li><a id="long_practice" href="http://www.topcoder.com/longcontest/?module=ViewPractice">Practice</a></li>
+                <li><a id="long_queue" href="http://www.topcoder.com/longcontest/?module=ViewQueue">Queue Status</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/dr">The Digital Run</a></li>
+        <li><a href="http://software.topcoder.com/review">Submit &amp; Review</a></li>
+        <li>
+            <a href="javascript:;">topcoder Networks<i></i></a>
+            <ul class="hide">
+                <li><a href="http://community.topcoder.com/ntl/">NASA Tournament Lab</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/community/events/">Events</a></li>
+        <li>
+            <a href="javascript:;">Statistics<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Top Ranked</dt>
+                        <dd><a id="top_rated_algo" href="http://www.topcoder.com/tc?module=AlgoRank">Algorithm</a></dd>
+                        <dd><a id="top_rated_hs" href="http://www.topcoder.com/tc?module=HSRank">High School</a></dd>
+                        <dd><a id="top_rated_long" href="http://www.topcoder.com/longcontest/stats/?module=CoderRank">Marathon Match</a></dd>
+                        <dd><a id="top_rated_conceptors" href="http://www.topcoder.com/stat?c=top_conceptors">Conceptualization</a></dd>
+                        <dd><a id="top_rated_specificators" href="http://www.topcoder.com/stat?c=top_specificators">Specification</a></dd>
+                        <dd><a id="top_rated_architects" href="http://www.topcoder.com/stat?c=top_architects">Architecture</a></dd>
+                        <dd><a id="top_rated_des" href="http://www.topcoder.com/stat?c=top_designers">Design</a></dd>
+                        <dd><a id="top_rated_dev" href="http://www.topcoder.com/stat?c=top_developers">Development</a></dd>
+                        <dd><a id="top_rated_assemblers" href="http://www.topcoder.com/stat?c=top_assemblers">Assembly</a></dd>
+                        <dd><a id="top_rated_testers" href="http://www.topcoder.com/stat?c=top_testers">Test Suites</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Record Book</dt>
+                        <dd><a id="algo_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=statistics&amp;d2=recordbook_home">Algorithm</a></dd>
+                        <dd><a id="comp_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=compstats&amp;d2=comp_recordbook_home">Component</a></dd>
+                        <dd><a id="long_recordbook" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=stats&amp;d2=recordbook_home">Marathon Match</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Coder of the Month</dt>
+                        <dd><a id="algo_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=5">Algorithm</a></dd>
+                        <dd><a id="des_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=6">Design</a></dd>
+                        <dd><a id="dev_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=7">Development</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+        <li class="expanded">
+            <a href="javascript:;">Tutorials<i></i></a>
+            <ul style="display: block;" class="hide">
+                <li><a style="color: rgb(255, 138, 0); font-weight: bold;" id="algo_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/algorithm-tutorials/">Algorithm Tutorials</a></li>
+                <li><a id="comp_tutorials" href="http://help.topcoder.com/development/competing-in-development-challenges/development-tutorials/">Software Tutorials</a></li>
+                <li><a id="mm_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/marathon-match-tutorials/">Marathon Tutorials</a></li>
+            </ul>
+        </li>
+        <li><a href="https://apps.topcoder.com/forums/" id="forums">Forums</a></li>
+        <li><a href="https://www.topcoder.com/tc?module=MyHome" id="my_topcoder">My topcoder</a></li>
+    </ul>
+</section>
+<!-- End .navigation -->
+<section class="member-search">
+    <h3>Member Search</h3>
+    <div class="form">
+        <form action="http://community.topcoder.com/tc" method="get" name="simpleSearchForm" class="noSpace" id="simpleSearchForm">
+            <input class="noSpace" name="module" value="SimpleSearch" type="hidden">
+            <input class="noSpace" name="ha" value="Handle:" size="12" maxlength="15" onfocus="javascript: if (document.simpleSearchForm.ha.value=='Handle:') document.simpleSearchForm.ha.value = '';" onblur="javascript:if (document.simpleSearchForm.ha.value == '')document.simpleSearchForm.ha.value = 'Handle:';" type="text">
+            <a href="javascript:javascript:void%20document.simpleSearchForm.submit();" class="btn btn-search-member"><i>SEARCH</i></a>
+        </form>
+    </div>
+</section>
+
+<!-- End .member-search -->
+
+</div>
+
+    
+    
+
+
+
+        </td>
+        <!-- Left Column Ends -->
+        <!-- Center Column Begins -->
+        <td class="bodyColumn" width="100%" align="left">
+            
+
+
+
+
+
+<table style="visibility: visible;" class="pageTitleTable" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+        <td class="pageTitle" width="100%">
+
+
+            
+                
+                    
+                    <img src="intreal1_files/header_alg_tut.gif" alt="alg_tut" border="0">
+                
+                
+            
+
+
+        </td>
+        <td class="pageSubtitle" align="right">&nbsp;&nbsp;</td>
+    </tr>
+</tbody></table>
+
+
+            <div class="linkBox">
+                <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">Archive</a><br>
+                <span id="printableLink"><a href="javascript:makeInvisible();">Printable view</a><br></span>
+                <span id="navigableLink" class="invisible"><a href="javascript:makeNavigable();">Normal view</a><br></span>
+                <a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=505889">Discuss this article</a><br>
+                <a href="http://community.topcoder.com/tc?module=Static&amp;d1=help&amp;d2=writeForTC">Write for TopCoder</a>
+            </div>
+
+<span class="bodyTitle">Representation of Integers and Reals</span>
+
+<p>
+<img src="intreal1_files/misof_mug.gif" alt="" class="myStatsPhoto" height="61" hspace="6" vspace="1" width="55" align="left" border="0"><br>
+By&nbsp;<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=8357090&amp;tab=alg" class="coderTextRed">misof</a><br>
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all">
+</p>
+<br>
+
+<p>
+Choosing the correct data type for your variables can often be the only 
+difference between a faulty solution and a correct one. Especially when 
+there's some geometry around, precision problems often cause solutions 
+to fail. To make matters even worse, there are many (often incorrect) 
+rumors about the reasons of these problems and ways how to solve them.
+<br><br>
+To be able to avoid these problems, one has to know a bit about how 
+things work inside the computer. In this article we will take a look at 
+the necessary facts and disprove some false rumors. After reading and 
+understanding it, you should be able to avoid the problems mentioned 
+above.
+<br><br>
+This article is in <b>no way</b> intended to be a complete reference, 
+nor to be 100% accurate. Several times, presented things will be a bit 
+simplified. As the readers of this article are TopCoder (TC) members, we
+ will concentrate on the x86 architecture used by the machines TC uses 
+to evaluate solutions. For example, we will assume that on our computers
+ a byte consists of 8 bits and that the machines use 32-bit integer 
+registers.
+<br><br>
+While most of this article is general and can be applied on all 
+programming languages used at TC, the article is slightly biased towards
+ C++ and on some occasions special notes on g++ are included.
+<br><br>
+We will start by presenting a (somewhat simplified) table of integer 
+data types available in the g++ compiler. You can find this table in any
+ g++ reference. All of the other compilers used at TC have similar data 
+types and similar tables in their references, look one up if you don't 
+know it by heart yet. Below we will explain that all we need to know is 
+the storage size of each of the types, the range of integers it is able 
+to store can be derived easily.
+<br><br>
+
+</p><div align="center"><strong>Table 1:</strong> Integer data types in g++.</div><br>
+<a name="34"></a>
+<table style="visibility: visible;" class="formFrame" width="350" align="center" cellpadding="6" cellspacing="2">
+   <tbody><tr class="sidebarTitle" nowrap="nowrap">
+      <td align="right">name</td>
+      <td align="center">size in bits</td>
+      <td>representable range</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>char</tt></td>
+      <td align="center">8</td>
+      <td><span class="math">-2<sup>7</sup></span>to <span class="math">2<sup>7</sup> - 1</span></td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>unsigned char</tt></td>
+      <td align="center">8</td>
+      <td>0 to <span class="math">2<sup>8</sup> - 1</span></td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>short</tt></td>
+      <td align="center">16</td>
+      <td><span class="math">-2<sup>15</sup></span> to <span class="math">2<sup>15</sup> - 1</span></td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>unsigned short</tt></td>
+      <td align="center">16</td>
+      <td>0 to <span class="math">2<sup>16</sup> - 1</span></td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>int</tt></td>
+      <td align="center">32</td>
+      <td><span class="math">-2<sup>31</sup></span> to <span class="math">2<sup>31</sup> - 1</span></td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>unsigned int</tt></td>
+      <td align="center">32</td>
+      <td>0 to <span class="math">2<sup>32</sup> - 1</span></td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>long</tt></td>
+      <td align="center">32</td>
+      <td><span class="math">-2<sup>31</sup></span> to <span class="math">2<sup>31</sup> - 1</span></td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>unsigned long</tt></td>
+      <td align="center">32</td>
+      <td>0 to <span class="math">2<sup>32</sup> - 1</span></td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>long long</tt></td>
+      <td align="center">64</td>
+      <td><span class="math">-2<sup>63</sup></span> to <span class="math">2<sup>63</sup> - 1</span></td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right"><tt>unsigned long long</tt></td>
+      <td align="center">64</td>
+      <td>0 to <span class="math">2<sup>64</sup> - 1</span></td>
+   </tr>
+</tbody></table>
+<a name="tab:intvars"></a>
+<br><br>
+
+Notes:
+
+<ul>
+<li>The storage size of an <code>int</code> and an <code>unsigned int</code> is platform dependent. E.g., on machines using 64-bit registers, <code>int</code>s in g++ will have 64 bits. The old Borland C compiler used 16-bit <code>int</code>s. It is guaranteed that an <code>int</code> will always have at least 16 bits. Similarly, it is guaranteed that on any system a <code>long</code> will have at least 32 bits.</li>
+<li>The type <code>long long</code> is a g++ extension, it is not a part
+ of any C++ standard (yet?). Many other C++ compilers miss this data 
+type or call it differently. E.g., MSVC++ has <tt>__int64</tt> instead.</li>
+</ul>
+<br>
+<hr>
+<br><br>
+
+<i><b>Rumor:</b> Signed integers are stored using a sign bit and "digit" bits.</i>
+<br><br>
+<i><b>Validity:</b> Only partially true.</i>
+<br><br>
+Most of the current computers, including those used at TC, store the integers in a so-called <em>two's complement form</em>.
+ It is true that for non-negative integers the most significant bit is 
+zero and for negative integers it is one. But this is not exactly a sign
+ bit, we can't produce a "negative zero" by flipping it. Negative 
+numbers are stored in a somewhat different way. The negative number -n 
+is stored as a bitwise negation of the non-negative number (n-1).
+<br><br>
+In Table 2 we present the bit patterns that arise when some small integers are stored in a (signed) <code>char</code> variable. The rightmost bit is the least significant one.
+<br><br>
+
+<div align="center"><strong>Table 2:</strong> Two's complement bit patterns for some integers.</div><br>
+<a name="51"></a>
+<table style="visibility: visible;" class="formFrame" width="200" align="center" cellpadding="6" cellspacing="2">
+   <tbody><tr class="sidebarTitle" nowrap="nowrap">
+      <td>value</td>
+      <td>two's complement form</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">0</td>
+      <td>00000000</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">1</td>
+      <td>00000001</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">2</td>
+      <td>00000010</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">46</td>
+      <td>00101110</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">47</td>
+      <td>00101111</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">127</td>
+      <td>01111111</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">-1</td>
+      <td>11111111</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">-2</td>
+      <td>11111110</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">-3</td>
+      <td>11111101</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">-47</td>
+      <td>11010001</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">-127</td>
+      <td>10000001</td>
+   </tr>
+   <tr class="GAtableText">
+      <td align="right">-128</td>
+      <td>10000000</td>
+   </tr>
+</tbody></table>
+<a name="tab:twosc"></a>
+<br><br>
+
+Note that due to the way negative numbers are stored the set of 
+representable numbers is not placed symmetrically around zero. The 
+largest representable integer in <span class="math"><i>b</i></span> bits is  <!-- MATH $2^{b-1} - 1$ --><span class="math">2<sup>b-1</sup> - 1</span>, the smallest (i.e., most negative) one is <span class="math">-2<sup>b-1</sup></span>.
+<br><br>
+A neat way of looking at the two's complement form is that the bits 
+correspond to digits in base 2 with the exception that the largest power
+ of two is negative. E.g., the bit pattern 11010001 corresponds to
+<!-- MATH $1\times (-128) + 1\times 64 + 0\times 32 + 1\times 16 + 0\times 8 + 0\times 4 + 0\times 2 + 1\times 1 = -128+81 = -47$ -->
+<span class="math">1 <tt>x</tt> (- 128) + 1 <tt>x</tt> 64 + 0 <tt>x</tt> 32 + 1 <tt>x</tt> 16 + 0 <tt>x</tt> 8 + 0 <tt>x</tt> 4 + 0 <tt>x</tt> 2 + 1 <tt>x</tt> 1 = - 128 + 81 = - 47</span>
+<br><br>
+<br>
+<hr>
+<br><br>
+
+<i><b>Rumor:</b> Unsigned integers are just stored as binary digits of the number.</i>
+<br><br>
+<i><b>Validity:</b> True.</i>
+<br><br>
+In general, the bit pattern consists of base 2 digits of the represented number. E.g., the bit pattern 11010001 corresponds to
+<!-- MATH $1\times 128 + 1\times 64 + 0\times 32 + 1\times 16 + 0\times 8 + 0\times 4 + 0\times 2 + 1\times 1 = 209$ -->
+<span class="math">1 <tt>x</tt> 128 + 1 <tt>x</tt> 64 + 0 <tt>x</tt> 32 + 1 <tt>x</tt> 16 + 0 <tt>x</tt> 8 + 0 <tt>x</tt> 4 + 0 <tt>x</tt> 2 + 1 <tt>x</tt> 1 = 209</span>.
+<br><br>
+Thus, in a <span class="math"><i>b</i></span>-bit unsigned integer variable, the smallest representable number is zero and the largest is <span class="math">2<sup>b</sup> - 1</span> (corresponding to an all-ones pattern).
+<br><br>
+Note that if the leftmost (most significant) bit is zero, the pattern 
+corresponds to the same value regardless of whether the variable is 
+signed or unsigned. If we have a <span class="math"><i>b</i></span>-bit pattern with the leftmost bit set to one, and the represented unsigned integer is <span class="math"><i>x</i></span>, the same pattern in a signed variable represents the value <span class="math"><i>x</i> - 2<sup>b</sup></span>. 
+<br><br>
+In our previous examples, the pattern 11010001 can represent either 209 (in an unsigned variable) or -47 (in a signed variable).
+<br><br>
+<br>
+<hr>
+<br><br>
+
+<i><b>Rumor:</b> In C++, the code "<tt>int A[1000]; memset(A,x,sizeof(A));</tt>" stores 1000 copies of x into A.</i>
+<br><br>
+<i><b>Validity:</b> False.</i>
+<br><br>
+The <tt>memset()</tt> function fills a part of the memory with <tt>char</tt>s, not <tt>int</tt>s. Thus for most values of x you would get unexpected results.
+<br><br>
+However, this does work (and is often used) for two special values of x:
+ 0 and -1. The first case is straightforward. By filling the entire 
+array with zeroes, all the bits in each of the <tt>int</tt>s will be zero, thus representing the number 0. Actually, the second case is the same story: -1 stored in a
+<tt>char</tt> is 1111111, thus we fill the entire array with ones, getting an array containing -1s.
+<br><br>
+(Note that most processors have a special set of instructions to fill a part of memory with a given value. Thus the <tt>memset()</tt> operation is usually much faster than filling the array in a cycle.)
+<br><br>
+When you know what you are doing, <tt>memset()</tt> can be used to fill 
+the array A with sufficiently large/small values, you just have to 
+supply a suitable bit pattern as the second argument. E.g., use <span class="math"><i>x</i> = 63</span> to get really large values (<!-- MATH $1,061,109,567$ --><span class="math">1, 061, 109, 567</span>) in A.
+<br><br><br>
+
+<hr>
+<br><br>
+
+<i><b>Rumor:</b> Bitwise operations can be useful.</i>
+<br><br>
+<i class="sans"><b>Validity:</b> True.</i>
+<br><br>
+First, they are fast. Second, many useful tricks can be done using just a few 
+bitwise operations. 
+<br><br>
+As an easy example, x is a power of 2 if and only if <tt>(x &amp; (x-1) == 0)</tt>. (Why? Think how does the bit pattern of a power of 2 look like.) Note that <tt>x=x &amp; (x-1)</tt>
+ clears the least significant set bit. By repeatedly doing this 
+operation (until we get zero) we can easily count the number of ones in 
+the binary representation of x.
+<br><br>
+If you are interested in many more such tricks, download the <a name="tex2html3" href="http://www.hackersdelight.org/basics.pdf">free second chapter</a> of the book Hacker's Delight and read <a name="tex2html4" href="http://aggregate.org/MAGIC/">The Aggregate Magic Algorithms</a>. 
+<br><br>
+One important trick: <tt>unsigned int</tt>s can be used to encode subsets of <!-- MATH $\{0,1,\dots,31\}$ --><span class="math">{0, 1,..., 31}</span> in a straightforward way - the <span class="math"><i>i</i></span>-th bit of a variable will be one if and only if the represented set contains the number <span class="math"><i>i</i></span>. For example, the number 18 (binary 10010 = <span class="math">2<sup>4</sup> +2<sup>1</sup></span>) represents the set <span class="math">{1, 4}</span>.
+<br><br>
+When manipulating the sets, bitwise "and" corresponds to their intersection, bitwise "or" gives their union.
+<br><br>
+In C++, we may explicitly set the <span class="math"><i>i</i></span>-th bit of <span class="math"><i>x</i></span> using the command <tt>x |= (1&lt;&lt;i)</tt>, clear it using <tt>x &amp;= ~(1&lt;&lt;i)</tt> and check whether it is set using <tt>((x &amp; (1&lt;&lt;i)) != 0)</tt>. Note that <tt>bitset</tt> and <tt>vector&lt;bool&gt;</tt> offer a similar functionality with arbitrarily large sets.
+<br><br>
+This trick can be used when your program has to compute the answer for 
+all subsets of a given set of things. This concept is quite often used 
+in SRM problems. We won't go into more details here, the best way of 
+getting it right is looking at an actual implementation (try looking at 
+the best solutions for the problems below) and then trying to solve a 
+few such problems on your own.
+<br>
+
+<ul>
+<li><a name="tex2html5" href="http://www.topcoder.com/stat?c=problem_statement&amp;pm=2322&amp;rd=5003">BorelSets</a> (a simple exercise in set manipulation, generate sets until no new sets appear)</li>
+<li><a name="tex2html6" href="http://www.topcoder.com/stat?c=problem_statement&amp;pm=4616&amp;rd=7224">TableSeating</a></li>
+<li><a name="tex2html7" href="http://www.topcoder.com/stat?c=problem_statement&amp;pm=4696&amp;rd=8036">CompanyMessages</a></li>
+<li><a name="tex2html8" href="http://www.topcoder.com/stat?c=problem_statement&amp;pm=3480&amp;rd=6528">ChessMatch</a> (for each subset of your players find the best assignment)</li>
+<li><a name="tex2html9" href="http://www.topcoder.com/stat?c=problem_statement&amp;pm=3064&amp;rd=5869">RevolvingDoors</a> (encode your position and the states of all the doors into one integer)</li>
+</ul>
+<br>
+<hr>
+<br><br>
+<i><b>Rumor:</b> Real numbers are represented using a floating point representation.</i>
+<br><br>
+<i class="sans"><b>Validity:</b> True.</i>
+<br><br>
+The most common way to represent "real" numbers in computers is the <em>floating point</em> representation defined by the IEEE Standard 754. We will give a brief overview of this representation. 
+<br><br>
+Basically, the words "floating point" mean that the position of the 
+decimal (or more exactly, binary) point is not fixed. This will allow us
+ to store a large range of numbers than fixed point formats allow.
+<br><br>
+The numbers will be represented in scientific notation, using a 
+normalized number and an exponent. For example, in base 10 the number 
+123.456 could be represented as <!-- MATH $1.23456 \times 10^2$ --><span class="math">1.23456 <tt>x</tt> 10<sup>2</sup></span>.
+ As a shorthand, we sometimes use the letter E to denote the phrase 
+"times 10 to the power of". E.g., the previous expression can be 
+rewritten as <tt>1.23456e2</tt>.
+<br><br>
+Of course, in computers we use binary numbers, thus the number 5.125 (binary 101.001) will be represented as <!-- MATH $1.01001\times 2^2$ --><span class="math">1.01001 <tt>x</tt> 2<sup>2</sup></span>, and the number -0.125 (binary -0.001) will be represented as <!-- MATH $-1\times 2^{-3}$ --><span class="math">-1 <tt>x</tt> 2<sup>-3</sup></span>.
+<br><br>
+Note that any (non-zero) real number <span class="math"><i>x</i></span> can be written in the form <!-- MATH $(-1)^s \times m \times 2^e$ --><span class="math">(- 1)<sup>s</sup> <tt>x</tt> <i>m</i> <tt>x</tt> 2<sup>e</sup></span>, where <!-- MATH $s\in\{0,1\}$ --><span class="math"><i>s</i> &#8712; {0, 1}</span> represents the sign, <!-- MATH $m\in [1,2)$ --><span class="math"><i>m</i> &#8712; [1, 2)</span> is the normalized number and <span class="math"><i>e</i></span> is the (integer) exponent. This is the general form we are going to use to store real numbers.
+<br><br>
+What exactly do we need to store? The base is fixed, so the three things to store are the sign bit <span class="math"><i>s</i></span>, the normalized number (known as the <em>mantissa</em>) <span class="math"><i>m</i></span> and the exponent <span class="math"><i>e</i></span>.
+<br><br>
+The IEEE Standard 754 defines four types of precision when storing floating point numbers. The two most commonly used are <em>single</em> and <em>double precision</em>.
+ In most programming languages these are also the names of corresponding
+ data types. You may encounter other data types (such as <em>float</em>) that are platform dependent and usually map to one of these types. If not sure, stick to these two types. 
+<br><br>
+Single precision floating point numbers use 32 bits (4 bytes) of 
+storage, double precision numbers use 64 bits (8 bytes). These bits are 
+used as shown in Table 3:
+<br><br>
+
+<div align="center"><strong>Table 3:</strong> Organization of memory in <tt>single</tt>s and <tt>double</tt>s.</div><br>
+<a name="184"></a>
+<table style="visibility: visible;" class="formFrame" width="300" align="center" cellpadding="6" cellspacing="2">
+   <tbody><tr class="sidebarTitle" nowrap="nowrap">
+      <td>&nbsp;</td>
+      <td align="center">sign</td>
+      <td align="center">exponent</td>
+      <td align="center">mantissa</td>
+   </tr>
+   <tr class="GAtableText">
+      <td><b>single precision</b></td>
+      <td align="center">1</td>
+      <td align="center">8</td>
+      <td align="center">23</td>
+   </tr>
+   <tr class="GAtableText">
+      <td><b>double precision</b></td>
+      <td align="center">1</td>
+      <td align="center">11</td>
+      <td align="center">52</td>
+   </tr>
+</tbody></table>
+<a name="tab:real"></a>
+<br><br>
+(The bits are given in order. I.e., the sign bit is the most significant
+ bit, 8 or 11 exponent bits and then 23 or 52 mantissa bits follow.)
+<br><br>
+<b>The sign bit</b><br>
+The sign bit is as simple as it gets. 0 denotes a positive number; 1 
+denotes a negative number. Inverting this bit changes the sign of the 
+number.
+<br><br>
+<b>The exponent</b><br>
+The exponent field needs to represent both positive and negative exponents. To be able to do this, a <em>bias</em> is added to the actual exponent <span class="math"><i>e</i></span>. This bias is 127 for single precision and 1023 for double precision. The result is stored as an unsigned integer. (E.g., if <span class="math"><i>e</i> = - 13</span> and we use single precision, the actual value stored in memory will be <!-- MATH $-13+127 = 114$ --><span class="math">-13 + 127 = 114</span>.)
+<br><br>
+This would imply that the range of available exponents is -127 to 128 
+for single and -1023 to 1024 for double precision. This is almost true. 
+For reasons discussed later, both boundaries are reserved for special 
+numbers. The actual range is then -126 to 127, and -1022 to 1023, 
+respectively.
+<br><br>
+<b>The mantissa</b><br>
+The mantissa represents the precision bits of the number. If we write 
+the number in binary, these will be the first few digits, regardless of 
+the position of the binary point. (Note that the position of the binary 
+point is specified by the exponent.)
+<br><br>
+The fact that we use base 2 allows us to do a simple optimization:  We 
+know that for any (non-zero) number the first digit is surely 1. Thus we
+ don't have to store this digit. As a result, a <span class="math"><i>b</i></span>-bit mantissa can actually store the <span class="math"><i>b</i> + 1</span> most significant bits of a number.
+<br><br><br>
+
+<hr>
+<br><br>
+
+<a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=integersReals2">...continue to Section 2</a>
+<p>&nbsp;</p>
+        </td>
+<!-- Center Column Ends -->
+
+<!-- Right Column Begins -->
+         
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+         
+<!-- Gutter Ends -->
+    </tr>
+</tbody></table>
+
+<div id="onBottom">
+
+
+
+
+
+
+    
+        <footer id="footer">
+            <div class="container">
+                <div class="footerContentSection twitter">
+                    <div class="title">Twitter</div>
+                    <div class="footerContent">
+
+
+                        
+
+                        <a class="btn btnFooter" href="http://www.twitter.com/topcoder"><span class="twFollowIcon"></span><span class="twFollowBtnText">Follow</span></a>
+                    </div>
+                </div>
+                <div class="footerContentSection recentBlogPosts">
+                    <div class="title">Recent Blog Posts Updated</div>
+                         <div class="footerContent">
+                              <div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=new-look-and-feel-for-tc">Apr 23</a>
+
+                                 @timmhicks – Tim Hicks Happy Hump Day 
+topcoders! We are excited to announce that we will be releasing a new 
+look for the very popular /tc by...<a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/space-the-final-email-frontier/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=space-the-final-email-frontier">Apr 23</a>
+
+                                 Do you ever find yourself hitting 
+“send” on an email and wondering if it’ll arrive in the recipient’s 
+inbox? Sending email has become so ubiquitous, simple and...<a href="http://www.topcoder.com/blog/space-the-final-email-frontier/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games">Apr 22</a>
+
+                                 @ClintonBon – Clinton Bonner We know 
+what you’re thinking. Great, another ‘puff piece’ on the ‘wisdom of 
+crowds’ and how all we need to do is post...<a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/" class="more">Read More</a></div><span id="blogTemplate" style="display: none">
+                                 <div class="footerBlogEntry">
+                                     <a href="javascript:;"></a>
+
+                                 </div>
+                              </span>
+                             <a class="btn btnFooter" href="http://www.topcoder.com/blog">View More</a>
+                         </div>
+
+
+                </div>
+                <div class="footerContentSection aboutTopCoder">
+                    <div class="title">About topcoder</div>
+                    <div class="footerContent">
+                        The topcoder community gathers the world's 
+experts in design, development and data science to work on interesting 
+and challenging problems for fun and reward. We want to help topcoder 
+members improve their skills, demonstrate and gain reward for their 
+expertise, and provide the industry with objective insight on new and 
+emerging technologies.
+                    </div>
+                    <a class="btn btnFooter" href="http://www.topcoder.com/mission">About Us</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <div class="connected">
+                    <section class="social">
+                        <h4>Get Connected</h4>
+                        <ul>
+                            <li><a class="fb" href="http://www.facebook.com/topcoder">FB</a></li>
+                            <li><a class="tw" href="http://www.twitter.com/topcoder">TW</a></li>
+                            <li><a class="gp" href="https://plus.google.com/u/0/b/104268008777050019973/104268008777050019973/posts">GP</a></li>
+                            <li><a class="in" href="https://www.linkedin.com/company/topcoder">IN</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </section>
+                    <section class="updates">
+                        <div class="row">
+                            <form id="emailForm" onsubmit="return newsletter_check(this)" name="FeedBlitz_9feab01d431311e39e69002590771423" style="display:block" method="POST" action="http://www.feedblitz.com/f/f.fbz?AddNewUserDirect">
+                                <input value="Your email address" style="display: block;" class="email isBlured" name="EMAIL" placeholder="Your email address" maxlength="64" type="email">
+                                <input name="FEEDID" value="926643" type="hidden">
+                                <input name="PUBLISHER" value="34610190" type="hidden">
+                                <!-- <a onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn">Submit</a> -->
+                                <input onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn btnSubmitFooter" value="Submit" type="button">
+                                <input name="na" value="s" type="hidden">
+                                <input name="nr" value="widget" type="hidden">
+                            </form>
+                            <script type="text/javascript">function FeedBlitz_9feab01d431311e39e69002590771423i(){var x=document.getElementsByName('FeedBlitz_9feab01d431311e39e69002590771423');for(i=0;i<x.length;i++){x[i].EMAIL.style.display='block'; x[i].action='http://www.feedblitz.com/f/f.fbz?AddNewUserDirect';}} function FeedBlitz_9feab01d431311e39e69002590771423s(v){v.submit();}FeedBlitz_9feab01d431311e39e69002590771423i();</script>
+
+                        </div>
+                    </section>
+                </div>
+                <div class="copyright">
+                    <section>
+                        <br>
+                        © 2014 topcoder. All Rights reserved.
+                        <br>
+                        <a href="http://www.topcoder.com/community/how-it-works/privacy-policy/" class="privacyStmtLink">Privacy Policy</a> | <a href="http://www.topcoder.com/community/how-it-works/terms/" class="legalDisclaimerLink">Terms</a>
+                    </section>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </footer>
+    
+    
+
+
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6340959-1']);
+  _gaq.push(['_setDomainName', '.topcoder.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</div>
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"5697673","applicationTime":1080,"beacon":"beacon-3.newrelic.com","queueTime":0,"licenseKey":"496af5ee90","transactionName":"ZlcBbBQAChBSARIKXV8dKWs2ThAWRw0UClNdQUxRCBUBBFYQFTFXUF4QFgwSFA==","agent":"js-agent.newrelic.com\/nr-515.min.js","errorBeacon":"bam.nr-data.net"}</script>
+
+<script src="intreal1_files/nr-515.js"></script><script src="intreal1_files/496af5ee90" type="text/javascript"></script></body></html>

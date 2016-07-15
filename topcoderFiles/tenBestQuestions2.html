@@ -1,0 +1,1146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Algorithm Tutorials</title>
+
+
+
+
+
+
+<script src="tenBestQuestions2_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="tenBestQuestions2_files/jquery-1.js"></script>
+<script type="text/javascript" src="tenBestQuestions2_files/jquery-migrate-1.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/js/reskin/html5shiv.js"></script>
+<![endif]-->
+<script type="text/javascript" src="tenBestQuestions2_files/jquery.js"></script>
+<script type="text/javascript" src="tenBestQuestions2_files/newTCScript.js"></script><link type="image/x-icon" rel="shortcut icon" href="http://community.topcoder.com/i/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="tenBestQuestions2_files/css.css" rel="stylesheet" type="text/css">
+    
+    <link type="text/css" rel="stylesheet" href="tenBestQuestions2_files/coders.css">
+    <link type="text/css" rel="stylesheet" href="tenBestQuestions2_files/jobsRemix.css">
+    <link type="text/css" rel="stylesheet" href="tenBestQuestions2_files/myHome.css">
+    
+<link type="text/css" rel="stylesheet" href="tenBestQuestions2_files/newStyles.css">
+<!--[if IE 8]>
+<link type="text/css" rel="stylesheet" href="/css/reskin/newStyles_ie8.css"/>
+<![endif]-->
+
+
+
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(n,t,e){function r(e){if(!t[e]){var o=t[e]={exports:{}};n[e][0].call(o.exports,function(t){var o=n[e][1][t];return r(o?o:t)},o,o.exports)}return t[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({QJf3ax:[function(n,t){function e(n){function t(t,e,a){n&&n(t,e,a),a||(a={});for(var u=c(t),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,e);return s}function a(n,t){f[n]=c(n).concat(t)}function c(n){return f[n]||[]}function u(){return e(t)}var f={};return{on:a,emit:t,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=n("gos");t.exports=e()},{gos:"7eSDFh"}],ee:[function(n,t){t.exports=n("QJf3ax")},{}],gos:[function(n,t){t.exports=n("7eSDFh")},{}],"7eSDFh":[function(n,t){function e(n,t,e){if(r.call(n,t))return n[t];var o=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,t,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return n[t]=o,o}var r=Object.prototype.hasOwnProperty;t.exports=e},{}],D5DuLP:[function(n,t){function e(n,t,e){return r.listeners(n).length?r.emit(n,t,e):(o[n]||(o[n]=[]),void o[n].push(t))}var r=n("ee").create(),o={};t.exports=e,e.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(n,t){t.exports=n("D5DuLP")},{}],XL7HBI:[function(n,t){function e(n){var t=typeof n;return!n||"object"!==t&&"function"!==t?-1:n===window?0:i(n,o,function(){return r++})}var r=1,o="nr@id",i=n("gos");t.exports=e},{gos:"7eSDFh"}],id:[function(n,t){t.exports=n("XL7HBI")},{}],loader:[function(n,t){t.exports=n("G9z0Bl")},{}],G9z0Bl:[function(n,t){function e(){var n=v.info=NREUM.info;if(n&&n.licenseKey&&n.applicationID&&f&&f.body){c(d,function(t,e){t in n||(n[t]=e)}),v.proto="https"===l.split(":")[0]||n.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var t=f.createElement("script");t.src=v.proto+n.agent,f.body.appendChild(t)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=n("handle"),c=n(1),u=window,f=u.document,s="addEventListener",p="attachEvent",l=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},v=t.exports={offset:i(),origin:l,features:{}};f[s]?(f[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(f[p]("onreadystatechange",r),u[p]("onload",e)),a("mark",["firstbyte",i()])},{1:11,handle:"D5DuLP"}],11:[function(n,t){function e(n,t){var e=[],o="",i=0;for(o in n)r.call(n,o)&&(e[i]=t(o,n[o]),i+=1);return e}var r=Object.prototype.hasOwnProperty;t.exports=e},{}]},{},["G9z0Bl"]);</script><script language="JavaScript" src="tenBestQuestions2_files/print.js"></script>
+<style type="text/css">
+.math
+{
+   font-family: times, times new roman, serif;
+   font-weight: normal;
+   font-style: italic;
+   font-size: 15px;
+}
+.code
+{
+   width: 500;
+   padding: 10px;
+   margin: 20px;
+   font-size: 13px;
+   font-weight: normal;
+   line-height: 14px;
+}
+</style>
+</head>
+<body>
+<div id="onTop">
+    
+
+
+
+
+
+
+
+
+
+    
+        <header id="navigation" class="newUser">
+            <div class="container">
+                <div class="headerTopRightMenu">
+                    
+                        <div class="headerTopRightMenuLink logIn">
+                            <div class="text"><a href="http://www.topcoder.com/tc?module=Logout" class="actionLogin">Log Out</a></div>
+                            <div class="clear"></div>
+                        </div>
+                    
+
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink contact">
+                        <div class="text"><a href="http://www.topcoder.com/contact-us/">Contact</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="headerTopRightMenuLink help">
+                        <div class="text"><a href="http://help.topcoder.com/">Help Center</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="separator beforeSearch"></div>
+                    <div class="headerTopRightMenuLink search last">
+                        <div class="icon"></div>
+                        <div class="text"><a href="http://www.topcoder.com/search">Search</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <h1 class="logo">
+                    <a href="http://www.topcoder.com/" title="topcoder"></a>
+                </h1>
+                <nav id="mainNav" class="mainNav">
+                    <ul class="root">
+                        <li id="nav-menu-item-13018"><a href="http://www.topcoder.com/challenges/" class="13018"><i></i>Challenges</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13510"><a href="http://www.topcoder.com/challenges/" class="all"><i></i>All</a></li>
+                                <li id="nav-menu-item-13511"><a href="http://www.topcoder.com/active-challenges/design/" class="design"><i></i>Design</a></li>
+                                <li id="nav-menu-item-13512"><a href="http://www.topcoder.com/active-challenges/develop/" class="develop"><i></i>Development</a></li>
+                                <li id="nav-menu-item-13513"><a href="http://www.topcoder.com/active-challenges/data/" class="data"><i></i>Data Science</a></li>
+                                <li id="nav-menu-item-13529"><a href="http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp" class="topcoder-arena"><i></i>topcoder Arena</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13129"><a href="http://www.topcoder.com/community/" class="13129"><i></i>Community</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13509"><a href="http://www.topcoder.com/community/" class="welcome"><i></i>Home</a></li>
+                                <li id="nav-menu-item-13034"><a href="http://www.topcoder.com/community/getting-started/" class="13034"><i></i>Getting
+                                    Started</a></li>
+                                <li id="nav-menu-item-12983"><a href="http://www.topcoder.com/community/how-it-works/" class="customer-solutions"><i></i>How It Works</a></li>
+                                <li id="nav-menu-item-13105"><a href="http://apps.topcoder.com/forums/" class="forums"><i></i>Forums</a></li>
+                                <li id="nav-menu-item-13036"><a href="http://www.topcoder.com/community/events/" class="13036"><i></i>Events</a></li>
+                                <li id="nav-menu-item-15095"><a href="http://community.topcoder.com/tco14" class="topcoder-open-2"><i></i>Topcoder Open 2014</a></li>
+                                <li id="nav-menu-item-15218"><a href="http://tco15.topcoder.com/" class="topcoder-open-2015"><i></i>Topcoder Open 2015</a></li>
+                                <li><a href="http://www.topcoder.com/community/member-programs/">
+                                                                <i></i>Member Programs</a></li>
+                                <li id="nav-menu-item-13038"><a href="http://www.topcoder.com/community/stories/" class="13038"><i></i>Stories</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13469"><a href="http://community.topcoder.com/mission" class="about-us"><i></i>About topcoder</a>
+                            <ul class="child">
+                                <li id="nav-menu-item-13516"><a href="http://www.topcoder.com/mission/" class="13516"><i></i>Mission</a></li>
+                                <li id="nav-menu-item-13032"><a href="http://www.topcoder.com/research/" class="13032"><i></i>Research</a></li>
+                                <li id="nav-menu-item-13450"><a href="http://www.topcoder.com/case-studies/" class="case-studies"><i></i>Case Studies</a></li>
+                                <li id="nav-menu-item-13045"><a href="http://www.topcoder.com/press/" class="13045"><i></i>Press</a></li>
+                            </ul>
+                        </li>
+                        <li id="nav-menu-item-13379"><a href="http://www.topcoder.com/blog/" class="13379"><i></i>Blog</a></li>
+                        <!--
+                        <li class="noReg logoutLink 	hide"><a href="http://www.topcoder.com?auth=logout" class="actionLogout">Log Out</a></li>
+                        <li class="noReg loginLink"><a href="javascript:;" class="actionLogin">Log In</a></li>
+                        -->
+                    </ul>
+                </nav>
+                <!--
+                <a href="http://www.topcoder.com?auth=logout" class="onMobi noReg linkLogout actionLogout hide">Log Out</a>
+                  <a href="javascript:;" class="onMobi noReg linkLogin actionLogin">Log In</a>
+                -->
+                
+                    <span class="btnRegWrap noReg"><a href="http://www.topcoder.com/tc?module=MyHome" class="btn btnMyHome">My Home</a></span>
+                
+
+                <!-- /.userWidget -->
+            </div>
+        </header>
+    
+    
+
+
+
+
+</div>
+
+<table style="visibility: visible;" class="mainContent" width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tbody><tr class="alignTop" valign="top">
+<!-- Left Column Begins-->
+        <td id="onLeft" width="180">
+         
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+
+
+
+
+
+
+<div style="width: 185px; display: block;" class="leftNavWrapper">
+    
+<input id="nodeName" value="algo_tutorials" type="hidden">
+<script language="JavaScript" type="text/javascript" src="tenBestQuestions2_files/arena.js"></script>
+
+    <section class="get-time" style="margin-bottom:15px">
+        
+        <span class="date"></span>
+        <a href="javascript:tcTime();">Get Time</a>
+    </section>
+    <!-- End .get-time -->
+
+    <section class="navigation">
+    <ul>
+        <li><a id="copilot_posting_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Copilot%20Posting">Copilot Posting</a></li>
+        <li><a href="http://www.topcoder.com/active-challenges/design/">Design</a></li>
+        <li>
+            <a href="javascript:;">Develop<i></i></a>
+            <ul class="hide">
+                <li><a id="conceptualization_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Conceptualization">Conceptualization</a></li>
+                <li><a id="specification_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Specification">Specification</a></li>
+                <li><a id="architecture_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Architecture">Architecture</a></li>
+                <li><a id="ui_prototype_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=UI%20Prototype%20Competition">UI Prototype</a></li>
+                <li><a id="assembly_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Assembly%20Competition">Assembly</a></li>
+                <li><a id="first2finish_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=First2Finish">First2Finish</a></li>
+                <li><a id="code_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Code">Code</a></li>
+                <li><a id="des_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Design">Component Design</a></li>
+                <li><a id="dev_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Development">Component Development</a></li>
+                <li><a id="test_suites_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Suites">Test Suites</a></li>
+                <li><a id="content_creation_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Content%20Creation">Content Creation</a></li>
+                <li><a id="test_scenarios_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Test%20Scenarios">Test Scenarios</a></li>
+                <li><a id="bug_hunt_compete" href="http://www.topcoder.com/challenges/develop/active/?challengeTypes=Bug%20Hunt">Bug Hunt</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Review Opportunities<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Conceptualization</dt>
+                        <dd><a id="conceptualization_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=23">Review Opportunities</a></dd>
+                        <dd><a id="conceptualization_review_border" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=23">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Specification</dt>
+                        <dd><a id="specification_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=6">Review Opportunities</a></dd>
+                        <dd><a id="specification_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=6">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Architecture</dt>
+                        <dd><a id="architecture_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=7">Review Opportunities</a></dd>
+                        <dd><a id="architecture_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=7">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Design</dt>
+                        <dd><a id="des_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=1">Review Opportunities</a></dd>
+                        <dd><a id="des_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=1">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Development</dt>
+                        <dd><a id="dev_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=2">Review Opportunities</a></dd>
+                        <dd><a id="dev_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=2">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Assembly</dt>
+                        <dd><a id="assembly_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=14">Review Opportunities</a></dd>
+                        <dd><a id="assembly_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=14">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>First2Finish</dt>
+                        <dd><a id="first2finish_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=38">Review Opportunities</a></dd>
+                        <dd><a id="first2finish_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=38">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Code</dt>
+                        <dd><a id="code_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=39">Review Opportunities</a></dd>
+                        <dd><a id="code_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=39">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Suites</dt>
+                        <dd><a id="test_suites_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=13">Review Opportunities</a></dd>
+                        <dd><a id="test_suites_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=13">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Report</dt>
+                        <dd><a id="reporting_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=36">Review Opportunities</a></dd>
+                        <dd><a id="reporting_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=36">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>UI prototype</dt>
+                        <dd><a id="ui_prototype_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=19">Review Opportunities</a></dd>
+                        <dd><a id="ui_prototype_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=19">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>RIA Build</dt>
+                        <dd><a id="ria_build_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=24">Review Opportunities</a></dd>
+                        <dd><a id="ria_build_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=24">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Content Creation</dt>
+                        <dd><a id="content_creation_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=35">Review Opportunities</a></dd>
+                        <dd><a id="content_creation_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=35">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Scenarios</dt>
+                        <dd><a id="test_scenarios_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=26">Review Opportunities</a></dd>
+                        <dd><a id="test_scenarios_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=26">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Bug Hunt</dt>
+                        <dd><a id="bug_hunt_review" href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=9">Review Opportunities</a></dd>
+                        <dd><a id="bug_hunt_review_board" href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=9">Meet the review board</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Algorithm (SRM)<i></i></a>
+            <ul class="hide">
+                <li><a href="http://www.topcoder.com/active-challenges/data/">Single Round Matches (SRM)</a></li>
+                <li><a id="algo_match_archive" href="http://www.topcoder.com/tc?module=MatchList">Match Archive</a></li>
+                <li><a id="algo_match_overviews" href="http://www.topcoder.com/stat?c=round_overview">Match Overviews</a></li>
+                <li><a id="algo_match_winners" href="http://www.topcoder.com/tc?module=SrmDivisionWins">Match Winners</a></li>
+                <li><a id="algo_match_results" href="http://www.topcoder.com/stat?c=last_match">Match Results</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Problem+Set+Analysis">Match Editorials</a></li>
+                <li><a id="algo_problem_archive" href="http://www.topcoder.com/tc?module=ProblemArchive">Problem Archive</a></li>
+                <li><a id="algo_color_changes" href="http://www.topcoder.com/tc?module=ColorChange&amp;ratid=1">Recent Color Changes</a></li>
+                <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Data+Feeds">Data Feeds</a></li>
+                <li><a href="javascript:arena();">Launch Arena</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">Marathon Match<i></i></a>
+            <ul class="hide">
+                <li><a id="long_compete" href="http://www.topcoder.com/challenges/data/active/">Challenges</a></li>
+                <li><a id="long_match_archive" href="http://www.topcoder.com/challenges/data/past/">Match Archive</a></li>
+                <li><a id="long_match_overview" href="http://www.topcoder.com/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
+                <li><a id="long_match_winners" href="http://www.topcoder.com/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
+                <li><a id="long_editorials" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive">Match Editorials</a></li>
+                <li><a id="long_data_feeds" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=support&amp;d2=dataFeed">Data Feeds</a></li>
+                <li><a id="long_practice" href="http://www.topcoder.com/longcontest/?module=ViewPractice">Practice</a></li>
+                <li><a id="long_queue" href="http://www.topcoder.com/longcontest/?module=ViewQueue">Queue Status</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/dr">The Digital Run</a></li>
+        <li><a href="http://software.topcoder.com/review">Submit &amp; Review</a></li>
+        <li>
+            <a href="javascript:;">topcoder Networks<i></i></a>
+            <ul class="hide">
+                <li><a href="http://community.topcoder.com/ntl/">NASA Tournament Lab</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.topcoder.com/community/events/">Events</a></li>
+        <li>
+            <a href="javascript:;">Statistics<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Top Ranked</dt>
+                        <dd><a id="top_rated_algo" href="http://www.topcoder.com/tc?module=AlgoRank">Algorithm</a></dd>
+                        <dd><a id="top_rated_hs" href="http://www.topcoder.com/tc?module=HSRank">High School</a></dd>
+                        <dd><a id="top_rated_long" href="http://www.topcoder.com/longcontest/stats/?module=CoderRank">Marathon Match</a></dd>
+                        <dd><a id="top_rated_conceptors" href="http://www.topcoder.com/stat?c=top_conceptors">Conceptualization</a></dd>
+                        <dd><a id="top_rated_specificators" href="http://www.topcoder.com/stat?c=top_specificators">Specification</a></dd>
+                        <dd><a id="top_rated_architects" href="http://www.topcoder.com/stat?c=top_architects">Architecture</a></dd>
+                        <dd><a id="top_rated_des" href="http://www.topcoder.com/stat?c=top_designers">Design</a></dd>
+                        <dd><a id="top_rated_dev" href="http://www.topcoder.com/stat?c=top_developers">Development</a></dd>
+                        <dd><a id="top_rated_assemblers" href="http://www.topcoder.com/stat?c=top_assemblers">Assembly</a></dd>
+                        <dd><a id="top_rated_testers" href="http://www.topcoder.com/stat?c=top_testers">Test Suites</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Record Book</dt>
+                        <dd><a id="algo_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=statistics&amp;d2=recordbook_home">Algorithm</a></dd>
+                        <dd><a id="comp_recordbook" href="http://www.topcoder.com/tc?module=Static&amp;d1=compstats&amp;d2=comp_recordbook_home">Component</a></dd>
+                        <dd><a id="long_recordbook" href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=stats&amp;d2=recordbook_home">Marathon Match</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Coder of the Month</dt>
+                        <dd><a id="algo_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=5">Algorithm</a></dd>
+                        <dd><a id="des_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=6">Design</a></dd>
+                        <dd><a id="dev_com" href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=7">Development</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </li>
+        <li class="expanded">
+            <a href="javascript:;">Tutorials<i></i></a>
+            <ul style="display: block;" class="hide">
+                <li><a style="color: rgb(255, 138, 0); font-weight: bold;" id="algo_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/algorithm-tutorials/">Algorithm Tutorials</a></li>
+                <li><a id="comp_tutorials" href="http://help.topcoder.com/development/competing-in-development-challenges/development-tutorials/">Software Tutorials</a></li>
+                <li><a id="mm_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/marathon-match-tutorials/">Marathon Tutorials</a></li>
+            </ul>
+        </li>
+        <li><a href="https://apps.topcoder.com/forums/" id="forums">Forums</a></li>
+        <li><a href="https://www.topcoder.com/tc?module=MyHome" id="my_topcoder">My topcoder</a></li>
+    </ul>
+</section>
+<!-- End .navigation -->
+<section class="member-search">
+    <h3>Member Search</h3>
+    <div class="form">
+        <form action="http://community.topcoder.com/tc" method="get" name="simpleSearchForm" class="noSpace" id="simpleSearchForm">
+            <input class="noSpace" name="module" value="SimpleSearch" type="hidden">
+            <input class="noSpace" name="ha" value="Handle:" size="12" maxlength="15" onfocus="javascript: if (document.simpleSearchForm.ha.value=='Handle:') document.simpleSearchForm.ha.value = '';" onblur="javascript:if (document.simpleSearchForm.ha.value == '')document.simpleSearchForm.ha.value = 'Handle:';" type="text">
+            <a href="javascript:javascript:void%20document.simpleSearchForm.submit();" class="btn btn-search-member"><i>SEARCH</i></a>
+        </form>
+    </div>
+</section>
+
+<!-- End .member-search -->
+
+</div>
+
+    
+    
+
+
+
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Center Column Begins -->
+         <td width="100%" align="center">
+
+         <div class="tutorBodyFull">
+
+
+
+
+
+
+
+<table style="visibility: visible;" class="pageTitleTable" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+        <td class="pageTitle" width="100%">
+
+
+            
+                
+                    
+                    <img src="tenBestQuestions2_files/header_alg_tut.gif" alt="alg_tut" border="0">
+                
+                
+            
+
+
+        </td>
+        <td class="pageSubtitle" align="right">&nbsp;&nbsp;</td>
+    </tr>
+</tbody></table>
+
+
+
+<div class="linkBox">
+    <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">Archive</a><br>
+    <span id="printableLink"><a href="javascript:makeInvisible();">Printable view</a><br></span>
+    <span id="navigableLink" class="invisible"><a href="javascript:makeNavigable();">Normal view</a><br></span>
+    <a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=518480">Discuss this article</a><br>
+    <a href="http://community.topcoder.com/tc?module=Static&amp;d1=help&amp;d2=writeForTC">Write for TopCoder</a>
+</div>
+ 
+<span class="bigTitle">The Best Questions for Would-be C++ Programmers, Part 2</span>
+<br><br>
+
+<div class="authorPhoto">
+    <img src="tenBestQuestions2_files/nophoto.jpg" alt="Author">
+</div>
+<div class="authorText">
+  By&nbsp;<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22630158&amp;tab=alg" class="coderTextGray">zmij</a><br>
+      <em>TopCoder Member</em>
+</div>
+
+<br clear="all">
+
+<p><a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=tenBestQuestions">... read Part 1</a></p>
+<p>In the second part of this installment we'll tackle some questions 
+regarding more advanced features of the language (the experienced C++ 
+programmers will consider some of these more on the basic side). So 
+let's get to it and work on the second part of this "interview".</p>
+<ol>
+    <li><strong>What are virtual functions?</strong>
+        <ul>
+            <li>Virtual functions represent the mechanism through which 
+C++ implements the OO concept of polymorphism. Virtual functions allow 
+the programmer to redefine in each derived class functions from the base
+ class with altered behavior so that you can call the right function for
+ the right object (allow to perform the right operation for an object 
+through only a pointer/reference to that object's base class)</li>
+            <li>A member function is declared virtual by preceding its declaration (not the definition) with the <strong>virtual</strong> keyword
+                <pre><font color="blue">class</font> Shape  
+{
+<font color="blue">public</font>:
+    ...
+    <font color="green">//a shape can be drawn in many ways</font>
+    <font color="blue">virtual void</font> draw(){ };
+};</pre>
+"A virtual function must be defined for the class in which it is first 
+declared ..." [Stroustrup]. The redefinition of a virtual function in a 
+derived class is called <strong>overriding</strong> (complete rewrite) or <strong>augmentation</strong> (rewrite but with a call to the base class function)
+                <pre><font color="blue">class</font> Rectangle : <font color="blue">public</font> Shape 
+{
+<font color="blue">public</font>:
+    ...
+    <font color="blue">void</font> draw() { };
+};
+
+<font color="blue">class</font> Square : <font color="blue">public</font> Rectangle
+{
+<font color="blue">public</font>:
+    ...
+    <font color="blue">void</font> draw() { };
+};
+    ...
+
+Shape* theShape = <font color="blue">new</font> Square();
+<font color="red">// with the help of virtual functions
+// a Square will be drawn and not
+// a Rectangle or any other Shape</font>
+theShape-&gt;draw();</pre></li>
+            <li>Through virtual functions C++ achieves what is called <strong>late binding</strong>
+ (dynamic binding or runtime binding), that is actually connecting a 
+function call to a function body at runtime based on the type of the 
+object and not at compilation time (static binding)  <strong>(**)</strong></li>
+        </ul>
+    </li>
+    <li><strong>What is a virtual destructor and when would you use one?</strong>
+        <ul>
+            <li>A virtual destructor is a class' destructor conforming 
+to the C++'s polymorphism mechanism; by declaring the destructor virtual
+ you ensure it is placed in the <strong>VTABLE</strong> of the class and it will be called at proper times</li>
+            <li>You make a class' destructor virtual to ensure proper 
+clean-up when the class is supposed to be subclassed to form a hierarchy
+ and you want to delete a derived object thorough a pointer to it (the 
+base class)</li>
+            <li>E.g. :
+                <pre><font color="blue">#include</font> <font color="brown">&lt;vector&gt;</font>
+<font color="blue">#include</font> <font color="brown">&lt;iostream&gt;</font>
+
+<font color="blue">using namespace</font> std;
+
+<font color="blue">class</font> Base
+{
+<font color="blue">public</font>:
+    Base(<font color="blue">const char</font>* name);
+    <font color="red">// warning! the destructor should be virtual</font>
+    ~Base();
+
+    <font color="blue">virtual void</font> doStuff();
+<font color="blue">private</font>:
+    <font color="blue">const char</font>* m_name;
+};
+
+Base :: Base(<font color="blue">const char</font>* name) : m_name(name)
+{
+
+}
+
+Base :: ~Base()
+{
+
+}
+
+
+
+<font color="blue">void</font> Base :: doStuff()
+{
+    cout &lt;&lt; <font color="brown">"Doing stuff in Base"</font> &lt;&lt; endl;
+}
+
+
+
+<font color="blue">class</font> Derived : <font color="blue">public</font> Base
+{
+<font color="blue">public</font>:
+    Derived(<font color="blue">const char</font>* name);
+    ~Derived();
+
+<font color="blue">virtual void</font> doStuff();
+<font color="blue">private</font>:
+    vector&lt;<font color="blue">int</font>&gt;* m_charCodes;
+};
+
+Derived :: Derived(<font color="blue">const char</font>* name) : Base(name)
+{
+    m_charCodes = <font color="blue">new</font> vector&lt;<font color="blue">int</font>&gt;;
+} 
+
+Derived :: ~Derived()
+{
+    <font color="blue">delete</font> m_charCodes;
+}
+
+<font color="blue">void</font> Derived :: doStuff() 
+{
+    cout &lt;&lt; <font color="brown">"Doing stuff in Derived"</font> &lt;&lt; endl;
+}
+
+<font color="blue">int</font> main(<font color="blue">int</font> argc, <font color="blue">char</font>* argv[])
+{
+    <font color="green">// assign the derived class object pointer to
+    // the base class pointer</font>
+    <font color="blue">char</font>* theName = <font color="brown">"Some fancy name"</font>;
+    Base* b = <font color="blue">new</font> Derived(theName);
+
+    <font color="green">// do some computations and then delete the
+    // pointer</font>
+    <font color="blue">delete</font> b;
+    <font color="blue">return</font> 0;
+}</pre>
+What will happen in our rather lengthy example? Everything seems OK and 
+most of the available C++ compilers will not complain about anything <strong>(*)</strong>. Nevertheless there is something pretty wrong here. The C++ standard is clear on this topic: <strong>when
+ you want to delete a derived class object through a base class pointer 
+and the destructor of the base class is not virtual the result is 
+undefined</strong>. That means you're on your own from there and the 
+compiler won't help you! What is the most often behavior in such 
+situations is that the derived class' destructor is never called and 
+parts of your derived object are left undestroyed. In the example above 
+you will leave behind a memory leak, the m_charCodes member will not be 
+destroyed because the destructor ~Derived() will not be called
+            </li>
+            <li>A thing to notice is that declaring all destructors 
+virtual is also pretty inefficient and not advisable. That makes sense 
+(declaring the destructor virtual) only if your class is supposed to be 
+part of a hierarchy as a base class, otherwise you'll just waste memory 
+with the class' <strong>vtable</strong> generated only for the destructor. So declare a virtual destructor in a class <strong>"if
+ and only if that class is part of a class hierarchy, containing at 
+least one virtual function. In other words, it is not necessary for the 
+class itself to have that virtual function - it is sufficient for one of
+ its descendents to have one."[<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=152342&amp;tab=alg" class="coderTextYellow">kyky</a>]</strong></li>
+        </ul>
+    </li><li><strong>How do you implement something along the lines of Java interfaces in C++?[<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=152342&amp;tab=alg" class="coderTextYellow">kyky</a>]</strong>
+        <ul>
+            <li>C++ as a language does not support the concept of 
+"interfaces" (as opposed to other languages like Java or D for example),
+ but it achieves something similar through <strong>Abstract Classes</strong></li>
+            <li>You obtain an abstract class in C++ by declaring at least one <strong>pure virtual function</strong> in that class. A virtual function is transformed in a pure virtual with the help of the initializer <strong>"= 0"</strong>.
+ A pure virtual function does not need a definition. An abstract class 
+cannot be instantiated but only used as a base in a hierarchy
+                <pre><font color="blue">class</font> MySillyAbstract
+{
+<font color="blue">public</font>:
+    <font color="green">// just declared not defined</font>
+    <font color="green">virtual void</font> beSilly() = 0;
+};</pre>
+A derivation from an abstract class must implement all the pure virtuals, otherwise it transforms itself into an abstract class</li>
+            <li>You can obtain an <strong>"interface"</strong> in C++ by
+ declaring an abstract class with all the functions pure virtual 
+functions and public and no member variables - only behavior and no data
+                <pre><font color="blue">class</font> IOInterface
+{
+<font color="blue">public</font>:
+    <font color="blue">virtual int</font> open(<font color="blue">int</font> opt) = 0;
+    <font color="blue">virtual int</font> close(<font color="blue">int</font> opt) = 0;
+    <font color="blue">virtual int</font> read(<font color="blue">char</font>* p, <font color="blue">int</font> n) = 0;
+    <font color="blue">virtual int</font> write(<font color="blue">const char</font>* p, <font color="blue">int</font> n) = 0;
+};</pre>
+[adapted after an example found in Stroustup The C++ Programming Language 3rd Edition]<br>In this way you can specify and manipulate a variety of IO devices through the interface.</li>
+        </ul>
+    </li>
+    <li><strong>Could you point out some differences between pointers and references?</strong>
+        <ul>
+            <li>A reference must always be initialized because the 
+object it refers to already exists; a pointer can be left uninitialized 
+(though is not recommended)</li>
+            <li>There's no such thing a s a <strong>"NULL reference"</strong>
+ because a reference must always refer to some object, so the "no 
+object" concept makes no sense; pointers, as we all know, can be <strong>NULL</strong></li>
+            <li>References can be more efficient, because there's no 
+need to test the validity of a reference before using it (see above 
+comment); pointers most often have to be tested against <strong>NULL</strong> to ensure there are valid objects behind them</li>
+            <li>Pointers may be reassigned to point to different objects
+ (except constant pointers, of course), but references cannot be 
+(references are "like" constant pointers that are automatically 
+dereferenced by the compiler)</li>
+            <li>References are tied to someone else's storage (memory) while pointers have their own storage they account for</li>
+            <li>One would use the dot operator <strong>"."</strong> to access members of references to objects, however to access members of pointers to objects one uses the arrow <strong>"-&gt;"[<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=275640&amp;tab=alg" class="coderTextRed">sql_lall</a>]</strong></li>
+        </ul>
+    </li>
+    <li><strong>When would you use a reference?</strong>
+        <ul>
+            <li>You should use a <strong>reference</strong> when you 
+certainly know you have something to refer to, when you never want to 
+refer to anything else and when implementing operators whose syntactic 
+requirements make the use of pointers undesirable; in all other cases, 
+"stick with pointers"</li>
+            <li>Do not use references just to reduce typing. That (and 
+that being the sole reason) is not an appropriate usage of the  
+reference concept in C++; using references having in mind just the 
+reason of reduced typing would lead you to a "reference spree" - it must
+ be clear in one's mind when to use references and when to use pointers;
+ overusing any of the two is an inefficient path</li>
+        </ul>
+    </li>
+    <li><strong>Can you point out some differences between new &amp; malloc?</strong>
+        <ul>
+            <li><strong>"new"</strong> is an operator built-in into the C++ language, <strong>"malloc"</strong> is a function of the C standard library</li>
+            <li><strong>"new"</strong> is aware of constructors/destructors, <strong>"malloc"</strong> is not; e.g. :
+                <pre>string* array1 = <font color="blue">static_cast</font>&lt;string*&gt;(malloc(10 * <font color="blue">sizeof</font>(string)));
+free(array1);</pre>
+<strong>array1</strong> in the above example points to enough memory to 
+hold 10 strings but no objects have been constructed and there's no easy
+ and clean (proper) way from OO point of view to initialize them (see 
+the question about <strong>placement new</strong> - in most day to day programming tasks there's no need to use such techniques). The call to <strong>free()</strong> deallocates the memory but does not destroy the objects (supposing you managed to initialize them).
+                <pre>string* array2 = <font color="blue">new</font> string[10];
+<font color="blue">delete</font>[] array2;</pre>
+on the other hand <strong>array2</strong> points to 10 fully constructed objects (they have not been properly initialized but they are constructed), because <strong>"new"</strong> allocates memory and also calls the <strong>string</strong> default constructor for each object. The call to the <strong>delete</strong> operator deallocates the memory and also destroys the objects</li>
+            <li>You got to remember to always use <strong>free()</strong> to release memory allocated with <strong>malloc()</strong> and <strong>delete</strong> (or the array correspondent <strong>delete[]</strong>) to release memory allocated with <strong>new</strong> (or the array correspondent <strong>new[]</strong>)</li>
+        </ul>
+    </li>
+    <li><strong>What are the differences between "operator new" and the "new" operator?</strong>
+        <ul>
+            <li><strong>"new"</strong> is an operator built into the language and it's meaning cannot be changed; <strong>"operator new"</strong> is a function and manages <strong>how</strong> the <strong>"new"</strong> operator allocates memory its signature being: <strong>void* operator new(size_t size)</strong></li>
+            <li>The <strong>"new"</strong> operator is allowed to call a constructor, because <strong>new</strong> has 2 major steps in achieving its goals : in step 1 it allocates enough memory using <strong>"operator new"</strong> and then in step 2 calls the constructor(s) to construct the object(s) in the memory that was allocated</li>
+            <li><strong>"operator new"</strong> can be overridden meaning that you can change the way the <strong>"new"</strong> operator allocates memory, that is the mechanism, but not the way the <strong>"new"</strong> operator behaves, that is it's policy(semantics) , because what <strong>"new"</strong> does is fixed by the language</li>
+        </ul>
+    </li>
+    <li><strong>What is "placement new"?</strong>
+        <ul>
+            <li>A special form of constructing an object in a given allocated zone of memory</li>
+            <li>The caller already knows what the pointer to the memory should be, because it knows where is supposed to be placed. <strong>"placement new"</strong> returns the pointer that's passed into it</li>
+            <li>Usage of <strong>"placement new"</strong> implies an 
+explicit call to the object's destructor when the object is to be 
+deleted, because the memory was allocated/obtained by other means than 
+the standard <strong>"new"</strong> operator allocation</li>
+            <li>E.g. :
+                <pre><font color="red">// supposing a "buffer" of memory large enough for 
+// the object we want to construct was 
+// previously allocated using malloc</font>
+MyClass* myObject = <font color="blue">new</font> (buffer) MyClass(string&amp; name);
+
+
+<font color="red">// !!ERROR</font>
+<font color="blue">delete</font> myObject;
+<font color="red">// the correct way is</font>
+myObject-&gt;~MyClass();
+<font color="red">// then the "buffer" must also be properly
+// deallocated</font>
+free(buffer);</pre></li>
+        </ul>
+    </li>
+    <li><strong>What is a "virtual constructor"?[<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=152342&amp;tab=alg" class="coderTextYellow">kyky</a>]</strong>
+        <ul>
+            <li>There is no such thing as a virtual constructor in C++ 
+simply because you need to know the exact type of the object you want to
+ create and virtual represent the exact opposite concept <strong>(***)</strong></li>
+            <li>But using an indirect way to create objects represents what is known as <strong>"Virtual Constructor Idiom"</strong>. For example you could implement a <strong>clone()</strong> function as an indirect copy constructor or a <strong>create()</strong> member function as an indirect default constructor (<a target="_blank" href="http://www.parashift.com/c++-faq-lite/">C++ FAQ Lite</a>)</li>
+            <li>The GoF calls a variant of this idiom the Factory Method
+ Pattern - "define an interface for creating an object, but let 
+subclasses decide which class to instantiate. Factory Method lets a 
+class defer instantiation to subclasses". A concrete example will speak 
+for itself:<br>
+                <div align="center"><img src="tenBestQuestions2_files/alg_tenBestQuestions.png"><br><strong>[Created using the <a href="http://community.topcoder.com/tc?module=Static&amp;d1=dev&amp;d2=umltool&amp;d3=description&amp;node=des_uml_tool">TopCoder UML Tool</a>]</strong></div>
+                <pre><font color="green">// Product</font>
+<font color="blue">class</font> Page
+{
+};
+
+<font color="green">// ConcreteProduct</font>
+<font color="blue">class</font> SkillsPage : <font color="blue">public</font> Page
+{
+};
+
+<font color="green">// ConcreteProduct</font>
+<font color="blue">class</font> ExperiencePage : <font color="blue">public</font> Page
+{
+};
+
+<font color="green">// ConcreteProduct</font>
+<font color="blue">class</font> IntroductionPage : <font color="blue">public</font> Page
+{
+};
+
+<font color="green">// ConcreteProduct</font>
+<font color="blue">class</font> TableOfContentsPage : <font color="blue">public</font> Page
+{
+};
+
+<font color="green">// Creator</font>
+<font color="blue">class</font> Document
+{
+<font color="green">// Constructor calls abstract Factory method</font>
+<font color="blue">public</font>:
+    Document();
+
+    <font color="green">// Factory Method</font>
+    <font color="blue">virtual void</font> CreatePages() { };
+<font color="blue">protected</font>:
+    std::list&lt;Page*&gt; thePageList;
+};
+
+Document :: Document()
+{
+    CreatePages();
+};
+
+<font color="green">// ConcreteCreator</font>
+<font color="blue">class</font> Resume : public Document
+{
+<font color="blue">public</font>:
+    <font color="green">// Factory Method implementation</font>
+    <font color="blue">void</font> CreatePages();
+};
+
+<font color="green">// Factory Method implementation</font>
+<font color="blue">void</font> Resume :: CreatePages()
+{
+    thePageList.push_back(<font color="blue">new</font> SkillsPage());
+    thePageList.push_back(<font color="blue">new</font> ExperiencePage());
+}
+
+<font color="green">// ConcreteCreator</font>
+<font color="blue">class</font> Report : <font color="blue">public</font> Document
+{
+<font color="blue">public</font>:
+    <font color="green">// Factory Method implementation</font>
+    <font color="blue">void</font> CreatePages();
+};
+
+<font color="green">// Factory Method implementation</font>
+<font color="blue">void</font> Report :: CreatePages()
+{
+    thePageList.push_back(<font color="blue">new</font> TableOfContentsPage());
+    thePageList.push_back(<font color="blue">new</font> IntroductionPage());
+}
+
+<font color="blue">int</font> main(<font color="blue">int</font> argc, <font color="blue">char</font>* argv[])
+{
+    <font color="green">// Note: constructors call Factory Method</font>
+    vector&lt;Document*&gt; documents(2);
+    documents[0] = <font color="blue">new</font> Resume();
+    documents[1] = <font color="blue">new</font> Report();
+
+    <font color="blue">return</font> 0;
+}</pre></li>
+        </ul>
+    </li>
+    <li><strong>What is RAII?</strong>
+        <ul>
+            <li><strong>RAII</strong> - <strong>R</strong>esource <strong>A</strong>cquisition <strong>I</strong>s <strong>I</strong>nitialization
+ - is a C++ technique (but not limited to the C++ language) that 
+combines acquisition and release of resources with initialization and 
+uninitialization of variables</li>
+            <li>E.g. :
+                <pre><font color="green">// this is a hypothetic LogFile class using an
+// hypothetic File class just for the illustration 
+// of the technique</font>
+<font color="blue">class</font> LogFile
+{
+<font color="blue">public</font>:
+    LogFile(<font color="blue">const char</font>*);
+    ~LogFile();
+
+    <font color="blue">void</font> write(<font color="blue">const char</font>*);
+<font color="blue">private</font>:
+    File* m_file;
+};
+
+LogFile :: LogFile(<font color="blue">const char</font>* fileName) : 
+<font color="red">// ! acquisition and initialization</font>
+m_file(OpenFile(fileName))
+{
+    <font color="blue">if</font>(NULL == m_file) 
+    {
+        <font color="blue">throw</font> FailedOpenException();
+    }
+}
+
+LogFile :: ~LogFile()
+{
+    <font color="red">// ! release and uninitialization</font>
+    CloseFile(m_file);
+}
+
+<font color="blue">void</font> LogFile :: write(<font color="blue">const char</font>* logLine)
+{
+    WriteFile(m_file, logLine);
+}
+
+<font color="green">// a hypothetical usage example</font>
+<font color="blue">void</font> SomeClass :: someMethod()
+{
+    LogFile log(<font color="brown">"log.tx"</font>);
+    log.write(<font color="brown">"I've been logged!"</font>);
+
+    <font color="red">// !exceptions can be thrown without
+    // worrying about closing the log file
+    // or leaking the file resource</font>
+    <font color="blue">if</font>(...)
+    {
+    <font color="blue">throw</font> SomeException();
+    }
+}</pre></li>
+            <li>Without <strong>RAII</strong> each usage of the LogFile 
+class would be also combined with the explicit management of the File 
+resource. Also in the presence of exceptions you would have to be 
+careful and clean-up after yourself, thing that is taken care of with 
+the proper usage of <strong>RAII</strong> as illustrated in the example above</li>
+            <li><strong>RAII</strong> is best used with languages that 
+call the destructor for local objects when they go out of scope 
+(implicit support of the technique) like C++. In other languages, like 
+Java &amp; C#, that rely on the garbage collector to destruct local 
+objects, you need finalization routines (e.g. try-finally blocks) to 
+properly use <strong>RAII</strong></li>
+            <li>Real usage examples of the technique are the C++ 
+Standard Library's file streams classes and STL's auto_ptr class (to 
+name just very, very few)</li>
+        </ul>
+    </li>
+</ol>
+
+<p>That was it, folks! I hope that even if those questions did not pose 
+any challenges, you still had fun doing/reading this quiz and refreshing
+ your memory on some aspects of the C++ language. Good luck on those 
+interviews!</p>
+
+<h3>Notes</h3>
+<p><strong>(*)</strong> <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=251074&amp;tab=alg" class="coderTextRed">bmerry</a> suggested that my claim is not accurate but I've tested the example on <a target="_blank" href="http://www.microsoft.com/downloads/details.aspx?FamilyId=B2C27A7F-D875-47D5-B226-E2578A116E12&amp;displaylang=en">Windows XP: Visual Studio 2005 Professional Edition</a>
+ (the evaluation one that you can get from the Microsoft site ) did not 
+warn, not even after setting the warnings level to Level 4 (Level 3 is 
+the default one); Mingw compiler based on GCC (that comes with the <a target="_blank" href="http://www.bloodshed.net/">Bloodshed DevCpp</a>
+ version 4.9.9.2) also did not warn (the compiler settings from within 
+the IDE are minimalist; tried to pass -pedantic and -Wextra  to the 
+compiler command line but still no success); <a target="_blank" href="http://www.digitalmars.com/">Digital Mars C++ compiler</a>
+ (dmc) also did not warn with all warnings turned on; Code Warrior 
+Professional Edition 9  does not warn also (this is pretty old, but 
+Metrowerks compilers were renowned for the robustness and standard 
+conformance). So, unless you start digging through the documentation of 
+those compilers to find that right command line switch or start writing 
+the right code, you're in the harms way at least with the "out of the 
+box" installations of these compilers.</p>
+<p><strong>(**)</strong> The compiler does all the magic: first, for 
+each class that contains virtual functions (base and derived), the 
+compiler creates a static table called the <strong>VTABLE</strong>. Each
+ virtual function will have a corresponding entry in that table (a 
+function pointer); for the derived classes the entries will contain the 
+overridden virtual functions' pointers. For <strong>each base</strong> class (it's not static, each object will have it) the compiler adds a hidden pointer called the <strong>VPTR</strong>, that will be initialized to point to the beginning of the <strong>VTABLE</strong> - in the derived classes the (same) <strong>VPTR</strong> will be initialized to point to the beginning of the derived class' <strong>VTABLE</strong>.
+ So when "you make a virtual function call through a base class pointer 
+(that is, when you make a polymorphic call), the compiler quietly 
+inserts code to fetch the <strong>VPTR</strong> and look up the function address in the <strong>VTABLE</strong>,
+ thus calling the correct function". This might seem overly complicated 
+but on a typical machine it does not take much space and it's very, very
+ fast as a smart man said once "fetch, fetch call".</p>
+<p><strong>(***)</strong> For that and other fine C++ gems go to <a target="_blank" href="http://www.research.att.com/%7Ebs/bs_faq2.html#virtual-ctor">Stroustrup</a>.</p>
+
+<h3>References</h3>
+<p>[1] Bjarne Stroustrup - The C++ Programming Language Special 3<sup>rd</sup> Edition<br>
+[2] Stanley B. Lippman, Josee Lajoie, Barbara E. Moo - C++ Primer<br>
+[3] <a target="_blank" href="http://www.parashift.com/c++-faq-lite/">C++ FAQ Lite</a><br>
+[4] Gamma, Helm, Johnson, Vlissides (GoF) - Design Patterns Elements of Reusable Object-Oriented Software<br>
+[5] Herb Sutter - Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions<br>
+[6] Scott Meyers - Effective C++: 55 Specific Ways to Improve Your Programs and Designs<br>
+[7] Scott Meyers - More Effective C++: 35 New Ways to Improve Your Programs and Designs<br>
+[8] Bruce Eckel - Thinking in C++, Volume 1: Introduction to Standard C++</p>
+
+
+
+
+<p>&nbsp; </p>
+
+        </div></td>
+<!-- Center Column Ends -->
+
+<!-- Right Column Begins -->
+         <td id="onRight" width="170">
+            
+
+
+
+<script type="text/javascript" language="javascript">
+
+</script>
+
+
+
+<div class="rightColContent">
+    <br><br>
+</div>
+
+
+         </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+         <td width="10"><img src="tenBestQuestions2_files/clear.gif" height="1" width="10" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</tbody></table>
+
+<div id="onBottom">
+
+
+
+
+
+
+    
+        <footer id="footer">
+            <div class="container">
+                <div class="footerContentSection twitter">
+                    <div class="title">Twitter</div>
+                    <div class="footerContent">
+
+
+                        
+
+                        <a class="btn btnFooter" href="http://www.twitter.com/topcoder"><span class="twFollowIcon"></span><span class="twFollowBtnText">Follow</span></a>
+                    </div>
+                </div>
+                <div class="footerContentSection recentBlogPosts">
+                    <div class="title">Recent Blog Posts Updated</div>
+                         <div class="footerContent">
+                              <div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=new-look-and-feel-for-tc">Apr 23</a>
+
+                                 @timmhicks – Tim Hicks Happy Hump Day 
+topcoders! We are excited to announce that we will be releasing a new 
+look for the very popular /tc by...<a href="http://www.topcoder.com/blog/new-look-and-feel-for-tc/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/space-the-final-email-frontier/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=space-the-final-email-frontier">Apr 23</a>
+
+                                 Do you ever find yourself hitting 
+“send” on an email and wondering if it’ll arrive in the recipient’s 
+inbox? Sending email has become so ubiquitous, simple and...<a href="http://www.topcoder.com/blog/space-the-final-email-frontier/" class="more">Read More</a></div><div class="footerBlogEntry">
+                                     <a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games">Apr 22</a>
+
+                                 @ClintonBon – Clinton Bonner We know 
+what you’re thinking. Great, another ‘puff piece’ on the ‘wisdom of 
+crowds’ and how all we need to do is post...<a href="http://www.topcoder.com/blog/when-beginning-in-crowdsourcing-and-open-innovation-can-be-as-easy-as-playing-board-games/" class="more">Read More</a></div><span id="blogTemplate" style="display: none">
+                                 <div class="footerBlogEntry">
+                                     <a href="javascript:;"></a>
+
+                                 </div>
+                              </span>
+                             <a class="btn btnFooter" href="http://www.topcoder.com/blog">View More</a>
+                         </div>
+
+
+                </div>
+                <div class="footerContentSection aboutTopCoder">
+                    <div class="title">About topcoder</div>
+                    <div class="footerContent">
+                        The topcoder community gathers the world's 
+experts in design, development and data science to work on interesting 
+and challenging problems for fun and reward. We want to help topcoder 
+members improve their skills, demonstrate and gain reward for their 
+expertise, and provide the industry with objective insight on new and 
+emerging technologies.
+                    </div>
+                    <a class="btn btnFooter" href="http://www.topcoder.com/mission">About Us</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <div class="connected">
+                    <section class="social">
+                        <h4>Get Connected</h4>
+                        <ul>
+                            <li><a class="fb" href="http://www.facebook.com/topcoder">FB</a></li>
+                            <li><a class="tw" href="http://www.twitter.com/topcoder">TW</a></li>
+                            <li><a class="gp" href="https://plus.google.com/u/0/b/104268008777050019973/104268008777050019973/posts">GP</a></li>
+                            <li><a class="in" href="https://www.linkedin.com/company/topcoder">IN</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </section>
+                    <section class="updates">
+                        <div class="row">
+                            <form id="emailForm" onsubmit="return newsletter_check(this)" name="FeedBlitz_9feab01d431311e39e69002590771423" style="display:block" method="POST" action="http://www.feedblitz.com/f/f.fbz?AddNewUserDirect">
+                                <input value="Your email address" style="display: block;" class="email isBlured" name="EMAIL" placeholder="Your email address" maxlength="64" type="email">
+                                <input name="FEEDID" value="926643" type="hidden">
+                                <input name="PUBLISHER" value="34610190" type="hidden">
+                                <!-- <a onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn">Submit</a> -->
+                                <input onclick="FeedBlitz_9feab01d431311e39e69002590771423s(this.form);" class="btn btnSubmitFooter" value="Submit" type="button">
+                                <input name="na" value="s" type="hidden">
+                                <input name="nr" value="widget" type="hidden">
+                            </form>
+                            <script type="text/javascript">function FeedBlitz_9feab01d431311e39e69002590771423i(){var x=document.getElementsByName('FeedBlitz_9feab01d431311e39e69002590771423');for(i=0;i<x.length;i++){x[i].EMAIL.style.display='block'; x[i].action='http://www.feedblitz.com/f/f.fbz?AddNewUserDirect';}} function FeedBlitz_9feab01d431311e39e69002590771423s(v){v.submit();}FeedBlitz_9feab01d431311e39e69002590771423i();</script>
+
+                        </div>
+                    </section>
+                </div>
+                <div class="copyright">
+                    <section>
+                        <br>
+                        © 2014 topcoder. All Rights reserved.
+                        <br>
+                        <a href="http://www.topcoder.com/community/how-it-works/privacy-policy/" class="privacyStmtLink">Privacy Policy</a> | <a href="http://www.topcoder.com/community/how-it-works/terms/" class="legalDisclaimerLink">Terms</a>
+                    </section>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </footer>
+    
+    
+
+
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6340959-1']);
+  _gaq.push(['_setDomainName', '.topcoder.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</div>
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"5697673","applicationTime":524,"beacon":"beacon-3.newrelic.com","queueTime":0,"licenseKey":"496af5ee90","transactionName":"ZlcBbBQAChBSARIKXV8dKWs2ThAWRw0UClNdQUxMAw8mBkAWNxZXQkYKVwgSVk1ZERY=","agent":"js-agent.newrelic.com\/nr-515.min.js","errorBeacon":"bam.nr-data.net"}</script>
+
+
+
+</body></html>
