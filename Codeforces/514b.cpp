@@ -6,29 +6,19 @@ using namespace std;
 
 int main()
 {
-	int n,x,y,x1,y1;
+	int n;
+	double x,y,x1,y1,s;
 	cin >> n >> x >> y;
-	double cord[n];
+	set<double> slopes;
 	for(int i=0;i<n;i++)
 	{
 		cin >> x1 >> y1;
 		if(x-x1 == 0)
-			cord[i]=inf;
+			s=inf;
 		else
-			cord[i] = (y-y1)/(x-x1);
+			s = (y-y1)/(x-x1);
+		slopes.insert(s);
 	}
-	sort(cord,cord+n);
-	int X=1,temp=cord[0];
-	cout << cord[0];
-	for(int i=1;i<n;i++)
-	{
-		cout << cord[i];
-		if(temp != cord[i])
-		{
-			X++;
-			temp = cord[i];
-		}
-	}
-	cout << X << endl;
+	cout << slopes.size() << endl;
 	return 0;
 }
