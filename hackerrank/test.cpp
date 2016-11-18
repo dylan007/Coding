@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  test.cpp
+ *       Filename:  TEST.cpp
  *
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  Sunday 15 March 2015 11:38:24  IST
+ *        Created:  Sunday 15 March 2015 11:40:55  IST
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -16,7 +16,8 @@
  * =====================================================================================
  */
 
-#include<bits/stdc++.h>
+#include<iostream>
+#include<string>
 
 using namespace std;
 
@@ -49,48 +50,38 @@ int main()
 	string word;
 	cin >> word; 
 
-	int max = word.length() - 1; //max value
+	int max = 7; //max value
 
-	int largest[10] = {'0','0','0','0','0','0','0','0','0','0'};
 
 	for(int n=1; n <= max+1; n++)
 	{
+
+		cout << n << "\n----\n";
+
 		for(int i = 0; i < n; i++)
 		{
 			sub[i] = i;
 		}
 
 		for(int a = 0; ; a++)
-		{		
-			if(word[sub[0]] == word[sub[n-1]])
-			{
-				for(int c=0; c < n; c++)
-				{
-					if(word[sub[c]] > word[largest[c]])
-					{
-						for(int k=0; k < n; k++)
-							largest[k] = sub[k];
+		{				
+			for(int b=0; b < n; b++)
+				cout << word[sub[b]];
 
-						break;
-					}
-					else if(word[sub[c]] < word[largest[c]])
-						break;
-				}
-			}		
+			cout << '\n';
 
 			if(sub[0] == max - (n - 1))
 				break;
+
 			else
 				next(max, n); //maximum value and last position
 		}	
 
+		cout << '\n';
+
 	}	
-
-	for(int j=0; j < max; j++)
-		cout << word[largest[j]];
-
-	cout << '\n';
 
 
 	return 0;
 }
+
