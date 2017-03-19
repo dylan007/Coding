@@ -1,4 +1,2 @@
-n = input()
-x = bin(n)[2:]
-x = x[::-1]
-print int(x,2)
+t = input()
+print int('0b'+bin(t)[2:][::-1],2)
