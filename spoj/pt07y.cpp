@@ -2,30 +2,31 @@
 
 using namespace std;
 
-
-int find(vector<int> x,int c)
+int find(int parent,int x)
 {
-	if(x[c]==-1)
-		return c;
-	return find(x,x[c]);
+	if(parent[x] == x)
+		return x;
+	else
+		return find(parent,parent[x]);
+}
+
+void un(vector<int> parent, int x, int y)
+{
+	int a,b;
+	a = find(parent,x);
+	b = find(parent,y);
+	parent[a] = b;
 }
 
 int main()
 {
-	int n,m;
+	int x,y,n,m;
 	cin >> n >> m;
-	vector<int> x(n,-1);
-	int a,b,flag=0;
+	vector<int> parent(n,-1);
 	for(int i=0;i<m;i++)
 	{
-		cin >> a >> b;
-		if(find(x,a)==find(x,b))
-			flag=1;
-		x[find(x,a)] = find(x,b);
+		cin >> x >> y;
+		un(parent,x,y);
 	}
-	if(flag)
-		cout << "NO" << endl;
-	else
-		cout << "YES" << endl;
 	return 0;
 }
