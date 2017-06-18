@@ -1,37 +1,49 @@
+//Shounak Dey
 #include<bits/stdc++.h>
 
 using namespace std;
 
-int binsearch(int x,int arr[],int start,int end)
+typedef long long int ll;
+typedef unsigned long long int ull;
+
+#define PB push_back
+#define MK make_pair 
+#define size(a) (int)(sizeof(a))
+
+int binarySearch(vector<int> a, int item, int low, int high)
 {
-	int mid = (start+end)/2;
-	if(x == arr[mid])
-		return mid + 1;
-	else if(x<arr[mid] && x>arr[mid-1])
+	if (high <= low)
+		return (item > a[low])?  (low + 1): low;
+
+	int mid = (low + high)/2;
+	if(item == a[mid])
 		return mid;
-	else if(x>arr[mid] && x<arr[mid+1])
-		return mid+1;
-	else if(x>arr[mid])
-		return binsearch(x,arr,mid,end);
-	else if(x<arr[mid])
-		return binsearch(x,arr,start,mid);
-}	
+	if(item > a[mid])
+		return binarySearch(a, item, mid+1, high);
+	return binarySearch(a, item, low, mid-1);
+}
 
 int main()
 {
 	int n;
 	cin >> n;
-	int arr[n];
+	vector<int> a;
+	int x;
 	for(int i=0;i<n;i++)
-		cin >> arr[i];
-	sort(arr,arr+n);
+	{
+		cin >> x;
+		a.push_back(x);
+	}
+	sort(a.begin(),a.end());
 	int q;
 	cin >> q;
 	while(q--)
 	{
-		int x;
-		cin >> x;
-		cout << binsearch(x,arr,0,n) << endl;
+		int y;
+		cin >> y;
+		int pos = binarySearch(a,y,0,n-1);
+		cout << pos + (a[pos]==y) << endl;
 	}
 	return 0;
 }
+

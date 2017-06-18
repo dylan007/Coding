@@ -6,8 +6,8 @@ using namespace std;
 typedef long long int ll;
 typedef unsigned long long int ull;
 
-#define PB push_back
-#define MK make_pair 
+#define push_back PB
+#define make_pair MK
 #define size(a) (int)(sizeof(a))
 
 int main()
@@ -16,10 +16,17 @@ int main()
 	cin >> T;
 	while(T--)
 	{
-		ll n;
-		cin >> n;
-		ll x = ll(log2(n));
-		cout << (n*(n+1)/2) - 2*((1<<(x+1))-1) << endl;
+		ull sum,x,y;
+		cin >> x >> y;
+		sum = x+y;
+		if(sum==0)
+			cout << 1 << endl;
+		else
+		{
+			sum = (sum+1)*(sum)/2 + 1;
+			sum += x;
+			cout << sum << endl;
+		}
 	}
 	return 0;
 }

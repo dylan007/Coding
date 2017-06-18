@@ -12,15 +12,16 @@ typedef unsigned long long int ull;
 
 int main()
 {
-	int T;
-	cin >> T;
-	while(T--)
+	int n;
+	cin >> n;
+	vector<ll> arr;
+	for(int i=0;i<n;i++)
 	{
-		ll n;
-		cin >> n;
-		ll x = ll(log2(n));
-		cout << (n*(n+1)/2) - 2*((1<<(x+1))-1) << endl;
+		cin >> x;
+		arr.PB(x);
 	}
+	sort(arr.begin(),arr.end());
+	
 	return 0;
 }
 

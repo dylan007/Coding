@@ -12,15 +12,15 @@ typedef unsigned long long int ull;
 
 int main()
 {
-	int T;
-	cin >> T;
-	while(T--)
-	{
-		ll n;
-		cin >> n;
-		ll x = ll(log2(n));
-		cout << (n*(n+1)/2) - 2*((1<<(x+1))-1) << endl;
-	}
+	string a;
+	cin >> a;
+	int flag=0;
+	for(int i=(a.length()/2);i<a.length();i++)
+		flag += (a[i]!=a[a.length()-1-i]);
+	if(flag==1 || (!flag && a.length()%2))
+		cout << "YES" << endl;
+	else
+		cout << "NO" << endl;
 	return 0;
 }
 

@@ -24,10 +24,14 @@ int main()
 {
 	int n;
 	cin >> n;
+	vector<int> c(100001,0);
 	int a[n];
 	for(int i=0;i<n;i++)
+	{
 		cin >> a[i];
+		c[a[i]]++;
+	}
 	sort(a,a+n);
-
+	
 	return 0;
 }

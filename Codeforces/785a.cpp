@@ -10,17 +10,25 @@ typedef unsigned long long int ull;
 #define MK make_pair 
 #define size(a) (int)(sizeof(a))
 
+int p(string a)
+{
+	int ans=0;
+	ans += (a[0]=='T')*4 + (a[0]=='C')*6 + (a[0]=='O')*8 + (a[0]=='D')*12 + (a[0]=='I')*20; 
+	return ans;
+}
+
 int main()
 {
 	int T;
 	cin >> T;
+	string a;
+	int ans=0;
 	while(T--)
 	{
-		ll n;
-		cin >> n;
-		ll x = ll(log2(n));
-		cout << (n*(n+1)/2) - 2*((1<<(x+1))-1) << endl;
+		cin >> a;
+		ans += p(a);
 	}
+	cout << ans << endl;
 	return 0;
 }
 

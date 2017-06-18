@@ -12,15 +12,7 @@ typedef unsigned long long int ull;
 
 int main()
 {
-	int T;
-	cin >> T;
-	while(T--)
-	{
-		ll n;
-		cin >> n;
-		ll x = ll(log2(n));
-		cout << (n*(n+1)/2) - 2*((1<<(x+1))-1) << endl;
-	}
+		
 	return 0;
 }
 
