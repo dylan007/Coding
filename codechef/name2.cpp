@@ -1,59 +1,60 @@
-/*
- * =====================================================================================
- *
- *       Filename:  name2.cpp
- *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  Sunday 17 May 2015 09:24:03  IST
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Shounak Dey (), dylandey1996@gmail.com
- *   Organization:  
- *
- * =====================================================================================
- */
-
+//Shounak Dey
 #include<bits/stdc++.h>
 
 using namespace std;
 
-int substring(string inp1,string inp2,int m,int n)
+typedef long long int ll;
+typedef unsigned long long int ull;
+
+#define PB push_back
+#define MK make_pair 
+#define SZ(a) (int)(sizeof(a))
+#define F first
+#define S second
+#define REP(i,a,b) for(int i=a;i<b;i++)
+#define READ(n) scanf("%d",&n)
+#define READL(n) scanf("%lld",&n)
+#define SORTV(a) sort(a.begin(),a.end())
+#define TESTCASE int Test;cin >> Test;while(Test--)
+
+int substring(string a,string b)
 {
-	if(m>n)
-		return 0;
-	int j=0;
-	int i;
-	for(i=0;i<m;i++)
+	string temp;
+	if(a.length()<b.length())//makes a the larger string
 	{
-		while(j<n)
+		temp = a;
+		a = b;
+		b = temp;
+	}//find if b is a subsequence of a 
+//	cout << a << " " << b << endl;
+	int al=a.length(),bl=b.length();
+	int flag=0,curr=0;
+	for(int i=0;i<al;i++)
+	{
+		if(curr==bl)
 		{
-			if(inp2[j] == inp1[i])
-				break;
-			j++;
+			flag=1;
+			break;
 		}
-		if(j>n)
-			return 0;
-		i++;
-		j++;
+		if(a[i]==b[curr])
+			curr++;
 	}
-	return 1;
+	if(curr==bl)
+		flag=1;
+	return flag;
 }
 
 int main()
 {
-	int T;
-	cin >> T;
-	while(T--)
+	TESTCASE
 	{
-		string inp1,inp2;
-		cin >> inp1 >> inp2;
-		if(substring(inp1,inp2,inp1.length(),inp2.length())==1 || substring(inp2,inp1,inp2.length(),inp1.length())==1)
+		string a,b;
+		cin >> a >> b;
+		if(substring(a,b))
 			cout << "YES" << endl;
 		else
 			cout << "NO" << endl;
 	}
 	return 0;
 }
+
