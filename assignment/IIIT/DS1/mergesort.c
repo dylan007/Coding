@@ -46,12 +46,14 @@ int main()
 	while(T--)
 	{
 		int a[20010];
-		int i,k;
-		scanf("%d %d",&n,&k);
+		int i;
+		scanf("%d",&n);
 		for(i=0;i<n;i++)
 			scanf("%d",&a[i]);
 		mergesort(a,0,n-1);
-		printf("%d\n",a[k-1]);
+		for(i=0;i<n;i++)
+			printf("%d ",a[i]);
+		printf("\n");
 	}
 	return 0;
 }
