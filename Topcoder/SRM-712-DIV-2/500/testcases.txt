@@ -1,0 +1,10 @@
+{"ababa" }
+"abbaa"
+{"a", "b", "c" }
+"abc"
+{"aba", "bcb", "cac" }
+"aaabbbccc"
+{"oco", "d", "e", "p", "r", "t" }
+"topcoder"
+{"z" }
+"z"

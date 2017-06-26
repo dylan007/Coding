@@ -1,0 +1,56 @@
+<html><body bgcolor="#000000" text="#ffffff"><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td>Fox Ciel has a rectangular board divided into n rows by m columns of unit square cells.
+Rows are numbered 0 through n-1 from top to bottom and columns are numbered 0 through m-1 from left to right.
+Each cell is either white or black.
+You are given a vector &lt;string&gt; <b>board</b> containing the description of the board.
+The character <b>board</b>[i][j] represents the cell in row i, column j.
+The character '#' represents a black cell and '.' represents a white cell.
+<br></br>
+<br></br>
+The board is called <i>horizontally symmetric</i> if it remains the same when flipped around a horizontal line that goes through the center of the board.
+If n is odd, this line goes through the middle of row (n-1)/2.
+If n is even, the line goes between rows (n/2)-1 and (n/2).
+<br></br>
+<br></br>
+Similarly, the board is called <i>vertically symmetric</i> if it remains the same when flipped around a vertical line that goes through the center of the board.
+<br></br>
+<br></br>
+Please help Ciel determine the types of symmetry of her board.
+Return one of the following four strings:
+<br></br>
+<br></br>
+<ul>
+<li>"Both" if Ciel's board is both horizontally and vertically symmetric.</li>
+<li>"Horizontally symmetric" if Ciel's board is horizontally symmetric but not vertically symmetric.</li>
+<li>"Vertically symmetric" if Ciel's board is vertically symmetric but not horizontally symmetric.</li>
+<li>"Neither" otherwise.</li>
+</ul>
+
+Note that the quotes are for clarity only. Also note that the return value is case-sensitive.</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>SymmetryDetection</td></tr><tr><td>Method:</td><td>detect</td></tr><tr><td>Parameters:</td><td>vector &lt;string&gt;</td></tr><tr><td>Returns:</td><td>string</td></tr><tr><td>Method signature:</td><td>string detect(vector &lt;string&gt; board)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr><tr><td>Stack limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Notes</h3></td></tr><tr><td align="center" valign="top">-</td><td>The values n and m are not given explicitly. Instead, you can determine n as the number of elements in <b>board</b> and m as the length of any element in <b>board</b>.</td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td>n, m will be between 1 and 50, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>board</b> will contain exactly n elements.</td></tr><tr><td align="center" valign="top">-</td><td>Each element in <b>board</b> will have exactly m characters.</td></tr><tr><td align="center" valign="top">-</td><td>Each character in <b>board</b> will be '#' or '.'.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;#####&quot;,
+ &quot;.###.&quot;,
+ &quot;..#..&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Vertically symmetric&quot;</pre></td></tr><tr><td><table><tr><td colspan="2">If we flip this board according to the vertical line that goes through the middle of column 2, we will get exactly the same board.
+On the other hand, if we flip it according to the horizontal line that goes through the middle of row 1, we will get the following shape:
+<br></br>
+<pre>
+..#..
+.###.
+#####
+</pre>
+<br></br>
+This is not the same board, which means that this board isn't horizontally symmetric.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;#####&quot;,
+ &quot;#...#&quot;,
+ &quot;#####&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Both&quot;</pre></td></tr><tr><td><table><tr><td colspan="2">This time it is both horizontally and vertically symmetric.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;#..&quot;,
+ &quot;#..&quot;,
+ &quot;#..&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Horizontally symmetric&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;#.&quot;,
+ &quot;.#&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Neither&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;#######&quot;,
+ &quot;#..#..#&quot;,
+ &quot;#######&quot;,
+ &quot;...#...&quot;,
+ &quot;#######&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Vertically symmetric&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">5)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;#.....#&quot;,
+ &quot;#.....#&quot;,
+ &quot;#######&quot;,
+ &quot;#...#.#&quot;,
+ &quot;#.....#&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Neither&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">6)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;#######.#.....#&quot;,
+ &quot;...#....#.....#&quot;,
+ &quot;.#####..#######&quot;,
+ &quot;...#....#.....#&quot;,
+ &quot;#######.#.....#&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Horizontally symmetric&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">7)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;.&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Both&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
