@@ -46,47 +46,27 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+ull num(ull x,ull y)
+{
+	return (x+1)*(y*(y+1))/2 + (y+1)*(x*(x+1))/2;
+}
+
 int main()
 {
-	TEST
+	ull m,b,x;
+	readul(m);
+	readul(b);
+	ull ym = b;
+	ull xm = m*b;
+	ull ans=0;
+	for(ull y=ym;y>=0;y--)
 	{
-		int n;
-		read(n);
-		vector<int> c(n);
-		vector<int> q;
-		REP(i,n)
-			read(c[i]);
-		vector<int> w(n);
-		REP(i,n)
-		{
-			read(w[i]);
-			if(i!=0)
-				w[i] += w[i-1];
-		}
-		vector<int> pos(n,-1);
-		int m=-1,M=0;
-		REP(i,n)
-		{
-			if(pos[c[i]]>=0)
-			{
-				error(i,pos[c[i]]);
-				if(m>=0)
-					M = max(M,w[i-1]-w[m]);
-				else
-					M = max(M,w[i-1]);
-				m = max(pos[c[i]],m);
-				pos[c[i]] = i;
-			}
-			else
-				pos[c[i]] = i;
-		}
-		//error(m,M,w[n-1]);
-		if(m>=0)
-			M = max(M,w[n-1]-w[m]);
-		else
-			M = max(M,w[n-1]);
-		cout << M << endl;
+		x = m*(b-y);
+		ans = max(ans,num(x,y));
+		if(y==0)
+			break;
 	}
+	cout << ans << endl;
 	return 0;
 }
 

@@ -1,0 +1,59 @@
+<html><body bgcolor="#000000" text="#ffffff"><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+An ordered binary tree is a rooted binary tree in which each node X contains two pointers: X.left and X.right.
+Each of these pointers either points to the corresponding child node, or it has a special value "None" meaning that node X doesn't have the corresponding child.
+</p>
+
+<p>
+I just taught Antonio some tree traversal techniques on ordered binary trees.
+I asked him to implement these tree traversals but I don't think he was paying attention, since he mixed them up and wrote the following pseudocode:
+</p>
+
+<pre>
+def order(v, mode):
+    if v == None:
+        return []
+    if mode == "pre":
+       return [v.label] + order(v.left, s[0]) + order(v.right, s[1])
+    if mode == "in":
+       return order(v.left, s[2]) + [v.label] + order(v.right, s[3])
+    if mode == "post":
+       return order(v.left, s[4]) + order(v.right, s[5]) + [v.label]
+</pre>
+
+<p>
+You are given the vector &lt;string&gt; <b>s</b> used in the pseudocode above.
+You are guaranteed that among {<b>s</b>[0], <b>s</b>[2], <b>s</b>[4]} and also among {<b>s</b>[1], <b>s</b>[3], <b>s</b>[5]} each of the strings "pre", "in", and "post" appears exactly once.
+</p>
+
+<p>
+Let "root" be a variable that contains the root of an ordered binary tree with n nodes.
+The nodes are numbered 1 through n in no particular order.
+</p>
+
+<p>
+Consider the scenario in which we executed Antonio's code on this tree three times by making the following function calls:
+</p>
+<pre>
+a1 = order(root, "pre")
+a2 = order(root, "in")
+a3 = order(root, "post")
+</pre>
+
+<p>
+You are given the vector &lt;int&gt;s <b>a1</b>, <b>a2</b>, <b>a3</b>.
+Is there a tree for which the above scenario is possible?
+In other words, is it possible to construct an ordered binary tree with n nodes such that Antonio's code would output the three given sequences <b>a1</b>, <b>a2</b>, <b>a3</b> when called as shown above?
+</p>
+
+<p>
+Return "Possible" if the scenario could have happened, or "Impossible" if there is no such tree.
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>InPrePost</td></tr><tr><td>Method:</td><td>isPossible</td></tr><tr><td>Parameters:</td><td>vector &lt;string&gt;, vector &lt;int&gt;, vector &lt;int&gt;, vector &lt;int&gt;</td></tr><tr><td>Returns:</td><td>string</td></tr><tr><td>Method signature:</td><td>string isPossible(vector &lt;string&gt; s, vector &lt;int&gt; a1, vector &lt;int&gt; a2, vector &lt;int&gt; a3)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr><tr><td>Stack limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>s</b> will contain exactly 6 elements.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>s</b> will be one of "pre", "in", "post".</td></tr><tr><td align="center" valign="top">-</td><td>Among {<b>s</b>[0], <b>s</b>[2], <b>s</b>[4]} and {<b>s</b>[1], <b>s</b>[3], <b>s</b>[5]}, each of "pre", "in", "post" appears exactly once.</td></tr><tr><td align="center" valign="top">-</td><td><b>a1</b> will have between 1 and 50 elements, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>a2,a3</b> will have the same length as <b>a1</b>.</td></tr><tr><td align="center" valign="top">-</td><td>Each of <b>a1,a2,a3</b> will be a permutation of 1 to len(<b>a1</b>).</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;post&quot;, &quot;in&quot;, &quot;pre&quot;, &quot;post&quot;, &quot;in&quot;, &quot;pre&quot;}</pre></td></tr><tr><td><pre>{1,2,3,4,5}</pre></td></tr><tr><td><pre>{2,1,3,5,4}</pre></td></tr><tr><td><pre>{2,4,3,5,1}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Possible&quot;</pre></td></tr><tr><td><table><tr><td colspan="2">A possible tree that could have generated these inputs looks as follows:
+
+<p>
+<img src="http://www.topcoder.com/contest/problem/PreInPost/image2.png"></img>
+</p>
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;pre&quot;, &quot;pre&quot;, &quot;in&quot;, &quot;in&quot;, &quot;post&quot;, &quot;post&quot;}</pre></td></tr><tr><td><pre>{1,2,3,4}</pre></td></tr><tr><td><pre>{2,4,3,1}</pre></td></tr><tr><td><pre>{4,3,2,1}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Possible&quot;</pre></td></tr><tr><td><table><tr><td colspan="2">It is allowed for nodes to have only one child.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;post&quot;, &quot;in&quot;, &quot;pre&quot;, &quot;post&quot;, &quot;in&quot;, &quot;pre&quot;}</pre></td></tr><tr><td><pre>{1,2,3,4,5}</pre></td></tr><tr><td><pre>{2,1,3,5,4}</pre></td></tr><tr><td><pre>{1,4,3,5,2}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Impossible&quot;</pre></td></tr><tr><td><table><tr><td colspan="2">This is impossible.
+Here is one reason:
+From <b>a1</b> we can deduce that the root of the tree must have the label 1.
+However, from <b>a3</b> we can deduce that the root of the tree must have the label 2.
+This is a contradiction.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;post&quot;, &quot;pre&quot;, &quot;in&quot;, &quot;post&quot;, &quot;pre&quot;, &quot;in&quot;}</pre></td></tr><tr><td><pre>{1}</pre></td></tr><tr><td><pre>{1}</pre></td></tr><tr><td><pre>{1}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Possible&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;pre&quot;, &quot;pre&quot;, &quot;in&quot;, &quot;in&quot;, &quot;post&quot;, &quot;post&quot;}</pre></td></tr><tr><td><pre>{1,2,3,4,5,6,7,8,9,10}</pre></td></tr><tr><td><pre>{2,3,4,5,1,6,7,8,9,10}</pre></td></tr><tr><td><pre>{6,5,4,3,2,10,9,8,7,1}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Impossible&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">5)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;post&quot;,&quot;post&quot;,&quot;in&quot;,&quot;pre&quot;,&quot;pre&quot;,&quot;in&quot;}</pre></td></tr><tr><td><pre>{9,4,8,3,7,5,6,1,2}</pre></td></tr><tr><td><pre>{3,8,7,4,6,5,9,2,1}</pre></td></tr><tr><td><pre>{6,7,3,8,4,5,1,2,9}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Possible&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

@@ -1,0 +1,8 @@
+class Time(object):
+	def whatTime(self,x):
+		s = str(x/3600)+":"
+		x = x%3600
+		s += str(x/60)+":"
+		x = x%60
+		s += str(x)
+		return s

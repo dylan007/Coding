@@ -48,45 +48,50 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	TEST
+	int n,x;
+	read(n);
+	vector<vector<int>> nums;
+	vector<int> temp;
+	int ans=0;
+	REP(i,n)
 	{
-		int n;
-		read(n);
-		vector<int> c(n);
-		vector<int> q;
-		REP(i,n)
-			read(c[i]);
-		vector<int> w(n);
-		REP(i,n)
+		nums.PB(temp);
+		REP(j,n)
 		{
-			read(w[i]);
-			if(i!=0)
-				w[i] += w[i-1];
+			read(x);
+			nums[i].PB(x);
+			ans += (x==1);
 		}
-		vector<int> pos(n,-1);
-		int m=-1,M=0;
-		REP(i,n)
-		{
-			if(pos[c[i]]>=0)
-			{
-				error(i,pos[c[i]]);
-				if(m>=0)
-					M = max(M,w[i-1]-w[m]);
-				else
-					M = max(M,w[i-1]);
-				m = max(pos[c[i]],m);
-				pos[c[i]] = i;
-			}
-			else
-				pos[c[i]] = i;
-		}
-		//error(m,M,w[n-1]);
-		if(m>=0)
-			M = max(M,w[n-1]-w[m]);
-		else
-			M = max(M,w[n-1]);
-		cout << M << endl;
 	}
+	REP(i,n)
+	{
+		REP(j,n)
+		{
+			if(nums[i][j]==1)
+				continue;
+			int flag=0;
+			REP(a,n)
+			{
+				REP(b,n)
+				{
+					//error(nums[i][b],nums[a][j]);
+					if((nums[i][b]+nums[a][j])==nums[i][j])
+					{
+						flag++;
+						ans++;
+						break;
+					}
+				}
+				if(flag)
+					break;
+			}
+			//error(i,j,flag);
+		}
+	}
+	if(ans==(n*n))
+		printf("Yes\n");
+	else
+		printf("No\n");
 	return 0;
 }
 

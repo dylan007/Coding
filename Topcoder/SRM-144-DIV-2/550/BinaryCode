@@ -1,0 +1,28 @@
+class BinaryCode:
+	def decode(self,message):
+		str1="0"
+		str2="1"
+		t1 = 0
+		t2 = 0
+		f1 = 0
+		f2 = 0
+		str1 += chr(ord(message[1])-ord('0'))
+		str2 += chr(ord(message[1])-ord('1'))
+		print str1,str2
+		for i in range(2,len(message)):
+			t1 = ord(str1[i-1])-ord('0')
+			t2 = ord(str1[i-2])-ord('0')
+			str1+= chr(ord(message[i])-t1-t1)
+			if(str1[i]>'1'):
+				f1 = f1+1
+			t1 = ord(str2[i-1])-ord('0')
+			t2 = ord(str2[i-2])-ord('0')
+			str2 += chr(ord(message[i])-t1-t2)
+			if(str2[i]>'1'):
+				f2 = f2+1
+			print str1,str2
+			if(f1>0):
+				str1="NONE"
+			if(f2>0):
+				str2="NONE"
+			return (str1,str2)
