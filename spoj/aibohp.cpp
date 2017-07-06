@@ -46,37 +46,33 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+int lcs(string a,string b,int l1,int l2)
+{
+	int l[l1+1][l2+1]={0};
+	REP(i,l1+1)
+	{
+		REP(j,l2+1)
+		{
+			if(i==0 || j==0)
+				l[i][j] = 0;
+			else if(a[i-1] == b[j-1])
+				l[i][j] = 1+l[i-1][j-1];
+			else
+				l[i][j] = max(l[i-1][j],l[i][j-1]);
+		}
+	}
+	return l[l1][l2];
+}
+
 int main()
 {
 	TEST
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
-		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
-		}
-		cout << ans << endl;
+		string a;
+		cin >> a;
+		string b(a);
+		reverse(b.begin(),b.end());
+		cout << a.length()-lcs(a,b,a.length(),a.length()) << endl;
 	}
 	return 0;
 }

@@ -1,0 +1,12 @@
+"Possible"
+142857
+"Impossible"
+14
+"Possible"
+1035
+"Impossible"
+1000000
+"Possible"
+100035
+"Impossible"
+4

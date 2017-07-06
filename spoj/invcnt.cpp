@@ -46,37 +46,62 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+ll inv=0;
+
+void merge(ll *arr,ll start,ll mid,ll end)
+{
+	vector<ll> l,r;
+	ll n1,n2;
+	n1 = mid-start+1;
+	n2 = end-mid;
+	for(ll i=0;i<n1;i++)
+		l.PB(arr[start+i]);
+	for(ll i=0;i<n2;i++)
+		r.PB(arr[mid+i+1]);
+	int i=0,j=0,k=start;
+	while(i<n1 && j<n2)
+	{
+		if(l[i]>r[j])
+		{
+			arr[k++] = r[j++];
+			inv += n1-i;
+		}
+		else
+			arr[k++] = l[i++];
+	}
+	while(i<n1)
+		arr[k++] = l[i++];
+	while(j<n2)
+		arr[k++] = r[j++];
+	return;
+}
+
+void merge_sort(ll *arr,ll start,ll end)
+{
+	ll mid = (start+end)/2;
+	if(start>=end)
+		return;
+	merge_sort(arr,start,mid);
+	merge_sort(arr,mid+1,end);
+	merge(arr,start,mid,end);
+	return;
+}
+
 int main()
 {
 	TEST
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
-		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
-		}
-		cout << ans << endl;
+		inv = 0;
+		ll n;
+		readl(n);
+		ll arr[n];
+		REP(i,n)
+			readl(arr[i]);
+		merge_sort(arr,0,n-1);
+		/*REP(i,n)
+			cout << arr[i] << " ";
+		cout << endl;*/
+		cout << inv << endl;
 	}
 	return 0;
 }

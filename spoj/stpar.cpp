@@ -1,38 +1,46 @@
-#include<bits/stdc++.h>
-
+#include<iostream>
+#include<queue>
+#include<stack>
+#include<algorithm>
+#include<stdio.h>
 using namespace std;
-
-int main()
-{
-	int N;
-	cin >> N;
-	while(1)
-	{
-		if(N==0)
-			break;
-		int x,flag=0;
-		stack<int> side;
-		int curr = 1;
-		for(int i=0;i<N;i++)
-		{
-			cin >> x;
-			if(curr!=x)
-			{
-				if(!side.empty())
-				{
-					if(side.top()<x)
-						flag=1;
-				}
-				side.push(x);
-				curr--;
-			}
-			curr++;
-		}
-		if(!flag)
-			cout << "yes" << endl;
-		else
-			cout << "no" << endl;
-		cin >> N;
-	}
-	return 0;
+int main(){
+    int n;
+    cin>>n;
+    while(n!=0){
+        int v;
+        queue<int> Q;
+        stack<int> S;
+        for(int i=0;i<n;i++){
+            cin>>v;
+            Q.push(v);
+        }
+        int c=1;
+        while(!Q.empty()||!S.empty()){
+            if(!Q.empty()&&Q.front()==c) {
+                Q.pop();
+                c++;
+            }else{
+                if(!S.empty()&&S.top()==c){
+                    S.pop();
+                    c++;
+                }else{
+                    if(!Q.empty()){
+                        int s=Q.front();
+                        S.push(s);
+                        Q.pop();
+                    }else{
+                        break;
+                    }
+                }
+            }
+        }
+        if(c==n+1){
+            cout<<"yes"<<endl;
+        }else{
+            cout<<"no"<<endl;
+        }
+        cin>>n;
+    }
+    return 0;
 }

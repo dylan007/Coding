@@ -27,7 +27,7 @@ typedef unsigned long long int ull;
 #define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
-
+/*
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
@@ -45,39 +45,41 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
 	err(++it, args...);
 }
-
-int main()
+*/
+#define MOD 1000000007
+#define e exp(1);
+ull fact(ull x)
 {
-	TEST
-	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
-		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
-		}
-		cout << ans << endl;
-	}
-	return 0;
+	if(x==1 || x==0)
+		return 1;
+	return (x*fact(x-1))%MOD;
 }
+
+ull nCr(ull n,ull r)
+{
+	ull x=1,y=1;
+	for(int i=1;i<=r;i++)
+	{
+		x = (x*(n-i+1))%MOD;
+		y = (y*i)%MOD;
+	}
+	return x/y;
+}
+
+class DerangementsDiv2
+{
+public:
+	int count(int n, int m)
+	{
+		ull ans = 0;
+		for(int i=0;i<=m;i++)
+		{
+			if(i%2)
+				ans -= nCr(m,i)*fact(n+m-i);
+			else
+				ans += nCr(m,i)*fact(n+m-i);
+		}
+		return ans;
+	}
+};
 

@@ -48,35 +48,15 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	TEST
+	int x,y;
+	read(x);read(y);
+	while(x>=0)
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
-		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
-		}
-		cout << ans << endl;
+		if(x==0 || y==0)
+			cout << x+y << endl;
+		else
+			cout << (max(x,y)-1)/(min(x,y)+1) + 1 << endl;
+		read(x);read(y);
 	}
 	return 0;
 }

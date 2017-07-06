@@ -48,35 +48,41 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	TEST
+	int c,d;
+	cin >> c >> d;
+	while(c*d > 0)
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		vector<int> a,b;
+		int p;
+		while(c--)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
+			read(p);
+			a.PB(p);
 		}
-		cout << ans << endl;
+		while(d--)
+		{
+			read(p);
+			b.PB(p);
+		}
+		c = a.size();
+		d = b.size();
+		sort(a.begin(),a.end());
+		sort(b.begin(),b.end());
+		int flag=0;
+		for(int i=0;i<c;i++)
+		{
+			if(a[i]<b[0] || a[i]<b[1])
+			{
+				flag=1;
+				break;
+			}
+		}
+		if(flag)
+			cout << "Y" << endl;
+		else
+			cout << "N" << endl;
+		cin >> c >> d;
+
 	}
 	return 0;
 }

@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="Coding" targetName="822d" />
+      <config projectName="Coding" targetName="822b" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a1ac2a9e-b80c-4c84-a613-df42d82bfab5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/600/ColorfulCoinsEasy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-716-DIV-2/250/Permutiple" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-717-DIV-2/1000/DerangementsDiv2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/1000/DerangementsDiv2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/250/NiceTable" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/500/LexmaxReplace" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeDetermineCompilerABI_C.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeDetermineCompilerABI_CXX.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdC/a.out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdCXX/a.out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/Codeforces/822b.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/Codeforces/822d.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/acm-archive/2315.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/ahmed-aly/ladder1/1.cpp.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/bst_creation.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/mergesort.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/p1.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/p2.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/p3.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/p4.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/p5.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/p6.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/p7.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/p8.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/test.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/test2.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS1/test3.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS2/bst.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS2/p10.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/DS2/p102.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/ass4/completed/coins.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/ass4/completed/mod.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/ass4/completed/sub_array.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/ass4/incomplete/ifibo.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/ass4/incomplete/nqueens.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/ass4/incomplete/sequence.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/ass4/incomplete/shortest_path.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/ass4/incomplete/shortestpath.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/assignment/IIIT/ass4/incomplete/test.c.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codechef/.hhmgn.cpp.swp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/.pfact.cpp.swp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/Coding.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Codeforces/822d.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/250/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/250/Problem.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/250/WakingUpEasy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/250/WakingUpEasy.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/250/driver.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/250/testcases.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/600/ColorfulCoinsEasy.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/600/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/600/Problem.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/600/driver.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-616-DIV-2/600/testcases.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-716-DIV-2/250/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-716-DIV-2/250/Permutiple.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-716-DIV-2/250/Problem.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-716-DIV-2/250/driver.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-716-DIV-2/250/testcases.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-717-DIV-2/1000/DerangementsDiv2.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-717-DIV-2/1000/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-717-DIV-2/1000/Problem.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-717-DIV-2/1000/driver.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/SRM-717-DIV-2/1000/testcases.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/1000/DerangementsDiv2.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/1000/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/1000/Problem.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/1000/driver.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/1000/testcases.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/250/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/250/NiceTable.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/250/Problem.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/250/driver.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/250/testcases.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/500/LexmaxReplace.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/500/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/500/Problem.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/500/driver.cc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topcoder/Single-Round-Match-717/500/testcases.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assignment/IIIT/DS1/in" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeCCompiler.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeCXXCompiler.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeSystem.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdC/CMakeCCompilerId.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/CXX.includecache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/depend.internal" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/link.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822b.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/CXX.includecache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/depend.internal" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/link.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/822d.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/C.includecache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/CXX.includecache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/DependInfo.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/build.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/cmake_clean.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/depend.internal" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/depend.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/flags.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/link.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Coding.dir/progress.make" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/Coding.cbp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codechef/hhmgn.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codechef/hhmgn.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codechef/kchar.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codechef/kchar.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/codechef/riddle99.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hackerearth/in" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hackerearth/lnmitac2.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/acode.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/aibohp.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/amr10g.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/anarco9a.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/beenums.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/bishops.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/bitmap.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/bytesm2.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/crds.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/edist.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/eelcs.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/farida.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/girlnbs.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/gss1.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/gss3.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/hypnos.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/invcnt.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/lastdig2.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/lastdig2.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/lstdgt.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/marbles.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/maxln.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/ny10a.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/offside.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spoj/ololo.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Codeforces/a.out" afterPath="$PROJECT_DIR$/Codeforces/a.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/IIIT/DS1/a.out" afterPath="$PROJECT_DIR$/assignment/IIIT/DS1/a.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codechef/a.out" afterPath="$PROJECT_DIR$/codechef/a.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spoj/a.out" afterPath="$PROJECT_DIR$/spoj/a.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Codeforces/in" afterPath="$PROJECT_DIR$/Codeforces/in" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codechef/in" afterPath="$PROJECT_DIR$/codechef/in" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spoj/arith2.cpp" afterPath="$PROJECT_DIR$/spoj/arith2.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spoj/in" afterPath="$PROJECT_DIR$/spoj/in" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spoj/lastdig.cpp" afterPath="$PROJECT_DIR$/spoj/lastdig.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spoj/stpar.cpp" afterPath="$PROJECT_DIR$/spoj/stpar.cpp" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Coding" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="C++ Source" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/Codeforces/822b.cpp" />
+        <option value="$PROJECT_DIR$/Codeforces/822c.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
+    <option name="y" value="-11" />
+    <option name="width" value="1368" />
+    <option name="height" value="780" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>C/C++</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coding" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coding" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coding" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coding" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Codeforces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="ObjectiveC" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Build All">
+    <configuration default="true" type="CLion_Remote" factoryName="GDB Remote Debug" remoteCommand="" symbolFile="" sysroot="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ChromiumRemoteDebugType" factoryName="Chromium Remote">
+      <method />
+    </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+      <method />
+    </configuration>
+    <configuration default="true" type="FirefoxRemoteDebugType" factoryName="Firefox Remote">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeWebKit" factoryName="NW.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Coding" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ReactNative" factoryName="React Native">
+      <node-interpreter value="project" />
+      <platform value="ANDROID" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Coding" />
+      <method />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="name.admitriev.jhelper.configuration.TaskConfigurationType" factoryName="Task" className="" cppPath="" inputType="STANDARD" outputType="STANDARD" testType="SINGLE">
+      <tests />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Coding" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Coding" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Coding" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Coding" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a1ac2a9e-b80c-4c84-a613-df42d82bfab5" name="Default" comment="" />
+      <created>1499084334613</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1499084334613</updated>
+      <workItem from="1499084938942" duration="828000" />
+      <workItem from="1499085786155" duration="621000" />
+      <workItem from="1499086422570" duration="1948000" />
+      <workItem from="1499102269534" duration="1007000" />
+      <workItem from="1499181815255" duration="624000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="5028000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13560607" sideWeight="0.49380806" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28018576" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38030303" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" x="22" y="265" width="1322" height="221" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13181818" sideWeight="0.50619197" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Codeforces/822b.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16524">
+          <caret line="918" column="29" lean-forward="false" selection-start-line="918" selection-start-column="29" selection-end-line="918" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Codeforces/822d.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1962">
+          <caret line="109" column="17" lean-forward="false" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Codeforces/822b.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1206">
+          <caret line="67" column="4" lean-forward="false" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="915" column="0" lean-forward="false" selection-start-line="915" selection-start-column="0" selection-end-line="915" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Codeforces/822c.cpp" />
+    <entry file="file://$PROJECT_DIR$/Codeforces/822b.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Codeforces/822d.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="107" column="30" lean-forward="false" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Codeforces/165b.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

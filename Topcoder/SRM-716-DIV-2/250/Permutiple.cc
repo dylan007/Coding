@@ -27,7 +27,7 @@ typedef unsigned long long int ull;
 #define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
-
+/*
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
@@ -45,39 +45,38 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
 	err(++it, args...);
 }
-
-int main()
+*/
+int check(int x,int y)
 {
-	TEST
-	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
-		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
-		}
-		cout << ans << endl;
-	}
-	return 0;
+	string a,b;
+	a = to_string(x);
+	b = to_string(y);
+	if(b.length()>a.length())
+		return 0;
+	vector<int> c(10,0);
+	REP(i,a.length())
+		c[a[i]-'0']++;
+	REP(i,b.length())
+		c[b[i]-'0']--;
+	//cout << a << " " << b  << endl;
+	int flag=0;
+	REP(i,10)
+		flag |= (c[i]!=0);
+	return !flag;
 }
+
+class Permutiple
+{
+public:
+	string isPossible(int x)
+	{
+		FOR(i,2,10)
+		{
+			int y = x*i;
+			if(check(x,y))
+				return "Possible";
+		}
+		return "Impossible";
+	}
+};
 

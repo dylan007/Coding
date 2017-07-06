@@ -50,33 +50,12 @@ int main()
 {
 	TEST
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
-		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
-		}
-		cout << ans << endl;
+		ull a,b,c;
+		ull x,y;
+		readul(a);readul(b);readul(c);
+		x = a/c;
+		y = b/c;
+		cout << y-x + !(a%c)<< endl;
 	}
 	return 0;
 }

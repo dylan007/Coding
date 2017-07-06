@@ -46,37 +46,48 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+ull np(ull x)
+{
+	ull a=1;
+	if(x && !(x&(x-1)))
+		return x;
+	while(a<x)
+		a <<= 1;
+	return a;
+}
+
+int calc(ull x,ull y)
+{
+	ull l = y/2;
+	if(y==1)
+		return 0;
+	if(x==l)
+		return 0;
+	if(x<l)
+		return calc(x,l);
+	else
+		return 1-calc(2*l-x,l);
+}
+
+
 int main()
 {
 	TEST
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		ull k;
+		readul(k);
+		if(k==1)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
+			cout << "a" << endl;
+			continue;
 		}
-		cout << ans << endl;
+		k++;
+		ull y = np(k)-1;
+		k -= 2;
+		if(calc(k,y))
+			cout << "c" << endl;
+		else
+			cout << "a" << endl;
 	}
 	return 0;
 }

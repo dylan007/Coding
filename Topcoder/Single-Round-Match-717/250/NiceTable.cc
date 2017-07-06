@@ -27,7 +27,7 @@ typedef unsigned long long int ull;
 #define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
-
+/*
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
@@ -45,39 +45,35 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
 	err(++it, args...);
 }
-
-int main()
+*/
+int check(string a,string b)
 {
-	TEST
+	int flag=0;
+	for(int i=0;i<a.length();i++)
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
-		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
-		}
-		cout << ans << endl;
+		if(a[i]!=b[i])
+			flag++;
+		else
+			flag--;
 	}
+	if(abs(flag)==a.length())
+		return 1;
 	return 0;
 }
+
+class NiceTable
+{
+public:
+	string isNice(vector <string> t)
+	{
+			string temp = t[0];
+			int flag=1;
+			for(int i=1;i<t.size();i++)
+				flag &= check(temp,t[i]);
+			if(flag)
+				return "Nice";
+			else
+				return "Not nice";
+	}
+};
 

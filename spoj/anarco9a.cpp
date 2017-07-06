@@ -48,35 +48,26 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	TEST
+	string a;
+	cin >> a;
+	int c=0;
+	while(a[0]=='{' || a[0]=='}')
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		c++;
+		int c1=0,c2=0;
+		for(int i=0;i<a.length();i++)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
+			if(a[i]=='}')
 			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
+				c2 += (c1==0);
+				c1 -= (c1>0);
 			}
-			cin >> op;
+			else
+				c1++;
 		}
-		cout << ans << endl;
+		cout << c << ". ";
+		cout << c1/2 + c2/2 + c1%2 + c2%2 << endl;
+		cin >> a;
 	}
 	return 0;
 }

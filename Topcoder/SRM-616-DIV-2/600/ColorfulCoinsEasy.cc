@@ -27,7 +27,7 @@ typedef unsigned long long int ull;
 #define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
-
+/*
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
@@ -45,39 +45,23 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
 	err(++it, args...);
 }
-
-int main()
+*/
+class ColorfulCoinsEasy
 {
-	TEST
+public:
+	string isPossible(vector <int> values)
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		//vector<int> a;
+		int r;
+		vector<int> flag(20000,0);
+		for(int i=1;i<values.size();i++)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
+			r = values[i]/values[i-1];
+			if(flag[r])
+				return "Impossible";
+			flag[r]++;
 		}
-		cout << ans << endl;
+		return "Possible";
 	}
-	return 0;
-}
+};
 

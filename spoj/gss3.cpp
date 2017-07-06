@@ -46,37 +46,86 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+vector<int> arr;
+
+typedef struct node
+{
+	int data,l,r;
+	struct node *left,*right;
+}node;
+
+node* create()
+{
+	node *temp;
+	temp = (node *)malloc(sizeof(node));
+	temp->left = temp->right =NULL;
+	return temp;
+}
+
+node* buildrmq(node *head,int x,int y)
+{
+	head = create();
+	if(x==y)
+	{
+		head->l = x;
+		head->r = y;
+		head->data = arr[x];
+		return head;
+	}
+	int mid = (x+y)/2;
+	head->left = buildrmq(head,x,mid);
+	head->right = buildrmq(head,mid+1,y);
+	head->data = max(head->left->data,head->right->data);
+	head->l = x;
+	head->r = y;
+	return head;
+}
+
+void update(node *head,int pos,int x)
+{
+	int a = head->l;
+	int b = head->r;
+	if(pos<a || pos>b)
+		return;
+	head->data = max(head->data,x);
+	update(head->left,pos,x);
+	update(head->right,pos,x);
+	return;
+}
+
+int qrmq(node *head,int x,int y)
+{
+	if((head->l >= x)&&(head->r <= y))
+		return head->data;
+	else if((head->l > y) || (head->r < x))
+		return INT_MIN;
+	return max( qrmq(head->left,x,y),qrmq(head->right,x,y));
+}
+
 int main()
 {
+	int n,x;
+	read(n);
+	REP(i,n)
+	{
+		read(x);
+		arr.PB(x);
+	}
+	node *head;
+	head = buildrmq(head,0,n-1);
 	TEST
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		int x,l,r;
+		cin >> x >> l >> r;
+		cout << x << endl;
+		if(x==1)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
+			l--;
+			r--;
+			cout << qrmq(head,l,r) << endl;
 		}
-		cout << ans << endl;
+		else
+			update(head,l-1,r);
 	}
 	return 0;
 }

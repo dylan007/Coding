@@ -46,37 +46,32 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+
+ull calc(string a)
+{
+	if(a.length()<=1)
+		return 1;
+	if(a[0]=='1')
+		return calc(a.substr(1))+calc(a.substr(2));
+	else if(a[0]=='2')
+	{
+		if(a[1]<'7')
+			return calc(a.substr(1))+calc(a.substr(2));
+		else
+			return calc(a.substr(1));
+	}
+	else
+		return calc(a.substr(1));
+}
+
 int main()
 {
-	TEST
+	string a;
+	cin >> a;
+	while(a!="0")
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
-		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
-		}
-		cout << ans << endl;
+		cout << calc(a) << endl;
+		cin >> a;
 	}
 	return 0;
 }

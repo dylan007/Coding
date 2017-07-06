@@ -46,38 +46,35 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+int reducto(int x)
+{
+	int ans=0;
+	while(x)
+	{
+		ans += (x%10)*(x%10);
+		x /= 10;
+	}
+	return ans;
+}
+
 int main()
 {
-	TEST
+	ull x;
+	cin >> x;
+	int ans=0;
+	vector<int> vals;
+	while(1)
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
-		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
-		}
-		cout << ans << endl;
+		if(x==1 || find(vals.begin(),vals.end(),x)!=vals.end())
+			break;
+		vals.PB(x);
+		x = reducto(x);
+		ans++;
 	}
+	if(x==1)
+		cout << ans << endl;
+	else
+		cout << "-1" << endl;
 	return 0;
 }
 

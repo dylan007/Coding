@@ -50,32 +50,20 @@ int main()
 {
 	TEST
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		int n,k;
+		read(n);read(k);
+		vector<int> x(n);
+		REP(i,n)
+			cin >> x[i];
+		SORTV(x);
+		if(k==1)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
+			cout << "0" << endl;
+			continue;
 		}
+		int ans=INT_MAX;
+		for(int i=0;i<(n-k+1);i++)
+			ans = min(ans,x[i+k-1]-x[i]);
 		cout << ans << endl;
 	}
 	return 0;

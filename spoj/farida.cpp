@@ -48,35 +48,35 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	TEST
+	int T;
+	read(T);
+	REP(test,T)
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		cout << "Case " << test << ": ";
+		int n;
+		read(n);
+		vector<int> a(n);
+		REP(i,n)
+			read(a[i]);
+		vector<int> dp(a);
+		if(n==0)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
+			cout << "0" << endl;
+			continue;
 		}
-		cout << ans << endl;
+		if(n==1)
+		{
+			cout << dp[0] << endl;
+			continue;
+		}
+		if(n==2)
+		{
+			cout << max(dp[0],dp[1]) << endl;
+			continue;
+		}
+		FOR(i,2,n)
+			dp[i] += max(dp[i-1]-a[i-1],dp[i-2]);
+		cout << max(dp[n-1],dp[n-2]) << endl;
 	}
 	return 0;
 }

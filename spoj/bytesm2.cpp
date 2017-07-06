@@ -46,38 +46,43 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+int n,m;
+
+int maxCost(vector<vector<int> > grid,int x,int y)
+{
+	if(x<0 || x>=m)
+		return 0;
+	if(y==(n-1))
+		return grid[x][y];
+	return grid[x][y] + max(maxCost(grid,x+1,y+1),max(maxCost(grid,x-1,y+1),maxCost(grid,x,y+1)));
+}
+
 int main()
 {
 	TEST
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		int x;
+		read(n);read(m);
+		vector<vector<int> > grid;
+		vector<int> temp;
+		REP(i,n)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
+			grid.PB(temp);
+			REP(j,m)
 			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
+				read(x);
+				grid[i].PB(x);
 			}
-			cin >> op;
+		}
+		int ans=INT_MIN;
+		for(int i=0;i<m;i++)
+		{
+			int t = maxCost(grid,i,0);
+			ans = max(ans,t);
+			error(ans,t);
 		}
 		cout << ans << endl;
-	}
+	}	
 	return 0;
 }
 

@@ -50,33 +50,50 @@ int main()
 {
 	TEST
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		ull n,s;
+		readul(n);readul(s);
+		vector<ull> arr(n);
+		ull m=INT_MAX;
+		REP(i,n)
+			readul(arr[i]);
+		SORTV(arr);
+		vector<ull> sum(n,0);
+		sum[0] = arr[0];
+		FOR(i,1,n)
+			sum[i] = arr[i]+sum[i-1];
+		ull ans,a,b,x;
+		int flag=-1;
+		for(int i=0;i<n;i++)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
+			if(i==0)
 			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
+				if(s%n == 0)
+				{
+					x = s/n;
+					if(x<=arr[0])
+					{
+						flag=x;
+						break;
+					}
+				}
 			}
-			cin >> op;
+			else
+			{
+				a = s-sum[i-1];
+				cout << a << endl;
+				b = n-i;
+				if(a%b == 0)
+				{
+					x = a/b;
+					if(x>arr[i-1] && x<=arr[i])
+					{
+						flag=x;
+						break;
+					}
+				}
+			}
 		}
-		cout << ans << endl;
+		cout << flag << endl;
 	}
 	return 0;
 }

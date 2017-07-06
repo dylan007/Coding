@@ -27,8 +27,9 @@ typedef unsigned long long int ull;
 #define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
-
+/*
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
+
 
 vector<string> split(const string& s, char c) {
 	vector<string> v;
@@ -45,39 +46,20 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
 	err(++it, args...);
 }
-
-int main()
+*/
+class WakingUpEasy
 {
-	TEST
+public:
+	int countAlarms(vector <int> volume, int S)
 	{
-		ll ans,x;
-		cin >> x;
-		ans = x;
-		string op;
-		cin >> op;
-		while(op!="=")
+		int ans=0;
+		int curr=0,l = volume.size();
+		while(S>0)
 		{
-			//error();
-			cin >> x;
-			switch(int(op[0]))
-			{
-				case 43:
-					ans += x;
-					break;
-				case 45:
-					ans -= x;
-					break;
-				case 42:
-					ans *= x;
-					break;
-				case 47:
-					ans /= x;
-					break;
-			}
-			cin >> op;
+			S -= volume[curr];
+			curr = (curr+1)%l;
+			ans++;
 		}
-		cout << ans << endl;
+		return ans;
 	}
-	return 0;
-}
-
+};
