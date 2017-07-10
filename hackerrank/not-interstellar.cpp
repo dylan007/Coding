@@ -27,7 +27,7 @@ typedef unsigned long long int ull;
 #define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
-/*
+
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
@@ -45,10 +45,39 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
 	err(++it, args...);
 }
-*/
+
+#define MOD 1000000007
+#define END 100005
+
+int f(int k,int s,int n)
+{
+	return (k*((n+1)-((s*(k+1))/2)))%MOD;
+}
+
 int main()
 {
-	cout << "Hello World!" << endl;
+	int t,k;
+	read(t);read(k);
+	vector<int> vals(END,1);
+	vals[0]=0;
+	FOR(i,1,END)
+	{
+		int p = i/k - ((i%k) == 0);
+		vals[i] = (vals[i] + (i%k == 0)+f(p,k,i))%MOD;
+//		if(i<=10)
+//			cout << p << " " << vals[i] << " " << i << endl;
+	}
+	FOR(i,1,END)
+		vals[i] = (vals[i]+vals[i-1])%MOD;
+	int x,y;
+	/*FOR(i,1,10)
+		cout << vals[i] << " ";
+	cout << endl;
+*/	while(t--)
+	{
+		cin >> x >> y;
+		cout << (vals[y]-vals[x-1]+MOD)%MOD << endl;
+	}
 	return 0;
 }
 

@@ -27,7 +27,7 @@ typedef unsigned long long int ull;
 #define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
-/*
+
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
@@ -45,10 +45,56 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
 	err(++it, args...);
 }
-*/
+
+#define MOD 20000003
+
+int ans=0,l;
+int n0=0,n1=0;
+
+void solve(int state,int depth,int a,int b)
+{
+	if(depth == l)
+	{
+		ans = (ans+1)%MOD;
+		return;
+	}
+	n0 -= !state;
+	n1 -= state;
+	if(n0 == 0)
+	{
+		n0 = a;
+		solve(1,depth+1,a,b);
+	}
+	else if(n1 == 0)
+	{
+		n1 = b;
+		solve(0,depth+1,a,b);
+	}
+	else
+	{
+		solve(0,depth+1,a,b);
+		solve(1,depth+1,a,b);
+	}
+	return;
+}
+
+int fact(int x)
+{
+	return x==0?1:x*fact(x-1);
+}
+
 int main()
 {
-	cout << "Hello World!" << endl;
+	int x,y,a,b;
+	read(x);read(y);read(a);read(b);
+	a = min(x,a);
+	b = min(y,b);
+	l = x+y;
+	n0 = a;
+	n1 = b;
+	solve(0,1,a,b);
+	solve(1,1,a,b);
+	cout << ans/(fact(x)*fact(y)) << endl;
 	return 0;
 }
 
