@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAX 1000 //Maximum degree possible 
+#define MAX 100 //Maximum degree possible 
+#define max(a,b) (a>b?a:b)
 
 typedef struct pol{
 	int coeff[MAX][MAX];//coeff[i][j] = coefficient of x^i * y*j
@@ -36,10 +37,10 @@ void read(pol *a)
 	{
 	 	scanf("%d %d %d",&c,&i,&j);
 	 	a->coeff[i][j] = c;
-    }
+    } 
 }
 
-void display(pol *x)
+void display(pol *x)	
 {
 	printf("%d\n",x->deg);
 	int i,j;
@@ -55,6 +56,7 @@ void display(pol *x)
 void add(pol *s,pol *a,pol *b)
 {
 	int i,j;
+	s->deg = max(a->deg,b->deg);
 	for(i=0;i<=s->deg;i++)
 	{
 		for(j=0;j<=s->deg;j++)
@@ -66,20 +68,19 @@ void add(pol *s,pol *a,pol *b)
 int main()
 {
 	//printf("Hi!\n");
-	pol a,b,c,d;
+	pol a,b,x;
 	printf("Starting Initialisation\n");
 	init(&a);
 	init(&b);
 	printf("Initialising ...\n");	
 	read(&a);
-	read(&b);
 	display(&a);
+	read(&b);
 	display(&b);
 	printf("Adding both polynomials...\n");
 	//printf("%d\n",c.deg);
-	//init(&x);
-	//x.deg = b.deg>a.deg?b.deg:a.deg;
-	// add(&s,&a,&b);
-	// display(&s);
+	init(&x);
+	add(&x,&a,&b);
+	display(&x);
 	return 0;
 }
