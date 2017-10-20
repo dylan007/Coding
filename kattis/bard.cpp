@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 451b.cpp
+Filename  : bard.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,11 +52,29 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n;
-	read(n);
-	int i,j;
-	vector<int> arr(n);
-	for(i=0;i<n;i++)
-		cin >> arr[i]
+	int n,e;
+	read(n);read(e);		
+	vector<int> c(n,0);
+	while(e--)
+	{
+		int x,k,f=0;
+		cin >> k;
+		vector<int> arr;
+		for(int i=0;i<k;i++)
+		{
+			cin >> x;
+			arr.PB(x);
+			f |= x==1;
+		}
+		if(f){
+			for(int i=0;i<k;i++)
+				c[arr[i]-1]++;
+		}
+	}
+	cout << 1 << endl;
+	for(int i=1;i<n;i++){
+		if(c[i]==c[0]) 
+			cout << i+1 << endl;
+	}
 	return 0;
 }

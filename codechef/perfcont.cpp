@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 451b.cpp
+Filename  : perfcont.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,11 +52,20 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n;
-	read(n);
-	int i,j;
-	vector<int> arr(n);
-	for(i=0;i<n;i++)
-		cin >> arr[i]
+	TEST{
+		int n,p;
+		cin >> n >> p;
+		int c1=0,c2=0,x;
+		for(int i=0;i<n;i++)
+		{
+			cin >> x;
+			c1 += x>=(p/2);
+			c2 += x<=(p/10);
+		}
+		if(c1==1 & c2==2)
+			cout << "yes" << endl;
+		else
+			cout << "no" << endl;
+	}
 	return 0;
 }

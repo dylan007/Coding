@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 451b.cpp
+Filename  : judgingmoose.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,11 +52,13 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n;
-	read(n);
-	int i,j;
-	vector<int> arr(n);
-	for(i=0;i<n;i++)
-		cin >> arr[i]
+	int a,b;
+	cin >> a >> b;
+	if(a==0 && b==0)
+		cout << "Not a moose" << endl;
+	else{
+		if(a==b) cout << "Even " << b*2 << endl;
+		else cout << "Odd " << max(b,a) * 2 << endl;
+	}
 	return 0;
 }

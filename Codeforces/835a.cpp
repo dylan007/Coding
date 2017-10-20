@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 451b.cpp
+Filename  : 835a.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,11 +52,11 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n;
-	read(n);
-	int i,j;
-	vector<int> arr(n);
-	for(i=0;i<n;i++)
-		cin >> arr[i]
+	int s,v1,v2,t1,t2;
+	cin >> s >> v1 >> v2 >> t1 >> t2;
+	int p1,p2;
+	p1 = t1 + v1*s + t1;
+	p2 = t2 + v2*s + t2;
+	p1!=p2?((p1>p2)?(cout << "Second" << endl):(cout << "First" << endl)):(cout << "Friendship" << endl);
 	return 0;
 }

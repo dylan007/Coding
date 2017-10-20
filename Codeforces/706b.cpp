@@ -10,19 +10,6 @@ typedef unsigned long long int ull;
 #define MK make_pair 
 #define size(a) (int)(sizeof(a))
 
-int binarySearch(vector<int> a, int item, int low, int high)
-{
-	if (high <= low)
-		return (item > a[low])?  (low + 1): low;
-
-	int mid = (low + high)/2;
-	if(item == a[mid])
-		return mid;
-	if(item > a[mid])
-		return binarySearch(a, item, mid+1, high);
-	return binarySearch(a, item, low, mid-1);
-}
-
 int main()
 {
 	int n;
@@ -41,8 +28,7 @@ int main()
 	{
 		int y;
 		cin >> y;
-		int pos = binarySearch(a,y,0,n-1);
-		cout << pos + (a[pos]==y) << endl;
+		cout << upper_bound(a.begin(),a.end(),y) - a.begin() << endl;
 	}
 	return 0;
 }

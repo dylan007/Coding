@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 451b.cpp
+Filename  : mex.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,11 +52,29 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n;
-	read(n);
-	int i,j;
-	vector<int> arr(n);
-	for(i=0;i<n;i++)
-		cin >> arr[i]
+	TEST{
+		ll n,k;
+		cin >> n >> k;
+		vector<ll> arr;
+		ll x;
+		vector<int> c(200001,0);
+		for(ll i=0;i<n;i++)		
+		{
+			cin >> x;
+			c[x]++;
+		}
+		ll i=0;
+		while(k>=0){
+			if(c[i]){
+				i++;
+			}
+			else{
+				c[i]=1;
+				i++;
+				k--;
+			}
+		}
+		cout << i-1 << endl;
+	}
 	return 0;
 }
