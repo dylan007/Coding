@@ -30,11 +30,6 @@ int main()
 		printf("\n");
 	}
 	//printf("%d %d\n",search(head,1),search(head,10));
-	queue *q = NULL;
-	for(i=0;i<10;i++)
-		q = enq(q,create(i));
-	for(i=0;i<10;i++)
-		printf("%d ",(deq(&q))->data);
-	printf("\n");
+	levelorder(head);
 	return 0;
 }

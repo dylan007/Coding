@@ -134,7 +134,8 @@ node *delete(node *head,int data)
 void levelorder(node *head)
 {
 	queue *q= NULL;
-	q = insert(q,head);
+	q = enq(q,head);
+	printf("Level order traversal of the given tree...\n");
 	while(!isEmpty(q))
 	{
 		node *temp,*l,*r;
@@ -146,6 +147,8 @@ void levelorder(node *head)
 		if(r)
 			q = enq(q,r);
 		printf("%d ",temp->data);
+		//disp(q);
 	}
+	printf("\n");
 }
 

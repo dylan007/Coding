@@ -35,25 +35,23 @@ node *deq(queue **head)
 {
 	if(*head==NULL)
 		return NULL;
-	queue *prev,*temp;
-	if((*head)->next == NULL)
-	{
-		node *temp = (*head)->data;
-		*head = NULL;
-		return temp;
-	}
-	prev = *head;
-	temp = prev->next;
-	while(temp->next != NULL)
-	{
-		prev = temp;
-		temp = temp->next;
-	}
-	prev->next = NULL;
+	queue *temp = (*head);
+	*head = (*head)->next;
 	return temp->data;
 }
 
 int isEmpty(queue *head)
 {
 	return head==NULL;
+}
+
+
+void disp(queue *head)
+{
+	while(head != NULL)
+	{
+		printf("%d ",head->data->data);
+		head = head->next;
+	}
+	printf("\n");
 }
