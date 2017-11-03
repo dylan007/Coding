@@ -5,7 +5,7 @@
 int main()
 {
 	node *head = NULL;
-	int n,x;
+	int n,x,i;
 	scanf("%d",&n);
 	for(int i=0;i<n;i++)
 	{
@@ -30,5 +30,11 @@ int main()
 		printf("\n");
 	}
 	//printf("%d %d\n",search(head,1),search(head,10));
+	queue *q = NULL;
+	for(i=0;i<10;i++)
+		q = enq(q,create(i));
+	for(i=0;i<10;i++)
+		printf("%d ",(deq(&q))->data);
+	printf("\n");
 	return 0;
 }

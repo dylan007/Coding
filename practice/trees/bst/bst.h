@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "queue.h"
 
-typedef struct node{
-	int data;
-	struct node *left,*right;
-}node;
 
 node *create(int data)
 {
@@ -131,6 +128,24 @@ node *delete(node *head,int data)
 		child->left = delete(child->left,min->data);
 		child->data = min->data;
 		return head;
+	}
+}
+
+void levelorder(node *head)
+{
+	queue *q= NULL;
+	q = insert(q,head);
+	while(!isEmpty(q))
+	{
+		node *temp,*l,*r;
+		temp = deq(&q);
+		l = temp->left;
+		r = temp->right;
+		if(l)
+			q = enq(q,l);
+		if(r)
+			q = enq(q,r);
+		printf("%d ",temp->data);
 	}
 }
 
