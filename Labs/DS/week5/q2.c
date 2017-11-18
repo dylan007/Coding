@@ -43,6 +43,11 @@ void display(stack s)
 	printf("\n");
 }
 
+int isDigit(char x)
+{
+	return x>='0' && x<='9';
+}
+
 int main()
 {
 	char p[50];
@@ -55,7 +60,7 @@ int main()
 	s.top = -1;
 	for(i=(l-1);i>=0;i--)
 	{
-		 if(isdigit(p[i]))
+		 if(isDigit(p[i]))
 		 	out[pos++] = p[i];
 		 else
 		 {

@@ -24,6 +24,9 @@ void merge(int *a,int low,int mid,int high)
 		c[k++] = a[j++];	
 	for(i=low;i<k;i++)
 		a[i] = c[i];
+	for(i=low;i<k;i++)
+		printf("%d ",a[i]);
+	printf("\n");
 	return;
 }
 

@@ -1,38 +1,39 @@
 import java.io.*;
-import java.util.*;
 
 class ShowFile{
-	public static void main(String args[]){
-		int i;
-		FileInputStream fin=null;
+	public static void main(String args[])
+	{
+		FileInputStream fin = null;
 
-		if(args.length != 1)
+		if(args.length!=1)
 		{
-			System.out.println("Usage : ShowFile filename");
+			System.out.println("Usage : ShowFile Filename");
 			return;
 		}
 
 		try{
-			fin = new FileInputStream(args[0]);	
-			do{
-				i = fin.read();
-				if(i>=0) System.out.print((char) i);
-			}while(i!=-1);
-		}
-		catch(FileNotFoundException exc){
+			fin = new FileInputStream(args[0]);
+		}catch(Exception e){
 			System.out.println("File not found");
-			return;
 		}
-		catch(IOException exc){
-			System.out.println("Error reading File");
-		}
-		finally{
+
+		try{
+			int x;
+			do{
+				x = fin.read();
+				if(x != -1)
+					System.out.print((char)x);
+			}while(x!=-1);
+		}catch(Exception e)
+		{
+			System.out.println("Error reading file");
+		}finally{
 			try{
 				if(fin != null)
 					fin.close();
-			}
-			catch(IOException exc){
-				System.out.println("Error Closing file");
+			}catch(Exception e)
+			{
+				System.out.println("Error closing file");
 			}
 		}
 	}
