@@ -20,13 +20,13 @@ class Arraysum{
 }
 
 
-class MyThread implements Runnable{
+class MThread implements Runnable{
 	Thread thrd;
 	static Arraysum sa = new Arraysum();
 	int a[];
 	int answer;
 
-	MyThread(String name,int arr[]){
+	MThread(String name,int arr[]){
 		thrd = new Thread(this,name);
 		a = arr;
 		thrd.start();
@@ -47,8 +47,8 @@ class MyThread implements Runnable{
 class syncdemo{
 	public static void main(String args[]){
 		int a[] = {1,2,3,4,5};
-		MyThread mt1 = new MyThread("child 1",a);
-		MyThread mt2 = new MyThread("child 2",a);
+		MThread mt1 = new MThread("child 1",a);
+		MThread mt2 = new MThread("child 2",a);
 
 		try{
 			mt1.thrd.join();
