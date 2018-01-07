@@ -63,38 +63,99 @@ int main()
 		cin >> n;
 		vector<int> x(n);
 		vector<int> count(100001,0);
+		map<int,vector<int>> index;
 		REP(i,n)
 		{
 			cin >> x[i];
 			count[x[i]]++;
+			if(index.find(x[i]) == index.end())
+				index.insert(MK(x[i],vector<int>(1,i)));
+			else
+				index[x[i]].PB(i);
 		}
-		cout << count[1] << endl;
 		vector<int> ones, twos;
-		map<int,int> index;
 		REP(i,100001)
 		{
-			if(count[i]==1){
+			if(count[i]==1)
 				ones.PB(i);
-				index.insert(MK(i,ones.size()-1));
-			}
-			else if(count[i] == 2){
+			else if(count[i] == 2)
 				twos.PB(i);
-				index.insert(MK(i,twos.size()-1));
+		}
+		// for(auto it: index){
+		// 	cout << it.first << it.second.size() <<endl;
+		// 	for(auto p: it.second)
+		// 		cout << p << " ";
+		// 	cout << endl;
+		// }
+		// cout << "Ones" << endl;
+		// for(auto it: ones) cout << it << " ";
+		// cout << endl << "Twos" << endl;
+		// for(auto it: twos) cout << it << " ";
+		// cout << endl;
+		vector<int> out(n);
+		if(ones.size()==1 && twos.size()==1)
+		{
+			int p1 = index[ones[0]][0];
+			int p2 = index[twos[0]][0];
+			index[ones[0]][0] = p2;
+			index[twos[0]][0] = p1;
+			for(auto it:index)
+			{
+				for(int i=0;i<it.second.size();i++)
+					out[it.second[i]] = it.first;
 			}
 		}
-		cout << "Ones" << endl;
-		for(auto it: ones) cout << it << " ";
-		cout << endl << "Twos" << endl;
-		for(auto it: twos) cout << it << " ";
-		cout << endl;
-		REP(i,n)
+		else if(ones.size()==1 && twos.size()>1)
 		{
-			if(count[x[i]]==1)
-				cout << get_next(ones,index[x[i]]) << " ";
-			else
-				cout << get_next(twos,index[x[i]]) << " ";
+			int p1 = index[ones[0]][0];
+			int p2 = index[twos[0]][0];
+			index[ones[0]][0] = p2;
+			index[twos[0]][0] = p1;
+			int l=twos.size();
+			for(int i=1;i<l;i++)
+				index[twos[i]].swap(index[twos[(i+2)%l]]);
+			for(auto it:index)
+			{
+				for(int i=0;i<it.second.size();i++)
+					out[it.second[i]] = it.first;
+			}
 		}
+		else if(twos.size()==1 && ones.size()>1)
+		{
+			int p1 = index[ones[0]][0];
+			int p2 = index[twos[0]][0];
+			index[ones[0]][0] = p2;
+			index[twos[0]][0] = p1;
+			p1 = index[ones[1]][0];
+			p2 = index[twos[0]][1];
+			index[ones[1]][0] = p2;
+			index[twos[0]][1] = p1;
+			int l=ones.size();
+			for(int i=1;i<l;i++)
+				index[ones[i]].swap(index[ones[(i+2)%l]]);
+			for(auto it:index)
+			{
+				for(int i=0;i<it.second.size();i++)
+					out[it.second[i]] = it.first;
+			}
+		}
+		else
+		{
+			int l=ones.size();
+			for(int i=1;i<l;i++)
+				index[ones[i]].swap(index[ones[(i+2)%l]]);
+			l = twos.size();	
+			for(int i=1;i<l;i++)
+				index[twos[i]].swap(index[twos[(i+2)%l]]);
+			for(auto it:index)
+			{
+				for(int i=0;i<it.second.size();i++)
+					out[it.second[i]] = it.first;
+			}
+		}
+		for(auto it: out)
+			cout << it << " ";
 		cout << endl;
-	}
+	}	
 	return 0;
 }
