@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : invcnt.cpp
+Filename  : 225e.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,64 +50,37 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int getSum(vector<int> arr,int index)
+#define MOD 1000000007
+
+ull powermod(ull x,ull p)
 {
-	int sum=0;
-	index++;
-	while(index>0)
+	ull ans=1;
+	while(p)
 	{
-		sum += arr[index];
-		index -= (index&(-index));
+		if(p&1)
+			ans = (ans*x)%MOD;
+		x = (x*x)%MOD;
+		p >>= 1;
 	}
-	return sum;
+	return ans;
 }
-
-void update(vector<int> &arr,int n,int index,int val)
-{
-	index++;
-	while(index<arr.size())
-	{
-		arr[index] += val;
-		index += (index&(-index));
-	}
-}
-
-void construct(vector<int> &arr,int n)
-{
-	vector<int> x,tmp(arr);
-	SORTV(arr);
-	REP(i,n)
-		x.PB(lower_bound(arr.begin(),arr.end(),tmp[i])- arr.begin());
-	arr = x;
-}
-
 
 int main()
 {
-	TEST
-	{
-		int n;
-		cin >> n;
-		int x;
-		vector<int> bit,arr;
-		bit = vector<int>(n+1);	
-		REP(i,n)
-		{
-			cin >> x;
-			arr.PB(x);
-		}
-		//update(bit,i,x);
-		construct(arr,n);
-		// for(auto it:arr)
-		// 	cout << it << " ";
-		// cout << endl;
-		int ans=0;
-		for(int i=n-1;i>=0;i--)
-		{
-			ans += getSum(bit,arr[i]-1);
-			update(bit,n,arr[i],1);
-		}
-		cout << ans << endl;
-	}
+	ull n;
+	cin >> n;
+	vector<ull> uns = {2,3,5,7,13,17,19,31,61,89,107,127,521,607,1279,
+ 2203,2281,3217,4253,4423,9689,9941,11213,19937,
+ 21701,23209,44497,86243,110503,132049,216091,
+ 756839,859433,1257787,1398269,2976221,3021377,
+ 6972593,13466917,20996011,24036583,25964951,
+ 30402457,32582657,37156667};
+ 	ull ans=1;
+ 	REP(i,uns[n-1]-1)
+ 	{
+ 		ans *= 2;
+ 		ans %= MOD;
+ 	}
+ 	cout << (ans + MOD - 1)%MOD << endl;
 	return 0;
 }

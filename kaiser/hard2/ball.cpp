@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : invcnt.cpp
+Filename  : 203d.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,64 +50,84 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int getSum(vector<int> arr,int index)
+void solve(double a,double b,double m,double vx,double vy,double vz)
 {
-	int sum=0;
-	index++;
-	while(index>0)
+	double x,y,z;
+	cout << fixed << setprecision(9);
+	y = m;
+	x = a/2;
+	z = 0;
+	double sx,ex,sy,ey,sz,ez;
+	sx = 0;
+	ex = a;
+	sy = 0;
+	ey = m;
+	sz = 0;
+	ez = b;
+	while(y>0)
 	{
-		sum += arr[index];
-		index -= (index&(-index));
-	}
-	return sum;
+		//cout << x << " " << y << " " << z << endl;
+		double tx,ty,tz;
+		double dx,dy,dz;
+		if(vx>=0)
+			dx = ex-x;
+		else
+			dx = x-sx;
+		if(vy>=0)
+			dy = ey-y;
+		else
+			dy = y-sy;
+		if(vz>=0)
+			dz = ez-z;
+		else
+			dz = z-sz;
+		//cout << dx << " " << dy << " " << dz << endl;
+		tx = dx/vx;
+		ty = dy/vy;
+		tz = dz/vz;
+		tx = (tx>0)?tx:(0-tx);
+		ty = (ty>0)?ty:(0-ty);
+		tz = (tz>0)?tz:(0-tz);
+		//cout << tx << " " << ty << " " << tz << endl; 
+		double t = (tx>ty?ty:tx)>tz?tz:(tx>ty?ty:tx);
+		// if(t<0)
+		// 	t = 0-t;
+		dx = t*vx;
+		dy = t*vy;
+		dz = t*vz;
+		dx = (dx>0)?dx:(0-dx);
+		dy = (dy>0)?dy:(0-dy);
+		dz = (dz>0)?dz:(0-dz);
+		//cout << dx << " " << dy << " " << dz << endl;
+		if(vx>=0)
+			x += dx;
+		else
+			x -= dx;
+		if(vy>=0)
+			y += dy;
+		else
+			y -= dy;
+		if(vz>=0)
+			z += dz;
+		else
+			z -= dz;
+		if(t == tx)
+			vx = 0-vx;
+		else if(t==ty)
+			vy = 0-vy;
+		else if(t==tz)
+			vz = 0-vz;
+		//cout << vx << " " << vy << " " << vz << endl;
+		cout << x << " " << y << " " << z << endl;
+	}	
+	cout << x << " " << z << endl;
 }
-
-void update(vector<int> &arr,int n,int index,int val)
-{
-	index++;
-	while(index<arr.size())
-	{
-		arr[index] += val;
-		index += (index&(-index));
-	}
-}
-
-void construct(vector<int> &arr,int n)
-{
-	vector<int> x,tmp(arr);
-	SORTV(arr);
-	REP(i,n)
-		x.PB(lower_bound(arr.begin(),arr.end(),tmp[i])- arr.begin());
-	arr = x;
-}
-
 
 int main()
 {
-	TEST
-	{
-		int n;
-		cin >> n;
-		int x;
-		vector<int> bit,arr;
-		bit = vector<int>(n+1);	
-		REP(i,n)
-		{
-			cin >> x;
-			arr.PB(x);
-		}
-		//update(bit,i,x);
-		construct(arr,n);
-		// for(auto it:arr)
-		// 	cout << it << " ";
-		// cout << endl;
-		int ans=0;
-		for(int i=n-1;i>=0;i--)
-		{
-			ans += getSum(bit,arr[i]-1);
-			update(bit,n,arr[i],1);
-		}
-		cout << ans << endl;
-	}
+	double a,b,m;
+	double vx,vy,vz;
+	cin >> a >> b >> m >> vx >> vy >> vz;
+	solve(a,b,m,vx,vy,vz);
 	return 0;
 }
