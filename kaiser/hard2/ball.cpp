@@ -118,7 +118,7 @@ void solve(double a,double b,double m,double vx,double vy,double vz)
 		else if(t==tz)
 			vz = 0-vz;
 		//cout << vx << " " << vy << " " << vz << endl;
-		cout << x << " " << y << " " << z << endl;
+		//cout << x << " " << y << " " << z << endl;
 	}	
 	cout << x << " " << z << endl;
 }

@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : strmrg.cpp
+Filename  : acpc10d.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,50 +50,55 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int findMaxPath(vector<vector<int> > dp,int N,int M){
-	int res=0;
-	FOR(i,1,M)
-	{
-		int m=dp[0][i-1];
-		dp[0][i] += dp[0][i-1];
-		FOR(j,1,N){
-			m = max(dp[j][i-1],m);
-			dp[j][i] += m;
-		}
-	}
-	// for(auto it:dp){
-	// 	for(auto x:it)
-	// 		cout << x << " ";
-	// 	cout << endl;
-	// }
-	int m=0;
-	REP(i,N)
-		m = max(m,dp[i][M-1]);
-	return m;
-}
-
 int main()
 {
-	TEST{
-		int n,m;
-		cin >> n >> m;
-		string a,b;
-		cin >> a >> b;
-		vector<vector<int> > dp(n,vector<int>(m,0));
+	int n;
+	cin >> n;
+	int c=0;
+	while(n>0)
+	{
+		vector<vector<int>> arr(n,vector<int>(3,0));
+		vector<vector<int>> dp(n,vector<int>(3,0));
 		REP(i,n)
 		{
-			REP(j,m)
-			{
-				if(a[i]==b[j])
-					dp[i][j] += 1;
-			}
+			REP(j,3)
+				cin >> arr[i][j];
 		}
-		// for(auto it:dp){
-		// 	for(auto x:it)
-		// 		cout << x << " ";
+		REP(i,3)
+			dp[0][i] = arr[0][i];
+		dp[0][2] = min(dp[0][2],arr[0][1] + dp[0][2]);
+		// REP(i,3)
+		// 	cout << dp[0][i] << " ";
+		// cout << endl;
+		FOR(i,1,n)
+		{
+			if(i==1)
+			{
+				dp[i][0] += dp[i-1][1]+arr[i][0];
+				dp[i][1] += dp[i-1][1]+arr[i][1];
+				dp[i][2] += dp[i-1][1]+arr[i][2];
+				dp[i][2] = min(dp[i][2],arr[i][2] + dp[i][1]);
+				dp[i][1] = min(dp[i][1],arr[i][1] + dp[i][0]);
+				// REP(j,3)
+				// 	cout << dp[i][j] << " ";
+				// cout << endl;
+				continue;
+			}
+			dp[i][0] += min(dp[i-1][0],dp[i-1][1]) + arr[i][0];
+			dp[i][1] += min(dp[i-1][1],min(dp[i-1][2],dp[i-1][0])) + arr[i][1];
+			dp[i][2] += min(dp[i-1][1],dp[i-1][2]) + arr[i][2];
+			dp[i][1] = min(dp[i][1],arr[i][1] + dp[i][0]);
+			dp[i][2] = min(dp[i][2],arr[i][2] + dp[i][1]);			
+		}
+		// REP(i,n)
+		// {
+		// 	REP(j,3)
+		// 		cout << dp[i][j] << " ";
 		// 	cout << endl;
 		// }
-		cout << n+m-findMaxPath(dp,n,m) << endl;
+		cout << c+1 << ". " << dp[n-1][1] << endl;
+		cin >> n;
+		c++;
 	}
 	return 0;
 }

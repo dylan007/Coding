@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : strmrg.cpp
+Filename  : fentree.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,50 +50,57 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int findMaxPath(vector<vector<int> > dp,int N,int M){
-	int res=0;
-	FOR(i,1,M)
+void construct(vector<int> &bit,int n)
+{
+	bit = vector<int>(n+1,0);
+}
+
+int getsum(vector<int>bit,int i)
+{
+	int index = i;
+	int ans = 0;
+	while(index)
 	{
-		int m=dp[0][i-1];
-		dp[0][i] += dp[0][i-1];
-		FOR(j,1,N){
-			m = max(dp[j][i-1],m);
-			dp[j][i] += m;
-		}
+		ans += bit[index];
+		index -= index&(-index);
 	}
-	// for(auto it:dp){
-	// 	for(auto x:it)
-	// 		cout << x << " ";
-	// 	cout << endl;
-	// }
-	int m=0;
-	REP(i,N)
-		m = max(m,dp[i][M-1]);
-	return m;
+	return ans;
+}
+
+void update(vector<int> bit,int i,int x){
+	int index = i;
+	while(index < bit.size())
+	{
+		bit[index] += x;
+		index += (index & (-index));
+	}
 }
 
 int main()
 {
-	TEST{
-		int n,m;
-		cin >> n >> m;
-		string a,b;
-		cin >> a >> b;
-		vector<vector<int> > dp(n,vector<int>(m,0));
-		REP(i,n)
-		{
-			REP(j,m)
-			{
-				if(a[i]==b[j])
-					dp[i][j] += 1;
-			}
-		}
-		// for(auto it:dp){
-		// 	for(auto x:it)
-		// 		cout << x << " ";
-		// 	cout << endl;
-		// }
-		cout << n+m-findMaxPath(dp,n,m) << endl;
-	}
+	int n;
+	cin >> n;
+	vector<int> x(n);
+	REP(i,n)
+		cin >> x[i];
+	int q;
+	cout << n << endl;
+	vector<int> bit(n+1,0);
+	for(auto it:bit)
+		cout << it << " ";
+	cout << endl;
+	REP(i,n)
+		update(bit,i,x[i]);
+	// cin >> q;
+	// while(q--)
+	// {
+	// 	string a;
+	// 	int l,r;
+	// 	cin >> a >> l >> r;
+	// 	if(a[0] == 'q')
+	// 		cout << getsum(bit,l) - getsum(bit,r-1) << endl;
+	// 	else
+	// 		update(bit,r,l);
+	// }
 	return 0;
 }

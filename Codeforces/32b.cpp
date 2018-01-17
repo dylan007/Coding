@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : strmrg.cpp
+Filename  : 32b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,50 +50,27 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int findMaxPath(vector<vector<int> > dp,int N,int M){
-	int res=0;
-	FOR(i,1,M)
-	{
-		int m=dp[0][i-1];
-		dp[0][i] += dp[0][i-1];
-		FOR(j,1,N){
-			m = max(dp[j][i-1],m);
-			dp[j][i] += m;
-		}
-	}
-	// for(auto it:dp){
-	// 	for(auto x:it)
-	// 		cout << x << " ";
-	// 	cout << endl;
-	// }
-	int m=0;
-	REP(i,N)
-		m = max(m,dp[i][M-1]);
-	return m;
-}
-
 int main()
 {
-	TEST{
-		int n,m;
-		cin >> n >> m;
-		string a,b;
-		cin >> a >> b;
-		vector<vector<int> > dp(n,vector<int>(m,0));
-		REP(i,n)
-		{
-			REP(j,m)
-			{
-				if(a[i]==b[j])
-					dp[i][j] += 1;
-			}
+	string a;
+	cin >> a;
+	int i=0;
+	while(i<a.length())
+	{
+		if(a[i]=='.'){
+			cout << "0";
+			i++;
 		}
-		// for(auto it:dp){
-		// 	for(auto x:it)
-		// 		cout << x << " ";
-		// 	cout << endl;
-		// }
-		cout << n+m-findMaxPath(dp,n,m) << endl;
+		else if(a[i]=='-' && a[i+1]=='.'){
+			cout << "1";
+			i+=2;
+		}
+		else
+		{
+			cout << "2";
+			i+=2;
+		}
 	}
+	cout << endl;
 	return 0;
 }

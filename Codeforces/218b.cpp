@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : strmrg.cpp
+Filename  : 218b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,50 +50,31 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int findMaxPath(vector<vector<int> > dp,int N,int M){
-	int res=0;
-	FOR(i,1,M)
-	{
-		int m=dp[0][i-1];
-		dp[0][i] += dp[0][i-1];
-		FOR(j,1,N){
-			m = max(dp[j][i-1],m);
-			dp[j][i] += m;
-		}
-	}
-	// for(auto it:dp){
-	// 	for(auto x:it)
-	// 		cout << x << " ";
-	// 	cout << endl;
-	// }
-	int m=0;
-	REP(i,N)
-		m = max(m,dp[i][M-1]);
-	return m;
-}
-
 int main()
 {
-	TEST{
-		int n,m;
-		cin >> n >> m;
-		string a,b;
-		cin >> a >> b;
-		vector<vector<int> > dp(n,vector<int>(m,0));
-		REP(i,n)
-		{
-			REP(j,m)
-			{
-				if(a[i]==b[j])
-					dp[i][j] += 1;
-			}
-		}
-		// for(auto it:dp){
-		// 	for(auto x:it)
-		// 		cout << x << " ";
-		// 	cout << endl;
-		// }
-		cout << n+m-findMaxPath(dp,n,m) << endl;
+	int n,m;
+	cin >> n >> m;
+	vector<int> x(m);
+	REP(i,m)
+		cin >> x[i];
+	SORTV(x);
+	int a=0,b=0;
+	int t = m;
+	REP(i,m){
+		if(t>x[i])
+			a += (x[i]*(x[i]+1))/2;
+		else
+			a += (t*(t+1))/2;
+		t -= x[i];
 	}
+	t = m;
+	for(int i=m-1;i>=0;i--){
+		if(t>x[i])
+			b += (x[i]*(x[i]+1))/2;
+		else
+			b += (t*(t+1))/2;
+		t -= x[i];
+	}
+	cout << a << " " << b << endl;	
 	return 0;
 }
