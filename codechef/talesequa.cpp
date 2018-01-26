@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : strmrg.cpp
+Filename  : talesequa.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,54 +50,28 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int lcs(string a,string b,int p,int q)
-{
-	vector<vector<int>> dp(p+1,vector<int>(q+1,0));
-	REP(i,p+1)
-	{
-		REP(j,q+1)
-		{
-			if(i==0 || j==0)
-				dp[i][j] = 0;
-			else if(a[i-1] == b[j-1])
-				dp[i][j] = dp[i-1][j-1] + 1;
-			else
-				dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
-		}
-	}
-	return dp[p][q];
-}
 
-int f(string s)
-{
-	int ans=1;
-	REP(i,s.length()-1)
-	{
-		ans += s[i]!=s[i+1];
-	}
-	return ans;
-}
-
-void upd(string &a){
-	string temp="";
-	temp += a[0];
-	FOR(i,1,a.length())
-	{
-		if(temp[temp.size()-1] != a[i])
-			temp += a[i];
-	}
-	a = temp;
-}
 
 int main()
 {
 	TEST{
-		int n,m;
-		cin >> n >> m;
-		string a,b;
-		cin >> a >> b;
-		upd(a);upd(b);
-		cout << a.length() + b.length() - lcs(a,b,a.length(),b.length()) << endl;
+		double a;
+		double k;
+		cout << fixed << setprecision(9)subl ;
+		cin >> a >> k;
+		vector<double> x(3);
+		REP(i,3)
+			cin >> x[i];
+		SORTV(x);
+		if(x[2]-x[0]-a >= 2*k)
+			cout << 0.00 << endl;
+		else{
+			double move = x[2]-x[0];
+			move = move>2*k ? 2*k : move;
+			x[0] += move;
+			double area = a*(x[2]-x[0]+a);
+			cout << area << endl;
+		}
 	}
 	return 0;
 }

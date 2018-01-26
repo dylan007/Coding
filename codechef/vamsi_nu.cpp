@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : strmrg.cpp
+Filename  : vamsi_nu.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,54 +50,48 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int lcs(string a,string b,int p,int q)
+#define MOD 1000000009
+
+void sieve(vector<int> &primes,int n)
 {
-	vector<vector<int>> dp(p+1,vector<int>(q+1,0));
-	REP(i,p+1)
+	vector<int> c(n+1,1);
+	int i=2;
+	c[0]=0;
+	c[1]=0;
+	while(i*i <= n)
 	{
-		REP(j,q+1)
+		if(c[i]==1)
 		{
-			if(i==0 || j==0)
-				dp[i][j] = 0;
-			else if(a[i-1] == b[j-1])
-				dp[i][j] = dp[i-1][j-1] + 1;
-			else
-				dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+			primes.PB(i);
+			for(int j=2*i;j<=n;j+=i)
+				c[j]=1;
 		}
 	}
-	return dp[p][q];
+	primes = c;
 }
 
-int f(string s)
-{
-	int ans=1;
-	REP(i,s.length()-1)
+void upd(vector<int> &holy,vector<int> primes,int n){
+	REP(i,n+1)
 	{
-		ans += s[i]!=s[i+1];
+		if(primes[popc(i)] == 0)
+			holy.PB(i);
 	}
-	return ans;
-}
-
-void upd(string &a){
-	string temp="";
-	temp += a[0];
-	FOR(i,1,a.length())
-	{
-		if(temp[temp.size()-1] != a[i])
-			temp += a[i];
-	}
-	a = temp;
+	FOR(i,1,holy.size())
+		holy[i] = (holy[i-1] + holy[i])%MOD;
 }
 
 int main()
 {
-	TEST{
-		int n,m;
-		cin >> n >> m;
-		string a,b;
-		cin >> a >> b;
-		upd(a);upd(b);
-		cout << a.length() + b.length() - lcs(a,b,a.length(),b.length()) << endl;
+	vector<int> primes,c;
+	sieve(primes,1000000);
+	vector<int> holy;
+	upd(holy,primes,n);
+	int n;
+	cin >> n;
+	while(n--)
+	{
+		int l,r;
+		cin >> l >> r;
 	}
 	return 0;
 }
