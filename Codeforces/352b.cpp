@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 218b.cpp
+Filename  : 352b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,37 +50,60 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+int check(vector<int> x)
+{
+	if(x.size() == 1)
+		return 0;
+	SORTV(x);
+	int d = x[1]-x[0];
+	for(int i=1;i<(x.size()-1);i++)
+	{
+		if(d != (x[i+1]-x[i]))
+			return -1;
+	}
+	return d;
+}
+
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<int> x(m);
-	REP(i,m)
-		cin >> x[i];
-	SORTV(x);
-	int a=0,b=0;
-	int t=n;
-	for(int i=0;i<m;i++)
+	int n;
+	cin >> n;
+	map<int,vector<int>> pos;
+	vector<int> temp;
+	REP(i,n)
 	{
-		int temp = min(t,x[i]);
-		int diff = max(0,x[i]-temp);
-		b += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
+		int x;
+		cin >> x;
+		if(pos.find(x) == pos.end())
+		{
+			pos[x] = temp;
+			pos[x].PB(i);
+		}
+		else
+			pos[x].PB(i);
 	}
-	t = n;
-	for(int i=(m-1);i>=0;i--)
+	map<int,vector<int>>::iterator it;
+	it = pos.begin();
+	// while(it != pos.end())
+	// {
+	// 	cout << it->first << " ";
+	// 	for(auto x: it->second)
+	// 		cout << x << " ";
+	// 	cout << endl;
+	// 	it++;
+	// }
+	// it = pos.begin();
+	vector<pair<int,int>> out;
+	while(it != pos.end())
 	{
-		int temp = min(t,x[i]);
-		cout << t << " " << x[i] << endl;
-		int diff = max(0,x[i]-temp);
-		cout << temp << " " << diff << endl;
-		a += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
+		int t = check(it->second);
+		if(t>=0){
+			out.PB(MK(it->first,t));
+		}
+		it++;
 	}
-	cout << a << " " << b << endl;	
+	cout << out.size()  << endl;
+	for(auto it: out)
+		cout << it.first << " " << it.second << endl;
 	return 0;
 }

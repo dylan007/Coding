@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 218b.cpp
+Filename  : 298b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,35 +52,33 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<int> x(m);
-	REP(i,m)
-		cin >> x[i];
-	SORTV(x);
-	int a=0,b=0;
-	int t=n;
-	for(int i=0;i<m;i++)
+	int t,sx,sy,ex,ey;
+	cin >> t >> sx >> sy >> ex >> ey;
+	string a;
+	cin >> a;
+	int x,y;
+	x = ex-sx;
+	y = ey-sy;
+	//cout << x << " " << y << endl;
+	int p = 0;
+	for(int i=0;i<a.length();i++)
 	{
-		int temp = min(t,x[i]);
-		int diff = max(0,x[i]-temp);
-		b += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
+		if(a[i]=='S' && y<0)
+			y++;
+		if(a[i]=='N' && y>0)
+			y--;
+		if(a[i]=='E' && x>0)
+			x--;
+		if(a[i]=='W' && x<0)
+			x++;
+		if(x==0 && y==0){
+			p = i;
 			break;
-	}
-	t = n;
-	for(int i=(m-1);i>=0;i--)
-	{
-		int temp = min(t,x[i]);
-		cout << t << " " << x[i] << endl;
-		int diff = max(0,x[i]-temp);
-		cout << temp << " " << diff << endl;
-		a += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
-	}
-	cout << a << " " << b << endl;	
+		}
+	}	
+	if(x==0 && y==0)
+		cout << p+1 << endl;
+	else
+		cout << -1 << endl;
 	return 0;
 }

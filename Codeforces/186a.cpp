@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 218b.cpp
+Filename  : 186a.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,35 +52,45 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<int> x(m);
-	REP(i,m)
-		cin >> x[i];
-	SORTV(x);
-	int a=0,b=0;
-	int t=n;
-	for(int i=0;i<m;i++)
+	string a,b;
+	cin >> a >> b;
+	int f=0;
+	if(a.length() != b.length())
 	{
-		int temp = min(t,x[i]);
-		int diff = max(0,x[i]-temp);
-		b += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
+		cout << "NO" << endl;
+		return 0;
 	}
-	t = n;
-	for(int i=(m-1);i>=0;i--)
+	for(int i=0;i<a.length();i++)
 	{
-		int temp = min(t,x[i]);
-		cout << t << " " << x[i] << endl;
-		int diff = max(0,x[i]-temp);
-		cout << temp << " " << diff << endl;
-		a += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
+		if(a[i] != b[i])
+			f++;	
 	}
-	cout << a << " " << b << endl;	
+	if(f!=2 && f!=0){
+		cout << "NO" << endl;
+		return 0;
+	}
+	int l,r;
+	if(f==0)
+	{
+		cout << "YES" << endl;
+		return 0;
+	}
+	l = -1;
+	r = -1;
+	for(int i=0;i<a.length();i++)
+	{
+		if(a[i] != b[i])
+		{
+			if(l<0)
+				l = i;
+			else
+				r = i;
+		}
+	}
+	//cout << l << " " << r << endl;
+	if(a[l]==b[r] && a[r]==b[l])
+		cout << "YES" << endl;
+	else
+		cout << "NO" << endl;
 	return 0;
 }

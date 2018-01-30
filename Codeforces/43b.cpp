@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 218b.cpp
+Filename  : 43b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,35 +52,34 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<int> x(m);
-	REP(i,m)
-		cin >> x[i];
-	SORTV(x);
-	int a=0,b=0;
-	int t=n;
-	for(int i=0;i<m;i++)
+	string head,text;
+	getline(cin,head);
+	getline(cin,text);
+	vector<int> small(26,0),big(26,0);
+	for(int i=0;i<head.length();i++)
 	{
-		int temp = min(t,x[i]);
-		int diff = max(0,x[i]-temp);
-		b += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
+		if(head[i]>=97 && head[i]<=122)
+			small[head[i]-97]++;
+		else if(head[i]>=65 && head[i]<=90)
+			big[head[i]-65]++;
 	}
-	t = n;
-	for(int i=(m-1);i>=0;i--)
+	int flag=0;
+	for(int i=0;i<text.length();i++)
 	{
-		int temp = min(t,x[i]);
-		cout << t << " " << x[i] << endl;
-		int diff = max(0,x[i]-temp);
-		cout << temp << " " << diff << endl;
-		a += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
+		if(text[i]>=97 && text[i]<=122){
+			small[text[i]-97]--;
+			if(small[text[i]-97] < 0)
+				flag++;
+		}
+		else if(text[i]>=65 && text[i]<=90){
+			big[text[i]-65]--;
+			if(big[text[i]-65] < 0)
+				flag++;
+		}
 	}
-	cout << a << " " << b << endl;	
+	if(flag)
+		cout << "NO" << endl;
+	else
+		cout << "YES" << endl;
 	return 0;
 }

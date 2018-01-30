@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 218b.cpp
+Filename  : 242b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,35 +52,30 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<int> x(m);
-	REP(i,m)
-		cin >> x[i];
-	SORTV(x);
-	int a=0,b=0;
-	int t=n;
-	for(int i=0;i<m;i++)
+	int n;
+	cin >> n;
+	int l,r;
+	l = INT_MAX;
+	r = INT_MIN;
+	vector<pair<int,int>> pos;
+	REP(i,n)
 	{
-		int temp = min(t,x[i]);
-		int diff = max(0,x[i]-temp);
-		b += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
+		int x,y;
+		cin >> x >> y;
+		pos.PB(MK(x,y));
+		l = min(x,l);
+		r = max(y,r);
 	}
-	t = n;
-	for(int i=(m-1);i>=0;i--)
+	int ans=-1;
+	//cout << l << " " << r << endl;
+	REP(i,n)
 	{
-		int temp = min(t,x[i]);
-		cout << t << " " << x[i] << endl;
-		int diff = max(0,x[i]-temp);
-		cout << temp << " " << diff << endl;
-		a += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
+		if(l>=pos[i].first && r<=pos[i].second)
+		{
+			ans = i+1;
 			break;
+		}
 	}
-	cout << a << " " << b << endl;	
+	cout << ans << endl;
 	return 0;
 }

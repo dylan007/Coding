@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 218b.cpp
+Filename  : 276b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,35 +52,18 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<int> x(m);
-	REP(i,m)
-		cin >> x[i];
-	SORTV(x);
-	int a=0,b=0;
-	int t=n;
-	for(int i=0;i<m;i++)
-	{
-		int temp = min(t,x[i]);
-		int diff = max(0,x[i]-temp);
-		b += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
-	}
-	t = n;
-	for(int i=(m-1);i>=0;i--)
-	{
-		int temp = min(t,x[i]);
-		cout << t << " " << x[i] << endl;
-		int diff = max(0,x[i]-temp);
-		cout << temp << " " << diff << endl;
-		a += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
-	}
-	cout << a << " " << b << endl;	
+	string a;
+	cin >> a;
+	vector<int> c(26,0);
+	REP(i,a.length())
+		c[a[i]-'a']++;
+	int p=0;
+	REP(i,26)
+		p += c[i]&1;
+	p = max(0,p-1);
+	if(p%2 == 0)
+		cout << "First" << endl;
+	else
+		cout << "Second" << endl;
 	return 0;
 }

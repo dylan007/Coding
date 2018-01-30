@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 218b.cpp
+Filename  : 431b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,37 +50,32 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+int calc(vector<vector<int>> cost,string a)
+{
+	int ans=0;
+	for(int i=0;i<5;i++){
+		for(int j=i;j<5;j+=2)
+		{
+			if(j!=4)
+				ans += (cost[a[j]-'1'][a[j+1]-'1']) + (cost[a[j+1]-'1'][a[j]-'1']);
+		}
+	}
+	return ans;
+}
+
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<int> x(m);
-	REP(i,m)
-		cin >> x[i];
-	SORTV(x);
-	int a=0,b=0;
-	int t=n;
-	for(int i=0;i<m;i++)
+	vector<vector<int>> cost(5,vector<int>(5,0));
+	REP(i,5)
 	{
-		int temp = min(t,x[i]);
-		int diff = max(0,x[i]-temp);
-		b += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
+		REP(j,5)
+			cin >> cost[i][j];
 	}
-	t = n;
-	for(int i=(m-1);i>=0;i--)
-	{
-		int temp = min(t,x[i]);
-		cout << t << " " << x[i] << endl;
-		int diff = max(0,x[i]-temp);
-		cout << temp << " " << diff << endl;
-		a += (temp*(temp+1))/2 - (diff*(diff+1))/2;
-		t -= temp;
-		if(t<=0)
-			break;
-	}
-	cout << a << " " << b << endl;	
+	string a = "12345";
+	int ans=0;
+	do{
+		ans = max(ans,calc(cost,a));
+	}while(next_permutation(a.begin(),a.end()));
+	cout << ans << endl;
 	return 0;
 }
