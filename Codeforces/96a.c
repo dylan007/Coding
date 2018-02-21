@@ -16,17 +16,17 @@ int main()
 			if(str[i]!=str[j])
 			{
 				i = j;
-				printf("break j = %d\n",j);
+				//printf("break j = %d\n",j);
 				break;
 			}
 			count++;
 			if(count == 7)
 			{
-				printf("y j = %d\n",j);
+				//printf("y j = %d\n",j);
 				printf("YES\n");
 				return 0;
 			}
-			printf("j= %d count = %d\n",j,count);
+			//printf("j= %d count = %d\n",j,count);
 		}
 	}
 	printf("NO\n");
