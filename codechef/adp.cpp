@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : pt70y.cpp
+Filename  : adp.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,55 +50,49 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int dfs(vector<vector<int>> adj,vector<int> &visited,int start){
-	visited[start]=1;
-	int flag=0;
-	REP(i,adj[start].size()){
-		if(!visited[adj[start][i]]){
-			flag |= dfs(adj,visited,adj[start][i]);
-		}
-		else
-			return 1;
-	}
-	return 0;
-}
-
-int check(vector<int> visited){
-	REP(i,visited.size()){
-		if(visited[i] == 0)
-			return i;
-	}
-	return -1;
-}
-
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	if(m != (n-1))
-		cout << "NO" << endl;
-	else{
-		vector<vector<int>> adj(n,vector<int>());
-		REP(i,m){
-			int x,y;
-			cin >> x >> y;
-			x--;y--;
-			adj[x].PB(y);
-			adj[y].PB(x);
-		}
-		vector<int> visited(n,0);
-		int flag=0;
-		while(1){
-			int pos = check(visited);
-			if(pos>=0)
-				flag |= dfs(adj,visited,pos);
+	TEST{
+		ll f,b,x,y;
+		cin >> f >> b >> x >> y;
+		ll diff = f-b;
+		y-=x;
+		if(y>0){
+			if(f!=0){
+				if(y%f == 0)
+					cout << "YES" << endl;
+				else{
+					ll t = (y/f)*f;
+					if(diff>0 && ((y-t)%diff == 0))
+						cout << "YES" << endl;
+					else if(diff<0 && (((t+f-y)%(0-diff)) == 0))
+						cout << "YES" << endl;
+					else
+						cout << "NO" << endl;
+				}
+			}
 			else
-				break;
-			if(flag)
-				break;
+				cout << "NO" << endl;
 		}
-		if(flag)
-			cout << "NO" << endl;
+		else if(y<0){
+			y = 0-y;
+			diff = 0-diff;
+			if(b!=0){
+				if(y%b == 0)
+					cout << "YES" << endl;
+				else{
+					ll t = (y/b)*b;
+					if(diff>0 && ((y-t)%diff == 0))
+						cout << "YES" << endl;
+					else if(diff<0 && (((t+b-y)%(0-diff)) == 0))
+						cout << "YES" << endl;
+					else
+						cout << "NO" << endl;
+				}
+			}
+			else
+				cout << "NO" << endl;
+		}
 		else
 			cout << "YES" << endl;
 	}

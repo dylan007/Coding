@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : pt70y.cpp
+Filename  : iemco5b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,57 +50,30 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int dfs(vector<vector<int>> adj,vector<int> &visited,int start){
-	visited[start]=1;
-	int flag=0;
-	REP(i,adj[start].size()){
-		if(!visited[adj[start][i]]){
-			flag |= dfs(adj,visited,adj[start][i]);
+int lsis(vector<int> arr){
+	int n = arr.size();
+	vector<int> dp(n,0);
+	REP(i,n) dp[i]=arr[i];
+	FOR(i,1,n){
+		REP(j,i){
+			if(arr[i]>arr[j] && (dp[i] < (dp[j]+arr[i])))
+				dp[i] = dp[j]+arr[i];
 		}
-		else
-			return 1;
 	}
-	return 0;
-}
-
-int check(vector<int> visited){
-	REP(i,visited.size()){
-		if(visited[i] == 0)
-			return i;
-	}
-	return -1;
+	int m = 0;
+	REP(i,n) m=max(m,dp[i]);
+	return m;
 }
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	if(m != (n-1))
-		cout << "NO" << endl;
-	else{
-		vector<vector<int>> adj(n,vector<int>());
-		REP(i,m){
-			int x,y;
-			cin >> x >> y;
-			x--;y--;
-			adj[x].PB(y);
-			adj[y].PB(x);
-		}
-		vector<int> visited(n,0);
-		int flag=0;
-		while(1){
-			int pos = check(visited);
-			if(pos>=0)
-				flag |= dfs(adj,visited,pos);
-			else
-				break;
-			if(flag)
-				break;
-		}
-		if(flag)
-			cout << "NO" << endl;
-		else
-			cout << "YES" << endl;
+	TEST{
+		int n;
+		cin >> n;
+		vector<int> arr(n);
+		REP(i,n)
+			cin >> arr[i];
+		cout << lsis(arr) << endl;
 	}
 	return 0;
 }

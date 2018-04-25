@@ -46,70 +46,76 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-vector<int> arr;
-
-typedef struct node
-{
-	int l,r;
-	int bs,ls,rs;
-	struct node *left,*right;
-}node;
-
-node* create()
-{
-	node *temp;
-	temp = (node *)malloc(sizeof(node));
-	temp->left = temp->right =NULL;
-	return temp;
-}
-
-node* buildrmq(node *head,int x,int y)
-{
-	head = create();
-	if(x==y)
-	{
-		head->l = x;
-		head->r = y;
-		head->bs=head->ls=head->rs = arr[x];
-		return head;
+struct node{
+	int best,left,right,segsum;
+	node(){
+		best = 0;
+		left = 0;
+		right = 0;
+		segsum = 0;
 	}
-	int mid = (x+y)/2;
-	head->left = buildrmq(head,x,mid);
-	head->right = buildrmq(head,mid+1,y);
-	head->data = max(head->data,max(head->data+head->left->data,head->data+head->right->data));
-	head->l = x;
-	head->r = y;
-	return head;
+};
+
+void merge(node &root,node &a,node &b){
+	root.segsum = a.segsum + b.segsum;
+	root.left = max(a.segsum + b.left,a.left);
+	root.right = max(a.right+b.segsum,b.right);
+	root.best = max(max(a.best,b.best),a.right+b.left);
 }
 
-int qrmq(node *head,int x,int y)
+
+void build(vector<int> &tree,vector<int> arr,int low,int high,int curr)
 {
-	if((head->l >= x)&&(head->r <= y))
-		return head->data;
-	else if((head->l > y) || (head->r < x))
-		return INT_MIN;
-	return max( qrmq(head->left,x,y),qrmq(head->right,x,y));
+	if(low == high){
+		tree[curr].best = tree[curr].segsum = tree[curr].left = tree[curr].right = arr[low];
+		return;
+	}
+	int mid = (low+high)/2;
+	int parent = curr;
+	curr <<= 1;
+	build(tree,arr,low,mid,curr);
+	tree[parent] = max(tree[parent],tree[curr]);
+	curr |= 1;
+	build(tree,arr,mid+1,high,curr);
+	merge(tree[parent],tree[curr-1],tree[curr]);
+	return;
 }
+
+int query(vector<int> tree,int l,int r,int low,int high,int curr)
+{
+	//cout << low << " " << high << endl;
+	if(l>=low && high<=r)
+		return tree[curr];
+	if(high<l || low>r)
+		return INT_MIN;
+	int mid = (low+high)/2;
+	return max(query(tree,l,r,low,mid,curr*2),query(tree,l,r,mid+1,high,curr*2+1));
+}
+
 
 int main()
 {
-	int n,x;
+	int n;
 	read(n);
+	vector<int> arr(n);
 	REP(i,n)
-	{
-		read(x);
-		arr.PB(x);
-	}
-	node *head;
-	head = buildrmq(head,0,n-1);
-	TEST
-	{
-		int l,r;
-		cin >> l >> r;
-		l--;
-		r--;
-		cout << qrmq(head,l,r) << endl;
-	}
+		read(arr[i]);
+	vector<node> tree(n<<1+1);
+	//cout << tree.size() << endl;
+	build(tree,arr,0,n-1,1);
+	for(auto it:tree)
+		cout << it.best << " " << it.left << " " << it.right << " " << it.segsum << endl;
+	//FOR(i,1,tree.size())
+	//	cout << tree[i] << " ";
+	//cout << endl;
+//	int q;
+//	cin >> q;
+	//while(q--)
+//	{
+	//	int x,y;
+	//	read(x);read(y);
+	//	cout << query(tree,x-1,y-1,0,n,1) << endl;
+//	}
 	return 0;
 }
 

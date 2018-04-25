@@ -47,28 +47,27 @@ void err(vector<string>::iterator it, T a, Args... args) {
 }
 
 
-ull calc(string a)
+ll calc(string a)
 {
-	if(a.length()<=1)
+	if(a.length()==1)
 		return 1;
-	if(a[0]=='1')
-		return calc(a.substr(1))+calc(a.substr(2));
-	else if(a[0]=='2')
-	{
-		if(a[1]<'7')
-			return calc(a.substr(1))+calc(a.substr(2));
-		else
-			return calc(a.substr(1));
+	vector<ll> dp(a.length()+1,0);
+	dp[0]=1;
+	dp[1]=1;
+	for(int i=2;i<=a.length();i++){
+		if(a[i-2]=='1' || (a[i-2]=='2' && a[i-1]<='6'))
+			dp[i] = dp[i-1]+dp[i-2];
+		else if(a[i-1]!='0')
+			dp[i] = dp[i-1];
 	}
-	else
-		return calc(a.substr(1));
+	return dp[a.length()];
 }
 
 int main()
 {
 	string a;
 	cin >> a;
-	while(a!="0")
+	while(a[0]!='0')
 	{
 		cout << calc(a) << endl;
 		cin >> a;

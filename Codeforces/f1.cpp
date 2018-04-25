@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : pt70y.cpp
+Filename  : f1.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,57 +50,45 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int dfs(vector<vector<int>> adj,vector<int> &visited,int start){
-	visited[start]=1;
-	int flag=0;
-	REP(i,adj[start].size()){
-		if(!visited[adj[start][i]]){
-			flag |= dfs(adj,visited,adj[start][i]);
-		}
-		else
-			return 1;
-	}
-	return 0;
-}
 
-int check(vector<int> visited){
-	REP(i,visited.size()){
-		if(visited[i] == 0)
-			return i;
+int check(vector<int>temp,vector<int> req){
+	REP(i,temp.size()){
+		if(temp[i] != req[i])
+			return 0;
 	}
-	return -1;
+	return 1;
 }
 
 int main()
 {
 	int n,m;
 	cin >> n >> m;
-	if(m != (n-1))
-		cout << "NO" << endl;
-	else{
-		vector<vector<int>> adj(n,vector<int>());
-		REP(i,m){
-			int x,y;
-			cin >> x >> y;
-			x--;y--;
-			adj[x].PB(y);
-			adj[y].PB(x);
-		}
-		vector<int> visited(n,0);
-		int flag=0;
-		while(1){
-			int pos = check(visited);
-			if(pos>=0)
-				flag |= dfs(adj,visited,pos);
-			else
-				break;
-			if(flag)
-				break;
-		}
-		if(flag)
-			cout << "NO" << endl;
-		else
-			cout << "YES" << endl;
+	vector<int> col(n);
+	vector<int> count(n);
+	REP(i,n){
+		cin >> col[i];
 	}
+	vector<int> req(m);
+	int window = 0;
+	REP(i,m){
+		cin >> req[i];
+		window += req[i];
+	}
+	vector<int> temp(m,0);
+	REP(i,window){
+		temp[col[i]-1]++;
+	}
+	int flag=check(temp,req);
+	FOR(i,window,n){
+		temp[col[i]-1]++;
+		temp[col[i-window]-1]--;
+		flag |= check(temp,req);
+		if(flag)
+			break;
+	}
+	if(flag)
+		cout << "YES" << endl;
+	else
+		cout << "NO" << endl;
 	return 0;
 }

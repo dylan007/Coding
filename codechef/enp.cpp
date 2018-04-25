@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : pt70y.cpp
+Filename  : enp.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,57 +50,41 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int dfs(vector<vector<int>> adj,vector<int> &visited,int start){
-	visited[start]=1;
-	int flag=0;
-	REP(i,adj[start].size()){
-		if(!visited[adj[start][i]]){
-			flag |= dfs(adj,visited,adj[start][i]);
-		}
-		else
-			return 1;
+string dec(string a,ll x,ll d){
+	string out="";
+	REP(i,a.length()){
+		ll rem = ((a[i]-'a') - i*d - x)%26;
+		rem = rem<0?(rem+26):rem;
+		out += char((rem) +'a'); 
 	}
-	return 0;
+	return out;
 }
 
-int check(vector<int> visited){
-	REP(i,visited.size()){
-		if(visited[i] == 0)
-			return i;
+ll calc(string a){
+	vector<ll> arr(26,0);
+	REP(i,a.length()){
+		arr[a[i]-'a']++;
 	}
-	return -1;
+	ll c1=0,c2=INT_MAX,c3=0;
+	REP(i,26){
+		if(arr[i]%2){
+			if(arr[i]>1)
+				c3 += arr[i]-1;
+		}
+		else
+			c1 += arr[i];
+	}
+	return c1+c3+1;
 }
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	if(m != (n-1))
-		cout << "NO" << endl;
-	else{
-		vector<vector<int>> adj(n,vector<int>());
-		REP(i,m){
-			int x,y;
-			cin >> x >> y;
-			x--;y--;
-			adj[x].PB(y);
-			adj[y].PB(x);
-		}
-		vector<int> visited(n,0);
-		int flag=0;
-		while(1){
-			int pos = check(visited);
-			if(pos>=0)
-				flag |= dfs(adj,visited,pos);
-			else
-				break;
-			if(flag)
-				break;
-		}
-		if(flag)
-			cout << "NO" << endl;
-		else
-			cout << "YES" << endl;
-	}
+	ll x,d;
+	cin >> x >> d;
+	string a;
+	cin >> a;
+	string b = dec(a,x,d);
+	// cout << b << endl;
+	cout << calc(b) << endl;
 	return 0;
 }

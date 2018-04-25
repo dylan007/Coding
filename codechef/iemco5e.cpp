@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : pt70y.cpp
+Filename  : iemco5e.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,57 +50,44 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int dfs(vector<vector<int>> adj,vector<int> &visited,int start){
-	visited[start]=1;
-	int flag=0;
-	REP(i,adj[start].size()){
-		if(!visited[adj[start][i]]){
-			flag |= dfs(adj,visited,adj[start][i]);
+int reduce(int v,vector<int> c){
+	int dp[v+1];
+	dp[0] = 0;
+	FOR(i,1,v+1)
+		dp[i] = INT_MAX;
+	FOR(i,1,v+1){
+		REP(j,c.size()){
+			if(c[j]<=i){
+				int s = dp[i-c[j]];
+				if(s!=INT_MAX && (s+1 < dp[i]))
+					dp[i] = s+1;
+			}
 		}
-		else
-			return 1;
 	}
-	return 0;
-}
-
-int check(vector<int> visited){
-	REP(i,visited.size()){
-		if(visited[i] == 0)
-			return i;
-	}
-	return -1;
+	return dp[v];
 }
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	if(m != (n-1))
-		cout << "NO" << endl;
-	else{
-		vector<vector<int>> adj(n,vector<int>());
-		REP(i,m){
-			int x,y;
-			cin >> x >> y;
-			x--;y--;
-			adj[x].PB(y);
-			adj[y].PB(x);
+	TEST{
+		int n,m;
+		cin >> n >> m;
+		vector<int> s(n),r(m);
+		REP(i,n)
+			cin >> s[i];
+		REP(i,m)
+			cin >> r[i];
+		SORTV(r);
+		int tot=0,c=0;
+		REP(i,n){
+			int t = reduce(s[i],r);
+			// cout << t << endl;
+			if(t!=INT_MAX){
+				tot += t;
+				c++;
+			}
 		}
-		vector<int> visited(n,0);
-		int flag=0;
-		while(1){
-			int pos = check(visited);
-			if(pos>=0)
-				flag |= dfs(adj,visited,pos);
-			else
-				break;
-			if(flag)
-				break;
-		}
-		if(flag)
-			cout << "NO" << endl;
-		else
-			cout << "YES" << endl;
+		cout << c << " " << tot << endl;
 	}
 	return 0;
 }

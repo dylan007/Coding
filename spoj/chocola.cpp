@@ -3,7 +3,7 @@ Author    : Shounak Dey
 Filename  : chocola.cpp
 =======================	*/
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -54,20 +54,36 @@ int main()
 {
 	TEST{
 		int n,m;
-		int x=0,y=0;
-		int p;
 		cin >> n >> m;
-		REP(i,n-1)
-		{
-			cin >> p;
-			x += p;
+		vector<int> x(n-1);
+		vector<int> y(m-1);
+		int f = (n>m);
+		vector<pair<int,int>> p;
+		REP(i,n-1){
+			cin >> x[i];
+			p.PB(MK(x[i],f));
 		}
-		REP(i,m-1)
-		{
-			cin >> p;
-			y += p;
+		REP(i,m-1){
+			cin >> y[i];
+			p.PB(MK(y[i],!f));
 		}
-		cout << min((x + n*(y)), (y + m*x)) << endl;
+		sort(p.rbegin(),p.rend());
+		// for(auto it:p)
+		// 	cout << it.first << " " << it.second << endl;
+		int px=0,py=0;
+		int ans=0;
+		for(auto it:p){
+			if(it.second == f){
+				ans += (px+1)*it.first;
+				py++;
+			}
+			else{
+				ans += (py+1)*it.first;
+				px++;
+			}
+			// error(ans,px,py);
+		}
+		cout << ans << endl;
 	}
 	return 0;
 }

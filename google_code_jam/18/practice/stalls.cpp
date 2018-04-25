@@ -77,7 +77,7 @@ int main()
 			if(c.find(l) == c.end())
 				c[l] = c[x];
 			else
-				c[l] += c[x];
+				c[l] += c[x]; 
 			if(c.find(r) == c.end())
 				c[r] = c[x];
 			else

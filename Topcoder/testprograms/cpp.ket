@@ -1,4 +1,3 @@
-//Shounak Dey
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -27,32 +26,15 @@ typedef unsigned long long int ull;
 #define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
+class <%:class-name%> {
+public:
+	<%:return-type%> <%:method-name%>(<%:param-type-list%>);
+};
 
-#define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
-
-vector<string> split(const string& s, char c) {
-	vector<string> v;
-	stringstream ss(s);
-	string x;
-	while (getline(ss, x, c))
-		v.emplace_back(x);
-	return move(v);
+<%:return-type%> <%:class-name%>::<%:method-name%>(<%:param-list%>) {
+	<%:set-caret%>
 }
 
-void err(vector<string>::iterator it) {}
-template<typename T, typename... Args>
-void err(vector<string>::iterator it, T a, Args... args) {
-	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
-	err(++it, args...);
-}
-
-int main()
-{
-	TEST{
-		int T;
-		cin >> T;
-
-	}
-	return 0;
-}
+<%:testing-code%>
+//Powered by [KawigiEdit] 2.0!
 
