@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : dishown.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,12 +50,52 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+int root(vector<int> parent,int x){
+	if(x != parent[x])
+		parent[x] = root(parent,parent[x]);
+	return parent[x];
+}
+
+int un(vector<int> &parent,vector<int> &rank,int x,int y){
+	int rx = root(parent,x);
+	int ry = root(parent,y);
+	if(rx == ry)
+		return 1;
+	if(rank[rx] < rank[ry])
+		parent[rx] = ry;
+	else if(rank[ry] < rank[rx])
+		parent[ry] = rx;
+	else
+		parent[rx] = ry;
+	return 0;
+}
+
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
+	TEST{
+		int n;
+		cin >> n;
+		int q;
+		vector<int> parent(n),rank(n);
+		REP(i,n)
+			cin >> rank[i];
+		cin >> q;
+		REP(i,n)
+			parent[i] = i;
+		while(q--){
+			int x,y,c;
+			cin >> c;
+			if(c){
+				cin >> x;
+				cout << parent[x-1]+1 << endl;
+			}
+			else{
+				cin >> x >> y;
+				int f = un(parent,rank,x-1,y-1);
+				if(f)
+					cout << "Invalid query!" << endl;
+			}
+		}
 	}
 	return 0;
 }

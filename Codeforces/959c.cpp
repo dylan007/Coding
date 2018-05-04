@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : 959c.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,10 +52,27 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
+	int n;
+	cin >> n;
+	int t = n;
+	if(n<=5)
+		cout << -1 << endl;
+	else{
+		cout << 1 << " " << 2 << endl;
+		int curr=3;
+		n-=2;
+		int p=n/2;
+		n -= p;
+		while(p--){
+			cout << 1 << " " << curr << endl;
+			curr++;
+		}
+		while(n--){
+			cout << 2 << " " << curr << endl;
+			curr++;
+		}
 	}
+	FOR(i,2,t+1)
+		cout << 1 << " " << i << endl;
 	return 0;
 }

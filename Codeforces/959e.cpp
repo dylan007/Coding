@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : 959e.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,10 +52,9 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
-	}
+	ull n;
+	cin >> n;
+	ull ans=0;
+	
 	return 0;
 }

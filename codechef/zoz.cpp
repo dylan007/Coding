@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : zoz.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,10 +52,22 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
+	TEST{
+		int n;
+		cin >> n;
+		int k;
+		cin >> k;
+		vector<int> arr(n);
+		int sum=0;
+		REP(i,n){
+			cin >> arr[i];
+			sum += arr[i];
+		}
+		int ans=0;
+		REP(i,n){
+			ans += ((arr[i]+k) > (sum - arr[i]));
+		}
+		cout << ans << endl;
 	}
 	return 0;
 }

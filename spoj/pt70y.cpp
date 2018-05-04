@@ -50,57 +50,53 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int dfs(vector<vector<int>> adj,vector<int> &visited,int start){
-	visited[start]=1;
-	int flag=0;
-	REP(i,adj[start].size()){
-		if(!visited[adj[start][i]]){
-			flag |= dfs(adj,visited,adj[start][i]);
-		}
-		else
-			return 1;
-	}
-	return 0;
+int root(vector<int> parent,int x){
+	while(x != parent[parent[x]])
+		x = parent[parent[x]];
+	return x;
 }
 
-int check(vector<int> visited){
-	REP(i,visited.size()){
-		if(visited[i] == 0)
-			return i;
+int un(vector<int> &parent,vector<int> &size,int x,int y){
+	int rx = root(parent,x);
+	int ry = root(parent,y);
+	if(rx == ry)
+		return 1;
+	if(size[rx] > size[ry]){
+		parent[ry] = rx;
+		size[rx] += size[ry];
+		size[ry] = size[rx];
 	}
-	return -1;
+	else{
+		parent[rx] = ry;
+		size[ry] += size[ry];
+		size[rx] = size[ry];
+	}
+	return 0;
 }
 
 int main()
 {
 	int n,m;
 	cin >> n >> m;
-	if(m != (n-1))
+	if(n!= (m+1))
 		cout << "NO" << endl;
 	else{
-		vector<vector<int>> adj(n,vector<int>());
-		REP(i,m){
+		vector<int> parent(n),size(n);
+		for(int i=0;i<n;i++){
+			parent[i] = i;
+			size[i] = i;
+		}
+		for(int i=0;i<m;i++){
 			int x,y;
-			cin >> x >> y;
+			cin >> x>> y;
 			x--;y--;
-			adj[x].PB(y);
-			adj[y].PB(x);
+			int f = un(parent,size,x,y);
+			if(f){
+				cout << "NO" << endl;
+				return 0;
+			}
 		}
-		vector<int> visited(n,0);
-		int flag=0;
-		while(1){
-			int pos = check(visited);
-			if(pos>=0)
-				flag |= dfs(adj,visited,pos);
-			else
-				break;
-			if(flag)
-				break;
-		}
-		if(flag)
-			cout << "NO" << endl;
-		else
-			cout << "YES" << endl;
+		cout << "YES" << endl;
 	}
 	return 0;
 }

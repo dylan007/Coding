@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : gcddiv.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -9,6 +9,7 @@ using namespace std;
 
 typedef long long int ll;
 typedef unsigned long long int ull;
+
 
 #define PB push_back
 #define MK make_pair 
@@ -50,12 +51,59 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+ll gcd(ll a,ll b){
+	return b==0?a:gcd(b,a%b);
+}
+
+int check(ll ans,ll k,vector<ll> primes){
+	int flag=0;
+	for(ll i=2;i*i <= ans;i++){
+		if((ans%i)==0){
+			flag=1;
+			break;
+		}
+	}
+	if(!flag){
+		return ans>k;
+	}
+	REP(i,primes.size()){
+		if(primes[i] <= k)
+			continue;
+		if((ans % primes[i]) == 0)
+			return 1;
+	}
+	return 0;
+}
+
+void sieve(vector<ll> &primes){
+	vector<ll> flag(10000000,0);
+	for(ll i=2;i<=10000000;i++){
+		if(flag[i] == 0){
+			primes.PB(i);
+			for(ll j=2*i;j<=10000000;j+=i)
+				flag[j] = 1;
+		}
+	}
+}
+
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
+	vector<ll> primes;
+	sieve(primes);
+	TEST{
+		ll n,k;
+		cin >> n >> k;
+		ll x = 0;
+		vector<ll> arr(n);
+		REP(i,n)
+			cin >> arr[i];
+		ll ans = arr[0];
+		FOR(i,1,n)
+			ans = gcd(arr[i],ans);
+		if(check(ans,k,primes))
+			cout << "NO" << endl;
+		else
+			cout << "YES" << endl;
 	}
 	return 0;
 }

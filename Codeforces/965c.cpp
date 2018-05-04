@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : 965c.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,12 +50,41 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+ull f(ull n,ull k,ull m,ull i){
+	ull x1 = i + (i-1)*(k-1);
+	ull m1,m2;
+	if((n/x1 > m))
+		m1 = 0;
+	else{
+		if(n/x1 == 0)
+			m1 = min(m,n%x1);
+		else
+			m1 = (n/x1)*i;
+	}
+	ull x2 = i*k;
+	if((n/x2 > m))
+		m2 = 0;
+	else{
+		if(n/x2 == 0)
+			m2 = min(m,n%x1);
+		else
+			m2 = (n/x2)*i + (n%x2 >= (n/x2))*(n/x2);
+	}
+	cout << x1 << " " << x2 << endl;
+	cout << m1 << " " << m2 << " " << i << endl;
+	error(n/x1,n/x2,m);
+	cout << endl;	
+	return max(m1,m2);
+}
+
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
+	ull n,k,m,d;
+	cin >> n >> k >> m >> d;
+	ull M=0;
+	for(int i=1;i<=d;i++){
+		M = max(M,f(n,k,m,i));
 	}
+	cout << M << endl;
 	return 0;
 }

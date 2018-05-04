@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : 959b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,10 +52,40 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
+	ll n,k,m;
+	cin >> n >> k >> m;
+	string a;
+	vector<string> in;
+	map<string,ll> index;
+	REP(i,n){
+		cin >> a;
+		in.PB(a);
+		index[a] = i;
 	}
+	vector<ll> val(k,INT_MAX);
+	vector<ll> w(n);
+	REP(i,n)
+		cin >> w[i];
+	REP(i,k)
+	{
+		ll x;
+		cin >> x;
+		vector<ll> g;
+		REP(j,x){
+			ll y;
+			cin >> y;
+			g.PB(y);
+			val[i] = min(val[i],w[y-1]);
+		}
+		REP(j,x){
+			w[g[j]-1] = val[i];
+		}
+	}
+	ll ans=0;
+	REP(i,m){
+		cin>>a;
+		ans += w[index[a]];
+	}
+	cout << ans << endl;
 	return 0;
 }

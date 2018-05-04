@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : q1.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -52,10 +52,51 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
+	int T;
+	cin >> T;
+	for(int t=0;t<=T;t++){
+		cout << "Case #" << t+1 << ": ";
+		double n,l;
+		cin >> n >> l;
+		vector<double> arr(int(l),0);
+		vector<double> rup;
+		int ans=0;
+		int m = 0;
+		double r=0;
+		double x;
+		int tot=0;
+		REP(i,int(l)){
+			cin >> arr[i];
+			tot += arr[i];
+			int d = (arr[i]/n)*100;
+			if(((arr[i]/n)*100 - d)>=0.5){
+				if(r > (1 - (arr[i]*100)/n + d)){
+					r = 1 - (arr[i]*100)/n + d;
+					x = d+1;
+				}
+				else if(r == (1 - (arr[i]*100)/n + d))
+					x = max(x,double(d+1));
+				rup.PB(1 - (arr[i]*100)/n + d);
+				ans += (arr[i])*(d+1);
+			}
+			else{
+				ans += (arr[i])*d;
+				m = max(m,d);
+			}
+		}
+		SORTV(rup);
+		// cout << endl;
+		// for(auto it:rup)
+		// 	cout << it << " ";
+		// cout << endl;
+		if(rup.size()>0)
+			ans += (x)*(n-tot);
+		else{
+			cout << ans << endl;
+			cout << m << " " << tot << endl;
+			ans += m*(n-tot);
+		}
+		cout << ans << endl;
 	}
 	return 0;
 }

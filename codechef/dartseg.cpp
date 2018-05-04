@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : dartseg.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,12 +50,33 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+ll dist(pair<ll,ll> a,pair<ll,ll> b){
+	return (a.first - b.first)*(a.first - b.first) + (a.second - b.second)*(a.second - b.second);
+}
+
+
+
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
+	ll n,q;
+	cin >> n;
+	vector<pair<ll,ll>> points;
+	REP(i,n){
+		ll x,y;
+		cin >> x >> y;
+		points.PB(MK(x,y));
+	}
+	cin >> q;
+	while(q--){
+		ll l,r;
+		cin >> l >> r;
+		ll ans=0;
+		for(ll i=l-1;i<r;i++){
+			for(ll j=i+1;j<r;j++){
+				ans = max(ans,dist(points[i],points[j]));
+			}
+		}
+		cout << ans << endl;
 	}
 	return 0;
 }

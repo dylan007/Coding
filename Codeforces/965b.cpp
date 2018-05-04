@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : TEST.cpp
+Filename  : 965b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,12 +50,76 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+int calc(vector<vector<int>> board,int x,int y,int k,int n){
+	if(board[x][y]==0)
+		return 0;
+	int v,h;
+	v = h = 1;
+	int i=y-1;
+	while(i>=max(0,y-k+1)){
+		if(board[x][i]==0)
+			break;
+		i--;
+		v++;
+	}
+	i = y+1;
+	while(i<=min(n-1,y+k-1)){
+		if(board[x][i]==0)
+			break;
+		i++;
+		v++;
+	}
+	int ans= max(0,v-k+1);
+	i = x-1;
+	while(i>=max(0,x-k+1)){
+		if(board[i][y]==0)
+			break;
+		i--;
+		h++;
+	}
+	i = x+1;
+	while(i<=min(n-1,x+k-1)){
+		if(board[i][y]==0)
+			break;
+		i++;
+		h++;
+	}
+	// error(x,y,v,h);
+	// cout << endl;
+	ans += max(0,h-k+1);
+	return ans;
+}
+
 int main()
 {
-	int ans=0;
-	FOR(i,1,100)
-	{
-		ans ^= i;
+	int n,k;
+	cin >> n>> k;
+	vector<vector<int>> board(n,vector<int>(n,0));
+	REP(i,n){
+		string a;
+		cin >> a;
+		REP(j,n){
+			if(a[j] == '#')
+				board[i][j] = 0;
+			else
+				board[i][j] = 1;
+		}
 	}
+	vector<vector<int>> ans(n,vector<int>(n,0));
+	int m = 0;
+	int x=0,y=0;
+	REP(i,n){
+		REP(j,n){
+			ans[i][j] = calc(board,i,j,k,n);
+			if(m < ans[i][j]){
+				m = ans[i][j];
+				x = i;
+				y = j;
+				// error(i,j,m);
+				// cout << m << endl;
+			}
+		}
+	}
+	cout << x+1 << " " << y+1 << endl;
 	return 0;
 }
