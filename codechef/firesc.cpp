@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : buglife.cpp
+Filename  : firesc.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,6 +50,8 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+#define MOD ll(1e9+7)
+
 ll find(vector<ll> &parent,ll x){
 	if(x != parent[parent[x]])
 		parent[x] = find(parent,parent[x]);
@@ -72,73 +74,37 @@ void un(vector<ll> &parent,vector<ll> &size,ll x,ll y){
 	return;
 }
 
-ll bfs(vector<vector<ll>> adj,ll start,ll end){
-	queue<ll> q;
-	int n = adj.size();
-	vector<ll> visited(n,0);
-	q.push(start);
-	map<ll,ll> depth;
-	depth[start] = 0;
-	visited[start] = 1;
-	while(!q.empty()){
-		ll x = q.front();
-		q.pop();
-		ll temp = depth[x];
-		// error(x,temp);
-		if(x == end)
-			return temp;
-		// cout << x << endl;
-		REP(i,adj[x].size()){
-			// cout << adj[x][i] << " ";
-			if(!visited[adj[x][i]]){
-				depth[adj[x][i]] = temp+1;
-				visited[adj[x][i]] = 1;
-				q.push(adj[x][i]);
-			}
-		}
-		// cout << endl;
-	}	
-	return depth[end];
-}
-
 int main()
 {
-	int T;
-	cin >> T;
-	FOR(test,1,T+1){
-		cout << "Scenario #" << test << ":" << endl;
+	TEST{
 		ll n,m;
 		cin >> n >> m;
 		vector<ll> parent(n),size(n);
 		REP(i,n){
 			parent[i] = i;
-			size[i] = 1;
+			size[i] =1;
 		}
-		ll flag=0;
-		vector<vector<ll>> adj(n,vector<ll>());
 		REP(i,m){
 			ll x,y;
 			cin >> x >> y;
 			x--;y--;
-			ll rootx = find(parent,x);
-			ll rooty = find(parent,y);
-			if(rootx == rooty){
-				// cout << "Cycle " << x << " " << y << endl;
-				ll len = bfs(adj,x,y);
-				// cout << len << endl;
-				if((len%2) == 0)
-					flag=1;
-			}
-			else{
-				adj[x].PB(y);
-				adj[y].PB(x);
-				un(parent,size,x,y);
-			}
+			un(parent,size,x,y);
 		}
-		if(flag)
-			cout << "Suspicious bugs found!" << endl;
-		else
-			cout << "No suspicious bugs found!" << endl;
+		ll ans=1;
+		map<ll,ll> count;
+		for(auto it:parent){
+			ll x = find(parent,it);
+			if(count.find(x) == count.end())
+				count[x] = size[x];
+		}
+		map<ll,ll>::iterator it = count.begin();
+		int p=0;
+		while(it != count.end()){
+			ans = (ans * it->second)%MOD;
+			p++;
+			it++;
+		}
+		cout << p << " " << ans << endl;
 	}
 	return 0;
 }
