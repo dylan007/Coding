@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : capimove.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,40 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
-}
-
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
-	}
-	
+	TEST{
+		int n;
+		cin >> n;
+		set<int> q;
+		vector<int> arr(n);
+		map<int,int> pos;
+		REP(i,n){
+			cin >> arr[i];
+			q.insert(arr[i]);
+			pos[arr[i]] = i+1;
+		}
+		vector<vector<int>> adj(n,vector<int>());
+		REP(i,n-1){
+			int x,y;
+			cin >> x >> y;
+			x--;y--;
+			adj[x].PB(y);
+			adj[y].PB(x);
+		}
+		REP(i,n){
+			q.erase(arr[i]);
+			REP(j,adj[i].size())
+				q.erase(arr[adj[i][j]]);
+			if(!q.empty())
+				cout << pos[*(q.rbegin())] << " ";
+			else
+				cout << i+1 << " "; 
+			q.insert(arr[i]);
+			REP(j,adj[i].size())
+				q.insert(arr[adj[i][j]]);
+		}
+		cout << endl;
+	}	
 	return 0;
 }

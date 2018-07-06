@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : dboy.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,51 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
+#define inf 100000007
+
+vector<int> solve(vector<int> h,int x){
+	int n = h.size();
+	vector<int> dp(x+1,inf);
+	REP(i,n){
+		if(h[i]>x)
+			continue;
+		dp[h[i]] = 1;
 	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
+	FOR(i,1,x+1){
+		if(dp[i]==inf)
+			continue;
+		REP(j,n){
+			int ele = i+h[j];
+			if(ele > x)
+				continue;
+			dp[ele] = min(dp[ele],dp[i]+1);
+		}
+	}
+	return dp;
 }
 
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	TEST{
+		int n;
+		cin >> n;
+		vector<int> k(n);
+		int x = INT_MIN;
+		REP(i,n){
+			cin >> k[i];
+			k[i] <<= 1;
+			x = max(k[i],x);
+		}
+		vector<int> h(n);
+		REP(i,n)
+			cin >> h[i];
+		vector<int> dp = solve(h,x);
+		int ans=0;
+		// for(auto it:dp)
+		// 	cout << it << " ";
+		// cout << endl;
+		REP(i,n) ans += dp[k[i]];
+		cout << ans << endl;
 	}
-	
 	return 0;
 }

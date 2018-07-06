@@ -50,50 +50,52 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int root(vector<int> parent,int x){
+ll find(vector<ll> &parent,ll x){
 	if(x != parent[x])
-		parent[x] = root(parent,parent[x]);
+		parent[x] = find(parent,parent[x]);
 	return parent[x];
-}
-
-int un(vector<int> &parent,vector<int> &rank,int x,int y){
-	int rx = root(parent,x);
-	int ry = root(parent,y);
-	if(rx == ry)
-		return 1;
-	if(rank[rx] < rank[ry])
-		parent[rx] = ry;
-	else if(rank[ry] < rank[rx])
-		parent[ry] = rx;
-	else
-		parent[rx] = ry;
-	return 0;
 }
 
 int main()
 {
+	// ios_base::sync_with_stdio(false);
 	TEST{
-		int n;
-		cin >> n;
-		int q;
-		vector<int> parent(n),rank(n);
+		ll n;
+		readl(n);
+		vector<ll> size(n);
 		REP(i,n)
-			cin >> rank[i];
-		cin >> q;
+			readl(size[i]);
+		vector<ll> parent(n);
 		REP(i,n)
 			parent[i] = i;
+		ll q;
+		readl(q);
 		while(q--){
-			int x,y,c;
-			cin >> c;
-			if(c){
-				cin >> x;
-				cout << parent[x-1]+1 << endl;
+			ll c;
+			readl(c);
+			if(c==0){
+				ll x,y;
+				readl(x);readl(y);
+				x--;y--;
+				ll rootx = find(parent,x);
+				ll rooty = find(parent,y);
+				if(rootx == rooty)
+					cout << "Invalid query!" << endl;
+				if(size[rootx] > size[rooty]){
+					parent[rooty] = rootx;
+					// size[rootx] += size[rootx]; 
+				}
+				else if(size[rooty] > size[rootx]){
+					parent[rootx] = rooty;
+					// size[rooty] += size[rootx];
+				}
 			}
 			else{
-				cin >> x >> y;
-				int f = un(parent,rank,x-1,y-1);
-				if(f)
-					cout << "Invalid query!" << endl;
+				ll x;
+				readl(x);
+				x--;
+				ll root = find(parent,x);
+				cout << root+1 << endl;
 			}
 		}
 	}

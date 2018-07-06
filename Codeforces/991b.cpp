@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : 991b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,45 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
-}
-
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	double n;
+	cin >> n;
+	set<double> x;
+	vector<double> arr(n);
+	map<double,double> count;
+	double sum=0;
+	REP(i,n){
+		cin >> arr[i];
+		if(count.find(arr[i]) != count.end())
+			count[arr[i]]++;
+		else{
+			x.insert(arr[i]);
+			count[arr[i]] = 1;
+		}
+		sum += arr[i];
 	}
-	
+	double ans=0;
+	while(1){
+		double temp = sum/n;
+		if(temp>=4.5)
+			break;
+		ans++;
+		double p = *(x.begin());
+		// cout << p  << " " << temp << endl;
+		sum -= p;
+		sum += 5;
+		count[p]--;
+		if(count[p]==0){
+			x.erase(p);
+			if(count.find(5) == count.end()){
+				x.insert(5);
+				count[5] = 1;
+			}
+			else
+				count[5]++;
+		}
+	}
+	cout << ans << endl;
 	return 0;
 }

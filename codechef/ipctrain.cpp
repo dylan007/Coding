@@ -50,47 +50,62 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-
 int main()
 {
 	TEST{
-		ll n,d,sum=0;
-		cin >> n >> d;
-		vector<pair<ll,pair<ll,ll>>> q;
-		REP(i,n){
-			ll D,t,s;
-			cin >> D >> t >>s;
-			q.PB(MK(D-1,MK(t,s)));
-			sum += t*s;
-		}		
-		sort(q.begin(),q.end(),[](const auto& lhs,const auto &rhs){
-			return lhs.first < rhs.first;
-		});
-		// for(auto it:q)
-		// 	cout << it.first << " " << it.second.first << " " << it.second.second << endl;
-		priority_queue<ll> Q;
-		ll curr=0,ans=0;
-		map<ll,ll> count;
-		REP(i,d){
-			while(curr<n && i>=q[curr].first){
-				ll temp = q[curr].second.second;
-				if(count.find(temp) == count.end()){
-					Q.push(q[curr].second.second);
-					count[temp] = q[curr].second.first;
-				}
-				else
-					count[temp] += q[curr].second.first;
-				curr++;
-			}
-			if(!Q.empty()){
-				ans += Q.top();
-				count[Q.top()]--;
-				if(count[Q.top()] == 0)
-					Q.pop();
-			}
-			// error(i,ans);
-		}
-		cout << sum - ans << endl;
+	 	ll n,d;
+	 	cin >> n >> d;
+	 	vector<pair<ll,pair<ll,ll>>> queries;
+	 	ll sum=0;
+	 	REP(i,n){
+	 		ll p,t,s;
+	 		cin >> p >> t >> s;
+	 		queries.PB(MK(p,MK(s,t)));
+	 		sum += t*s;
+	 	}
+	 	sort(queries.begin(),queries.end(),[](const auto &lhs, const auto &rhs){
+	 		if(lhs.first != rhs.first)
+	 			return lhs.first < rhs.first;
+ 			if(lhs.second.first != rhs.second.first)
+ 				return lhs.second.first > rhs.second.first;
+ 			return lhs.second.second > rhs.second.second;
+	 	});
+	 	// for(auto it:queries){
+	 	// 	cout << it.first << " " << it.second.first << " " << it.second.second << endl;
+	 	// }
+	 	priority_queue<ll> q;
+	 	ll curr=1;
+	 	ll pos=0;
+	 	map<ll,ll> count;
+	 	ll ans=0;
+	 	while(curr<=d){
+	 		while(pos<n && curr>=queries[pos].first){
+	 			if(count.find(queries[pos].second.first) != count.end()){
+	 				if(count[queries[pos].second.first] == 0)
+	 					q.push(queries[pos].second.first);
+	 				count[queries[pos].second.first] += queries[pos].second.second;
+	 			}
+	 			else{
+	 				q.push(queries[pos].second.first);
+	 				count[queries[pos].second.first] = queries[pos].second.second;
+	 			}
+	 			pos++;
+	 			if(pos == n)
+	 				break;
+	 		}
+	 		if(q.empty()){
+	 			curr++;
+	 			continue;
+	 		}
+	 		ans += q.top();
+	 		// error(q.top(),curr,pos);
+	 		count[q.top()]--;
+	 		if(count[q.top()] == 0)
+	 			q.pop();
+	 		curr++;
+	 	}
+	 	// cout << sum << " " << ans << endl;
+	 	cout << sum - ans << endl;
 	}
 	return 0;
 }

@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : lazyprog.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,54 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
-}
-
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	TEST{
+		int n;
+		read(n);
+		cout << setprecision(10) << fixed;
+		vector<pair<double,pair<double,double>>> works;
+		vector<pair<pair<double,double>,int>> intcost;
+		REP(i,n){
+			double a,b,d;
+			cin >> a >> b >> d;
+			works.PB(MK(d,MK(a,b)));
+			intcost.PB(MK(MK(d,b/a),i));
+		}
+		if(n==1){
+			cout << 0.00 << endl;
+			continue;
+		}
+		sort(intcost.begin(),intcost.end(),[](const auto &lhs,const auto &rhs){
+			if(lhs.first.first == rhs.first.first)
+				return lhs.first.second < rhs.first.second;
+			return lhs.first.first < rhs.first.first;
+		});
+		// for(auto it: intcost){
+		// 	cout << it.first.first << " " << it.first.second << endl; 
+ 	// 	}
+ 		double cost=0;
+ 		int curr=0;
+ 		while(curr < (n-1)){
+ 			double x = intcost[curr].first.first;
+ 			double y = intcost[curr+1].first.first;
+ 			double diff = y-x;
+ 			if(diff == 0){
+ 				cost += intcost[curr].first.second;	
+ 			}
+ 			else{
+ 				double a,b;
+ 				int index = intcost[curr].second;
+ 				a = works[index].second.first;
+ 				b = works[index].second.second;
+ 				// error(b,diff,curr);
+ 				if(b > diff)
+ 					cost += (b - diff)/a;
+ 			}
+ 			// error(diff,cost);
+ 			curr++;
+ 		}
+ 		cout << cost << endl;
 	}
-	
 	return 0;
 }

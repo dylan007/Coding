@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : 999e.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,66 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
+int bfs(vector<vector<int>> adj,vector<int> &visited,int start,int flag){
+	queue<int> q;
+	q.push(start);
+	int ans=0;
+	while(!q.empty()){
+		int x = q.front();
+		q.pop();
+		visited[x] = flag;
+		ans++;
+		for(auto it:adj[x]){
+			if(visited[it] == 0)
+				q.push(it);
+		}
 	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
+	return ans;
 }
 
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
+	int n,m,s;
+	cin >> n >> m >> s;
+	vector<vector<int>> adj(n,vector<int>());
+	map<int,int> out;
 	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
+		out[i] = 0;
+	REP(i,m){
 		int x,y;
-		read(x);read(y);
+		cin >> x >> y;
+		x--;y--;
+		out[x]++;
+		adj[x].PB(y);
 	}
-	
+	vector<int> visited(n,0);
+	bfs(adj,visited,s-1,1);
+	vector<int> good(visited);
+	// for(auto it:visited)
+	// 	cout << it <<" ";
+	// cout << endl;
+	priority_queue<pair<int,int>> q;
+	for(int i=0;i<n;i++){
+		if(good[i]==0 && visited[i]==0)
+			out[i] = bfs(adj,visited,start,flag);
+	}
+	vector<pair<int,int>> unv;
+	while(!q.empty()){
+		unv.PB(q.top());
+		q.pop();
+	}
+	int curr=2;
+	REP(i,unv.size()){
+		pair<int,int> temp = unv[i];
+		if(visited[temp.second] == 0)
+			bfs(adj,visited,temp.second,curr++);
+	}
+	set<int> scc;
+	for(auto it:visited){
+		scc.insert(it);
+		// cout << it << " ";
+	}
+	// cout << endl;
+	cout << scc.size()-1 << endl;
 	return 0;
 }

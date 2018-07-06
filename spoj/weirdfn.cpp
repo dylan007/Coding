@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : weirdfn.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,47 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
-}
+#define MOD 1000000007
 
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	TEST{
+		ull n,a,b,c;
+		cin >> a >> b >> c >> n;
+		priority_queue<ull> maxh; //left half of elements
+		priority_queue<ull,vector<ull>,greater<ull>> minh; // right half of elements
+		ull ans=1;
+		maxh.push(1);
+		for(ull i=1;i<n;i++){
+			ull x,temp;
+			if(i%2){//odd elements in the current sequence
+			 	x = maxh.top();
+				temp = ((a*x)%MOD + (b*(i+1))%MOD + c)%MOD;
+				if(temp < maxh.top()){
+					minh.push(maxh.top());
+					maxh.pop();
+					maxh.push(temp);
+				}
+				else{
+					minh.push(temp);
+				}
+			}
+			else{// even elements in the current sequence
+				x = maxh.top();
+				temp = ((a*x)%MOD + (b*(i+1))%MOD + c)%MOD;
+				if(temp > minh.top()){
+					maxh.push(minh.top());
+					minh.pop();
+					minh.push(temp);
+				}
+				else
+					maxh.push(temp);
+			}
+			// error(x,temp,minh.size(),maxh.size(),minh.top(),maxh.top());
+			// cout << endl;
+			ans += temp;
+		}
+		cout << ans << endl;
 	}
-	
 	return 0;
 }

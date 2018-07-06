@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : 991a.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,23 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
-}
-
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	int a,b,c,n;
+	cin >> a >> b >> c >> n;
+	int passed = a+b-c;
+	if(passed<0)
+		cout << -1 << endl;
+	else{
+		int np = n-passed;
+		if(np<1)
+			cout << -1 << endl;
+		else{
+			if(passed<a || passed<b || passed<c)
+				cout << -1 << endl;
+			else
+				cout << np << endl;
+		}
 	}
-	
 	return 0;
 }

@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : 992b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,53 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
+ll gcd(ll a,ll b){
+	return b==0?a:gcd(b,a%b);
+}
+
+ll lcm(ll a, ll b){
+	return (a*b)/gcd(a,b);
 }
 
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	ll l,r,x,y;
+	cin >> l >> r >> x >> y;
+	ll prod;
+	int ans=0;
+	if(y%x){
+		cout << 0 << endl;
+		return 0;
 	}
+	prod = y/x;
+	if(l==r){
+		if(x!=y)
+			cout << 0 << endl;
+		else if(x==y){
+			if(x!=l)
+				cout << 0 << endl;
+			else
+				cout << 1 << endl;
+		}
+		return 0;
+	}
+	for(ll i=l;i*i<=prod;i++){
+		if((prod%i)==0){
+			ll a,b;
+			a = i;
+			b = prod/i;
+			// cout << a << " " << b << endl;
+			if(a>r)
+				break;
+			if(b>r)
+				continue;
+			if(gcd(a,b)==x && lcm(a,b)==prod){
+				// cout << a << " " << b << endl;
+				ans += 2 - (a==b);
+			}
+		}
+	}
+	cout << ans << endl;
 	
 	return 0;
 }

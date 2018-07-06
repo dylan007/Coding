@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : 991e.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,44 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
+void decomp(string a,set<string> &out,int size){
+	string temp = "";
+	set<char> x;
+	for(int i=a.length()-1;i>=0;i--){
+		temp = a[i] + temp;
+		x.insert(a[i]);
+		if(temp[0]!='0' && x.size()==size){
+			out.insert(temp);
+			cout << temp << endl;
+		}
 	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
 }
 
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	string a;
+	cin >> a;
+	map<char,int> count;
+	int dis=0;
+	sort(a.begin(),a.end());
+	cout << a << endl;
+	set<string> out;
+	REP(i,a.length()){
+		if(count.find(a[i]) != count.end()){
+			count[a[i]]++;
+		}
+		else{
+			count[a[i]] = 1;
+			dis++;
+		}
 	}
-	
+	do{
+		if(a[0]!='0'){
+			out.insert(a);
+			cout << a << endl;
+		}
+		decomp(a,out,dis);
+	}while( next_permutation(a.begin(),a.end()));
+	cout << out.size() << endl;
 	return 0;
 }

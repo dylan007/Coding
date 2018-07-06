@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : rrating.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,50 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
-}
-
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	priority_queue<int> maxq;
+	priority_queue<int,vector<int>,greater<int>> minq;
+	int n=0;
+	TEST{
+		int c,x;
+		cin >> c;
+		if(c==1){
+			cin >> x;
+			int kcurr=n/3;
+			n++;
+			int k = n/3;
+			// error(k,kcurr,x);
+			if(k>kcurr){
+				maxq.push(x);
+				// cout << maxq.top() << " transferred from maxq to minq" << endl;
+				minq.push(maxq.top());
+				maxq.pop();
+			}
+			else{
+				if(minq.empty()){
+					maxq.push(x);
+					continue;
+				}
+				if(x>minq.top()){
+					// cout << minq.top()  << " transferred from minq to maxq" << endl;
+					maxq.push(minq.top());
+					minq.pop();
+					minq.push(x);
+				}
+				else{
+					maxq.push(x);
+				}
+			}
+		}
+		else{
+			int k = n/3;
+			if(k==0){
+				cout << "No reviews yet" << endl;
+				continue;
+			}
+			cout << minq.top()<< endl;
+		}
 	}
-	
 	return 0;
 }

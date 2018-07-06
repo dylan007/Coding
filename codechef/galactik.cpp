@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : galactik.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,80 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
+ll find(vector<ll> &parent,ll x){
+	if(parent[x] != x)
+		parent[x] = find(parent,parent[x]);
+	return parent[x];
+}
+
+void un(vector<ll> &parent,vector<ll> &size,ll x,ll y){
+	ll rootx = find(parent,x);
+	ll rooty = find(parent,y);
+	if(size[rootx]>size[rooty]){
+		parent[rooty] = rootx;
+		size[rootx] += size[rooty]; 
 	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
+	else{
+		parent[rootx] = rooty;
+		size[rooty] += size[rootx];
+	}
 	return;
 }
 
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
+	ll n,m;
+	readl(n);readl(m);
+	vector<ll> parent(n),size(n,1);
 	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+		parent[i] = i;
+	REP(i,m){
+		ll x,y;
+		readl(x);readl(y);
+		x--;y--;
+		un(parent,size,x,y);
 	}
-	
+	// for(auto it:parent)
+	// 	cout << it << " ";
+	// cout << endl;
+	vector<ll> val(n);
+	REP(i,n)
+		readl(val[i]);
+	map<ll,ll> count;
+	ll tot=0,c=0;
+	REP(i,n){
+		if(count.find(parent[i]) != count.end()){
+			if(val[i]>=0)
+				count[parent[i]] = min(count[parent[i]],val[i]);
+		}
+		else{
+			if(val[i]>=0){
+				c++;
+				count[parent[i]] = val[i];
+			}
+			tot++;
+		}
+	}
+	vector<ll> cities;
+	if(tot != c)
+		cout << -1 << endl;
+	else{
+		ll ans=0;
+		map<ll,ll>::iterator it = count.begin();
+		while(it != count.end()){
+			cities.PB(it->second);
+			it++;
+		}
+		SORTV(cities);
+		if(cities.size() == 1)
+			cout << 0 << endl;
+		else if(cities.size()==2)
+			cout << cities[0] + cities[1] << endl;
+		else{
+			for(auto it:cities)
+				ans += 2*it;
+			cout << ans - cities[cities.size()-1] - cities[cities.size()-2] << endl;
+		}
+	}
 	return 0;
 }

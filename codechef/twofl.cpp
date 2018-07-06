@@ -52,6 +52,12 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	
+	int n,m;
+	cin >> n >> m;
+	vector<vector<int>> arr(n,vector<int>(m,0));
+	REP(i,n){
+		REP(j,m)
+			cin >> arr[i][j];
+	}
 	return 0;
 }

@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : 999c.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,53 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
-}
-
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	int n,k;
+	cin >> n >> k;
+	string a;
+	cin >> a;
+	map<int,vector<int>> pos;
+	REP(i,a.length()){
+		int p = a[i]-'a';
+		if(pos.find(p) != pos.end())
+			pos[p].PB(i);
+		else{
+			pos[p] = vector<int>();
+			pos[p].PB(i);
+		}
 	}
-	
+	int ele=25;
+	k = n-k;
+	vector<pair<int,int>> out;
+	while(k>0){
+		int curr=0;
+		if(pos.find(ele) == pos.end()){
+			ele--;
+			continue;
+		}
+		// for(auto it:pos[ele])
+			// cout << it << " ";
+		// cout << endl;
+		// cout << ele << endl;
+		curr = pos[ele].size()-1;
+		while(curr>=0){
+			out.PB(MK(pos[ele][curr],ele));
+			// cout << pos[ele][curr] << " ";
+			curr--;
+			k--;
+			if(k==0)
+				break;
+		}
+		// cout << endl;
+		ele--;
+	}
+	SORTV(out);
+	string output="";
+	REP(i,out.size()){
+		// cout << out[i].second << endl;
+		output += char(int('a')+out[i].second);
+	}
+	cout << output << endl;
 	return 0;
 }

@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : 992c.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,37 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
+#define MOD 1000000007
+
+ll modexp(ll x,ll e){
+	ll ans =1;
+	while(e>0){
+		if(e&1)
+			ans = (ans * x)%MOD;
+		x = (x*x)%MOD;
+		e >>= 1;
 	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
+	return ans;
+}
+
+ll modinv(ll x){
+	return modexp(x,MOD-2);
 }
 
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	ll x,k;
+	cin >> x >> k;
+	if(k==0)
+		cout << 2*x << endl;
+	else if(x==0)
+		cout << 0 << endl;
+	else{
+		// cout << (((modexp(2,k) * modexp(2,k))%MOD) * (x%MOD) )%MOD << endl;
+		// cout << ((modexp(2,k-1)) * (modexp(2,k)-1))%MOD << endl;
+		ll num = ((modexp(2,k+1) * x)%MOD - (modexp(2,k)-1))%MOD;
+		// cout << num << endl;
+		cout << num << endl; 
 	}
-	
 	return 0;
 }

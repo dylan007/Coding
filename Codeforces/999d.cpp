@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : 999d.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,42 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
-}
-
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	ull n,m;
+	cin >> n >> m;
+	vector<ull> arr(n);
+	ull sum=0;
+	ull moves = (m-1)*n;
+	moves /= 2;
+	map<ull,ull> count;
+	REP(i,n){
+		arr[i] = arr[i]%m;
+		sum += arr[i];
+		if(count.find(arr[i]) != count.end())
+			count[arr[i]]++;
+		else
+			count[arr[i]] = 1;
 	}
-	
+	moves -= sum;
+	ull req = n/m;
+	map<ull,ull>::iterator it = count.begin();
+	map<ull,set<ull>> countrev;
+	while(it != count.end()){
+		cout << it->first << " " << it->second << endl;
+		if(countrev.find(it->second) != countrev.end())
+			countrev[it->second].insert(it->first);
+		else{
+			countrev[it->second] = set<ull>();
+			countrev[it->second].insert(it->first);
+		}
+	}
+	map<ull,set<ull>>::iterator it = countrev.begin();
+	while(it != countrev.end()){
+		
+	}
+	while(1){
+
+	}
 	return 0;
 }

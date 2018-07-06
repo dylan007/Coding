@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : mostdist.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,61 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
+ull dist(ull x,ull y,pair<ull,ull> p){
+	return max(p.first,x)-min(p.first,x) + max(p.second,y)-min(p.second,y);	
 }
 
 int main()
 {
-	int n;
-	read(n);
-	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
+	ull q;
 	cin >> q;
+	ull curr=0;
+	ull answer = 0;
+	map<ull,pair<ull,ull>> query;
+	set<pair<ull,ull>> s;
+	map<pair<ull,ull>,ull> count;
 	while(q--){
-		int x,y;
-		read(x);read(y);
+		string c;
+		cin >> c;
+		if(c=="+"){
+			ull x,y;
+			cin >> x >> y;
+			x = x^answer;
+			y = y^answer;
+			// error(x,y);
+			curr++;
+			query[curr] = MK(x,y); 
+			s.insert(MK(x,y));
+			if(count.find(MK(x,y)) != count.end())
+				count[MK(x,y)]++;
+			else
+				count[MK(x,y)] = 1;
+		}
+		else if(c=="-"){
+			ull p;
+			cin >> p;
+			p = p^answer;
+			// error(p);
+			count[query[p]]--;
+			if(count[query[p]] == 0)
+				s.erase(query[p]);
+		}
+		else{
+			pair<ull,ull> p1,p2;
+			p1 = *(s.begin());
+			p2 = *(s.rbegin());
+			ull x,y;
+			cin >> x >> y;
+			x ^= answer;
+			y ^= answer;
+			// error(x,y);
+			// cout << p1.first << " " << p1.second << " " << p2.first << " " << p2.second << endl;
+			ull d1,d2;
+			d1 = dist(x,y,p1);
+			d2 = dist(x,y,p2);
+			cout << max(d1,d2) << endl;
+			answer = max(d1,d2);
+		}
 	}
-	
 	return 0;
 }

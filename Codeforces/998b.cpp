@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : gss1.cpp
+Filename  : 998b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,41 +50,51 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
-	if(left == right){
-		segtree[pos] = arr[left];
-		return;
-	}
-	int mid = left+right;
-	mid >>=1;
-	int vl,vr;
-	construct(segtree,arr,2*pos,left,mid);
-	construct(segtree,arr,2*pos+1,mid+1,right);
-	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
-	return;
+int get(vector<int> parity,int start,int end){
+	int n = parity.size();
+	int l,r;
+	if(start == 0)
+		l=0;
+	else
+		l = parity[start-1];
+	if(end==(n-1))
+		r = 0;
+	else
+		r = parity[n-1]-parity[end];
+	return parity[n-1]-l-r;
 }
 
 int main()
 {
-	int n;
-	read(n);
+	int n,k;
+	cin >> n >> k;
 	vector<int> arr(n);
-	REP(i,n)
-		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
-	for(auto it: segtree)
-		cout << it << " ";
-	cout << endl;
-	int q;
-	cin >> q;
-	while(q--){
-		int x,y;
-		read(x);read(y);
+	vector<int> parity(n);
+	REP(i,n){
+		cin >> arr[i];
 	}
-	
+	parity[0] = arr[0]%2;
+	FOR(i,1,n)
+		parity[i] += parity[i-1] + arr[i]%2;
+	vector<int> costs;
+	REP(i,n-1){
+		int l = get(parity,0,i);
+		int r = get(parity,i+1,n-1);
+		// error(arr[i],l,r);
+		if(l==((i+1)/2) && r==((n-i-1)/2))
+			costs.PB(abs(arr[i+1]-arr[i]));
+	}
+	// for(auto it:costs)
+	// 	cout << it << " ";
+	// cout << endl;
+ 	SORTV(costs);
+	int ans=0;
+	for(auto it:costs){
+		if(k<it)
+			break;
+		ans++;
+		k -= it;
+	}
+	cout << ans << endl;
 	return 0;
 }
