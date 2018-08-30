@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 580c.cpp
+Filename  : lonvijju.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,61 +50,34 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void bfs(vector<vector<int>> adj,vector<int> &color,vector<int> &leaf,vector<int> &count,int n,int m,vector<int> &visited){
-	queue<int> q;
-	q.push(0);
-	visited[0] = 1;
-	count[0] = color[0];
-	while(!q.empty()){
-		int curr = q.front();
-		q.pop();
-		visited[curr] = 1; 
-		if(count[curr]>m){
-			REP(i,adj[curr].size()){
-				if(!visited[adj[curr][i]])
-					leaf[curr] = 0;
-			}
-			continue;
-		}
-		REP(i,adj[curr].size()){
-			if(!visited[adj[curr][i]]){
-				leaf[curr] = 0;
-				q.push(adj[curr][i]);
-				if(color[adj[curr][i]]==0)
-					count[adj[curr][i]] = 0;
-				else
-					count[adj[curr][i]] = color[adj[curr][i]] + count[curr];
-			}
-		}
-	}
+void trav(int start,vector<vector<int>> next,vector<int> w,vector<int> &ans,int level,int curr){
+	ans[level-1] = max(ans[level-1],curr+w[start]);
+	curr += w[start];
+	error(curr,level);
+	REP(i,next[start].size())
+		trav(next[start][i],next,w,ans,level+1,curr);
 	return;
 }
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<vector<int>> adj(n,vector<int>());
-	vector<int> color(n,0);
-	REP(i,n)
-		cin >> color[i];
-	REP(i,n-1){
-		int x,y;
-		cin >> x >> y;
-		x--;y--;
-		adj[x].PB(y);
-		adj[y].PB(x);
+	TEST{
+		int n;
+		cin >> n;
+		vector<int> w(n);
+		REP(i,n)
+			cin >> w[i];
+		vector<int> p(n);
+		REP(i,n-1)
+			cin >> p[i];
+		vector<vector<int>> next(n,vector<int>());
+		REP(i,n-1)
+			next[p[i]-1].PB(i+1);
+		vector<int> ans(n,0);
+		trav(0,next,w,ans,1,0);
+		for(auto it:ans)
+			cout << it << " ";
+		cout << endl;
 	}
-	vector<int> leaf(n,1),count(n,0);
-	vector<int> visited(n,0);
-	bfs(adj,color,leaf,count,n,m,visited);
-	int c=0;
-	REP(i,n){
-		if(leaf[i] && visited[i]){
-			// error(i,count[i]);
-			c += (count[i]<=m);
-		}
-	}
-	cout << c << endl;
 	return 0;
 }

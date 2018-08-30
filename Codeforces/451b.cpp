@@ -53,10 +53,50 @@ void err(vector<string>::iterator it, T a, Args... args) {
 int main()
 {
 	int n;
-	read(n);
-	int i,j;
+	cin >> n;
 	vector<int> arr(n);
-	for(i=0;i<n;i++)
-		cin >> arr[i]
+	pair<int,int> ans;
+	REP(i,n)
+		cin >> arr[i];
+	if(n==1)
+		cout << "yes\n1 1\n";
+	else{
+		int curr=arr[0];
+		int flag=0,count=0;
+		ans.first = 0;
+		flag = (arr[0]>arr[1]);
+		FOR(i,1,n){
+			if(arr[i]>curr){
+				if(flag){
+					ans.second = i-1;
+					flag=0;
+					count++;
+				}
+				curr = arr[i];
+			}
+			else{
+				curr = arr[i];
+				if(!flag)
+					ans.first = i-1;
+				flag=1;
+			}
+		}
+		if(flag){
+			ans.second = n-1;
+			count++;
+		}
+		int f1,f2;
+		f1 = f2 = 0;
+		f1 = (ans.first>0 && arr[ans.second]>arr[ans.first-1]) || ans.first==0;
+		f2 = (ans.second<(n-1) && arr[ans.first]<arr[ans.second+1]) || ans.second==(n-1);
+		if(count>1)
+			cout << "no" << endl;
+		else if(count==0)
+			cout << "yes\n1 1\n";
+		else if(f1 && f2)
+			cout << "yes" << endl << ans.first+1 << " " << ans.second+1 << endl;
+		else
+			cout << "no" << endl;
+	}
 	return 0;
 }

@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 580c.cpp
+Filename  : t26.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,61 +50,34 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void bfs(vector<vector<int>> adj,vector<int> &color,vector<int> &leaf,vector<int> &count,int n,int m,vector<int> &visited){
-	queue<int> q;
-	q.push(0);
-	visited[0] = 1;
-	count[0] = color[0];
-	while(!q.empty()){
-		int curr = q.front();
-		q.pop();
-		visited[curr] = 1; 
-		if(count[curr]>m){
-			REP(i,adj[curr].size()){
-				if(!visited[adj[curr][i]])
-					leaf[curr] = 0;
-			}
-			continue;
-		}
-		REP(i,adj[curr].size()){
-			if(!visited[adj[curr][i]]){
-				leaf[curr] = 0;
-				q.push(adj[curr][i]);
-				if(color[adj[curr][i]]==0)
-					count[adj[curr][i]] = 0;
-				else
-					count[adj[curr][i]] = color[adj[curr][i]] + count[curr];
-			}
-		}
-	}
-	return;
-}
-
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<vector<int>> adj(n,vector<int>());
-	vector<int> color(n,0);
-	REP(i,n)
-		cin >> color[i];
-	REP(i,n-1){
-		int x,y;
+	ll n;
+	cin >> n;
+	vector<ll> c(n,0);
+	ll q;
+	cin >> q;
+	while(q--){
+		ll x,y;
 		cin >> x >> y;
 		x--;y--;
-		adj[x].PB(y);
-		adj[y].PB(x);
+		c[x]++;
+		if(y<(n-1))
+			c[y+1]--;
 	}
-	vector<int> leaf(n,1),count(n,0);
-	vector<int> visited(n,0);
-	bfs(adj,color,leaf,count,n,m,visited);
-	int c=0;
-	REP(i,n){
-		if(leaf[i] && visited[i]){
-			// error(i,count[i]);
-			c += (count[i]<=m);
-		}
+	for(ll i=1;i<n;i++)
+		c[i] += c[i-1];
+	vector<ll> count(n+1,0);
+	REP(i,n)
+		count[c[i]]++;
+	for(ll i=1;i<=n;i++)
+		count[i] += count[i-1];
+	cin >> q;
+	while(q--){
+		ll x;
+		cin >> x;
+
+		cout << count[n]-count[x-1] << endl;
 	}
-	cout << c << endl;
 	return 0;
 }

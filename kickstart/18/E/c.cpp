@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 580c.cpp
+Filename  : c.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,61 +50,58 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void bfs(vector<vector<int>> adj,vector<int> &color,vector<int> &leaf,vector<int> &count,int n,int m,vector<int> &visited){
-	queue<int> q;
-	q.push(0);
-	visited[0] = 1;
-	count[0] = color[0];
-	while(!q.empty()){
-		int curr = q.front();
-		q.pop();
-		visited[curr] = 1; 
-		if(count[curr]>m){
-			REP(i,adj[curr].size()){
-				if(!visited[adj[curr][i]])
-					leaf[curr] = 0;
-			}
-			continue;
+int calc(vector<int> a,vector<int> b){
+	int l = a.size()/3;
+	int ans=0;
+	REP(i,(a.size()/l)){
+		int c1=0,c2=0;
+		FOR(j,i*l,i*l+l){
+			c1 += a[j];
+			c2 += b[j];
 		}
-		REP(i,adj[curr].size()){
-			if(!visited[adj[curr][i]]){
-				leaf[curr] = 0;
-				q.push(adj[curr][i]);
-				if(color[adj[curr][i]]==0)
-					count[adj[curr][i]] = 0;
-				else
-					count[adj[curr][i]] = color[adj[curr][i]] + count[curr];
-			}
-		}
+		ans += (c1>c2);
 	}
-	return;
+	return ans>1;
 }
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<vector<int>> adj(n,vector<int>());
-	vector<int> color(n,0);
-	REP(i,n)
-		cin >> color[i];
-	REP(i,n-1){
-		int x,y;
-		cin >> x >> y;
-		x--;y--;
-		adj[x].PB(y);
-		adj[y].PB(x);
+	int T;
+	cin >> T;
+	REP(t,T){
+		int n;
+		cin >> n;
+		n*=3;
+		vector<int> a(n),b(n);
+		REP(i,n)
+			cin >> a[i];
+		REP(i,n)
+			cin >> b[i];
+		SORTV(a);
+		SORTV(b);
+		double c=0,tot=0,ans=0.0;
+		set<pair<vector<int>,vector<int>>> check;
+		set<vector<int>> x;
+		do{
+			vector<int> cpa(a),temp(b);
+			REP(i,3)
+				sort(cpa.begin()+3*i,cpa.begin()+3*i+3);
+			c = tot = 0;
+			if(x.find(cpa)==x.end()){
+				x.insert(cpa);
+				do{
+					if(calc(cpa,temp))
+						c++;
+					tot++;
+				}while(next_permutation(temp.begin(),temp.end()));
+				if(tot>0){
+					// error(c,tot,c/tot);
+					ans = ans>(c/tot)?ans:(c/tot);
+				}
+			}
+		}while(next_permutation(a.begin(),a.end()));
+		cout << setprecision(8) << fixed;
+		cout << "Case #" << t+1 << ": " << ans << endl;
 	}
-	vector<int> leaf(n,1),count(n,0);
-	vector<int> visited(n,0);
-	bfs(adj,color,leaf,count,n,m,visited);
-	int c=0;
-	REP(i,n){
-		if(leaf[i] && visited[i]){
-			// error(i,count[i]);
-			c += (count[i]<=m);
-		}
-	}
-	cout << c << endl;
 	return 0;
 }

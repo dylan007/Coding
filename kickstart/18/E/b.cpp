@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : 580c.cpp
+Filename  : b.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -50,61 +50,54 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void bfs(vector<vector<int>> adj,vector<int> &color,vector<int> &leaf,vector<int> &count,int n,int m,vector<int> &visited){
-	queue<int> q;
-	q.push(0);
-	visited[0] = 1;
-	count[0] = color[0];
-	while(!q.empty()){
-		int curr = q.front();
-		q.pop();
-		visited[curr] = 1; 
-		if(count[curr]>m){
-			REP(i,adj[curr].size()){
-				if(!visited[adj[curr][i]])
-					leaf[curr] = 0;
-			}
-			continue;
-		}
-		REP(i,adj[curr].size()){
-			if(!visited[adj[curr][i]]){
-				leaf[curr] = 0;
-				q.push(adj[curr][i]);
-				if(color[adj[curr][i]]==0)
-					count[adj[curr][i]] = 0;
-				else
-					count[adj[curr][i]] = color[adj[curr][i]] + count[curr];
-			}
-		}
+string conv(int x,int p){
+	string out = "";
+	REP(i,p){
+		if(x&1)
+			out += "1";
+		else
+			out += "0";
+		x >>= 1;
 	}
-	return;
+	return out;
+}
+
+int calc(vector<string> order,string bin){
+	int ans=0;
+	REP(i,order.size()){
+		REP(j,bin.length())
+			ans += order[i][j]!=bin[j];
+	}
+	return ans;
 }
 
 int main()
 {
-	int n,m;
-	cin >> n >> m;
-	vector<vector<int>> adj(n,vector<int>());
-	vector<int> color(n,0);
-	REP(i,n)
-		cin >> color[i];
-	REP(i,n-1){
-		int x,y;
-		cin >> x >> y;
-		x--;y--;
-		adj[x].PB(y);
-		adj[y].PB(x);
-	}
-	vector<int> leaf(n,1),count(n,0);
-	vector<int> visited(n,0);
-	bfs(adj,color,leaf,count,n,m,visited);
-	int c=0;
-	REP(i,n){
-		if(leaf[i] && visited[i]){
-			// error(i,count[i]);
-			c += (count[i]<=m);
+	int T;
+	cin >> T;
+	REP(t,T){
+		int n,m,p;
+		cin >> n >> m >> p;
+		set<string> forbid;
+		vector<string> order(n);
+		REP(i,n)
+			cin >> order[i];
+		REP(i,m){
+			string temp;
+			cin >> temp;
+			forbid.insert(temp);
 		}
+		int limit = (1<<p) - 1;
+		int ans = n*p;
+		REP(i,limit+1){
+			string bin = conv(i,p);
+			if(forbid.find(bin) == forbid.end()){
+				// if(ans > calc(order,bin))
+				// 	cout << bin << endl;
+				ans = min(ans,calc(order,bin));
+			} 
+		}
+		cout << "Case #" << t+1 << ": " <<  ans << endl;
 	}
-	cout << c << endl;
 	return 0;
 }

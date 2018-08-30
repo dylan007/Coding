@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"yes\nyes\nno"
+		],
+		"test": "3\nbob\nrob\ndbc\nocb\nboc\nobc\n"
+	},
+	{
+		"correct_answers":
+		[
+			"yes"
+		],
+		"test": "1\nbob\nbob\n"
+	},
+	{
+		"correct_answers":
+		[
+			"yes"
+		],
+		"test": "1\nbbb\nbbo\n"
+	}
+]

@@ -1,0 +1,12 @@
+[
+	{
+		"correct_answers":
+		[
+			"BC23\nR23C55"
+		],
+		"test": "2\nR23C55\nBC23\n"
+	},
+	{
+		"test": "1\nR228C494\n"
+	}
+]

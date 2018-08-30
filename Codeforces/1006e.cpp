@@ -50,47 +50,40 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-void dfs(vector<vector<int>> &adj,vector<int> &stack,int start,vector<int> &visited,vector<int> &size){
+
+void dfs(int start,vector<vector<int>> adj,vector<int> &visited,vector<int> &ans){
 	visited[start] = 1;
-	size[start] = 1;
-	stack.PB(start);
-	// cout << start << endl;
+	ans.PB(start);
 	REP(i,adj[start].size()){
-		if(!visited[adj[start][i]] && adj[start][i] != start){
-			dfs(adj,stack,adj[start][i],visited,size);
-			size[start] += size[adj[start][i]];
+		if(visited[adj[start][i]]==0 && adj[start][i]!=start){
+			dfs(adj[start][i],adj,visited,ans);
+			visited[start] += visited[adj[start][i]];
 		}
 	}
+	return;
 }
-
 
 int main()
 {
 	int n,q;
 	cin >> n >> q;
 	vector<vector<int>> adj(n,vector<int>());
+	vector<int> ans,visited(n,0);
 	REP(i,n-1){
 		int x;
 		cin >> x;
 		adj[x-1].PB(i+1);
 	}
-	vector<int> stack;
-	vector<int> visited(n,0);
-	vector<int> size(n,0);
-	dfs(adj,stack,0,visited,size);
+	dfs(0,adj,visited,ans);
 	map<int,int> pos;
-	// for(auto it:stack)
-	// 	cout << it << " ";
-	// cout << endl;
-	REP(i,n)
-		pos[stack[i]] = i;
-	// cout << "done" << endl;
-	while(q--){ 
-		int x,k;
-		cin >> x >> k;
+	REP(i,ans.size())
+		pos[ans[i]] = i;
+	while(q--){
+		int x,y;
+		cin >> x >> y;
 		x--;
-		if(size[x]>=k)
-			cout << stack[pos[stack[x]] + k-1]+1 << endl;
+		if(visited[x]>=y)
+			cout << ans[pos[x]+y-1]+1 << endl;
 		else
 			cout << -1 << endl;
 	}
