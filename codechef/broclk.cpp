@@ -30,7 +30,7 @@ typedef unsigned long long int ull;
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
 #define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
-#define MOD 1000000007
+
 
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
@@ -50,117 +50,30 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+#define MOD 1000000007
 
-struct rat{
-	ll num;
-	ll den;
-};
-
-ll gcd(ll a,ll b){
-	return b==0?a:gcd(b,a%b);
-}
-
-rat ratmul(rat a,rat b)
-{
-	rat c;
-	c.num = (1ll * a.num * b.num)%MOD;
-	c.den = (1ll * a.den * b.den)%MOD;
-	if(c.num!=0 && c.den!=0){
-		ll x = gcd(c.num>0?c.num:(0-c.num),c.den>0?c.den:(0-c.den));
-		c.num /= x;
-		c.den /= x;
+ll modexp(ll a,ll b){
+	ll ans=1;
+	while(b){
+		if(b&1)
+			ans = (ans*a)%MOD;
+		a = (a*a)%MOD;
+		b >>= 1;
 	}
-	return c;
-}
-
-rat ratadd(rat a,rat b){
-	rat c;
-	c.num = ((1ll* a.num * b.den) + (1ll * a.den * b.num) + MOD)%MOD;
-	c.den = (1ll * b.den * a.den)%MOD;
-	if(c.num!=0 && c.den!=0){
-		ll x = gcd(c.num>0?c.num:(0-c.num),c.den>0?c.den:(0-c.den));
-		c.num /= x;
-		c.den /= x;
-	}
-	return c;
-}
-
-
-void printmat(vector<vector<rat>> mat){
-	REP(i,2)
-	{
-		REP(j,2)
-			cout << mat[i][j].num << "/" << mat[i][j].den << " ";
-		cout << endl;
-	}
-}
-
-void power(vector<vector<rat>> &a){
-	vector<vector<rat>> ans(2,vector<rat>(2));
-	REP(i,2){
-		REP(j,2)
-		{
-			rat c;
-			c.num = 0;
-			c.den = 1;
-			ans[i][j] = c;
-			REP(k,2)
-				ans[i][j] = ratadd(ans[i][j],ratmul(a[i][k],a[k][j]));
-		}
-	}
-	REP(i,2)
-	{
-		REP(j,2)
-			a[i][j] = ans[i][j];	
-	}
-}
-
-void multiply(vector<vector<rat>> &a,vector<vector<rat>> &b){
-	vector<vector<rat>> ans(2,vector<rat>(2));
-	REP(i,2){
-		REP(j,2)
-		{
-			rat c;
-			c.num = 0;
-			c.den = 1;
-			ans[i][j] = c;
-			REP(k,2)
-				ans[i][j] = ratadd(ans[i][j],ratmul(a[i][k],b[k][j]));
-		}
-	}
-	REP(i,2)
-	{
-		REP(j,2)
-			a[i][j] = ans[i][j];	
-	}	
-}
-
-void modexp(vector<vector<rat>> &mat,int t){
-	vector<vector<rat>> ans(2,vector<rat>(2));
-	ans[0][0].num = ans[0][0].den = ans[1][1].num = ans[1][1].den = 1;
-	ans[1][0].num = ans[0][1].num = 0;
-	ans[1][0].den = ans[0][1].den = 1;
-	while(t){
-		//printmat(ans);
-		if(t&1)
-			multiply(ans,mat);
-		power(mat);
-		t >>= 1;
-	}
-	REP(i,2){
-		REP(j,2)
-			mat[i][j] = ans[i][j];
-	}
+	return ans;
 }
 
 ll inv(ll a){
-	ll p = MOD-2;
-	ll ans=1;
-	while(p){
-		if(p&1)
-			ans = (ans*a)%MOD;
-		ans = (ans*ans)%MOD;
-		p >>= 1;
+	return modexp(a,MOD-2);
+}
+
+vector<vector<ll>> mult(vector<vector<ll>> a,vector<vector<ll>> b){
+	vector<vector<ll>> ans(2,vector<ll>(2,0));
+	REP(i,2){
+		REP(j,2){
+			REP(k,2)
+				ans[i][j] = (ans[i][j] + (a[i][k]*b[k][j])%MOD)%MOD;
+		}
 	}
 	return ans;
 }
@@ -168,52 +81,29 @@ ll inv(ll a){
 int main()
 {
 	TEST{
-		double l,d;
-		ll t;
+		ll d,l,t;
 		cin >> l >> d >> t;
-		vector<vector<rat>> mat(2,vector<rat>(2));
-		mat[0][1].num = -1;
-		mat[0][1].den = 1;
-		mat[1][0].num = 1;
-		mat[1][0].den = 1;
-		mat[1][1].num = 0;
-		mat[1][1].den = 1;
-		mat[0][0].num = 2*d;
-		mat[0][0].den = l;
+		ll cos = (d*inv(l))%MOD;
+		vector<vector<ll>> mat(2,vector<ll>(2,0));
+		mat[0][0] = (2*cos)%MOD;
+		mat[0][1] = MOD-1;
+		mat[1][0] = 1;
 		t--;
-		// cout << "Initial Matrix" << endl;
-		// printmat(mat);
-		modexp(mat,t);
-		// cout << "Final Matrix" << endl;
-		// printmat(mat);
-		rat ans;
-		rat fin;
-		fin.num = d;
-		fin.den = l;
-		ans.num = 0;
-		ans.den = 1;
-		ans = ratadd(ans,ratmul(mat[0][0],fin));
-		ans = ratadd(ans,mat[0][1]);
-		cout << ans.num << "/" << ans.den << endl;
-		ans.num = (ans.num * (ll)l)%MOD;
-		if(ans.num!=0 && ans.den!=0){
-			ll x = gcd(ans.num>0?ans.num:(0-ans.num),ans.den>0?ans.den:(0-ans.den));
-			ans.num /= x;
-			ans.den /= x;
+		vector<vector<ll>> ans(2,vector<ll>(2,0));
+		ans[0][0] = ans[1][1] = 1;
+		while(t){
+			if(t&1)
+				ans = mult(ans,mat);
+			t >>= 1;
+			mat = mult(mat,mat);
 		}
-		cout << ans.num << "/" << ans.den << endl;
-		ll x;
-		if(ans.num < 0){
-			x = inv(ans.den);
-			x = (MOD-x)%MOD;
-			ans.num = 0-ans.num;
-		}
-		else{
-			x = inv(ans.den);
-		}
-		//cout << x << endl;
-		//cout << ans.num << "/" << ans.den << endl;
-		cout << (ans.num*x)%MOD << endl;
- 	}
+		// for(auto it: ans){
+		// 	for(auto j:it)
+		// 		cout << j << " ";
+		// 	cout << endl;
+		// }
+		ll out = ((ans[0][0]*cos)%MOD + (ans[0][1]))%MOD;
+		cout << (out*l)%MOD << endl;
+	}
 	return 0;
 }

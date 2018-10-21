@@ -2,19 +2,15 @@ import numpy as np
 import random as rs
 
 def generate(size):
+	t = 3
 	out = []
-	n = 100000
-	q = 10000
-	a = np.random.random_integers(1,1000000000,n)
-	out.append(str(n)+ " " + str(q) + "\n")
-	a = list(a)
-	out.append(" ".join(map(str,a)) + "\n")
-	while q>0:
-		q = q-1
-		l = np.random.randint(1,n)
-		r = np.random.randint(l,n)
-		x = np.random.randint(1,1000000000)
-		out.append(str(l) + " " + str(r) + " " + str(x) + "\n")
+	out.append(str(3) + "\n")
+	while t>0:
+		t = t-1
+		out.append(str(300) + " " + str(300) + "\n")
+		s = "1"*300
+		for i in range(300):
+			out.append(s + "\n")
 	return out
 
 def main():

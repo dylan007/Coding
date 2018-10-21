@@ -56,12 +56,14 @@ ll find(vector<ll> &parent,ll x){
 	return parent[x];
 }
 
-void un(vector<ll> &parent,vector<ll> &size,ll x,ll y){
+void update(vector<ll> &parent, vector<ll> &size, ll x, ll y){
 	ll rootx = find(parent,x);
 	ll rooty = find(parent,y);
+	if(rootx == rooty)
+		return;
 	if(size[rootx]>size[rooty]){
 		parent[rooty] = rootx;
-		size[rootx] += size[rooty]; 
+		size[rootx] += size[rooty];
 	}
 	else{
 		parent[rootx] = rooty;
@@ -74,56 +76,39 @@ int main()
 {
 	ll n,m;
 	readl(n);readl(m);
-	vector<ll> parent(n),size(n,1);
+	vector<ll> parent(n,0),size(n,1);
 	REP(i,n)
 		parent[i] = i;
 	REP(i,m){
 		ll x,y;
-		readl(x);readl(y);
+		cin >> x >> y;
 		x--;y--;
-		un(parent,size,x,y);
+		update(parent,size,x,y);
 	}
-	// for(auto it:parent)
-	// 	cout << it << " ";
-	// cout << endl;
-	vector<ll> val(n);
+	map<ll,ll> c;
+	ll cmin = INT_MAX;
 	REP(i,n)
-		readl(val[i]);
-	map<ll,ll> count;
-	ll tot=0,c=0;
+		c[parent[i]]=INT_MAX;
 	REP(i,n){
-		if(count.find(parent[i]) != count.end()){
-			if(val[i]>=0)
-				count[parent[i]] = min(count[parent[i]],val[i]);
-		}
-		else{
-			if(val[i]>=0){
-				c++;
-				count[parent[i]] = val[i];
-			}
-			tot++;
-		}
+		ll x;
+		cin >> x;
+		if(x>=0)
+			c[parent[i]] = min(c[parent[i]],x);
 	}
-	vector<ll> cities;
-	if(tot != c)
-		cout << -1 << endl;
-	else{
-		ll ans=0;
-		map<ll,ll>::iterator it = count.begin();
-		while(it != count.end()){
-			cities.PB(it->second);
-			it++;
+	ll f=0,ans=0;
+	for(auto it:c){
+		if(it.second == INT_MAX){
+			f=1;
+			break;
 		}
-		SORTV(cities);
-		if(cities.size() == 1)
-			cout << 0 << endl;
-		else if(cities.size()==2)
-			cout << cities[0] + cities[1] << endl;
-		else{
-			for(auto it:cities)
-				ans += 2*it;
-			cout << ans - cities[cities.size()-1] - cities[cities.size()-2] << endl;
-		}
+		cmin = min(it.second,cmin);
+		ans += it.second;
 	}
+	if(f)
+		cout << "-1" << endl;
+	else if(c.size()==1)
+		cout << 0 << endl;
+	else
+		cout << ans + (c.size()-2)*cmin << endl;
 	return 0;
 }
