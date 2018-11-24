@@ -28,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __builtin_popcount(a) // count set bits
+#define popc(a) __ builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -50,45 +50,14 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-#define LIM 1000000000
-
-ll next(ll x){
-	ll t = x | (x - 1);
-	ll w = (t + 1) | (((~t & -~t) - 1) >> (ctz(x) + 1));  
-	return w;
-}
-
-string bin(ll x){
-	string out;
-	REP(i,32)
-		out += "0";
-	for(int i=31;i>=0;i--){
-		if(x&1)
-			out[i] = '1';
-		x>>=1;
-	}
-	return out;
-}
+void solve()
 
 int main()
 {
 	TEST{
 		ll a,b,c;
-		cin >> a >> b >> c;
-		int p = popc(a);
-		int q = popc(b);
-		ll start = (1<<p)-1;
-		int ans=0;
-		while(2*start <= c){
-			ll x = c - start;
-			if(popc(x)==q && x>=1 && x<=LIM){
-				// error(start,x,ans);
-				// cout << bin(start) << " " << bin(x) << endl;
-				ans += (x!=start) + 1;
-			}
-			start = next(start);
-		}
-		cout << ans << endl;
+		ll dp[32][32][32][2]={-1};
+		solve(dp,0,popc(a),pop(b),0,c);
 	}
 	return 0;
 }
