@@ -57,12 +57,13 @@ void construct(vector<int> &segtree,vector<int> arr,int pos,int left,int right){
 	}
 	int mid = left+right;
 	mid >>=1;
-	int vl,vr;
 	construct(segtree,arr,2*pos,left,mid);
 	construct(segtree,arr,2*pos+1,mid+1,right);
 	segtree[pos] = segtree[2*pos] + segtree[2*pos+1];
 	return;
 }
+
+
 
 int main()
 {
@@ -71,11 +72,8 @@ int main()
 	vector<int> arr(n);
 	REP(i,n)
 		read(arr[i]);
-	int size = 1;
-	while(size<n)
-		size <<= 1;
-	vector<int> segtree(size);
-	construct(segtree,arr,0,0,n-1);
+	vector<int> segtree(4*n);
+	construct(segtree,arr,1,0,n-1);
 	for(auto it: segtree)
 		cout << it << " ";
 	cout << endl;
@@ -84,7 +82,8 @@ int main()
 	while(q--){
 		int x,y;
 		read(x);read(y);
+		x--;y--;
+		cout << findmax(segtree,x,y) << endl;
 	}
-	
 	return 0;
 }

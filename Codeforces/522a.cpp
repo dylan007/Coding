@@ -28,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -49,57 +49,68 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
 	err(++it, args...);
 }
-int ans=0;
 
-void bfs(vector<vector<int>> adj,int start,vector<int> &visited,int level){
-	if(visited[start])
-		return;
-	visited[start] = 1;
-	ans = max(ans,level);
-	REP(i,adj[start].size()){
-		if(!visited[adj[start][i]])
-			bfs(adj,adj[start][i],visited,level+1);
+ll ans=0;
+
+void bfs(vector<ll> visited,vector<vector<ll>> adj,ll start){
+	queue<ll> q;
+	q.push(start);
+	vector<ll> level(visited.size(),0);
+	level[start]=1;
+	visited[start] = 1;		
+	while(!q.empty()){
+		ll curr = q.front();
+		q.pop();
+		for(auto it:adj[curr]){
+			if(!visited[it]){
+				visited[it] = 1;
+				level[it] = level[curr]+1;
+				q.push(it);
+			}
+		}
 	}
-	return;
+	for(auto it: level)
+		ans = max(it,ans);
 }
 
 int main()
 {
-	int n;
-	cin >> n;
+	fast_io;
+	ll m;
+	cin >> m;
+	ll curr=0;
 	set<string> users;
-	locale loc;
-	vector<pair<string,string>> posts;
+	map<string,ll> pos;
+	vector<vector<ll>> adj(20010,vector<ll>());
+	while(m--){
+		string a,b,c;
+		cin >> a >> c >> b;
+		transform(a.begin(),a.end(),a.begin(),::tolower);
+		transform(b.begin(),b.end(),b.begin(),::tolower);
+		if(users.find(a)==users.end()){
+			users.insert(a);
+			pos[a] = curr++;
+		}
+		if(users.find(b)==users.end()){
+			users.insert(b);
+			pos[b] = curr++;
+		}
+		// cout << pos[a] << " " << pos[b] << endl;
+		adj[pos[a]].PB(pos[b]);
+	}
+	vector<string> fu(users.size());
+	map<string,ll>::iterator it = pos.begin();
+	while(it != pos.end()){
+		fu[it->second] = it->first;
+		it++;
+	}
+	ll n = users.size();
+	vector<ll> visited(n,0);
+	ans=0;
 	REP(i,n){
-		string src,dst;
-		cin >> src >> dst >> dst;
-		transform(src.begin(), src.end(), src.begin(), ::tolower); 
-		transform(dst.begin(),dst.end(),dst.begin(),::tolower);
-		posts.PB(MK(dst,src));
-		users.insert(src);
-		users.insert(dst);
+		visited = vector<ll>(n,0);
+		bfs(visited,adj,i);
 	}
-	// for(auto it:users)
-	// 	cout << it << " ";
-	// cout << endl;
-	map<string,int> index;
-	
-	int curr=0;
-	for(auto it:users)
-		index[it] = curr++;
-	vector<vector<int>> adj(curr,vector<int>());
-	for(auto it: posts){
-		adj[index[it.first]].PB(index[it.second]);
-		adj[index[it.second]].PB(index[it.first]);
-	}
-	// for(auto it:adj){
-	// 	for(auto subit: it)
-	// 		cout << subit << " ";
-	// 	cout << endl;
-	// }
-	int start = index["polycarp"];
-	vector<int> visited(n,0);
-	bfs(adj,start,visited,1);
 	cout << ans << endl;
 	return 0;
 }

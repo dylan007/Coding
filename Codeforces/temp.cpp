@@ -1,7 +1,7 @@
 /*=======================
 Author    : Shounak Dey
 Filename  : temp.cpp
-=======================	*/
+=======================    */
 
 #include<bits/stdc++.h>
 
@@ -28,60 +28,53 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
-	vector<string> v;
-	stringstream ss(s);
-	string x;
-	while (getline(ss, x, c))
-		v.emplace_back(x);
-	return move(v);
+    vector<string> v;
+    stringstream ss(s);
+    string x;
+    while (getline(ss, x, c))
+        v.emplace_back(x);
+    return move(v);
 }
 
 void err(vector<string>::iterator it) {}
 template<typename T, typename... Args>
 void err(vector<string>::iterator it, T a, Args... args) {
-	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
-	err(++it, args...);
+    cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
+    err(++it, args...);
 }
 
 int main()
 {
-	ll n;
-	cin >> n;
-	vector<ll> arr(n);
-	ll sum=0;
-	REP(i,n){
-		cin >> arr[i];
-		sum += arr[i];
-	}
-	ll tot=0,index;
-	REP(i,n){
-		tot += arr[i];
-		if(tot >= (sum/2)){
-			index=i;
-			break;
-		}
-	}
-	int l=index,r=index+1;
-	ll x = tot;
-	ll y = sum-tot;
-	while(l>=0 && r<n){
-		if(x==y)
-			break;
-		if(x>y)
-			x -= arr[l--];
-		else
-			y -= arr[r++];
-	}
-	if(x != y)
-		cout << 0 << endl;
-	else
-		cout << x << endl;
-	return 0;
+    fast_io;
+    ll n,k;
+    cin >> n >> k;
+    vector<pair<ll,ll>> a(n);
+    vector<ll> orig(n);
+    REP(i,n){
+        cin >> a[i].F;
+        orig[i] = a[i].F;
+        a[i].S = i;
+    }
+
+    sort(a.begin(),a.end(),[](pair<ll,ll>a,pair<ll,ll> b){
+        return a.F < b.F;
+    });
+
+    vector<pair<pair<ll,ll>,ll>> off(k);
+    REP(i,k)
+        cin >> off[i].F.F >> off[i].F.S >> off[i].S;
+    sort(off.begin(),off.end(),[](auto a,auto b){
+        return a.S < b.S;
+    });
+
+
+    
+    return 0;
 }

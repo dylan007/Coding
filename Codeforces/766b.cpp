@@ -52,6 +52,19 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	
+	ll n;
+	cin >> n;
+	vector<ll> arr(n);
+	REP(i,n)
+		cin >> arr[i];
+	SORTV(arr);
+	ll f=0;
+	REP(i,n-2){
+		if((arr[i]+arr[i+1]) > arr[i+2]){
+			f=1;
+			break;
+		}
+	}
+	cout << (f?"YES":"NO") << endl;
 	return 0;
 }

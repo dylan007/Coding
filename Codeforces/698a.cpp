@@ -50,27 +50,28 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int check(int x,int y)
-{
-
-}
-
-int main()
-{
-	int n;
+int main(){
+	fast_io;
+	ll n;
 	cin >> n;
-	vector<int> ac(n);
+	vector<ll> arr(n);
 	REP(i,n)
-		cin >> ac[i];
-	vector<vector<int>> dp(n,vector<int>(3,0)); //two bits for the activities and last bit for rest.
-	dp[0][2] = 1;
-	dp[0][1] = x[0]/2;
-	dp[0][0] = x[0]%2;
-	for(int i=1;i<n;i++)
-	{
-		
-		cout << dp[i][0] << " " << dp[i][1] << endl;
+		cin >> arr[i];
+	ll dp[n][3];
+	dp[0][0] = 0;
+	dp[0][1] = arr[0]&1;
+	dp[0][2] = (arr[0]>>1)&1;
+	FOR(i,1,n){
+		dp[i][0] = max(dp[i-1][0],max(dp[i-1][1],dp[i-1][2]));
+		if(arr[i]&1)
+			dp[i][1] = max(dp[i-1][0],dp[i-1][2])+1;
+		else
+			dp[i][1] = dp[i][0];
+		if((arr[i]>>1)&1)
+			dp[i][2] = max(dp[i-1][0],dp[i-1][1])+1;
+		else
+			dp[i][2] = dp[i][0];
 	}
-	cout << max(dp[n-1][0],dp[n-1][1]) << endl;
+	cout << n-max(dp[n-1][0],max(dp[n-1][1],dp[n-1][2])) << endl;
 	return 0;
 }

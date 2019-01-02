@@ -1,4 +1,8 @@
-//Shounak Dey
+/*=======================
+Author    : Shounak Dey
+Filename  : farida.cpp
+=======================	*/
+
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -24,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -48,36 +52,28 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	int T;
-	read(T);
-	REP(test,T)
-	{
-		cout << "Case " << test << ": ";
-		int n;
-		read(n);
-		vector<int> a(n);
+	fast_io;
+	ll T;
+	cin >> T;
+	REP(test,T){
+		cout << "Case " << test+1 << ": ";
+		ll n;
+		cin >> n;
+		vector<ll> arr(n);
+		if(n==0){
+			cout << 0 << endl;
+			continue;
+		}
 		REP(i,n)
-			read(a[i]);
-		vector<int> dp(a);
-		if(n==0)
-		{
-			cout << "0" << endl;
-			continue;
+			cin >> arr[i];
+		vector<vector<ll>> dp(n,vector<ll>(2,0));
+		dp[0][0] = arr[0];
+		dp[0][1] = 0;
+		FOR(i,1,n){
+			dp[i][0] = dp[i-1][1] + arr[i];
+			dp[i][1] = max(dp[i-1][1],dp[i-1][0]);
 		}
-		if(n==1)
-		{
-			cout << dp[0] << endl;
-			continue;
-		}
-		if(n==2)
-		{
-			cout << max(dp[0],dp[1]) << endl;
-			continue;
-		}
-		FOR(i,2,n)
-			dp[i] += max(dp[i-1]-a[i-1],dp[i-2]);
-		cout << max(dp[n-1],dp[n-2]) << endl;
+		cout << max(dp[n-1][0],dp[n-1][1]) << endl;
 	}
 	return 0;
 }
-

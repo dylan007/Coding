@@ -28,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -50,72 +50,27 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-ll find(vector<ll> &parent,ll x){
-	if(x != parent[parent[x]])
+ll find(vector<ll> parent,ll x){
+	if(x != parent[x])
 		parent[x] = find(parent,parent[x]);
-	return parent[x];
-}
-
-void un(vector<ll> &parent,vector<ll> &size,ll x,ll y){
-	ll rootx = find(parent,x);
-	ll rooty = find(parent,y);
-	if(rootx != rooty){
-		if(size[rootx]>size[rooty]){
-			size[rootx] += size[rooty];
-			parent[rooty] = rootx;
-		}
-		else{
-			size[rooty] += size[rootx];
-			parent[rootx] = rooty; 
-		}
-	}
-	return;
-}
-
-ll bfs(vector<vector<ll>> adj,ll start,ll end){
-	queue<ll> q;
-	int n = adj.size();
-	vector<ll> visited(n,0);
-	q.push(start);
-	map<ll,ll> depth;
-	depth[start] = 0;
-	visited[start] = 1;
-	while(!q.empty()){
-		ll x = q.front();
-		q.pop();
-		ll temp = depth[x];
-		// error(x,temp);
-		if(x == end)
-			return temp;
-		// cout << x << endl;
-		REP(i,adj[x].size()){
-			// cout << adj[x][i] << " ";
-			if(!visited[adj[x][i]]){
-				depth[adj[x][i]] = temp+1;
-				visited[adj[x][i]] = 1;
-				q.push(adj[x][i]);
-			}
-		}
-		// cout << endl;
-	}	
-	return depth[end];
+	return parent[x]; 
 }
 
 int main()
 {
-	int T;
+	fast_io;
+	ll T;
 	cin >> T;
-	FOR(test,1,T+1){
-		cout << "Scenario #" << test << ":" << endl;
+	REP(test,T){
+		cout << "Scenario #" << test+1 << ":" << endl;
 		ll n,m;
 		cin >> n >> m;
-		vector<ll> parent(n),size(n);
-		REP(i,n){
-			parent[i] = i;
-			size[i] = 1;
-		}
-		ll flag=0;
 		vector<vector<ll>> adj(n,vector<ll>());
+		vector<ll> parent(n),size(n,1);
+		vector<ll> parity(n,0);
+		REP(i,n)
+			parent[i] = i;
+		vector<ll> bip(n,1);
 		REP(i,m){
 			ll x,y;
 			cin >> x >> y;
@@ -123,22 +78,19 @@ int main()
 			ll rootx = find(parent,x);
 			ll rooty = find(parent,y);
 			if(rootx == rooty){
-				// cout << "Cycle " << x << " " << y << endl;
-				ll len = bfs(adj,x,y);
-				// cout << len << endl;
-				if((len%2) == 0)
-					flag=1;
+				if(parity[rootx]==parity[rooty])
+					bip[rootx] = 0;
 			}
 			else{
-				adj[x].PB(y);
-				adj[y].PB(x);
-				un(parent,size,x,y);
+				if(size[rootx] < size[rooty]){
+					parent[rootx] = rooty;
+					size[rooty] += size[rootx];
+					 
+				}
 			}
+			adj[x].PB(y);
+			adj[y].PB(x);
 		}
-		if(flag)
-			cout << "Suspicious bugs found!" << endl;
-		else
-			cout << "No suspicious bugs found!" << endl;
 	}
 	return 0;
 }

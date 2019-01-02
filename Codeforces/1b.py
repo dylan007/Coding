@@ -1,23 +1,30 @@
-def convert1(s):
-	ind = s.index('C')
-	row = int(s[1:ind])
-	col = int(s[ind+1:])
-	s = ""
-	col = col-1
-	i=0
-	while(col>=0):
-		x = col%26
-		s = chr(x+ord('A'))+s
-		col = col-((x+1) * 26**i)
-		i = i+1
-	return s+str(col)
-
-
-t = input()
+import re
+t = int(input())
 while t>0:
-	s = raw_input()
-	if(s[1].isdigit()):
-		print convert1(s)
-	else:
-		print convert2(s)
 	t = t-1
+	s = input()
+	f1 = s.find('R')
+	f2 = s.find('C')
+	m = re.search('\d',s)
+	if(f1!=-1 and f2!=-1 and (f2>(f1+1)) and (m.start()<f2)):
+		p = s.find('C')
+		r = int(s[1:p])
+		c = int(s[p+1:])
+		C = ""
+		while c>0:
+			if (c%26) == 0:
+				c -= 26
+				C = 'Z' + C
+			else:
+				C = chr(int(c%26) + int(ord('A')) - 1) + C
+			c = int(c//26)
+		print(C+str(r))
+	else:
+		r = s[m.start():]
+		c = s[:m.start()]
+		C = 0
+		curr = 1
+		for x in c[::-1]:
+			C += (ord(x)-ord('A')+1)*curr
+			curr *= 26
+		print("R"+r+"C"+str(C))

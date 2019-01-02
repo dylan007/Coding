@@ -28,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -50,32 +50,33 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-ll divisors(ll n){
+ll divisors(ll x){
 	ll ans=0;
-	ll i=1;
-	while(i*i <= n){
-		ans += (n%i)==0;
-		i++;
+	ll curr=1;
+	while(curr*curr <= x){
+		if((x%curr)!=0){
+			curr++;
+			continue;
+		}
+		if(curr==(x/curr))
+			ans++;
+		else
+			ans+=2;
+		curr++;
 	}
 	return ans;
 }
 
 int main()
 {
-	int T;
-	// cin >> T;
-	ll x=1,curr=2;
-	ll m=0;
-	while(x<=10000000000000){
-		m = max(m,divisors(x));
-		cout << x << " " << divisors(x) << " " << m << endl;
-		x += curr;
+	fast_io;
+	ll curr=1;
+	while(1){
+		ll p = (curr * (curr + 1))/2;
+		cout << curr << " " << divisors(p) << endl;
+		if(divisors(p)>1000)
+			break;
 		curr++;
 	}
-	// while(T--){
-	// 	int n;
-	// 	cin >> n;
-
-	// }
 	return 0;
 }

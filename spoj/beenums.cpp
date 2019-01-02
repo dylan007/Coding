@@ -1,4 +1,8 @@
-//Shounak Dey
+/*=======================
+Author    : Shounak Dey
+Filename  : beenums.cpp
+=======================	*/
+
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -24,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -46,27 +50,48 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+ll exp(ll a,ll b){
+	ll ans=1;
+	while(b){
+		if(b&1)
+			ans *= a;
+		a = a*a;
+		b >>= 1;
+	}
+	return ans;
+}
+
+int binsearch(ll start,ll end,ll x){
+	ll mid = (start + end)/2;
+	ll l,r;
+	if(mid>1)
+		l = 1 + ((mid-1) * (2*6 + (mid-2)*6))/2;
+	else
+		l = 1;
+	r = 1 + (mid * (2*6 + (mid-1)*6))/2;
+	// error(mid,l,r);
+	if(start>end)
+		return 0;
+	if(l<x && r>x)
+		return 0;
+	if(l==x || r==x)
+		return 1;
+	if(l>x)
+		return binsearch(start,mid-1,x);
+	return binsearch(mid+1,end,x);
+}
+
 int main()
 {
-	int x;
+	fast_io;
+	ll x;
 	cin >> x;
-	while(x>0)
-	{
-		int curr=6;
-		x--;
-		while(x>=curr && x>0)
-		{
-			x -= curr;
-			curr <<=1;
-			error(curr,x);
-		}
-		if(x==0)
+	while(x!=-1){
+		if(binsearch(1,(ll)1e5,x))
 			cout << "Y" << endl;
 		else
 			cout << "N" << endl;
 		cin >> x;
-
 	}
 	return 0;
 }
-

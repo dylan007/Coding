@@ -28,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -50,11 +50,92 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+int check(char a){
+	return a=='0' || a=='8';
+}
+
 int main()
 {
-	string x;
-	cin >> x;
-	vector<vector<int>> dp(n,vector<int>(8));
-	
+	fast_io;
+	string a;
+	cin >> a;
+	auto f = [](char a){
+		return a-'0';
+	};
+	if(a.length()==1){
+		if((f(a[0])%8)==0){
+			cout << "YES" << endl;
+			cout << a << endl;
+			return 0;
+		}
+		cout << "NO" << endl;
+		return 0;
+	}
+	if(a.length()==2){
+		if(check(a[0])){
+			cout << "YES" << endl;
+			cout << a[0] << endl;
+			return 0;
+		}
+		if(check(a[1])){
+			cout << "YES" << endl;
+			cout << a[1] << endl;
+			return 0;
+		}
+		ll curr = f(a[0])*10 + f(a[1]);
+		if((curr%8)==0){
+			cout << "YES" << endl;
+			cout << curr << endl;
+			return 0;
+		}
+		cout << "NO" << endl;
+		return 0;
+	}
+	REP(i,a.length()){
+		FOR(j,i+1,a.length()){
+			FOR(k,j+1,a.length()){
+				ll curr = f(a[i])*100 + f(a[j])*10 + f(a[k]);
+				if((curr%8)==0){
+					cout << "YES" << endl;
+					cout << curr << endl;
+					return 0;
+				}
+				if(check(a[i])){
+					cout << "YES" << endl;
+					cout << a[i] << endl;
+					return 0;
+				}
+				if(check(a[j])){
+					cout << "YES" << endl;
+					cout << a[j] << endl;
+					return 0;
+				}
+				if(check(a[k])){
+					cout << "YES" << endl;
+					cout << a[k] << endl;
+					return 0;
+				}
+				curr = f(a[i])*10 + f(a[j]);
+				if((curr % 8)==0){
+					cout << "YES" << endl;
+					cout << curr << endl;
+					return 0;
+				}
+				curr = f(a[i])*10 + f(a[k]);
+				if((curr % 8)==0){
+					cout << "YES" << endl;
+					cout << curr << endl;
+					return 0;
+				}
+				curr = f(a[j])*10 + f(a[k]);
+				if((curr % 8)==0){
+					cout << "YES" << endl;
+					cout << curr << endl;
+					return 0;
+				}
+			}
+		}
+	}
+	cout << "NO" << endl;
 	return 0;
 }

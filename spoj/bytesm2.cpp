@@ -1,4 +1,8 @@
-//Shounak Dey
+/*=======================
+Author    : Shounak Dey
+Filename  : bytesm2.cpp
+=======================	*/
+
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -24,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -46,43 +50,29 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int n,m;
-
-int maxCost(vector<vector<int> > grid,int x,int y)
-{
-	if(x<0 || x>=m)
-		return 0;
-	if(y==(n-1))
-		return grid[x][y];
-	return grid[x][y] + max(maxCost(grid,x+1,y+1),max(maxCost(grid,x-1,y+1),maxCost(grid,x,y+1)));
-}
-
 int main()
 {
-	TEST
-	{
-		int x;
-		read(n);read(m);
-		vector<vector<int> > grid;
-		vector<int> temp;
-		REP(i,n)
-		{
-			grid.PB(temp);
+	fast_io;
+	TEST{
+		ll n,m;
+		cin >> n >> m;
+		vector<vector<ll>> arr(n,vector<ll>(m,0)),dp(n,vector<ll>(m,0));
+		REP(i,n){
 			REP(j,m)
-			{
-				read(x);
-				grid[i].PB(x);
-			}
+				cin >> arr[i][j];
 		}
-		int ans=INT_MIN;
-		for(int i=0;i<m;i++)
-		{
-			int t = maxCost(grid,i,0);
-			ans = max(ans,t);
-			error(ans,t);
+		REP(j,m)
+			dp[n-1][j] = arr[n-1][j];
+		for(int i=(n-2);i>=0;i--){
+			dp[i][0] = arr[i][0] + max(dp[i+1][0],dp[i+1][m>1]);
+			dp[i][m-1] = arr[i][m-1] + max(dp[i+1][m-1],dp[i+1][(m-1-(m>1))]);
+			FOR(j,1,m-1)
+				dp[i][j] = arr[i][j] + max(max(dp[i+1][j-1],dp[i+1][j+1]),dp[i+1][j]);
 		}
+		ll ans=0;
+		REP(i,m)
+			ans = max(ans,dp[0][i]);
 		cout << ans << endl;
-	}	
+	}
 	return 0;
 }
-

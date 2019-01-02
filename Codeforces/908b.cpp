@@ -28,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -50,86 +50,72 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int check(int x,int l)
-{
-	return x>=0 && x<l;
-}
-
-
-int solve(vector<string> board,string per,string comm)
-{
-	int startx,starty,endx,endy;
-	int r,c;
-	r = board.size();
-	c = board[0].size();
-	REP(i,r)
-	{
-		REP(j,c)
-		{
-			if(board[i][j] == 'S')
-			{
-				startx = i;
-				starty = j;
-			}
-			else if(board[i][j] == 'E')
-			{
-				endx = i;
-				endy = j;
+ll valid(vector<string> board,vector<ll> conf,string dir){
+	ll x=-1,y=-1;
+	ll n = board.size(),m = board[0].length();
+	REP(i,n){
+		REP(j,m){
+			if(board[i][j]=='S'){
+				x = i;
+				y = j;
+				break;
 			}
 		}
+		if(x!=-1)
+			break;
 	}
-	int cx,cy;
-	cx = startx;
-	cy = starty;
-	int i=0;
-	while(check(cx,r) && check(cy,c))
-	{
-		int t = comm[i] - '0';
-		i++;
-		if(i>comm.length())
+	REP(i,dir.length()){
+		if(x<0 || x>=n)
 			return 0;
-		if(per[t]=='U')
-			cy--;
-		else if(per[t]=='D')
-			cy++;
-		else if(per[t]=='L')
-			cx--;
-		else if(per[t]=='R')
-			cx++;
-		if(!check(cx,r) || !check(cy,c))
+		if(y<0 || y>=m)
 			return 0;
-		//cout << cx << " " << cy << board[cx][cy]<< endl;
-		if(board[cx][cy] == 'E')
+		if(board[x][y]=='#')
+			return 0;
+		if(board[x][y]=='E')
 			return 1;
-		if(board[cx][cy] == '#')
-			return 0;
+		ll p = dir[i]-'0';
+		switch(conf[p]){
+			case 0:
+				x++;
+				break;
+			case 1:
+				x--;
+				break;
+			case 2:
+				y++;
+				break;
+			case 3:
+				y--;
+				break;
+		}
 	}
+	if(x<0 || x>=n)
+		return 0;
+	if(y<0 || y>=m)
+		return 0;
+	if(board[x][y]=='#')
+		return 0;
+	if(board[x][y]=='E')
+		return 1;
 	return 0;
 }
 
 int main()
 {
-	int n,m;
+	fast_io;
+	ll n,m;
 	cin >> n >> m;
-	vector<string> board;
-	string comm;
+	vector<string> board(n);
 	REP(i,n)
-	{
-		string temp;
-		cin >> temp;
-		board.PB(temp);
-	}	
-	cin >> comm;
-	string per = "DLRU";
-	int ans=0;
-	while(1)
-	{
-		ans += solve(board,per,comm);
-		//cout << per << endl;
-		bool x = next_permutation(per.begin(),per.end());
-		if(!x)
-			break;
-	}
+		cin >> board[i];
+	string dir;
+	cin >> dir;
+	vector<ll> conf = {0,1,2,3};
+	ll ans=0;
+	do{
+		if(valid(board,conf,dir))
+			ans++;
+	}while(next_permutation(conf.begin(),conf.end()));
 	cout << ans << endl;
 	return 0;
 }

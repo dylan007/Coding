@@ -28,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -50,24 +50,22 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int check(string a,int i)
-{
-	if(a[i]=='a'||a[i]=='e'||a[i]=='i'||a[i]=='o'||a[i]=='u')
-		return 1;
-	else if(a[i]=='1'||a[i]=='3'||a[i]=='5'||a[i]=='7'||a[i]=='9')
-		return 1;
-	return 0;
+int check(char a){
+	return (a=='a' || a=='e' || a=='i' || a=='o' || a=='u');
 }
 
 int main()
 {
+	fast_io;
 	string a;
 	cin >> a;
-	int ans=0;
-	REP(i,a.length())
-	{
-		ans += check(a,i);
+	ll c=0;
+	REP(i,a.length()){
+		if(a[i]>='a' && a[i]<='z')
+			c += check(a[i]);
+		else 
+			c += (((a[i]-'0')%2)!=0);
 	}
-	cout << ans << endl;
+	cout << c << endl;
 	return 0;
 }
