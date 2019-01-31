@@ -11,7 +11,7 @@ typedef long long int ll;
 typedef unsigned long long int ull;
 
 #define PB push_back
-#define MK make_pair 
+#define MK make_pair
 #define SZ(a) (int)(sizeof(a))
 #define F first
 #define S second
@@ -50,28 +50,29 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-#define MAXN 2000000
+using cd = complex<double>;
+const double PI = acos(-1);
+
+void fft(vector<cd> &a,bool inv){
+    ll n = a.size();
+    if(n==1)
+        return;
+    vector<ll> a0(n/2),a1(n/2);
+    for(ll i=0;(2*i)<n;i++){
+        a0[i] = a[2*i];
+        a1[i] = a[2*i + 1];
+    }
+    fft(a0,inv);
+    fft(a1,inv);
+    double ang = 2 * PI / n * (inv?-1:1);
+    cd w(1),wn(cos(ang),sin(ang));
+}
 
 int main()
 {
 	fast_io;
-	ll n,k;
-	cin >> n >> k;
-	ll dp[n*10][n/2]={0};
-	REP(i,k){
-		ll x;
-		cin >> x;
-		dp[x][1]++;
-	}
-	cout << "input" << endl;
-	REP(i,n*9 + 1){
-		REP(j,10){
-			if(i>=j && dp[j]>0)
-				dp[i] += dp[i-j];
-		}
-	}
-	REP(i,n*9 + 1)
-		cout << dp[i] << " ";
-	cout << endl;
-	return 0;
+    ll n,k;
+    cin >> n >> k;
+
+    return 0;
 }

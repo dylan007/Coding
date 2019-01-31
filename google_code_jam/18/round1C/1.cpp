@@ -28,7 +28,7 @@ typedef unsigned long long int ull;
 #define ffs(a) __builtin_ffs(a) // find first set
 #define clz(a) __builtin_clz(a) // count leading zeroes
 #define ctz(a) __builtin_ctz(a) // count trailing zeroes
-#define popc(a) __ builtin_popcount(a) // count set bits
+#define popc(a) __builtin_popcount(a) // count set bits
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 
 
@@ -50,47 +50,39 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-string ans;
-
-void solve(unordered_map<string,int> x,vector<string> arr,int ind,int level,string curr){
-	if(level == arr[0].length()){
-		// scout << curr << endl;
-		// cout << curr << endl;
-		if(ans != "-")
-			return;
-		if(x.find(curr) == x.end())
-			ans = curr;
-		return;
-	}
-	if(ans != "-")
-		return;
-	for(int i=0;i<arr.size();i++){
-		string temp(1,arr[i][level]);
-		solve(x,arr,i,level+1,curr+temp);
-	}
-	return;
-}
-
 int main()
 {
+	fast_io;
 	int T;
-	cin >> T;
-	REP(test,T){
-		int n,l;
-		cin >> n >> l;
-		vector<string> arr(n);
-		unordered_map<string,int> x;
-		ans = "-";
-		REP(i,n){
-			cin >> arr[i];
-			x[arr[i]] = 1;
-		}
-		REP(i,n){
-			string curr(1,arr[i][0]);
-			solve(x,arr,i,1,curr);
-		}
-		cout << "Case #" << test+1 << ": ";
-		cout << ans << endl;
-	}
-	return 0;
+    cin >> T;
+    for(int t=1;t<=T;t++){
+        cout << "Case #" << t << ":";
+        int n,l;
+        cin >> n >> l;
+        vector<string> a(n);
+        for(int i=0;i<n;i++) 
+            cin >> a[i];
+        vector<set<char>> c(l,set<char>());
+        for(int i=0;i<l;i++){
+            for(int j=1;j<n;j++)
+                c[i].insert(a[j][i]);
+            if(c[i].find(a[0][i])!=c[i].end())
+                c[i].erase(a[0][i]);
+        }
+        string out="";
+        int flag=0;
+        for(int i=0;i<l;i++){
+            if(c[i].size()>=1){
+                flag=1;
+                out += *(c[i].begin());
+            }
+            else
+                out += a[0][i];
+        }
+        if(flag)
+            cout << out << endl;
+        else
+            cout << "-" << endl;
+    }
+    return 0;
 }

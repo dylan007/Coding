@@ -50,25 +50,22 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-ll check(ll x,vector<ll> arr){
-	if(x<0)
-		return 0;
-	arr.PB(x);
-	sort(arr.rbegin(),arr.rend());
-	ll n = arr.size();
-	vector<ll> suff(n);
-	ll pos = n-2;
-	suff[n-1] = 0;
-	while(pos>=0){
-		suff[pos] = suff[pos+1] + min(arr[pos],pos+1);
-		pos--;
-	}
-	ll tot=0;
-	REP(i,n){
-		tot += arr[i];
-		if(tot > ((i*(i+1)) + suff[i]))
+#define MAXN 100000
+
+ll check(ll x,vector<ll> deg){
+	deg.PB(x);
+	sort(deg.rbegin(),deg.rend());
+	vector<ll> pre(deg.size());
+	ll n = deg.size();
+	for(ll i=(n-1);i>=0;i--)
+		pre[i] = min(i+1,deg[i]);
+	REP(i,n-1){
+		ll p = i*(i+1) + pre[i+1];
+		if(p<deg[i])
 			return 0;
 	}
+	if(deg[n-1] > (n*(n-1)))
+		return 0;
 	return 1;
 }
 
@@ -77,55 +74,53 @@ int main()
 	fast_io;
 	ll n;
 	cin >> n;
-	vector<ll> arr(n);
+	vector<ll> deg(n);
 	REP(i,n)
-		cin >> arr[i];
-	// cout << "Input done" << endl;
-	ll par = 0;
-	REP(i,n)
-		par += arr[i]&1;
-	par &= 1;
-	//find min;
-	ll l=0,r=250000-par;
+		cin >> deg[i];
+	ll start = 1,end = MAXN;
 	ll mid;
-	while(l<=r){
-		mid = (l+r)>>1;
-		ll f1,f2;
-		f1 = check(2*mid+par,arr);
-		f2 = check(2*(mid-1)+par,arr);
-		error(l,r,f1,f2,mid);
-		if(f1 && !f2)
+	while(start <= end){
+		mid = (start + end)>>1;
+		if(mid == 1)
+			break;
+		ll f1 = check(mid-1,deg);
+		ll f2 = check(mid,deg);
+		if(!f1 && f2)
 			break;
 		if(f1 && f2)
-			r = mid-1;
-		else
-			l = mid+1;
-	}
-	ll p1=mid;
-	// find max;
-	l=0;r=250000;
-	while(l<=r){
-		mid = (l+r)>>1;
-		ll f1,f2;
-		f1 = check(2*mid+par,arr);
-		f2 = check(2*(mid+1)+par,arr);
-		if(f1 && !f2)
-			break;
-		if(f1 && f2)
-			l = mid-1;
-		else
-			r = mid+1;
-	}
-	ll p2=mid;
-	error(p1,p2);
-	if(p1>p2)
+			end = mid;
+		else 
+			start = mid;
+		error(start,end);
+	} 	
+	if(start > end){
 		cout << -1 << endl;
-	else{
-		while(p1<=p2){
-			cout << p1 << " ";
-			p1+=2;
-		}
-		cout << endl;
+		return 0;
 	}
+	ll p1 = mid;
+	start = 1;
+	end = MAXN;
+	while(start <= end){
+		mid = (start + end)>>1;
+		if(mid == MAXN)
+			break;
+		ll f1 = check(mid+1,deg);
+		ll f2 = check(mid,deg);
+		if(!f1 && f2)
+			break;
+		if(f1 && f2)
+			end = mid+1;
+		else
+			start = mid-1;
+	}
+	if(start>end){
+		cout << -1 << endl;
+		return 0;
+	}
+	while(p1 <= mid){
+		cout << p1 << " ";
+		p1 += 2;
+	}
+	cout << endl;
 	return 0;
 }

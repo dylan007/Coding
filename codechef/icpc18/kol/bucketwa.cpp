@@ -52,7 +52,8 @@ void err(vector<string>::iterator it, T a, Args... args) {
 
 int main()
 {
-	//The function of time over x ranging between 0 to dr is parabolic and hence has only one minima. Ternary search over the range to find the minima. Iterate 1000 times to converge to the answer.
+	//The function of time over x ranging between 0 to dr is parabolic and hence has only one minima. 
+	//Ternary search over the range to find the minima. Iterate 1000 times to converge to the answer.
 	fast_io;
 	double dl,dh,dr,k;
 	cin >> dl >> dh >> dr >> k;
