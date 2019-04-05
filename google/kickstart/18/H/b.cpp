@@ -50,46 +50,26 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
-int main()
-{
-	fast_io;
-	int T;
-	cin >> T;
-	REP(test,T){
-		cout << "Case #" << test+1 << ": ";
-		ll n;
-		cin >> n;
-		string a;
-		cin >> a;
-		// vector<ll> pre(n);
-		// pre[0] = a[0]-'0';
-		// FOR(i,1,n)
-		// 	pre[i] = pre[i-1] + a[i]-'0';
-		// ll x = n/2 + n%2;
-		// ll ans=0;
-		// REP(i,n-x+1){
-		// 	ll l,r;
-		// 	if(i==0)
-		// 		l = 0;
-		// 	else
-		// 	 	l = pre[i-1];
-		// 	r = pre[i+x-1];
-		// 	ans = max(ans,r-l);
-		// }
-		// cout << ans << endl;
-		ll curr=0,ans=0;
-		ll x = n/2 + n%2;
-		REP(i,x)
-			curr += a[i]-'0';
-		ans = max(ans,curr);
-		ll i=0;
-		while((i+x-1)<n){
-			curr -= a[i]-'0';
-			i++;
-			curr += a[i+x-1]-'0';
-			ans = max(ans,curr);
-		}
-		cout << ans << endl;
-	}
-	return 0;
+int main(){
+    int T;
+    cin >> T;
+    for(int test=0;test<T;test++){
+        cout << "Case #" << test+1 << ": ";
+        int n;
+        cin >> n;
+        string a;
+        cin >> a;
+        int l = (n/2) + (n&1);
+        int ans=0;
+        for(int i=0;i<l;i++)
+            ans += a[i]-'0';
+        int out = ans;
+        for(int i=1;(i+l-1)<n;i++){
+            ans -= a[i-1]-'0';
+            ans += a[i+l-1]-'0';
+            out = max(ans,out);
+        }
+        cout << out << endl;
+    }
+    return 0;
 }
