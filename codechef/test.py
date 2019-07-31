@@ -1,22 +1,13 @@
-import numpy as np 
-import random as rs
+def isPrime(x):
+    curr=2
+    while curr*curr <= x:
+        if (x%curr) == 0:
+            return False
+        curr+=1
+    return True
 
-def generate(size):
-	t = 3
-	out = []
-	out.append(str(3) + "\n")
-	while t>0:
-		t = t-1
-		out.append(str(300) + " " + str(300) + "\n")
-		s = "1"*300
-		for i in range(300):
-			out.append(s + "\n")
-	return out
+x = int(input())
+for i in range(2,100):
+    if(isPrime(i)):
+        print(i,x%i,(x**2)%i)
 
-def main():
-	filename = "in.txt"
-	file = open(filename,"a+")
-	file.writelines(generate(1))
-
-if __name__ == "__main__":
-	main()

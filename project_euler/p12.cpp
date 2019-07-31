@@ -52,8 +52,8 @@ void err(vector<string>::iterator it, T a, Args... args) {
 int main()
 {
 	fast_io;
-	ll curr=0,ans;
-	auto calc = (ll x)[]{
+	ll curr=0,ans=-1;
+	auto calc = [](ll x){
 		ll c=0;
 		ll p=1;
 		while(p*p<=x){
@@ -63,8 +63,9 @@ int main()
 		}
 		return c;
 	};
-	FOR(i,1,5001){
+	FOR(i,1,500001){
 		curr += i;
+		error(calc(curr));
 		if(calc(curr)>=500){
 			ans = curr;
 			break;

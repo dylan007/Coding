@@ -7,7 +7,7 @@ def get_file_count(path):
 
 
 def generate_output(lang,codename):
-	print "Generating Output...\n"
+	print("Generating Output...\n")
 	c = get_file_count("./test/in/") - 1
 	basename = "./test/gen_out/"
 	if lang == "cpp":
@@ -29,27 +29,25 @@ def get_lang(code):
 	return res[0].split('.')[-1]
 
 def check():
-	print "Checking files...\n"
+	print("Checking files...\n")
 	c = get_file_count("./test/in")-1
 	for i in range(c):
 		command = "diff " + "./test/out/" + str(i) + " ./test/gen_out/" + str(i)
 		res = os.popen(command).read()
 		if len(res)==0:
-			print "Sample Case " + str(i) + " : " + u'\u2713'
-			print ""
+                    print("Sample Case " + str(i) + " : " + u'\u2705')
 		else:
 			filename = "./test/out/" + str(i)
 			with open(filename) as f:
-				print "--------------------------------------------------------------------"
-				print "Sample Case " + str(i) + " : " + u'\u274C'	
-				print "Required Output : "
-				print "".join(f.readlines())
+				print("--------------------------------------------------------------------")
+				print("Sample Case " + str(i) + " : " + u'\u274C')
+				print("Required Output : ")
+				print("".join(f.readlines()))
 			filename = "./test/gen_out/" + str(i)
 			with open(filename) as f:
-				print "Your Output : "
-				print "".join(f.readlines())
-				print  "-------------------------------------------------------------------" 
-			print ""
+				print("Your Output : ")
+				print("".join(f.readlines()))
+				print("-------------------------------------------------------------------")
 
 def run():
 	code = sys.argv[1]

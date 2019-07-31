@@ -1,0 +1,72 @@
+1557408903.904387 client started (22864): version 2.6, socket /tmp/tmux-1000/default, protocol 8
+1557408903.904441 on Linux 4.15.0-47-generic #50-Ubuntu SMP Wed Mar 13 10:44:52 UTC 2019; libevent 2.1.8-stable (poll)
+1557408903.904491 socket is /tmp/tmux-1000/default
+1557408903.904519 trying connect
+1557408903.904566 connect failed: No such file or directory
+1557408903.904594 lock file is /tmp/tmux-1000/default.lock
+1557408903.904658 flock succeeded
+1557408903.904668 got lock (6)
+1557408903.904685 trying connect
+1557408903.904705 connect failed: No such file or directory
+1557408903.905125 add peer 0x56040353ac60: 7 ((nil))
+1557408903.905343 sending message 100 to peer 0x56040353ac60 (4 bytes)
+1557408903.905365 sending message 101 to peer 0x56040353ac60 (15 bytes)
+1557408903.905375 sending message 102 to peer 0x56040353ac60 (11 bytes)
+1557408903.905384 sending message 108 to peer 0x56040353ac60 (34 bytes)
+1557408903.905396 sending message 104 to peer 0x56040353ac60 (0 bytes)
+1557408903.905423 sending message 107 to peer 0x56040353ac60 (4 bytes)
+1557408903.905448 sending message 105 to peer 0x56040353ac60 (11 bytes)
+1557408903.905480 sending message 105 to peer 0x56040353ac60 (11 bytes)
+1557408903.905493 sending message 105 to peer 0x56040353ac60 (8 bytes)
+1557408903.905503 sending message 105 to peer 0x56040353ac60 (14 bytes)
+1557408903.905512 sending message 105 to peer 0x56040353ac60 (11 bytes)
+1557408903.905522 sending message 105 to peer 0x56040353ac60 (38 bytes)
+1557408903.905532 sending message 105 to peer 0x56040353ac60 (70 bytes)
+1557408903.905542 sending message 105 to peer 0x56040353ac60 (20 bytes)
+1557408903.905553 sending message 105 to peer 0x56040353ac60 (17 bytes)
+1557408903.905562 sending message 105 to peer 0x56040353ac60 (86 bytes)
+1557408903.905571 sending message 105 to peer 0x56040353ac60 (31 bytes)
+1557408903.905581 sending message 105 to peer 0x56040353ac60 (35 bytes)
+1557408903.905589 sending message 105 to peer 0x56040353ac60 (26 bytes)
+1557408903.905598 sending message 105 to peer 0x56040353ac60 (44 bytes)
+1557408903.905608 sending message 105 to peer 0x56040353ac60 (15 bytes)
+1557408903.905618 sending message 105 to peer 0x56040353ac60 (26 bytes)
+1557408903.905651 sending message 105 to peer 0x56040353ac60 (54 bytes)
+1557408903.905664 sending message 105 to peer 0x56040353ac60 (17 bytes)
+1557408903.905673 sending message 105 to peer 0x56040353ac60 (16 bytes)
+1557408903.905683 sending message 105 to peer 0x56040353ac60 (30 bytes)
+1557408903.905693 sending message 105 to peer 0x56040353ac60 (23 bytes)
+1557408903.905703 sending message 105 to peer 0x56040353ac60 (32 bytes)
+1557408903.905713 sending message 105 to peer 0x56040353ac60 (52 bytes)
+1557408903.905722 sending message 105 to peer 0x56040353ac60 (18 bytes)
+1557408903.905732 sending message 105 to peer 0x56040353ac60 (25 bytes)
+1557408903.905742 sending message 105 to peer 0x56040353ac60 (19 bytes)
+1557408903.905752 sending message 105 to peer 0x56040353ac60 (20 bytes)
+1557408903.905762 sending message 105 to peer 0x56040353ac60 (116 bytes)
+1557408903.905773 sending message 105 to peer 0x56040353ac60 (33 bytes)
+1557408903.905782 sending message 105 to peer 0x56040353ac60 (41 bytes)
+1557408903.905796 sending message 105 to peer 0x56040353ac60 (180 bytes)
+1557408903.905806 sending message 105 to peer 0x56040353ac60 (17 bytes)
+1557408903.905816 sending message 105 to peer 0x56040353ac60 (15 bytes)
+1557408903.905825 sending message 105 to peer 0x56040353ac60 (20 bytes)
+1557408903.905835 sending message 105 to peer 0x56040353ac60 (31 bytes)
+1557408903.905844 sending message 105 to peer 0x56040353ac60 (11 bytes)
+1557408903.905854 sending message 105 to peer 0x56040353ac60 (27 bytes)
+1557408903.905865 sending message 105 to peer 0x56040353ac60 (1516 bytes)
+1557408903.905898 sending message 105 to peer 0x56040353ac60 (11 bytes)
+1557408903.905909 sending message 105 to peer 0x56040353ac60 (8 bytes)
+1557408903.905919 sending message 105 to peer 0x56040353ac60 (21 bytes)
+1557408903.905942 sending message 105 to peer 0x56040353ac60 (32 bytes)
+1557408903.905952 sending message 105 to peer 0x56040353ac60 (21 bytes)
+1557408903.905975 sending message 105 to peer 0x56040353ac60 (22 bytes)
+1557408903.905986 sending message 105 to peer 0x56040353ac60 (45 bytes)
+1557408903.905997 sending message 105 to peer 0x56040353ac60 (16 bytes)
+1557408903.906006 sending message 106 to peer 0x56040353ac60 (0 bytes)
+1557408903.906017 sending message 200 to peer 0x56040353ac60 (4 bytes)
+1557408903.906026 client loop enter
+1557408903.951165 peer 0x56040353ac60 message 207
+1557408903.951176 sending message 208 to peer 0x56040353ac60 (0 bytes)
+1557409030.020142 peer 0x56040353ac60 message 203
+1557409030.020154 sending message 205 to peer 0x56040353ac60 (0 bytes)
+1557409030.020332 peer 0x56040353ac60 message 204
+1557409030.020339 client loop exit
