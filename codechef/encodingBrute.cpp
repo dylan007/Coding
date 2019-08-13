@@ -1,17 +1,16 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : test.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
 
 using namespace std;
 
-typedef long long int ll;
-typedef unsigned long long int ull;
+using ll = long long int;
+using ull = unsigned long long int;
 
 #define PB push_back
-#define MK make_pair 
+#define MK make_pair
 #define SZ(a) (int)(sizeof(a))
 #define F first
 #define S second
@@ -50,44 +49,38 @@ void err(vector<string>::iterator it, T a, Args... args) {
 	err(++it, args...);
 }
 
+#define MOD 1000000007
+
+ll calc(ll x){
+	ll ret = 0;
+	ll curr=x%10;
+	ll p=1;
+	x = x/10;
+	while(x>0){
+		if((x%10)!=curr){
+			ret = (ret + (curr * p)%MOD)%MOD;
+			curr = x%10;
+		}
+		p *= 10;
+		x = x/10;
+	}
+	ret = (ret + (curr *p)%MOD) %MOD;
+	return ret;
+}
+
 int main()
 {
 	fast_io;
-	ll n;
-	cin >> n;
-	vector<ll> arr(n);
-	REP(i,n)
-		cin >> arr[i];
-	ll l = (arr[0]==-1)?0:arr[0];
-	ll neg = (arr[0]==-1);
-	vector<pair<ll,ll>> range;
-	vector<ll> c;
-	ll len = (arr[0]==-1);
-	FOR(i,1,n){
-		if(arr[i]!=-1){
-			if(neg){
-				range.PB(MK(l,arr[i]));
-				c.PB(len);
-				len = 0;
-			}
-			else
-				l = arr[i];
+	TEST{
+		ll nl,nr,l,r;
+		cin >> nl >> l >> nr >> r;
+		ll ans=0;
+		while(l<=r){
+			ans = (ans + calc(l))%MOD;
+			l++;
 		}
-		else{
-			if(!neg)
-				len = 0;
-			len++;
-		}
-		neg = (arr[i]==-1);
+		cout << ans << endl;
 	}
-	if(arr[n-1]==-1){
-		range.PB(MK(l,10));
-		c.PB(len);
-	}
-	for(auto it: range)
-		cout << it.first << " " << it.second << endl;
-	for(auto it: c)
-		cout << it << " ";
-	cout << endl;
 	return 0;
 }
+

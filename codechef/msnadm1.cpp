@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : test.cpp
+Filename  : msnadm1.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -53,41 +53,19 @@ void err(vector<string>::iterator it, T a, Args... args) {
 int main()
 {
 	fast_io;
-	ll n;
-	cin >> n;
-	vector<ll> arr(n);
-	REP(i,n)
-		cin >> arr[i];
-	ll l = (arr[0]==-1)?0:arr[0];
-	ll neg = (arr[0]==-1);
-	vector<pair<ll,ll>> range;
-	vector<ll> c;
-	ll len = (arr[0]==-1);
-	FOR(i,1,n){
-		if(arr[i]!=-1){
-			if(neg){
-				range.PB(MK(l,arr[i]));
-				c.PB(len);
-				len = 0;
-			}
-			else
-				l = arr[i];
+	TEST{
+		ll n;
+		cin >> n;
+		vector<ll> g(n);
+		REP(i,n)
+			cin >> g[i];
+		ll ans=0;
+		REP(i,n){
+			ll x;
+			cin >> x;
+			ans = max(ans,max(0ll,g[i]*20 - x*10));
 		}
-		else{
-			if(!neg)
-				len = 0;
-			len++;
-		}
-		neg = (arr[i]==-1);
+		cout << ans << endl;
 	}
-	if(arr[n-1]==-1){
-		range.PB(MK(l,10));
-		c.PB(len);
-	}
-	for(auto it: range)
-		cout << it.first << " " << it.second << endl;
-	for(auto it: c)
-		cout << it << " ";
-	cout << endl;
 	return 0;
 }

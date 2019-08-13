@@ -1,17 +1,16 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : test.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
 
 using namespace std;
 
-typedef long long int ll;
-typedef unsigned long long int ull;
+using ll = long long int;
+using ull = unsigned long long int;
 
 #define PB push_back
-#define MK make_pair 
+#define MK make_pair
 #define SZ(a) (int)(sizeof(a))
 #define F first
 #define S second
@@ -53,41 +52,51 @@ void err(vector<string>::iterator it, T a, Args... args) {
 int main()
 {
 	fast_io;
-	ll n;
-	cin >> n;
-	vector<ll> arr(n);
-	REP(i,n)
-		cin >> arr[i];
-	ll l = (arr[0]==-1)?0:arr[0];
-	ll neg = (arr[0]==-1);
-	vector<pair<ll,ll>> range;
-	vector<ll> c;
-	ll len = (arr[0]==-1);
-	FOR(i,1,n){
-		if(arr[i]!=-1){
-			if(neg){
-				range.PB(MK(l,arr[i]));
-				c.PB(len);
-				len = 0;
+	TEST{
+		ll n;
+		cin >> n;
+		vector<ll> arr(n);
+		REP(i,n)
+			cin >> arr[i];
+		vector<ll> x(n,0);
+		x[0] = arr[0];
+		FOR(i,1,n)
+			x[i] = x[i-1]^arr[i];
+		ll ans=0;
+		map<ll,vector<ll>> ind;
+		REP(i,n){
+			if(ind.find(x[i])!=ind.end())
+				ind[x[i]].PB(i);
+			else{
+				ind[x[i]] = vector<ll>();
+				ind[x[i]].PB(i);
 			}
-			else
-				l = arr[i];
 		}
-		else{
-			if(!neg)
-				len = 0;
-			len++;
+		map<ll,vector<ll>>::iterator mit = ind.begin();
+		while(mit != ind.end()){
+			if((mit->second.size())<=1){
+				mit++;
+				continue;
+			}
+			auto start = mit->second.rbegin();
+			auto end = mit->second.rend();
+			ll curr= *(start) - 1;
+			start++;
+			ll c=1;
+			while(start != end){
+				ans += curr - (*(start)) * c;
+				c++;
+				curr += *(start) - 1;
+				start++;
+			}
+			mit++;
 		}
-		neg = (arr[i]==-1);
+		FOR(i,1,n){
+			if(x[i]==0)
+				ans += (i);
+		}
+		cout << ans << endl;
 	}
-	if(arr[n-1]==-1){
-		range.PB(MK(l,10));
-		c.PB(len);
-	}
-	for(auto it: range)
-		cout << it.first << " " << it.second << endl;
-	for(auto it: c)
-		cout << it << " ";
-	cout << endl;
 	return 0;
 }
+

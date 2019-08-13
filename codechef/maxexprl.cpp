@@ -1,17 +1,16 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : test.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
 
 using namespace std;
 
-typedef long long int ll;
-typedef unsigned long long int ull;
+using ll = long long int;
+using ull = unsigned long long int;
 
 #define PB push_back
-#define MK make_pair 
+#define MK make_pair
 #define SZ(a) (int)(sizeof(a))
 #define F first
 #define S second
@@ -53,41 +52,59 @@ void err(vector<string>::iterator it, T a, Args... args) {
 int main()
 {
 	fast_io;
-	ll n;
-	cin >> n;
-	vector<ll> arr(n);
-	REP(i,n)
-		cin >> arr[i];
-	ll l = (arr[0]==-1)?0:arr[0];
-	ll neg = (arr[0]==-1);
-	vector<pair<ll,ll>> range;
-	vector<ll> c;
-	ll len = (arr[0]==-1);
-	FOR(i,1,n){
-		if(arr[i]!=-1){
-			if(neg){
-				range.PB(MK(l,arr[i]));
-				c.PB(len);
-				len = 0;
+	TEST{
+		int ni;
+		cin >> ni;
+		double n = (double)ni;
+		vector<double> k(ni),c(ni);
+		REP(i,ni)
+			cin >> k[i];
+		REP(i,ni)
+			cin >> c[i];
+		double d = 0;
+		double factor = k[0];
+		REP(i,ni)
+			d += c[i] * k[i];
+		int flag=0;
+		REP(i,ni){
+			if((k[i]*d)<0){
+				flag=1;
+				break;
 			}
-			else
-				l = arr[i];
 		}
-		else{
-			if(!neg)
-				len = 0;
-			len++;
+		if(d==0){
+			REP(i,ni){
+				if(k[i]*k[0] < 0){
+					flag=1;
+					break;
+				}
+			}
 		}
-		neg = (arr[i]==-1);
+		if(flag){
+			cout << -1 << endl;
+			continue;
+		}
+		double val = 1;
+		REP(i,ni)
+			val *= k[i];
+		double num = 0;
+		REP(i,ni)
+			num += (val/k[i]);
+		double x1;
+		x1 = (d*val)/num;
+		assert(x1==0);
+		vector<double> ans(ni);
+		FOR(i,0,n)
+			ans[i] = 1/(k[i]*k[i]);
+		double f=0;
+		f = (num/val);
+		f *= sqrt(x1);
+		cout << setprecision(10) << fixed;
+		cout << f << " ";
+		REP(i,ni)
+			cout << (x1/(k[i]*k[i]))-c[i] << " ";
+		cout << endl;
 	}
-	if(arr[n-1]==-1){
-		range.PB(MK(l,10));
-		c.PB(len);
-	}
-	for(auto it: range)
-		cout << it.first << " " << it.second << endl;
-	for(auto it: c)
-		cout << it << " ";
-	cout << endl;
 	return 0;
 }
+

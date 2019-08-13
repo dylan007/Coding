@@ -1,6 +1,6 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : test.cpp
+Filename  : zomcav.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
@@ -53,41 +53,43 @@ void err(vector<string>::iterator it, T a, Args... args) {
 int main()
 {
 	fast_io;
-	ll n;
-	cin >> n;
-	vector<ll> arr(n);
-	REP(i,n)
-		cin >> arr[i];
-	ll l = (arr[0]==-1)?0:arr[0];
-	ll neg = (arr[0]==-1);
-	vector<pair<ll,ll>> range;
-	vector<ll> c;
-	ll len = (arr[0]==-1);
-	FOR(i,1,n){
-		if(arr[i]!=-1){
-			if(neg){
-				range.PB(MK(l,arr[i]));
-				c.PB(len);
-				len = 0;
+	TEST{
+		ll n;
+		cin >> n;
+		vector<ll> c(n),h(n);
+		REP(i,n)
+			cin >> c[i];
+		REP(i,n)
+			cin >> h[i];
+		vector<ll> arr(n,0);
+		REP(i,n){
+			ll l,r;
+			l = max(0ll,i-c[i]);
+			r = i+c[i];
+			arr[l]++;
+			if(r<(n-1))
+				arr[r+1]--;
+		}
+		FOR(i,1,n)
+			arr[i] += arr[i-1];
+		// REP(i,n)
+			// cout << arr[i] << " ";
+		// cout << endl;
+		map<ll,ll> count;
+		REP(i,n)
+			count[arr[i]]++;
+		ll f=1;
+		REP(i,n){
+			if(count[h[i]]==0){
+				f=0;
+				break;
 			}
-			else
-				l = arr[i];
+			count[h[i]]--;
 		}
-		else{
-			if(!neg)
-				len = 0;
-			len++;
-		}
-		neg = (arr[i]==-1);
+		if(f)
+			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
 	}
-	if(arr[n-1]==-1){
-		range.PB(MK(l,10));
-		c.PB(len);
-	}
-	for(auto it: range)
-		cout << it.first << " " << it.second << endl;
-	for(auto it: c)
-		cout << it << " ";
-	cout << endl;
 	return 0;
 }

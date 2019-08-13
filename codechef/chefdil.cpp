@@ -1,17 +1,16 @@
 /*=======================
 Author    : Shounak Dey
-Filename  : test.cpp
 =======================	*/
 
 #include<bits/stdc++.h>
 
 using namespace std;
 
-typedef long long int ll;
-typedef unsigned long long int ull;
+using ll = long long int;
+using ull = unsigned long long int;
 
 #define PB push_back
-#define MK make_pair 
+#define MK make_pair
 #define SZ(a) (int)(sizeof(a))
 #define F first
 #define S second
@@ -53,41 +52,17 @@ void err(vector<string>::iterator it, T a, Args... args) {
 int main()
 {
 	fast_io;
-	ll n;
-	cin >> n;
-	vector<ll> arr(n);
-	REP(i,n)
-		cin >> arr[i];
-	ll l = (arr[0]==-1)?0:arr[0];
-	ll neg = (arr[0]==-1);
-	vector<pair<ll,ll>> range;
-	vector<ll> c;
-	ll len = (arr[0]==-1);
-	FOR(i,1,n){
-		if(arr[i]!=-1){
-			if(neg){
-				range.PB(MK(l,arr[i]));
-				c.PB(len);
-				len = 0;
-			}
-			else
-				l = arr[i];
-		}
-		else{
-			if(!neg)
-				len = 0;
-			len++;
-		}
-		neg = (arr[i]==-1);
+	TEST{
+		string a;
+		cin >> a;
+		int c=0;
+		for(auto it: a)
+			c += (it=='1');
+		if(c&1)
+			cout << "WIN" << endl;
+		else
+			cout << "LOSE" << endl;
 	}
-	if(arr[n-1]==-1){
-		range.PB(MK(l,10));
-		c.PB(len);
-	}
-	for(auto it: range)
-		cout << it.first << " " << it.second << endl;
-	for(auto it: c)
-		cout << it << " ";
-	cout << endl;
 	return 0;
 }
+
