@@ -1,6 +1,7 @@
 /*=======================
 Author    : Shounak Dey
-=======================	*/
+File      : day2
+=======================*/
 
 #include<bits/stdc++.h>
 
@@ -34,34 +35,36 @@ using ull = unsigned long long int;
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
-	vector<string> v;
-	stringstream ss(s);
-	string x;
-	while (getline(ss, x, c))
-		v.emplace_back(x);
-	return move(v);
+    vector<string> v;
+    stringstream ss(s);
+    string x;
+    while (getline(ss, x, c))
+        v.emplace_back(x);
+    return move(v);
 }
-
 void err(vector<string>::iterator it) {}
 template<typename T, typename... Args>
 void err(vector<string>::iterator it, T a, Args... args) {
-	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
-	err(++it, args...);
+    cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
+    err(++it, args...);
 }
 
 int main()
 {
-	fast_io;
-	TEST{
-		string a;
-		cin >> a;
-		int c=0;
-		for(auto it: a)
-			c += (it=='1');
-		if(c&1)
-			cout << "WIN" << endl;
-		else
-			cout << "LOSE" << endl;
-	}
-	return 0;
+    fast_io;
+    string command;
+    int d;
+    ll x=0,y=0,aim=0;
+    while((cin >> command >> d)){
+        if(command == "forward"){
+            x += d;
+            y += aim * d;
+        }
+        if(command == "down")
+            aim += d;
+        if(command == "up")
+            aim -= d;
+    }
+    cout << (x * y) << endl;
+    return 0;
 }

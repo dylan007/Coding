@@ -1,6 +1,7 @@
 /*=======================
 Author    : Shounak Dey
-=======================	*/
+File      : day3
+=======================*/
 
 #include<bits/stdc++.h>
 
@@ -34,34 +35,46 @@ using ull = unsigned long long int;
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
-	vector<string> v;
-	stringstream ss(s);
-	string x;
-	while (getline(ss, x, c))
-		v.emplace_back(x);
-	return move(v);
+    vector<string> v;
+    stringstream ss(s);
+    string x;
+    while (getline(ss, x, c))
+        v.emplace_back(x);
+    return move(v);
 }
-
 void err(vector<string>::iterator it) {}
 template<typename T, typename... Args>
 void err(vector<string>::iterator it, T a, Args... args) {
-	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
-	err(++it, args...);
+    cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
+    err(++it, args...);
 }
+
+#define SIZE 12
 
 int main()
 {
-	fast_io;
-	TEST{
-		string a;
-		cin >> a;
-		int c=0;
-		for(auto it: a)
-			c += (it=='1');
-		if(c&1)
-			cout << "WIN" << endl;
-		else
-			cout << "LOSE" << endl;
-	}
-	return 0;
+    fast_io;
+    vector<ll> c(SIZE,0);
+    string bit;
+    int n=0;
+    while((cin >> bit)){
+        REP(i,SIZE)
+            c[i] += (bit[i]-'0');
+        n++;
+    }
+    ll eps=0,gamma=0;
+    n >>= 1;
+    REP(i,SIZE){
+        eps <<= 1;
+        gamma <<= 1;
+        // error(eps,gamma);
+        if(c[i]<n)
+            eps++;
+        else
+            gamma++;
+        // error(eps,gamma);
+    }
+    cout << eps << " " << gamma << endl;
+    cout << (eps * gamma) << endl;
+    return 0;
 }

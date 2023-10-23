@@ -1,6 +1,7 @@
 /*=======================
 Author    : Shounak Dey
-=======================	*/
+File      : day1
+=======================*/
 
 #include<bits/stdc++.h>
 
@@ -34,34 +35,35 @@ using ull = unsigned long long int;
 #define error(args...) { vector<string> _v = split(#args, ','); err(_v.begin(), args); }
 
 vector<string> split(const string& s, char c) {
-	vector<string> v;
-	stringstream ss(s);
-	string x;
-	while (getline(ss, x, c))
-		v.emplace_back(x);
-	return move(v);
+    vector<string> v;
+    stringstream ss(s);
+    string x;
+    while (getline(ss, x, c))
+        v.emplace_back(x);
+    return move(v);
 }
-
 void err(vector<string>::iterator it) {}
 template<typename T, typename... Args>
 void err(vector<string>::iterator it, T a, Args... args) {
-	cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
-	err(++it, args...);
+    cerr << it -> substr((*it)[0] == ' ', it -> length()) << " = " << a << '\n';
+    err(++it, args...);
 }
 
 int main()
 {
-	fast_io;
-	TEST{
-		string a;
-		cin >> a;
-		int c=0;
-		for(auto it: a)
-			c += (it=='1');
-		if(c&1)
-			cout << "WIN" << endl;
-		else
-			cout << "LOSE" << endl;
-	}
-	return 0;
+    fast_io;
+    ll a,b,c;
+    cin >> a >> b >> c;
+    ll s1 = a + b + c;
+    ll x;
+    ll out = 0;
+    while((cin >> x)){
+        ll s2 = s1 + x - a;
+        a = b;
+        b = c;
+        c = x;
+        out += (s2 > s1);
+    }
+    cout << out << endl;
+    return 0;
 }
